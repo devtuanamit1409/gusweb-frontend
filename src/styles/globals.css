@@ -64,18 +64,51 @@ body {
   transform: scale(1);
 }
 
-.dropDownProfile{
-  position: absolute;
-  background-color: white;
-  border: 1px solid gray;
+.background-mobie {
+  background: linear-gradient(180deg, rgba(58, 123, 213, 0.42) 0%, rgba(0, 210, 255, 0.42) 102.31%);
 }
-.dropDownProfile::before{
-  content: '';
-  position: absolute;
-  transform:rotate(45deg);
-  top: -1rem;
-  right: 4rem;
-  width: 25px;
-  height: 16px;
-  background-color: white;
+
+.header-nav {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 76px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0 .75rem
 }
+
+/* new update 19/09/2024 */
+.ant-btn {
+  border-width: 0;
+  padding: .625rem 1.5rem;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  height: auto;
+  border-radius: .25rem;
+  overflow: hidden;
+  box-shadow: none;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+  position: relative;
+}
+
+.home-banner-description, .home-banner-title {
+  color: #fefefe;
+  margin-bottom: 1rem;
+  text-shadow: -4px 4px .5px rgba(58, 123, 213, .4);
+}
+
+.home-banner-content {
+  color: #fefefe;
+  margin-bottom: 2.5rem;
+  text-shadow: -1px 1px .5px rgba(58, 123, 213, .4);
+  max-width: 579px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: .15px;
+}
+/* end */
