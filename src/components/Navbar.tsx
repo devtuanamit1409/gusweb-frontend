@@ -116,7 +116,7 @@ export default function Navbar() {
                     </div>
                     <button
                         type="button"
-                        className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3  hidden lg:block md:w-auto md:order-1"
+                        className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3  hidden lg:block md:w-auto md:order-1 "
                     >
                         Quotation
                     </button>
@@ -138,7 +138,6 @@ export default function Navbar() {
                             <Dropdown
                                 menu={{ items }}
                                 placement="bottomLeft"
-                                // trigger={['click']}
                                 arrow
                             >
                                 <p className="flex items-center cursor-pointer hover:text-[#08BED5]">

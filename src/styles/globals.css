@@ -95,6 +95,7 @@ body {
   position: relative;
 }
 
+
 .home-banner-description, .home-banner-title {
   color: #fefefe;
   margin-bottom: 1rem;
@@ -111,4 +112,5 @@ body {
   line-height: 140%;
   letter-spacing: .15px;
 }
+
 /* end */
