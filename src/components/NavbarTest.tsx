@@ -1,73 +1,26 @@
-"use client";
+import React from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
 
-export default function NavbarTest() {
-    const [use, setuse] = useState()
-
+export default function DropdownMenu() {
     return (
-        <nav className='container items-center bg-black flex'>
-            <div className="flex-1 text-white bg-red-500">Logo</div>
-            <div className="flex-2 text-white bg-green-500">
-                <nav>
-                    <ul className="flex justify-center space-x-4">
-                        <li>
-                            <Link
-                                href="/"
-                                className="text-[#000000] font-bold text-lg underline-animation"
-                            >
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/Case-studies"
-                                className="text-[#000000] font-bold text-lg underline-animation"
-                            >
-                                Case studies
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/about"
-                                className="text-[#000000] font-bold text-lg underline-animation"
-                            >
-                                Về chúng tôi
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/tuyen-dung"
-                                className="text-[#000000] font-bold text-lg underline-animation"
-                            >
-                                Tuyển dụng
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/blog"
-                                className="text-[#000000] font-bold text-lg underline-animation"
-                            >
-                                Blog
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/lien-he"
-                                className="text-[#000000] font-bold text-lg underline-animation"
-                            >
-                                Liên hệ
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div className="flex-1 text-white bg-yellow-500">Vi</div>
-            <div className="flex-1 text-white bg-lime-500">button</div>
-
-        </nav>
-
-
-
-    )
+        <div className="group inline-block">
+            <button className="outline-none focus:outline-none  px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
+                <span className="pr-1 font-semibold flex-1">Dropdown</span>
+                <span>
+                    <svg
+                        className="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                    >
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </span>
+            </button>
+            <ul className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32">
+                <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Programming</li>
+                <li className="rounded-sm px-3 py-1 hover:bg-gray-100">DevOps</li>
+                <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Testing</li>
+            </ul>
+        </div>
+    );
 }
