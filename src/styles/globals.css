@@ -113,4 +113,36 @@ body {
   letter-spacing: .15px;
 }
 
+[data-aos^="zoom"] {
+  opacity: 0; /* Bắt đầu với độ mờ */
+  transform: scale(0.9); /* Bắt đầu với kích thước nhỏ hơn */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Thêm chuyển tiếp */
+}
+
+[data-aos^="zoom"].aos-animate {
+  opacity: 1; /* Độ mờ 100% khi animation xảy ra */
+  transform: scale(1); /* Kích thước bình thường khi animation xảy ra */
+}
+
 /* end */
+
+.home-service-item__box {
+  background-color: #fefefe;
+  padding: 1.5rem !important;
+  box-shadow: 0 8px 16px rgba(58, 123, 213, .4);
+  border-radius: 1.5rem;
+  height: 250px;
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.home-service-item__image {
+  height: 80px;
+  width: 80px;
+  position: relative;
+}

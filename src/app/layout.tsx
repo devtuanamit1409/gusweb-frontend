@@ -3,14 +3,19 @@ import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import Navbar from "@/components/Navbar";
 import NavbarTest from "@/components/NavbarTest";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+import Homepage from "@/components/Homepage";
+import HooksTest from "@/test/HooksTest";
+
+import ImgBody from "@/components/ImgBody";
+import BodyAMITGROUP from "@/components/BodyAMITGROUP";
 
 // import { AntdRegistry } from '@ant-design/nextjs-registry';
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "amitgroup",
+  title: "Trang Chủ - AMIT GROUP",
   description: "",
 };
 
@@ -23,11 +28,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-
-        {/* <Header /> */}
-        {/* <NavbarTest /> */}
-        {children}
+        <BodyAMITGROUP />
+        <Homepage />
+        <ImgBody />
         <Footer />
+        {/* {children} */}
       </body>
     </html>
   );

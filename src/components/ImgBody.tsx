@@ -1,12 +1,14 @@
-import React from 'react';
+"use client"
 import Image from 'next/image';
-import Header from '@/components/Header';
+import CardHover from '@/components/CardHover';
+import React from 'react';
 
-export default function ImgHeader() {
+export default function ImgBody() {
     return (
         <div className="relative w-full h-[639px] mt-[88px]">
+
             <Image
-                src="/images/Desktop/img.png"
+                src="/images/Desktop/Group.png"
                 alt="Header Banner"
                 fill
                 className="object-cover"
@@ -15,7 +17,8 @@ export default function ImgHeader() {
                 decoding="async"
                 sizes="(min-width: 0px) 100vw"
             />
-            <Header />
+            <CardHover />
+
         </div>
     );
 }
