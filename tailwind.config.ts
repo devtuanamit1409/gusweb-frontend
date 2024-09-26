@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        bricolage: ['"Bricolage Grotesque"', 'sans-serif'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -16,5 +19,7 @@ const config: Config = {
     },
   },
   plugins: [],
+  
 };
+
 export default config;

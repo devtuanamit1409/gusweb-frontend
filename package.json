@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.1",
+    "@svgr/webpack": "^8.1.0",
+    "antd": "5.20.6",
+    "aos": "^2.3.4",
     "axios": "^1.7.4",
-    "next": "14.2.5",
+    "next": "^14.2.12",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
