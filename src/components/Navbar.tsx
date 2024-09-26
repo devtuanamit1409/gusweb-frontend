@@ -61,15 +61,52 @@ const items = [
     }
 ];
 
+const language = [
+    {
+        key: '1',
+        label: (
+            <Link href="/">
+                Tiếng Việt
+            </Link>
+        ),
+    },
+    {
+        key: '2',
+        label: (
+            <Link href="/">
+                Tiếng Anh
+            </Link>
+        ),
+    },
+    {
+        key: '3',
+        label: (
+            <Link href="/">
+                Tiếng Hàn
+            </Link>
+        ),
+    },
+    {
+        key: '4',
+        label: (
+            <Link href="/">
+                Tiếng Hàn trung
+            </Link>
+        ),
+    }
+];
+
+
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
     return (
         <nav className="bg-white fixed w-full z-20 top-0 start-0 shadow-md">
-            <div className="max-w-[1109px] flex flex-wrap items-center justify-between mx-auto p-4">
+            <div className="max-w-[1140px] flex flex-wrap items-center justify-between mx-auto p-4">
                 <Logo />
                 <div className="flex items-center justify-center md:order-2 md:space-x-0 rtl:space-x-reverse space-x-3">
                     <Language />
@@ -85,6 +122,7 @@ export default function Navbar() {
                         <IconMenu />
                     </button>
                 </div>
+
                 <div className={`items-center  justify-between hidden w-full lg:flex md:w-auto md:order-1  `} id="navbar-sticky">
                     <ul className="flex items-center md:p-0 mt-4 font-medium md:space-x-8 lg:space-x-0 rtl:space-x-reverse flex-row md:mt-0 md:border-0 mr-4">
                         <li className="underline-animation font-semibold text-base m-4 group relative">
