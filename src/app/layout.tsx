@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
-import GUSWEB from "@/components/GUSWEB";
-import Footer from "@/components/Footer";
+import DesignGusweb from "@/components/DesignGusweb";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
+        <DesignGusweb />
         {/* {children} */}
-        <GUSWEB />
-        <Footer />
+
       </body>
     </html>
   );
