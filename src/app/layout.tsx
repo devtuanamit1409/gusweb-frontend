@@ -1,16 +1,14 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../styles/globals.css";
+
 import Navbar from "@/components/Navbar";
-import NavbarTest from "@/components/NavbarTest";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import "../styles/globals.css";
+
 
 // import { AntdRegistry } from '@ant-design/nextjs-registry';
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "amitgroup",
+  title: "GUSWEB",
   description: "",
 };
 
@@ -24,10 +22,7 @@ export default function RootLayout({
       <body>
         <Navbar />
 
-        {/* <Header /> */}
-        {/* <NavbarTest /> */}
-        {children}
-        <Footer />
+        {/* {children} */}
       </body>
     </html>
   );

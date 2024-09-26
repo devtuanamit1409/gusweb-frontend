@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Dropdown, Space } from 'antd';
 import { IconMenu } from '@/components/IconMenu';
+import Logo from '@/components/Logo';
+import Language from '@/components/language';
+import QuotationButton from '@/components/QuotationButton';
 
 
 const items = [
@@ -46,31 +49,13 @@ const items = [
                 Cung cấp nhân sự Công nghệ thông tin
             </Link>
         ),
-    }
-];
 
-const language = [
-    {
-        key: '1',
-        label: (
-            <Link href="/">
-                Tiếng Việt
-            </Link>
-        ),
     },
     {
-        key: '2',
+        key: '6',
         label: (
             <Link href="/">
-                Tiếng Anh
-            </Link>
-        ),
-    },
-    {
-        key: '3',
-        label: (
-            <Link href="/">
-                Tiếng Hàn
+                ádjifahjodfs
             </Link>
         ),
     }
@@ -82,44 +67,13 @@ export default function Navbar() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-
     return (
         <nav className="bg-white fixed w-full z-20 top-0 start-0 shadow-md">
-            <div className="max-w-[1140px] flex flex-wrap items-center justify-between mx-auto p-4">
-                <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <Image src="/images/logo.png" alt="Flowbite Logo" width={166} height={44} />
-                </Link>
+            <div className="max-w-[1109px] flex flex-wrap items-center justify-between mx-auto p-4">
+                <Logo />
                 <div className="flex items-center justify-center md:order-2 md:space-x-0 rtl:space-x-reverse space-x-3">
-                    <div className="flex items-center relative group mr-4">
-                        <Dropdown
-                            menu={{ items: language }}
-                            placement="bottom"
-                            arrow
-                        >
-                            <Link href="#" className="flex items-center cursor-pointer">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="currentColor"
-                                    className="h-5 w-5 mr-1"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
-                                    />
-                                </svg>
-                                VI
-                            </Link>
-                        </Dropdown>
-                    </div>
-                    <button
-                        type="button"
-                        className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3  hidden lg:block md:w-auto md:order-1 "
-                    >
-                        Quotation
-                    </button>
+                    <Language />
+                    <QuotationButton />
                     <button
                         data-collapse-toggle="navbar-sticky"
                         type="button"
@@ -131,7 +85,6 @@ export default function Navbar() {
                         <IconMenu />
                     </button>
                 </div>
-
                 <div className={`items-center  justify-between hidden w-full lg:flex md:w-auto md:order-1  `} id="navbar-sticky">
                     <ul className="flex items-center md:p-0 mt-4 font-medium md:space-x-8 lg:space-x-0 rtl:space-x-reverse flex-row md:mt-0 md:border-0 mr-4">
                         <li className="underline-animation font-semibold text-base m-4 group relative">

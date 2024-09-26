@@ -1,11 +1,17 @@
-import React from 'react'
+//1 useEffect(callback)
+// gọi callback mỗi khi component re-render 
+
+
+import React, { useEffect } from 'react'
+//callback luôn luôn được gọi sau khi component mounted 
 
 export default function ButtonGia() {
+    useEffect(() => {
+        console.log('Component mounted')
+    })
     return (
-        <button
-            type="button"
-            className="text-white bg-gradient-custom font-medium rounded-lg text-lg px-12 py-4 focus:outline-none h-16">
-            Báo giá
-        </button>
+        <div>
+            <h3>hello word</h3>
+        </div>
     )
 }

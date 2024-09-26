@@ -1,3 +1,67 @@
+"use client"
+
+import ButtonGia from '@/test/ButtonGia'
+import React, { useState } from 'react'
+export default function HooksTest() {
+    const [show, setshow] = useState(false)
+
+    return (
+
+        <div>
+            <button onClick={() => setshow(!show)}>show</button>
+            {show && <ButtonGia />}
+        </div>
+    )
+}
+
+
+
+
+//dùng useState để tạo danh sách
+// import React, { useState, useEffect } from 'react';
+// export default function HooksTest() {
+//     const [job, setjob] = useState(''); // Job hiện tại
+//     const [jobs, setjobs] = useState<string[]>([]); // Khởi tạo mảng công việc rỗng
+
+//     useEffect(() => {
+//         // Lấy dữ liệu từ localStorage chỉ khi component được mount
+//         const storedJobs = localStorage.getItem('jobs');
+//         if (storedJobs) {
+//             setjobs(JSON.parse(storedJobs)); // Phân tích dữ liệu từ localStorage và cập nhật state
+//         }
+//     }, []); // Chạy chỉ một lần khi component được mount
+
+//     const handleSumit = () => {
+//         if (job.trim()) { // Kiểm tra nếu job không phải là chuỗi rỗng
+//             setjobs(prev => {
+//                 const newJobs = [...prev, job]; // Thêm công việc mới vào mảng jobs
+//                 localStorage.setItem('jobs', JSON.stringify(newJobs)); // Lưu vào localStorage
+//                 return newJobs; // Trả về mảng mới
+//             });
+//             setjob(''); // Đặt lại ô input
+//         }
+//     };
+
+//     return (
+//         <div style={{ padding: 30 }}>
+//             <input
+//                 onChange={(e) => setjob(e.target.value)}
+//                 value={job}
+//                 className='border'
+//             />
+//             <button onClick={handleSumit}>submit</button>
+//             <ul>
+//                 {jobs.map((job, index) => (
+//                     <li key={index}>
+//                         {job}
+//                     </li>
+//                 ))}
+//             </ul>
+//         </div>
+//     );
+// }
+
+
 //checkbox checkID
 // "use client";
 // import { useState } from 'react'
@@ -58,6 +122,8 @@
 //     )
 // }
 
+
+
 //radio checkID
 // "use client";
 
@@ -80,7 +146,6 @@
 //         "id": 4,
 //         "name": 'watch'
 //     }
-
 // ]
 
 // export default function HooksTest() {
@@ -104,6 +169,8 @@
 //         </div>
 //     )
 // }
+
+
 
 
 // Ràng buộc hai chiều
@@ -133,33 +200,36 @@
 // }
 
 
+
+
+
 // định nghĩa của useState
-"use client";
-import { useState } from 'react'
+// "use client";
+// import { useState } from 'react'
 
-const gitfts = [
-    'cpu i9',
-    'ram 16gb',
-    'gpu rtx 3080',
-]
+// const gitfts = [
+//     'cpu i9',
+//     'ram 16gb',
+//     'gpu rtx 3080',
+// ]
 
-export default function HooksTest() {
+// export default function HooksTest() {
 
-    // const [gitf, setGitf] = useState()
-    const [gitf, setGitf] = useState<string | undefined>(undefined);
+//     // const [gitf, setGitf] = useState()
+//     const [gitf, setGitf] = useState<string | undefined>(undefined);
 
 
-    const radomgift = () => {
-        const index = Math.floor(Math.random() * gitfts.length)
+//     const radomgift = () => {
+//         const index = Math.floor(Math.random() * gitfts.length)
 
-        setGitf(gitfts[index]);
-    }
+//         setGitf(gitfts[index]);
+//     }
 
-    return (
-        <div className='HooksTest'>
-            <h1>{gitf || 'chưa có phần thưởng'}</h1>
-            <button onClick={radomgift}>lấy phần thưởng</button>
-        </div>
-    )
-}
+//     return (
+//         <div className='HooksTest'>
+//             <h1>{gitf || 'chưa có phần thưởng'}</h1>
+//             <button onClick={radomgift}>lấy phần thưởng</button>
+//         </div>
+//     )
+// }
 
