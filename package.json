@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.1",
+    "@svgr/webpack": "^8.1.0",
     "antd": "5.20.6",
     "aos": "^2.3.4",
     "axios": "^1.7.4",
