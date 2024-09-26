@@ -2,9 +2,8 @@
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import DesignGusweb from "@/components/DesignGusweb";
 
-
-// import { AntdRegistry } from '@ant-design/nextjs-registry';
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,10 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
 
-        {/* {children} */}
       </body>
     </html>
   );
