@@ -34,7 +34,7 @@ export default function DesignGusweb() {
                     <p className="text-2xl">
                         Tại sao <b>GUSWEB</b>  là lựa chọn phù hợp nhất?.
                     </p>
-                    <p className='text-[26px]'>
+                    <p className='text-[56px] max-w-[1100px] font-bricolage'>
                         <b>
                             Chúng tôi không chỉ thiết kế , mà còn xây dựng thương hiệu cho doanh nghiệp
                         </b>

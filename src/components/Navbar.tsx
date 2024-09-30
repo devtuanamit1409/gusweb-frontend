@@ -8,7 +8,6 @@ import Logo from '@/components/Logo';
 import Language from '@/components/language';
 import QuotationButton from '@/components/QuotationButton';
 
-
 const items = [
     {
         key: '1',

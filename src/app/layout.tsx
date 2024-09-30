@@ -9,6 +9,10 @@ import Footer from "@/components/Footer";
 import About from "@/components/About";
 import DesignGusweb from "@/components/DesignGusweb";
 
+import Principle from "@/components/Principle";
+import Client from "@/components/Client";
+import PanUnited from "@/components/PanUnited";
+
 
 // import { AntdRegistry } from '@ant-design/nextjs-registry';
 // const inter = Inter({ subsets: ["latin"] });
@@ -32,6 +36,9 @@ export default function RootLayout({
         <WebsiteCard />
         <About />
         <DesignGusweb />
+        <Principle />
+        <About />
+
         {/* {children} */}
         <Footer />
       </body>

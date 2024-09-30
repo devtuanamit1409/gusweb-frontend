@@ -72,7 +72,7 @@ export default function Footer() {
                     </div>
                     <div className='w-[40%] px-4 sm:px-6 lg:px-8 '>
                         <div className='mb-6 space-y-3'>
-                            <h6 className='font-bold'>GUSWEB đã làm được gì</h6>
+                            <h6 className='font-bold '>GUSWEB đã làm được gì</h6>
                             <ul className='space-y-3'>
                                 <li>
                                     <Link className='hover:text-[#08BED5]' href={'/'}>PanUnited’s go Truck mobile application</Link>

@@ -3,10 +3,10 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Desktop } from '@/models/bodyDesktop';
+import { bodyDesktopModel } from '@/models/bodyDesktopModel';
 
 export default function GUSWEB() {
-  const items: Desktop[] = [
+  const items: bodyDesktopModel[] = [
     {
       url: '/images/Frame 1000003639.png',
       tilte: 'GUSWEB LÀ AI?',

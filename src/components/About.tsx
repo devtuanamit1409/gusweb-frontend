@@ -1,8 +1,9 @@
 import React from 'react'
-import { about } from '@/models/about';
-import Image from 'next/image';
 
-const items: about[] = [
+import Image from 'next/image';
+import { aboutModel } from '@/models/aboutModel';
+
+const items: aboutModel[] = [
     {
         url: "/images/chúng tôi có các chuyên gia trong nhiều lĩnh vực.png",
         description: "CHÚNG TÔI CÓ CÁC CHUYÊN GIA TRONG NHIỀU LĨNH VỰC"
@@ -11,12 +12,10 @@ const items: about[] = [
 
 export default function About() {
     return (
-
         <div className=''>
             {items.map((item, index) => (
                 <React.Fragment key={index}>
                     <div className="relative w-full h-[1024px]">
-
                         <Image
                             src={item.url}
                             alt="Header Banner"

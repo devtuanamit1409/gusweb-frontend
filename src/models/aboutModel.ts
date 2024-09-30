@@ -1,4 +1,4 @@
-export interface about{
+export interface aboutModel{
     url:string
     description:string
     
