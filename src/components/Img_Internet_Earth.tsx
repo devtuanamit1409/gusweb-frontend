@@ -5,7 +5,7 @@ export default function ImgHeader() {
     return (
         <div className="relative w-full h-[1024px] mt-[88px]">
             <Image
-                src="/images/Desktop/img.png"
+                src="/images/Desktop/TangGiaTri.png"
                 alt="Header Banner"
                 fill
                 className="object-cover"

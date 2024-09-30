@@ -38,11 +38,11 @@ export default function Principle() {
             <div className="flex justify-between items-center w-full">
                 <span className="text-[20px]">{itemDescription.title}</span>
                 <Image
-                    src={items[0].icon} // Sử dụng biểu tượng từ `items`
+                    src={items[0].icon}
                     alt={itemDescription.title}
                     width={28}
                     height={28}
-                    className='ml-2' // Thêm khoảng cách bên trái cho icon
+                    className='ml-2'
                 />
             </div>
         ),
@@ -52,10 +52,9 @@ export default function Principle() {
             </div>
         ),
     }));
-
     return (
         <div className="relative h-[1517px] max-w-[1145px] mx-auto mt-20">
-            <div className='gap-10 mb-[469px]'> {/* Thêm mb để tránh overlap với PanUnited */}
+            <div className='gap-10 mb-[469px]'>
                 {items.map((item, index) => (
                     <React.Fragment key={index}>
                         <Image
@@ -70,17 +69,14 @@ export default function Principle() {
                             <p>{item.title}</p>
                             <p className='text-[56px] font-bricolage'>{item.description}</p>
                             <p>{item.description2}</p>
-                            <hr className="border-t-2 mb-4 mt-10" /> {/* Gạch ngang trên */}
-
+                            <hr className="border-t-2 mb-4 mt-10" />
                             <Collapse defaultActiveKey={['']} expandIcon={() => null} bordered={false} items={collapseItems} />
-
-                            <hr className="border-t-2 mb-4 mt-5" /> {/* Gạch ngang dưới */}
+                            <hr className="border-t-2 mb-4 mt-5" />
                         </div>
                     </React.Fragment>
                 ))}
             </div>
-            {/* Đưa component PanUnited vào cuối với position absolute */}
-            <div className='absolute bottom- left-0 right-0'>
+            <div className='absolute bottom-40 left-0 right-0'>
                 <PanUnited />
             </div>
         </div>

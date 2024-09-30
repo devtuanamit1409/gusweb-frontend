@@ -1,15 +1,27 @@
 
-import Homepage from "@/components/Homepage";
-import ImgBody from "@/components/ImgBody";
+
+import About from "@/components/About";
+import Client from "@/components/PartnerList";
+import Contact from "@/components/Contact";
+import DesignGusweb from "@/components/DesignGusweb";
+import GUSWEB from "@/components/GUSWEB";
+import Inflation from "@/components/Inflation";
+import Principle from "@/components/Principle";
+import WebsiteCard from "@/components/WebsiteCard";
 
 
 
 export default function Home() {
   return (
     <div className="">
-      {/* <ImgHeader />
-      <Homepage />
-      <ImgBody /> */}
+      <Inflation />
+      <GUSWEB />
+      <WebsiteCard />
+      <About />
+      <DesignGusweb />
+      <Principle />
+      <Client />
+      <Contact />
     </div>
   );
 }

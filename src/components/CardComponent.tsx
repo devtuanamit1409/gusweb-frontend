@@ -24,7 +24,7 @@ const CardComponent = (props: Props) => {
                 <p className={` ${customClassNameDescription}`}>{item.description}</p>
             )}
             {showDescriptionOnHover && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl p-4">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/25  opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl p-4">
                     <p className="text-black text-center text-sm">
                         {item.description}
                     </p>

@@ -5,18 +5,18 @@ import Image from 'next/image';
 import 'swiper/css';
 import QuotationButton from '@/components/QuotationButton';
 
-export default function SwiperContainer() {
+export default function SwiperContainer123() {
     return (
         <div className='absolute bottom-[30px] right-0 left-[40%]'>
             <Swiper
                 spaceBetween={100}
                 slidesPerView={2}
                 loop={true}
-                // autoplay={{
-                //     delay: 1000,
-                //     disableOnInteraction: false,
-                // }}
-                // modules={[Autoplay]}
+                autoplay={{
+                    delay: 1500,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
                 slideToClickedSlide={true}
                 onSlideChange={() => console.log('slide changed')}
                 onSwiper={(swiper) => console.log(swiper)}
@@ -69,10 +69,11 @@ export default function SwiperContainer() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <div className='flex items-center'>
-                    <QuotationButton />
-                </div>
             </Swiper>
+            <div className='flex top-0'>
+                <QuotationButton />
+            </div>
         </div>
+
     );
 }
