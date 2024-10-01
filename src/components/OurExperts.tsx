@@ -1,16 +1,15 @@
 import React from 'react'
-
 import Image from 'next/image';
 import { aboutModel } from '@/models/aboutModel';
 
 const items: aboutModel[] = [
     {
-        url: "/images/chúng tôi có các chuyên gia trong nhiều lĩnh vực.png",
+        url: "/images/expert.png",
         description: "CHÚNG TÔI CÓ CÁC CHUYÊN GIA TRONG NHIỀU LĨNH VỰC"
     },
 ];
 
-export default function About() {
+export default function OurExperts() {
     return (
         <div className=''>
             {items.map((item, index) => (

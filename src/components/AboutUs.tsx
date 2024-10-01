@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { bodyDesktopModel } from '@/models/bodyDesktopModel';
 
-export default function GUSWEB() {
+export default function AboutUs() {
   const items: bodyDesktopModel[] = [
     {
       url: '/images/Frame 1000003639.png',
@@ -32,8 +32,8 @@ export default function GUSWEB() {
             />
           </div>
           <div className='flex-1'>
-            <span className='text-2xl ' data-aos="fade-left" data-aos-duration="1000">
-              <b className='font-bold uppercase'>{item.tilte.split(' ')[0]}</b>{' '}
+            <span className='text-2xl relative text-preamble' data-aos="fade-left" data-aos-duration="1000">
+              <b className='font-bold uppercase '>{item.tilte.split(' ')[0]}</b>{' '}
               <span className='normal-case'>{item.tilte.split(' ').slice(1).join(' ')}</span>
             </span>
 

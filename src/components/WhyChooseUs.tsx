@@ -3,7 +3,7 @@ import React from 'react'
 import CardComponent from '@/components/CardComponent';
 import { CardModel } from '@/models/cardModel';
 
-export default function DesignGusweb() {
+export default function WhyChooseUs() {
     const items: CardModel[] = [
         {
             url: "/images/Image1.png",

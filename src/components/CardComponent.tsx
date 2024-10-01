@@ -33,5 +33,4 @@ const CardComponent = (props: Props) => {
         </div>
     );
 };
-
 export default CardComponent;

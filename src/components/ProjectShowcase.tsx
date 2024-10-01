@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SwiperContainer123 from '@/components/SwiperContainer123';
 
-export default function PanUnited() {
+export default function ProjectShowcase() {
     return (
         <div className='flex flex-row items-center relative'>
             <div className='flex flex-col justify-center gap-4 w-[40%]'>
