@@ -2,41 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.custom-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
-
-/* .header-fixed{
-  width:1,119px;
-  height:44px;
-  gap: 50px;
-} */
 
 /* Underline animation for scale from center */
 .underline-animation {
@@ -45,13 +15,13 @@ body {
   text-decoration: none;
 }
 .underline-animation::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 0.1em;
-  background-color:  #08BED5;
+  background-color: #08bed5;
   opacity: 0;
   transform: scale(0);
   transform-origin: center;
@@ -65,7 +35,11 @@ body {
 }
 
 .background-mobie {
-  background: linear-gradient(180deg, rgba(58, 123, 213, 0.42) 0%, rgba(0, 210, 255, 0.42) 102.31%);
+  background: linear-gradient(
+    180deg,
+    rgba(58, 123, 213, 0.42) 0%,
+    rgba(0, 210, 255, 0.42) 102.31%
+  );
 }
 
 .header-nav {
@@ -77,26 +51,23 @@ body {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  padding: 0 .75rem
+  padding: 0 0.75rem;
 }
 
 /* new update 19/09/2024 */
 .ant-btn {
   border-width: 0;
-  padding: .625rem 1.5rem;
+  padding: 0.625rem 1.5rem;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
   height: auto;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: none;
   background: linear-gradient(90deg, #00d2ff, #3a7bd5);
   position: relative;
 }
-
-
-
 
 [data-aos^="zoom"] {
   opacity: 0; /* Bắt đầu với độ mờ */
@@ -113,11 +84,11 @@ body {
 
 .home-service-item__box {
   background-color: #fefefe;
-  box-shadow: 0 8px 16px rgba(58, 123, 213, .4);
+  box-shadow: 0 8px 16px rgba(58, 123, 213, 0.4);
   border-radius: 1.5rem;
   width: 261px;
   height: 499px;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .home-service-item__image {
@@ -144,7 +115,7 @@ body {
   background: rgba(255, 255, 255, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 16px;
-  border-style:dashed;
+  border-style: dashed;
 }
 .Orders-glass-card {
   width: 355px;
@@ -166,13 +137,13 @@ body {
   background: rgba(255, 255, 255, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 16px;
-  border-style:dashed;
+  border-style: dashed;
 }
 .TextCon-glass-card-dashed {
   width: 156px;
   height: 84px;
   border: 1px white;
-  border-style:dashed;
+  border-style: dashed;
   border-left: none;
 }
 .Vuong-glass-card {
@@ -182,7 +153,7 @@ body {
   left: 6px;
   border: 2px solid white;
 }
-.buttonBody{
+.buttonBody {
   width: 87px;
   height: 30px;
   border-radius: 32px;
@@ -198,7 +169,7 @@ body {
   padding: 24px;
   width: 356px;
   height: 250px;
-  background: rgb(255, 255, 255,0.24);
+  background: rgb(255, 255, 255, 0.24);
   border: 2px solid rgba(255, 255, 255, 0.24);
   border-radius: 20px;
   gap: 16px;
@@ -207,12 +178,13 @@ body {
 /* styles/globals.css */
 /* font-bricolage */
 @font-face {
-  font-family: 'Bricolage Grotesque';
-  src: url('/fonts/BricolageGrotesque_36pt_Condensed-Bold.ttf') format('truetype');
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/BricolageGrotesque_36pt_Condensed-Bold.ttf")
+    format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
-.background-custom{
-  background: linear-gradient(90deg, #3a7bd5,#00d2ff);
+.background-custom {
+  background: linear-gradient(90deg, #3a7bd5, #00d2ff);
 }

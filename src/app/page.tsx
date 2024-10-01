@@ -1,5 +1,3 @@
-
-
 import About from "@/components/About";
 import Client from "@/components/PartnerList";
 import Contact from "@/components/Contact";
@@ -8,8 +6,6 @@ import GUSWEB from "@/components/GUSWEB";
 import Inflation from "@/components/Inflation";
 import Principle from "@/components/Principle";
 import WebsiteCard from "@/components/WebsiteCard";
-
-
 
 export default function Home() {
   return (
