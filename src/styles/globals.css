@@ -96,21 +96,123 @@ body {
 }
 
 
-.home-banner-description, .home-banner-title {
-  color: #fefefe;
-  margin-bottom: 1rem;
-  text-shadow: -4px 4px .5px rgba(58, 123, 213, .4);
+
+
+[data-aos^="zoom"] {
+  opacity: 0; /* Bắt đầu với độ mờ */
+  transform: scale(0.9); /* Bắt đầu với kích thước nhỏ hơn */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Thêm chuyển tiếp */
 }
 
-.home-banner-content {
-  color: #fefefe;
-  margin-bottom: 2.5rem;
-  text-shadow: -1px 1px .5px rgba(58, 123, 213, .4);
-  max-width: 579px;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 140%;
-  letter-spacing: .15px;
+[data-aos^="zoom"].aos-animate {
+  opacity: 1; /* Độ mờ 100% khi animation xảy ra */
+  transform: scale(1); /* Kích thước bình thường khi animation xảy ra */
 }
 
 /* end */
+
+.home-service-item__box {
+  background-color: #fefefe;
+  box-shadow: 0 8px 16px rgba(58, 123, 213, .4);
+  border-radius: 1.5rem;
+  width: 261px;
+  height: 499px;
+  gap: .5rem;
+}
+
+.home-service-item__image {
+  height: 80px;
+  width: 80px;
+  position: relative;
+}
+
+/* styles/glassCard.css */
+.glass-card {
+  width: 333px;
+  height: 53px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px 24px 12px 24px;
+  gap: 8px;
+}
+.color-glass-card {
+  width: 355px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  border-style:dashed;
+}
+.Orders-glass-card {
+  width: 355px;
+  height: 146px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+}
+.Sopha-glass-card {
+  width: 230px;
+  height: 168px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.Text-glass-card-dashed {
+  width: 259px;
+  height: 327px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  border-style:dashed;
+}
+.TextCon-glass-card-dashed {
+  width: 156px;
+  height: 84px;
+  border: 1px white;
+  border-style:dashed;
+  border-left: none;
+}
+.Vuong-glass-card {
+  width: 101px;
+  height: 101px;
+  top: 6px;
+  left: 6px;
+  border: 2px solid white;
+}
+.buttonBody{
+  width: 87px;
+  height: 30px;
+  border-radius: 32px;
+}
+.phone-glass-card {
+  width: 207px;
+  height: 428px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.hover-glass-card {
+  padding: 24px;
+  width: 356px;
+  height: 250px;
+  background: rgb(255, 255, 255,0.24);
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-radius: 20px;
+  gap: 16px;
+  backdrop-filter: blur(10px);
+}
+/* styles/globals.css */
+/* font-bricolage */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/BricolageGrotesque_36pt_Condensed-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.background-custom{
+  background: linear-gradient(90deg, #3a7bd5,#00d2ff);
+}

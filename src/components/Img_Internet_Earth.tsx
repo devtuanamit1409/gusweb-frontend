@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
-import Header from '@/components/Header';
 
 export default function ImgHeader() {
     return (
-        <div className="relative w-full h-[639px] mt-[88px]">
+        <div className="relative w-full h-[1024px] mt-[88px]">
             <Image
-                src="/images/Desktop/img.png"
+                src="/images/Desktop/TangGiaTri.png"
                 alt="Header Banner"
                 fill
                 className="object-cover"
@@ -15,7 +14,6 @@ export default function ImgHeader() {
                 decoding="async"
                 sizes="(min-width: 0px) 100vw"
             />
-            <Header />
         </div>
     );
 }
