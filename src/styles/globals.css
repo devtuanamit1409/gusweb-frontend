@@ -2,43 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.custom-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
-
-/* .header-fixed{
-  width:1,119px;
-  height:44px;
-  gap: 50px;
-} */
-
-/* Underline animation for scale from center */
 .underline-animation {
   position: relative;
   display: inline-block;
@@ -215,4 +183,22 @@ body {
 
 .background-custom{
   background: linear-gradient(90deg, #3a7bd5,#00d2ff);
+}
+.border-bottom-blue-custom {
+  box-shadow: 0 8px 16px rgba(58, 123, 213, .4);
+  border-radius: 1.5rem;
+}
+.text-preamble:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 11px;
+  opacity: .24;
+  width: 100%;
+  display: block;
+  background-color: #08bed5;
+  -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  z-index: -1;
 }
