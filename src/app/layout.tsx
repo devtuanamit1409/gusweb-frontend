@@ -1,10 +1,7 @@
-
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import "../styles/globals.css";
-
-
 
 // import { AntdRegistry } from '@ant-design/nextjs-registry';
 // const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main className="mt-[88px]">{children}</main>
+        <main className="mt-[78px]"> {children}</main>
         <Footer />
       </body>
     </html>
