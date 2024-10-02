@@ -65,7 +65,7 @@ const BrandValue = () => {
                             <div className='mt-6 Orders-glass-card px-4 py-[20px]'>
                                 <div className='text-white flex flex-row gap-[14px]'>
                                     <div className='relative'>
-                                        <Image src='/images/Rectangle 5063.png' alt='anh color' width={50} height={50} />
+                                        <Image src='/images/HinhVungXanh.png' alt='anh color' width={50} height={50} />
                                         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                                             <IconVector_90 />
                                         </div>
@@ -87,7 +87,7 @@ const BrandValue = () => {
                         </div>
                         <div className='flex-1 items-center justify-center'>
                             <div className='p-[10px] gap-[10] Sopha-glass-card ml-[14.5px]'>
-                                <Image src='/images/Rectangle 2437.png' alt='' width='210' height='148' className='gap-2'></Image>
+                                <Image src='/images/Sopha.png' alt='' width='210' height='148' className='gap-2'></Image>
                             </div>
                             <div className='Text-glass-card-dashed p-8 mt-4 gap-8'>
                                 <div className='text-white mb-10'>
@@ -146,8 +146,8 @@ const BrandValue = () => {
                         </div>
                         <div className='flex-1 mt-10 mr-16'>
                             <div className='phone-glass-card p-2'>
-                                <Image src='/images/Rectangle 5064.png' alt='' width='191' height='232' />
-                                <Image src='/images/Frame 1000003630.png' alt='' width='191' height='180' />
+                                <Image src='/images/banGhe.png' alt='' width='191' height='232' />
+                                <Image src='/images/GreenSet.png' alt='' width='191' height='180' />
                             </div>
 
                         </div>

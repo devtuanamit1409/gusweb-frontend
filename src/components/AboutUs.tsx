@@ -8,7 +8,7 @@ import { bodyDesktopModel } from '@/models/bodyDesktopModel';
 export default function AboutUs() {
   const items: bodyDesktopModel[] = [
     {
-      url: '/images/Frame 1000003639.png',
+      url: '/images/AboutUs.png',
       tilte: 'GUSWEB LÀ AI?',
       tilte2: 'Hợp tác để đi đến thành công',
       description: 'Với 15 năm kinh nghiệm phát triển và vận hành phần mềm, GUSWEB hiểu sâu cách công nghệ mang lại giá trị thực sự cho doanh nghiệp. Chúng tôi chọn lựa công nghệ tối ưu, khai thác tối đa tiến bộ để đảm bảo website vận hành mượt mà, ổn định và tiết kiệm chi phí.'

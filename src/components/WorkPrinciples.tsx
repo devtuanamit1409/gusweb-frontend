@@ -37,7 +37,7 @@ export default function WorkPrinciples() {
         key: idx,
         label: (
             <div className="flex justify-between items-center w-full">
-                <span className="text-[20px]">{itemDescription.title}</span>
+                <span className="text-[20px] font-bold">{itemDescription.title}</span>
                 <Image
                     src={items[0].icon}
                     alt="tesst"
@@ -59,7 +59,7 @@ export default function WorkPrinciples() {
                 {items.map((item, index) => (
                     <React.Fragment key={index}>
                         <Image
-                            src='/images/Frame.png'
+                            src='/images/starrysky.png'
                             alt="Header Banner"
                             fill
                             className="object-cover"
@@ -67,7 +67,7 @@ export default function WorkPrinciples() {
                             decoding="async"
                         />
                         <div className='w-[800px]'>
-                            <p>{item.title}</p>
+                            <span className='relative text-preamble w-[300px] text-2xl'>{item.title}</span>
                             <p className='text-[56px] font-bricolage'>{item.description}</p>
                             <p>{item.description2}</p>
                             <hr className="border-t-2 mb-4 mt-10" />
