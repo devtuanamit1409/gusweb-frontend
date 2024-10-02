@@ -3,9 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
 import SwiperContainer123 from '@/components/SwiperContainer123';
-import { TestItem } from '@/components/Test';
 
-export default function Client() {
+
+export default function PartnerList() {
     return (
         <div className="relative w-full h-[559px]">
             <Image

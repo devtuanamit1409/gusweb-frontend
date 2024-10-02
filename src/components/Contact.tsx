@@ -2,7 +2,6 @@ import React from 'react'
 
 import Image from 'next/image';
 import { midPageModel } from '@/models/MidPageModel';
-import QuotationButton from '@/components/QuotationButton';
 
 const items: midPageModel[] = [
     {

@@ -188,3 +188,18 @@
 .background-custom {
   background: linear-gradient(90deg, #3a7bd5, #00d2ff);
 }
+
+.text-preamble:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 11px;
+  opacity: .24;
+  width: 100%;
+  display: block;
+  background-color: #08bed5;
+  -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  z-index: -1;
+}

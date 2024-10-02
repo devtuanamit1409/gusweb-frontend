@@ -1,22 +1,23 @@
-import About from "@/components/About";
-import Client from "@/components/PartnerList";
+import AboutUs from "@/components/AboutUs";
+import BrandValue from "@/components/BrandValue";
 import Contact from "@/components/Contact";
-import DesignGusweb from "@/components/DesignGusweb";
-import GUSWEB from "@/components/GUSWEB";
-import Inflation from "@/components/Inflation";
-import Principle from "@/components/Principle";
-import WebsiteCard from "@/components/WebsiteCard";
+import OurExperts from "@/components/OurExperts";
+import PartnerList from "@/components/PartnerList";
+import WebsiteAsGateway from "@/components/WebsiteAsGateway";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import WorkPrinciples from "@/components/WorkPrinciples";
+
 
 export default function Home() {
   return (
     <div className="">
-      <Inflation />
-      <GUSWEB />
-      <WebsiteCard />
-      <About />
-      <DesignGusweb />
-      <Principle />
-      <Client />
+      <BrandValue />
+      <AboutUs />
+      <WebsiteAsGateway />
+      <OurExperts />
+      <WhyChooseUs />
+      <WorkPrinciples />
+      <PartnerList />
       <Contact />
     </div>
   );

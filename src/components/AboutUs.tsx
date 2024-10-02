@@ -5,10 +5,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { bodyDesktopModel } from '@/models/bodyDesktopModel';
 
-export default function GUSWEB() {
+export default function AboutUs() {
   const items: bodyDesktopModel[] = [
     {
-      url: '/images/Frame 1000003639.png',
+      url: '/images/AboutUs.png',
       tilte: 'GUSWEB LÀ AI?',
       tilte2: 'Hợp tác để đi đến thành công',
       description: 'Với 15 năm kinh nghiệm phát triển và vận hành phần mềm, GUSWEB hiểu sâu cách công nghệ mang lại giá trị thực sự cho doanh nghiệp. Chúng tôi chọn lựa công nghệ tối ưu, khai thác tối đa tiến bộ để đảm bảo website vận hành mượt mà, ổn định và tiết kiệm chi phí.'
@@ -32,8 +32,8 @@ export default function GUSWEB() {
             />
           </div>
           <div className='flex-1'>
-            <span className='text-2xl ' data-aos="fade-left" data-aos-duration="1000">
-              <b className='font-bold uppercase'>{item.tilte.split(' ')[0]}</b>{' '}
+            <span className='text-2xl relative text-preamble' data-aos="fade-left" data-aos-duration="1000">
+              <b className='font-bold uppercase '>{item.tilte.split(' ')[0]}</b>{' '}
               <span className='normal-case'>{item.tilte.split(' ').slice(1).join(' ')}</span>
             </span>
 
