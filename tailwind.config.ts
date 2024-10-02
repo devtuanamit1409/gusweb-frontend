@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        desktop: "1440px",
+        laptop: "1024px",
+        tablet: "744px",
+        mobile: "360px",
+      },
       fontFamily: {
         bricolage: ['"Bricolage Grotesque"', 'sans-serif'],
       },
@@ -19,7 +25,7 @@ const config: Config = {
     },
   },
   plugins: [],
-  
+
 };
 
 export default config;
