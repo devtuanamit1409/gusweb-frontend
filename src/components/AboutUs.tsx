@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { bodyDesktopModel } from '@/models/bodyDesktopModel';
 
@@ -15,15 +14,11 @@ export default function AboutUs() {
     }
   ];
 
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
   return (
     <div className='flex items-center justify-center max-w-[1140px] mx-auto text-left'>
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          <div className="flex-1 aos-init p-4" data-aos="fade-right" data-aos-duration="1000">
+          <div className="flex-1 p-4" data-aos="fade-right" data-aos-duration="1000">
             <Image
               src={item.url}
               alt="Header Banner"

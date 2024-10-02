@@ -3,9 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
 import SwiperContainer123 from '@/components/SwiperContainer123';
+import Slide from '@/components/Slide';
 
-
-export default function PartnerList() {
+const PartnerList = () => {
     return (
         <div className="relative w-full h-[559px]">
             <Image
@@ -24,9 +24,10 @@ export default function PartnerList() {
                 <span>Bằng kinh nghiệm vững chắc và tinh thần trách nhiệm, chúng tôi đã thực hiện thành công và nhanh chóng các dự án của các khách hàng trong nhiều lĩnh vực</span>
             </div>
             <div>
-                {/* <TestItem /> */}
+                {/* <Slide /> */}
             </div>
 
         </div>
     );
 }
+export default PartnerList

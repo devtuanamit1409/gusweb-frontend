@@ -20,7 +20,7 @@ export default function Contact() {
                         <Image
                             src={item.url}
                             alt="Header Banner"
-                            width={1540}
+                            width={2540}
                             height={428}
                             className=''
                         />

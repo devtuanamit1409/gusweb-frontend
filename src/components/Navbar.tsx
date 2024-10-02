@@ -132,9 +132,8 @@ export default function Navbar() {
       </div>
 
       <ul
-        className={`${
-          isMenuOpen ? "flex" : "hidden"
-        } flex-col items-center lg:hidden`}
+        className={`${isMenuOpen ? "flex" : "hidden"
+          } flex-col items-center lg:hidden`}
       >
         <li className="underline-animation font-semibold text-base m-4 group relative hover:text-[#08BED5]">
           <Dropdown menu={{ items }} placement="bottom" arrow>
