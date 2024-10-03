@@ -25,6 +25,7 @@ const InfoComponent = (props: Props) => {
       </div>
 
       <div className="h-[372px] w-[570px] py-[80px] px-6 gap-6 flex flex-col">
+        <p
           className={
             styleTitle
               ? styleTitle

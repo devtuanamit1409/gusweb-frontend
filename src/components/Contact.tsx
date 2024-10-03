@@ -5,6 +5,7 @@ import { midPageModel } from "@/models/MidPageModel";
 import { Button } from "antd";
 import Link from "next/link";
 
+
 const items: midPageModel[] = [
   {
     url: "/images/Promotion.png",
@@ -15,7 +16,7 @@ const items: midPageModel[] = [
 
 export default function Contact() {
   return (
-    <div className="w-full h-[428px]  mx-auto">
+    <div className="w-full h-[428px]">
       {items.map((item, index) => (
         <div key={index} className="relative">
           <Image
@@ -34,54 +35,16 @@ export default function Contact() {
             </p>
 
             <div className="w-[356px] h-[42px] gap-6 flex justify-between">
-              <Link href="/">
-                <Button className="w-[186px] h-[42px] rounded text-white bg-[#1FA9EC]">
-                  Tải Profile
-                </Button>
-              </Link>
-              <Link href="/">
-                <Button className="w-[186px] h-[42px] rounded bg-white bg-clip-text text-white">
-                  Liên hệ
-                </Button>
-              </Link>
+              <button className="ant-btn w-[166px] bg-[#1FA9EC] text-white">
+                <Link href="/">Tải eBook</Link>
+              </button>
+              <button className="gradient-text  w-[166px]">
+                <Link href="/">Xem thêm</Link>
+              </button>
             </div>
           </div>
         </div>
       ))}
     </div>
-
-    // <div className="">
-    //   {items.map((item, index) => (
-    //     <React.Fragment key={index}>
-    //       <div className="relative w-full h-[428px] flex justify-center ">
-    //         <Image
-    //           src={item.url}
-    //           alt="Header Banner"
-    //           width={1440}
-    //           height={428}
-    //           className="object-cover w-full"
-    //         />
-    //         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-    //           <div className=" p-6 w-[700px] h-[324px] rounded-[20px] gap-[16px]">
-    //             <p className="text-[16px] text-center text-white">
-    //               {item.title}
-    //             </p>
-    //             <p className="text-[56px] text-center text-white font-bricolage font-bold leading-[67.2px] ">
-    //               {item.description}
-    //             </p>
-    //             <div className="w-[356px] h-[42px] flex flex-row items-center justify-center gap-6 ">
-    //               <Button className="text-white w-[166px] h-[42] bg-[#1FA9EC] focus:outline-none font-medium rounded-md text-sm px-8 py-3  lg:block md:w-auto md:order-1">
-    //                 Tải Profile
-    //               </Button>
-    //               <Button className="text-[#00D2FF] w-[166px] h-[42] bg-[#FEFEFE]  font-medium rounded-md text-sm px-8 py-3  lg:block md:w-auto md:order-1">
-    //                 Liên hệ
-    //               </Button>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </React.Fragment>
-    //   ))}
-    // </div>
   );
 }

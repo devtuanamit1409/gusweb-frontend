@@ -1,39 +1,20 @@
 "use client";
 import BannerComponent from "@/components/BannerComponent";
-import InfoComponent from "@/components/InfoComponent";
+
 import React, { useEffect } from "react";
 import Image from "next/image";
 import SponsorSwiper from "@/components/ SponsorSwiper";
 import ResponsibilityComponent from "./components/ResponsibilityComponent";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Button } from "antd";
+import InfoComponent from "@/components/InfoComponent";
 import Link from "next/link";
-import LeaderComponent from "./components/LeaderComponent";
 const Page = () => {
   useEffect(() => {
     AOS.init({
       once: true,
     });
-    
   }, []);
-  const leaders = [
-    {
-      id: 1,
-      name: "Lê Quốc Thạo",
-      image: "https://admin.amitgroup.asia/uploads/01_dbdc7668aa.png",
-      gender: "Ông",
-      positions: ["Nhà Sáng Lập", "Tổng Giám Đốc"],
-    },
-    {
-      id: 2,
-      name: "Trần Nhật Anh",
-      image: "https://admin.amitgroup.asia/uploads/02_59325c651a.png",
-      gender: "Ông",
-      positions: ["Đồng Sáng Lập", "Giám Đốc Vận Hành"],
-    },
-    // Thêm dữ liệu cho các thành viên khác tương tự
-  ];
   return (
     <div className="w-full h-full">
       <div className="custom-container">
