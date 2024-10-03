@@ -249,17 +249,3 @@
   box-shadow: 0 8px 16px rgba(58, 123, 213, .4);
   border-radius: 1.5rem;
 }
-.text-preamble:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 11px;
-  opacity: .24;
-  width: 100%;
-  display: block;
-  background-color: #08bed5;
-  -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  z-index: -1;
-}
