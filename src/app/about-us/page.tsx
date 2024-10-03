@@ -1,19 +1,20 @@
 "use client";
 import BannerComponent from "@/components/BannerComponent";
-import InfoComponent from "@/components/InfoComponent";
+
 import React, { useEffect } from "react";
 import Image from "next/image";
 import SponsorSwiper from "@/components/ SponsorSwiper";
 import ResponsibilityComponent from "./components/ResponsibilityComponent";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import InfoComponent from "@/components/InfoComponent";
 const Page = () => {
   useEffect(() => {
     AOS.init({
       once: true,
     });
-    
   }, []);
+
   return (
     <div className="w-full h-full">
       <div className="custom-container">
