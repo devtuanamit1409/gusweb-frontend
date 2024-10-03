@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import SwiperContainer123 from '@/components/SwiperContainer123';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import SwiperContainer123 from "@/components/SwiperContainer123";
 
 export default function ProjectShowcase() {
     return (
