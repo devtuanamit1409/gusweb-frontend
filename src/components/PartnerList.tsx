@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
 import SwiperContainer123 from '@/components/SwiperContainer123';
-import Slide from '@/components/Slide';
+import Slide from '@/components/SlideComponent';
 
 const PartnerList = () => {
     return (

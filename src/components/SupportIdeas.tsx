@@ -1,15 +1,14 @@
 import Image from "next/image";
 
 const SupportIdeas = () => {
-  const data = [
-    {
-      title: "Nghiên cứu",
-      imageSrc: "/images/Maskgroup.png",
-      description: "Bao gồm nghiên cứu thị trường người dùng, đối thủ...",
-      numberImage: "/images/Number01.png",
-    },
-    // Add more data as needed
-  ];
+  const data = {
+    Premble: "Chúng tôi luôn có thể giúp bạn",
+    title:
+      "Từ giai đoạn lên ý tưởng đến khi website sẵn sàng phục vụ khách hàng",
+    description:
+      " Chúng tôi sẽ biến những ý tưởng của bạn thành hiện thực thông qua những giải pháp thiết kế bền vững và hiện đại.",
+  };
+
   const items = [
     {
       title: "Nghiên cứu",
@@ -59,18 +58,16 @@ const SupportIdeas = () => {
     <div className="w-full h-[1300px] py-[80px] px-[162px]  ">
       <div className="max-w-[1116px] h-[1140px]  mx-auto">
         <div className="h-[228px] gap-4 ">
-          <div className="relative w-[338px] h-[38px]">
-            <span className="font-bricolage font-normal h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]">
-              Chúng tôi luôn có thể giúp bạn
+          <div className=" w-[338px] h-[38px]">
+            <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]">
+              {data.Premble}
             </span>
-            <span className="absolute bottom-[1px] left-[0.05rem] w-[237px] h-[11px] bg-[#08BED5] opacity-25 transform skew-x-[-20deg]" />
           </div>
           <h1 className="text-[56px] font-bold h-[134px] font-bricolage leading-[67.2px] text-[#1C1C1C]">
-            Từ giai đoạn lên ý tưởng đến khi website sẵn sàng phục vụ khách hàng
+            {data.title}
           </h1>
           <p className="w-[926px] h-[24px] font-normal text-base leading-6 tracking-[0.5px] text-[#1C1C1C]">
-            Chúng tôi sẽ biến những ý tưởng của bạn thành hiện thực thông qua
-            những giải pháp thiết kế bền vững và hiện đại.
+            {data.description}
           </p>
         </div>
 
