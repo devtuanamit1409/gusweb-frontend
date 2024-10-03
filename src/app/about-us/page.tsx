@@ -7,6 +7,9 @@ import SponsorSwiper from "@/components/ SponsorSwiper";
 import ResponsibilityComponent from "./components/ResponsibilityComponent";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Button } from "antd";
+import Link from "next/link";
+import LeaderComponent from "./components/LeaderComponent";
 const Page = () => {
   useEffect(() => {
     AOS.init({
@@ -14,6 +17,23 @@ const Page = () => {
     });
     
   }, []);
+  const leaders = [
+    {
+      id: 1,
+      name: "Lê Quốc Thạo",
+      image: "https://admin.amitgroup.asia/uploads/01_dbdc7668aa.png",
+      gender: "Ông",
+      positions: ["Nhà Sáng Lập", "Tổng Giám Đốc"],
+    },
+    {
+      id: 2,
+      name: "Trần Nhật Anh",
+      image: "https://admin.amitgroup.asia/uploads/02_59325c651a.png",
+      gender: "Ông",
+      positions: ["Đồng Sáng Lập", "Giám Đốc Vận Hành"],
+    },
+    // Thêm dữ liệu cho các thành viên khác tương tự
+  ];
   return (
     <div className="w-full h-full">
       <div className="custom-container">
@@ -29,7 +49,7 @@ const Page = () => {
           />
           <InfoComponent />
         </div>
-        <div className="py-20 px-[162px] gap-4 justify-center items-center flex">
+        <div className="py-20 px-[162px] gap-10 justify-center items-center flex flex-col">
           <div
             className="w-[736px] h-[236px] flex flex-col gap-4"
             data-aos="zoom-in"
@@ -50,13 +70,48 @@ const Page = () => {
               molestiae inventore.
             </p>
           </div>
-        </div>
-        <div className="h-[472px] justify-center items-center flex">
-          <div className="w-[1116px] flex flex-col gap-6">
-            <ResponsibilityComponent />
+          <div className="h-[472px] justify-center items-center flex">
+            <div className="w-[1116px] flex flex-col gap-6">
+              <ResponsibilityComponent />
+            </div>
           </div>
         </div>
       </div>
+      <div className="h-[448px] bg-slate-500 relative justify-center items-center flex">
+        <Image
+          src="/images/Section1.png"
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          className="absolute top-0 left-0  "
+        />
+        <div className="w-[1116px] justify-start flex">
+          <div className="w-[642px] h-[382px] text-[#FEFEFE] flex flex-col gap-10 z-50">
+            <div className="h-[134px] flex flex-col w-[642px]">
+              <p className="font-bold text-[56px] leading-[68px]">
+                Kinh nghiệm của GUSWEB
+              </p>
+            </div>
+            <p>
+              Tại GUSWEB, chúng tôi có 1 đội ngũ nghiên cứu về mô hình Agile
+              cũng như Framework SCRUM để thực hiện chúng tốt hơn. Áp dụng SCRUM
+              vào việc phát triển phần mềm theo phương pháp Agile - một phương
+              pháp phát triển phần mềm linh hoạt đã giúp chúng tôi đưa sản phẩm
+              đến người dùng một cách nhanh nhất và tối đa giá trị cho Khách
+              hàng.
+            </p>
+            <div className="w-[366px] h-[42px] flex flex-row gap-6">
+              <button className="ant-btn w-[166px]">
+                <Link href="">Tải eBook</Link>
+              </button>
+              <button className="gradient-text  w-[166px]">
+                <Link href="">Xem thêm</Link>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <LeaderComponent/> */}
     </div>
   );
 };
