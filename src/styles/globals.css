@@ -184,7 +184,56 @@
   font-weight: bold;
   font-style: normal;
 }
-
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/BricolageGrotesque_36pt_Condensed-Regular.ttf")
+    format("truetype"); /* Đảm bảo phông chữ có file Regular hoặc tương ứng */
+  font-weight: 400; /* Trọng lượng phông chữ mặc định */
+  font-style: normal;
+}
 .background-custom {
   background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+}
+
+/* .border-gradient {
+  position: relative;
+  border: none; 
+}  */
+
+.border-gradient {
+  background-image: repeating-linear-gradient(
+      153deg,
+      #00d2ff,
+      #3a7bd5 11px,
+      transparent 11px,
+      transparent 20px,
+      #00d2ff 20px
+    ),
+    repeating-linear-gradient(
+      243deg,
+      #00d2ff,
+      #3a7bd5 11px,
+      transparent 11px,
+      transparent 20px,
+      #00d2ff 20px
+    ),
+    repeating-linear-gradient(
+      -27deg,
+      #00d2ff,
+      #3a7bd5 11px,
+      transparent 11px,
+      transparent 20px,
+      #00d2ff 20px
+    ),
+    repeating-linear-gradient(
+      63deg,
+      #00d2ff,
+      #3a7bd5 11px,
+      transparent 11px,
+      transparent 20px,
+      #00d2ff 20px
+    );
+  background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
 }

@@ -2,9 +2,10 @@
 import Banner from "@/components/Banner";
 import React from "react";
 import dynamic from "next/dynamic";
-import Slide from "@/components/Slide";
+import Slide from "@/components/SlideComponent";
 import IdeaCard from "@/components/IdeaCard";
-const DynamicSlide = dynamic(() => import("@/components/Slide"), {
+import SupportIdeas from "@/components/SupportIdeas";
+const DynamicSlide = dynamic(() => import("@/components/SlideComponent"), {
   ssr: false, // Không render trên server
 });
 const page = () => {
@@ -16,6 +17,7 @@ const page = () => {
       <p>tao dung san pham</p>
 
       <IdeaCard />
+      <SupportIdeas />
     </div>
   );
 };
