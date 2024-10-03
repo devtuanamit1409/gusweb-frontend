@@ -25,7 +25,7 @@ export default function SwiperContainer123() {
                     <div className='flex flex-col items-center ml-20'>
                         <div className='w-[400px] h-[258px] relative'>
                             <Image
-                                src='/images/MacBook Pro 16 inch 2.png'
+                                src='/images/MacBookPro16inch2.png'
                                 alt=''
                                 fill
                                 style={{ objectFit: 'contain' }}
@@ -37,7 +37,7 @@ export default function SwiperContainer123() {
                     <div className='flex flex-col items-center'>
                         <div className='w-[400px] h-[258px] relative'>
                             <Image
-                                src='/images/iPad Mini 2021 2.png'
+                                src='/images/iPadMini.png'
                                 alt=''
                                 fill
                                 style={{ objectFit: 'contain' }}
@@ -49,7 +49,7 @@ export default function SwiperContainer123() {
                     <div className='flex flex-col items-center'>
                         <div className='w-[400px] h-[258px] relative'>
                             <Image
-                                src='/images/iPad Mini 2021 2.png'
+                                src='/images/iPadMini.png'
                                 alt=''
                                 fill
                                 style={{ objectFit: 'contain' }}
@@ -61,7 +61,7 @@ export default function SwiperContainer123() {
                     <div className='flex flex-col items-center'>
                         <div className='w-[400px] h-[258px] relative'>
                             <Image
-                                src='/images/iPad Mini 2021 2.png'
+                                src='/images/iPadMini.png'
                                 alt=''
                                 fill
                                 style={{ objectFit: 'contain' }}

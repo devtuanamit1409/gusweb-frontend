@@ -1,16 +1,17 @@
 "use client";
-import PanUnited from '@/components/PanUnited';
+
 import { principleDescriptionModel, principleModel } from '@/models/principleModel';
 import Image from 'next/image';
 import React from 'react';
 import { Collapse } from 'antd'; // Import Collapse từ Ant Design
+import ProjectShowcase from '@/components/ProjectShowcase';
 
-export default function Principle() {
+export default function WorkPrinciples() {
     const items: principleModel[] = [{
         title: 'NGUYÊN TẮC LÀM VIỆC',
         description: 'Minh bạch, trách nhiệm, hợp tác, đổi mới sáng tạo',
         description2: 'Tại GUSWEB, chúng tôi cam kết tuân thủ các nguyên tắc làm việc cốt lõi để đảm bảo sự phát triển bền vững, tạo dựng niềm tin và mang lại giá trị tối đa cho khách hàng.',
-        icon: '/images/Icons+.svg'
+        icon: '/svg/Icons+.svg'
     }];
 
     const itemsa: principleDescriptionModel[] = [
@@ -36,10 +37,10 @@ export default function Principle() {
         key: idx,
         label: (
             <div className="flex justify-between items-center w-full">
-                <span className="text-[20px]">{itemDescription.title}</span>
+                <span className="text-[20px] font-bold">{itemDescription.title}</span>
                 <Image
                     src={items[0].icon}
-                    alt={itemDescription.title}
+                    alt="tesst"
                     width={28}
                     height={28}
                     className='ml-2'
@@ -58,7 +59,7 @@ export default function Principle() {
                 {items.map((item, index) => (
                     <React.Fragment key={index}>
                         <Image
-                            src='/images/Frame.png'
+                            src='/images/starrysky.png'
                             alt="Header Banner"
                             fill
                             className="object-cover"
@@ -66,7 +67,7 @@ export default function Principle() {
                             decoding="async"
                         />
                         <div className='w-[800px]'>
-                            <p>{item.title}</p>
+                            <span className='relative text-preamble w-[300px] text-2xl'>{item.title}</span>
                             <p className='text-[56px] font-bricolage'>{item.description}</p>
                             <p>{item.description2}</p>
                             <hr className="border-t-2 mb-4 mt-10" />
@@ -77,7 +78,7 @@ export default function Principle() {
                 ))}
             </div>
             <div className='absolute bottom-40 left-0 right-0'>
-                <PanUnited />
+                <ProjectShowcase />
             </div>
         </div>
     );

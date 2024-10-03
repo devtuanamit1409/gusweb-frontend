@@ -3,7 +3,7 @@ import React from 'react'
 import CardComponent from '@/components/CardComponent';
 import { CardModel } from '@/models/cardModel';
 
-export default function DesignGusweb() {
+export default function WhyChooseUs() {
     const items: CardModel[] = [
         {
             url: "/images/Image1.png",
@@ -30,8 +30,8 @@ export default function DesignGusweb() {
     return (
         <div>
             <div className='relative flex flex-col items-center'>
-                <div className='mt-10'>
-                    <p className="text-2xl">
+                <div className='mt-40 '>
+                    <p className="text-2xl relative text-preamble w-[470px]">
                         Tại sao <b>GUSWEB</b>  là lựa chọn phù hợp nhất?.
                     </p>
                     <p className='text-[56px] max-w-[1100px] font-bricolage'>

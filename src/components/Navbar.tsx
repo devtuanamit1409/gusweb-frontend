@@ -1,12 +1,14 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { Dropdown, Space } from "antd";
-import { IconMenu } from "@/components/IconMenu";
-import Logo from "@/components/Logo";
-import Language from "@/components/language";
-import QuotationButton from "@/components/QuotationButton";
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { Dropdown, Space } from 'antd';
+import { IconMenu } from '@/components/Icons/IconMenu';
+import Logo from '@/components/Logo';
+import Language from '@/components/language';
+import QuotationButton from '@/components/QuotationButton';
+
 
 const items = [
   {
@@ -130,9 +132,8 @@ export default function Navbar() {
       </div>
 
       <ul
-        className={`${
-          isMenuOpen ? "flex" : "hidden"
-        } flex-col items-center lg:hidden`}
+        className={`${isMenuOpen ? "flex" : "hidden"
+          } flex-col items-center lg:hidden`}
       >
         <li className="underline-animation font-semibold text-base m-4 group relative hover:text-[#08BED5]">
           <Dropdown menu={{ items }} placement="bottom" arrow>

@@ -2,7 +2,6 @@ import React from 'react'
 
 import Image from 'next/image';
 import { midPageModel } from '@/models/MidPageModel';
-import QuotationButton from '@/components/QuotationButton';
 
 const items: midPageModel[] = [
     {
@@ -21,7 +20,7 @@ export default function Contact() {
                         <Image
                             src={item.url}
                             alt="Header Banner"
-                            width={1540}
+                            width={2540}
                             height={428}
                             className=''
                         />

@@ -3,30 +3,30 @@ import ImgBody from '@/components/ImgBody';
 import { CardModel } from '@/models/cardModel';
 
 
-export default function Website() {
+export default function WebsiteAsGateway() {
     const items: CardModel[] = [
         {
-            url: "/images/IconGhepHinh.svg",
+            url: "/svg/IconGhepHinh.svg",
             title: "Tăng nhận diện thương hiệu",
             description: "Nhận diện thương hiệu mạnh giúp doanh nghiệp của bạn xây dựng lòng tin, thu hút khách hàng tiềm năng và tăng lợi thế cạnh tranh. Một website chuyên nghiệp, nhất quán về hình ảnh thương hiệu, sẽ làm cho doanh nghiệp của bạn nổi bật hơn trên thị trường."
         },
         {
-            url: "/images/IconGiayVaCap.svg",
+            url: "/svg/IconGiayVaCap.svg",
             title: "Mở rộng thị trường",
             description: "Với website, biên giới không còn là rào cản. Tiếp cận khách hàng mới từ khắp nơi trên thế giới, tăng trưởng doanh thu và thị phần một cách đáng kể."
         },
         {
-            url: "/images/IconBanhRang.svg",
+            url: "/svg/IconBanhRang.svg",
             title: "Tối Ưu hoá quy trình kinh doanh",
             description: "Website giúp tự động hóa nhiều quy trình, từ đặt hàng, thanh toán đến hỗ trợ khách hàng, giúp doanh nghiệp hoạt động hiệu quả hơn."
         },
         {
-            url: "/images/IconButCongNghe.svg",
+            url: "/svg/IconButCongNghe.svg",
             title: "Nâng cao trải nghiệm khách hàng",
             description: "Giao diện thân thiện, tốc độ tải trang nhanh và nội dung hấp dẫn làm cho khách hàng muốn quay lại, tạo dựng lòng trung thành."
         },
         {
-            url: "/images/IconFile.svg",
+            url: "/svg/IconFile.svg",
             title: "Thu thập và phân tích dữ liệu",
             description: "Website không chỉ là công cụ giao tiếp, mà còn là nguồn dữ liệu quý giá giúp bạn hiểu rõ hơn về nhu cầu và hành vi của khách hàng."
         },
