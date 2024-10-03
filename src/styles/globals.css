@@ -68,6 +68,25 @@
   background: linear-gradient(90deg, #00d2ff, #3a7bd5);
   position: relative;
 }
+.gradient-text {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 0.25rem;
+  z-index: -1;
+}
 
 [data-aos^="zoom"] {
   opacity: 0; /* Bắt đầu với độ mờ */

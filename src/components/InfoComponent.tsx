@@ -13,8 +13,8 @@ const InfoComponent = () => {
         />
       </div>
       <div className="h-[372px] w-[570px] py-[80px] px-6 gap-6 flex flex-col">
-        <p className="font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff]">
-          GUSWEB
+        <p className="font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff] line-clamp-3">
+          GUSWEB Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda commodi doloremque ea facere exercitationem, est dolorum culpa dolor, iusto deleniti porro tempora autem sapiente delectus perferendis ut nobis expedita cumque.
         </p>
         <p className="font-normal text-[16px] leading-6 text-[#363636]">
           GUSWEB không ngừng phát triển để trở thành đơn vị dẫn đầu trong thiết
