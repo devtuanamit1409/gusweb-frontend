@@ -16,17 +16,26 @@ const config: Config = {
     extend: {
 
       fontFamily: {
-        bricolage: ['"Bricolage Grotesque"', 'sans-serif'],
+        bricolage: ['"Bricolage Grotesque"', "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+
+      animation: {
+        "expand-circle": "expand-circle 1.5s ease-out infinite",
+      },
+      keyframes: {
+        "expand-circle": {
+          "0%": { transform: "scale(0.5)", opacity: "1" },
+          "100%": { transform: "scale(2.5)", opacity: "0" },
+        },
+      },
     },
   },
   plugins: [],
-
 };
 
 export default config;
