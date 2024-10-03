@@ -1,6 +1,10 @@
 import React from "react";
 import { Card, Flex } from "antd";
 const IdeaCard = () => {
+  const content = {
+    Premble: " CÁC GIẢI PHÁP CỦA GUSWEB",
+    title: "Biến ý tưởng thành sản phẩm hoàn thiện",
+  };
   const items = [
     {
       title: "Đổi mới giao diện",
@@ -22,13 +26,12 @@ const IdeaCard = () => {
     <div className="w-full h-[539px] bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] py-[80px] px-[162px] gap-6  ">
       <div className="custom-container mt-[20px]">
         <div className="w-[736px] h-[171px] gap-4  flex flex-col  items-center mx-auto  text-center mt-[20px]">
-          <span className="w-[329px] h-[29px] text-[#FFFFFF] text-2xl leading-[28.8px] font-bricolage">
-            <span className="font-normal">CÁC GIẢI PHÁP CỦA </span>
-            <span className="font-bold">GUSWEB</span>
+          <span className="w-[329px] h-[29px] text-[#FFFFFF] text-2xl leading-[28.8px] font-bricolage font-bold">
+            {content.Premble}
           </span>
-          <h2 className="w-[736px] h-[134px] font-bold text-[56px] leading-[67.2px] justify-center items-center font-bricolage text-[#FFFFFF]">
-            Biến ý tưởng thành sản phẩm hoàn thiện
-          </h2>
+          <h1 className="w-[736px] h-[134px] font-bold text-[56px] leading-[67.2px] justify-center items-center font-bricolage text-[#FFFFFF]">
+            {content.title}
+          </h1>
         </div>
         <div className="w-[1116px] h-[184px] gap-6 flex flex-row mx-auto mt-[20px]">
           {items.map((item, index) => (
@@ -37,7 +40,6 @@ const IdeaCard = () => {
               style={{
                 width: 356,
                 height: 184,
-                // padding: 24,
                 gap: 4,
                 borderRadius: 24,
                 borderTop: 1,
