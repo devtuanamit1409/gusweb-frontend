@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { infoModel } from "@/models/inforModel";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface Props {
   data: infoModel;
@@ -10,10 +12,13 @@ interface Props {
 
 const InfoComponent = (props: Props) => {
   const { data, styleTitle, styleImage } = props;
+   useEffect(() => {
+     AOS.init();
+   }, []);
   return (
     <div className="h-[555px] w-[1116px] gap-[10px] flex justify-center items-center">
       <div
-        className={`justify-center items-center flex flex-row ${styleImage}`}
+        className={`justify-center items-center flex flex-row ${styleImage}`} data-aos="fade-right" data-aos-duration="1000"
       >
         <Image
           src={data.image || "/images/Group 1000004070.png"}
@@ -24,8 +29,8 @@ const InfoComponent = (props: Props) => {
         />
       </div>
 
-      <div className="h-[372px] w-[570px] py-[80px] px-6 gap-6 flex flex-col">
-          className={
+      <div className="h-[372px] w-[570px] py-[80px] px-6 gap-6 flex flex-col" data-aos="fade-left" data-aos-duration="1000">
+        <p  className={
             styleTitle
               ? styleTitle
               : "font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff] line-clamp-2"
