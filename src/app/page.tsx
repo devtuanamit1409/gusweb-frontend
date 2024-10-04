@@ -3,7 +3,6 @@ import BrandValue from "@/components/BrandValue";
 import Contact from "@/components/Contact";
 import OurExperts from "@/components/OurExperts";
 import PartnerList from "@/components/PartnerList";
-import ProjectShowcase from "@/components/ProjectShowcase";
 import WebsiteAsGateway from "@/components/WebsiteAsGateway";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkPrinciples from "@/components/WorkPrinciples";

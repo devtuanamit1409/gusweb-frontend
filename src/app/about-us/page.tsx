@@ -28,7 +28,7 @@ const Page = () => {
             alt=""
             className="absolute top-10 right-8"
           />
-          <InfoComponent />
+          {/* <InfoComponent /> */}
         </div>
         <div className="py-20 px-[162px] gap-10 justify-center items-center flex flex-col">
           <div

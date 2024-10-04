@@ -262,3 +262,83 @@ export const fetchHomePage = async (lang: string) => {
 
   return formattedData;
 };
+
+//fetch api service page
+export const fetchServicePage = async (lang: string) => {
+  const data = await getAllItem(
+    "/service-page",
+    "intro.image.src,brands.src,slogans.src,help.items.icon.src,help.items.bg.src,customerVips.src,whyUs.items.src,solution.items",
+    lang
+  );
+  const res = data?.data?.attributes;
+
+  const formattedData = {
+    locale: res?.locale,
+    intro: {
+      id: res.intro.id,
+      title: res.intro.title,
+      subTitle: res.intro.subTitle,
+      description: res.intro.description,
+      alt: res.intro.image.alt,
+      url: BaseApiUrl + res.intro.image.src?.data?.attributes?.url,
+    },
+    brands: res?.brands?.map((item: any) => ({
+      id: item.id,
+      alt: item.alt,
+      url: BaseApiUrl + item.src?.data?.attributes?.url,
+    })),
+    slogans: res?.slogans?.map((item: any) => ({
+      id: item.id,
+      alt: item.alt,
+      title: item.title,
+      description: item.description,
+      url: BaseApiUrl + item.src?.data?.attributes?.url,
+    })),
+    help: {
+      id: res.help.id,
+      title: res.help.title,
+      description: res.help.description,
+      items: res?.help?.items.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        icon: {
+          id: item.icon.id,
+          alt: item.icon.alt,
+          url: BaseApiUrl + item.icon.src?.data?.attributes?.url,
+        },
+        bg: {
+          id: item.bg.id,
+          alt: item.bg.alt,
+          url: BaseApiUrl + item.bg.src?.data?.attributes?.url,
+        },
+      })),
+    },
+    customerVips: res?.customerVips?.map((item: any) => ({
+      id: item.id,
+      alt: item.alt,
+      url: BaseApiUrl + item.src?.data?.attributes?.url,
+    })),
+    whyUs: {
+      id: res.whyUs.id,
+      title: res.whyUs.title,
+      description: res.whyUs,
+      items: res?.whyUs.items?.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        url: BaseApiUrl + item.src?.data?.attributes?.url,
+      })),
+    },
+    solution: {
+      id: res.solution.id,
+      title: res.solution.title,
+      items: res?.solution.items?.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+      })),
+    },
+  };
+
+  return formattedData;
+};
