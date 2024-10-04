@@ -20,7 +20,7 @@ export default async function Contact() {
           className="object-cover w-full relative"
         />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1116px] h-[246px] gap-4 justify-center items-center flex flex-col ">
-          <h1 className="w-[86px] h-[38px] font-bricolage font-normal text-2xl leading-[38.4px] text-white">
+          <h1 className="text-center h-[38px] font-bricolage font-normal text-2xl leading-[38.4px] text-white">
             {data.name}
           </h1>
           <p className="w-[736px] h-[134px] font-bricolage font-bold text-[56px] leading-[67.2px] text-center  text-white">
