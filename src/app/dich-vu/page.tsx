@@ -9,6 +9,8 @@ import InfoComponent from "@/components/InfoComponent";
 import Image from "next/image";
 import DevelopmentSolutions from "@/components/DevelopmentSolutions";
 import Contact from "@/components/Contact";
+import Head from "next/head";
+
 const DynamicSlide = dynamic(() => import("@/components/SlideComponent"), {
   ssr: false, // Không render trên server
 });
@@ -27,99 +29,105 @@ const data = {
 };
 const page = () => {
   return (
-    <div className="">
-      <Banner />
-      <Slide />
-      <div className="w-full h-[715px] py-[80px] px-[162px] justify-center items-center flex gap-10">
-        <div className="h-[294px] w-[523px] gap-4  flex flex-col">
-          <h1 className="h-[134px] gap-2 font-bold leading-[67.2px] text-[56px] font-bricolage text-[#1C1C1C]">
-            {item.title}
-          </h1>
-          <p className=" h-[144px] font-normal text-[16px] leading-6 text-[#363636] tracking-[0.5px] line-clamp-2">
-            {item.description}
-          </p>
+    <>
+      <Head>
+        <title>Client-Side Page Title</title>
+        <meta name="description" content="This is a client-side description" />
+      </Head>
+      <div className="w-full h-full">
+        <Banner />
+        <Slide />
+        <div className="w-full h-[715px] py-[80px] px-[162px] justify-center items-center flex gap-10">
+          <div className="h-[294px] w-[523px] gap-4  flex flex-col">
+            <h1 className="h-[134px] gap-2 font-bold leading-[67.2px] text-[56px] font-bricolage text-[#1C1C1C]">
+              {item.title}
+            </h1>
+            <p className=" h-[144px] font-normal text-[16px] leading-6 text-[#363636] tracking-[0.5px] line-clamp-2">
+              {item.description}
+            </p>
+          </div>
+          <div className="w-[545px] h-[555px] justify-center items-center  ">
+            <Image
+              src={item.image || "/images/OBJECTS.png"}
+              width={545}
+              height={555}
+              alt=""
+              className="object-cover"
+            />
+          </div>
         </div>
-        <div className="w-[545px] h-[555px] justify-center items-center  ">
-          <Image
-            src={item.image || "/images/OBJECTS.png"}
-            width={545}
-            height={555}
-            alt=""
-            className="object-cover"
-          />
+
+        <div className="w-full h-[715px] py-[80px] px-[160px]  justify-center items-center flex">
+          <div className="w">
+            <InfoComponent
+              data={data}
+              styleTitle="h-[134px] font-bold text-5xl text-[#1C1C1C] leading-[67.2px] gap-2 font-bricolage"
+              styleImage="h-[555px] w-[545px]"
+            />
+          </div>
         </div>
+
+        <IdeaCard />
+        <SupportIdeas />
+
+        <div
+          className="relative w-full h-[319px] flex justify-center items-center "
+          style={{
+            backgroundImage: `url('/images/Rectangle 175.png')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Title Section */}
+          <div className="absolute top-[80px] h-[67px]">
+            <h1 className="font-bricolage font-bold w-[1116px] text-[56px] leading-[67.2px] text-[#1C1C1C] px-4 py-2 flex justify-center">
+              Khách hàng tiêu biểu
+            </h1>
+          </div>
+
+          {/* Logos or List of Items */}
+          <div className="absolute bottom-[40px] w-[1116px] h-[88px] flex justify-center items-center">
+            <ul className="flex gap-12">
+              <li className="w-[208px] h-[68px]  flex items-center justify-center">
+                <Image
+                  width={208}
+                  height={68}
+                  src="/images/logofima.png"
+                  alt=""
+                />
+              </li>
+              <li className="w-[208px] h-[68px] flex items-center justify-center ">
+                <Image
+                  width={208}
+                  height={68}
+                  src="/images/logocanva.png"
+                  alt=""
+                />
+              </li>
+              <li className="w-[208px] h-[68px]  flex items-center justify-center ">
+                <Image
+                  width={208}
+                  height={68}
+                  src="/images/logozeplin.png"
+                  alt=""
+                />
+              </li>
+              <li className="w-[208px] h-[68px]  flex items-center justify-center ">
+                <Image
+                  width={208}
+                  height={68}
+                  src="/images/logoadobe.png"
+                  alt=""
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <DevelopmentSolutions />
+        <Contact />
       </div>
-
-      <div className="w-full h-[715px] py-[80px] px-[160px]  justify-center items-center flex">
-        <div className="w">
-          <InfoComponent
-            data={data}
-            styleTitle="h-[134px] font-bold text-5xl text-[#1C1C1C] leading-[67.2px] gap-2 font-bricolage"
-            styleImage="h-[555px] w-[545px]"
-          />
-        </div>
-      </div>
-
-      <IdeaCard />
-      <SupportIdeas />
-
-      <div
-        className="relative w-full h-[319px] flex justify-center items-center "
-        style={{
-          backgroundImage: `url('/images/Rectangle 175.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Title Section */}
-        <div className="absolute top-[80px] h-[67px]">
-          <h1 className="font-bricolage font-bold w-[1116px] text-[56px] leading-[67.2px] text-[#1C1C1C] px-4 py-2 flex justify-center">
-            Khách hàng tiêu biểu
-          </h1>
-        </div>
-
-        {/* Logos or List of Items */}
-        <div className="absolute bottom-[40px] w-[1116px] h-[88px] flex justify-center items-center">
-          <ul className="flex gap-12">
-            <li className="w-[208px] h-[68px]  flex items-center justify-center">
-              <Image
-                width={208}
-                height={68}
-                src="/images/logofima.png"
-                alt=""
-              />
-            </li>
-            <li className="w-[208px] h-[68px] flex items-center justify-center ">
-              <Image
-                width={208}
-                height={68}
-                src="/images/logocanva.png"
-                alt=""
-              />
-            </li>
-            <li className="w-[208px] h-[68px]  flex items-center justify-center ">
-              <Image
-                width={208}
-                height={68}
-                src="/images/logozeplin.png"
-                alt=""
-              />
-            </li>
-            <li className="w-[208px] h-[68px]  flex items-center justify-center ">
-              <Image
-                width={208}
-                height={68}
-                src="/images/logoadobe.png"
-                alt=""
-              />
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <DevelopmentSolutions />
-      <Contact />
-    </div>
+    </>
   );
 };
 

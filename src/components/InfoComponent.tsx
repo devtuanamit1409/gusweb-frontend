@@ -21,10 +21,10 @@ const InfoComponent = (props: Props) => {
         className={`justify-center items-center flex flex-row ${styleImage}`} data-aos="fade-right" data-aos-duration="1000"
       >
         <Image
-          src={data.image || "/images/Group 1000004070.png"}
+          src={data?.image || "/images/Group 1000004070.png"}
           width={418}
           height={434}
-          alt={data.alt || ""}
+          alt={data?.alt || "day la mo ta"}
           className={styleImage}
         />
       </div>
@@ -36,10 +36,10 @@ const InfoComponent = (props: Props) => {
               : "font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff] line-clamp-2"
           }
         >
-          {data.title}
+          {data?.title}
         </p>
         <p className="font-normal text-[16px] leading-6 text-[#363636] line-clamp-2 traking-[0.5px]">
-          {data.description}
+          {data?.description}
         </p>
       </div>
     </div>

@@ -1,11 +1,11 @@
 "use client";
-import InfoComponent from "@/components/InfoComponent";
+
 import React, { useEffect } from "react";
 import Image from "next/image";
 import ResponsibilityComponent from "./components/ResponsibilityComponent";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Button } from "antd";
+import InfoComponent from "@/components/InfoComponent";
 import Link from "next/link";
 import LeaderComponent from "./components/LeaderComponent";
 import { infoModel } from "@/models/inforModel";
@@ -18,7 +18,6 @@ const Page = () => {
     AOS.init({
       once: true,
     });
-    
   }, []);
   const images = [
     "/images/image1.png",
