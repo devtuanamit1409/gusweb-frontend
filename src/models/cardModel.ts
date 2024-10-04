@@ -1,6 +1,7 @@
-export interface CardModel{
-    url:string
-    title:string
-    description:string
-    link?:string
+export interface CardModel {
+  url: string;
+  alt: string;
+  title: string;
+  description: string;
+  link?: string;
 }

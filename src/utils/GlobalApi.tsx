@@ -9,7 +9,7 @@ const api = axios.create({
   },
 });
 
-export const fetchData = async (path: string, pop: string, lang: string) => {
+export const getAllItem = async (path: string, pop: string, lang: string) => {
   try {
     const response = await api.get(path, {
       params: {
@@ -26,7 +26,7 @@ export const fetchData = async (path: string, pop: string, lang: string) => {
 
 //fetch api header custom
 export const fetchHeader = async (lang: string) => {
-  const data = await fetchData("/header", "logo.src,items", lang);
+  const data = await getAllItem("/header", "logo.src,items", lang);
   const res = data?.data?.attributes;
 
   const formattedData = {
@@ -48,7 +48,7 @@ export const fetchHeader = async (lang: string) => {
 
 //fetch api footer
 export const fetchFooter = async (lang: string) => {
-  const data = await fetchData(
+  const data = await getAllItem(
     "/footer",
     "logo.src,gmail.image.src,address.image.src,aboutUs,doings,icons.src",
     lang
@@ -99,7 +99,7 @@ export const fetchFooter = async (lang: string) => {
 
 //fetch api contact us component
 export const fetchContactUsComp = async (lang: string) => {
-  const data = await fetchData("/contact-us", "name,title,image.src", lang);
+  const data = await getAllItem("/contact-us", "name,title,image.src", lang);
   const res = data?.data?.attributes;
 
   const formattedData = {
@@ -108,6 +108,156 @@ export const fetchContactUsComp = async (lang: string) => {
     title: res?.title,
     alt: res?.image?.alt,
     src: BaseApiUrl + res?.image?.src?.data?.attributes?.url,
+  };
+
+  return formattedData;
+};
+
+//fetch api homepage
+export const fetchHomePage = async (lang: string) => {
+  const data = await getAllItem(
+    "/home-page",
+    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.image.src,customer.images.src,chats.image.src",
+    lang
+  );
+  const res = data?.data?.attributes;
+
+  const formattedData = {
+    locale: res?.locale,
+    main: {
+      id: res?.main?.id,
+      actor: res.main.actor,
+      order: {
+        id: res.main.order.id,
+        alt: res.main.order.alt,
+        title: res.main.order.title,
+        description: res.main.order.description,
+        price: res.main.order.price,
+        percent: res.main.order.percent,
+        url: BaseApiUrl + res?.main.order.src?.data?.attributes?.url,
+      },
+      url: res?.main?.url,
+      card: {
+        id: res.main.card.id,
+        alt: res.main.card.alt,
+        title: res.main.card.title,
+        price: res.main.card.price,
+        description: res.main.card.description,
+        url: BaseApiUrl + res?.main.card.src?.data?.attributes?.url,
+      },
+      icons: res?.main?.icons?.map((icon: any) => ({
+        id: icon.id,
+        alt: icon.alt,
+        url: BaseApiUrl + icon.src?.data?.attributes?.url,
+      })),
+      text: {
+        id: res.main.text.id,
+        title: res.main.text.title,
+        subTitle: res.main.text.subTitle,
+        content: res.main.text.content,
+        description: res.main.text.description,
+      },
+      subImg: {
+        id: res.main.subImg.id,
+        alt: res.main.subImg.alt,
+        url: BaseApiUrl + res.main.subImg.src?.data?.attributes?.url,
+      },
+      color: {
+        id: res.main.color.id,
+        title: res.main.color.title,
+        description: res.main.color.description,
+      },
+      banner: {
+        id: res.main.banner.id,
+        alt: res.main.banner.alt,
+        title: res.main.banner.title,
+        description: res.main.banner.description,
+        url: BaseApiUrl + res.main.banner.src?.data?.attributes?.url,
+      },
+    },
+    whoUs: {
+      id: res.whoUs.id,
+      alt: res.whoUs.alt,
+      title: res.whoUs.title,
+      description: res.whoUs.description,
+      url: BaseApiUrl + res.whoUs.src?.data?.attributes?.url,
+    },
+    webUs: {
+      id: res.webUs.id,
+      items: res?.webUs?.items?.map((item: any) => ({
+        id: item.id,
+        alt: item.alt,
+        title: item.title,
+        description: item.description,
+        url: BaseApiUrl + item.src?.data?.attributes?.url,
+      })),
+      intro: {
+        id: res.webUs.intro.id,
+        alt: res.webUs.intro.alt,
+        title: res.webUs.intro.title,
+        description: res.webUs.intro.description,
+        url: BaseApiUrl + res.webUs.intro.src?.data?.attributes?.url,
+      },
+    },
+    about: {
+      id: res.about.id,
+      title: res.about.title,
+      alt: res.about.image.alt,
+      url: BaseApiUrl + res.about.image.src?.data?.attributes?.url,
+    },
+    whyUs: {
+      id: res.whyUs.id,
+      name: res.whyUs.name,
+      title: res.whyUs.title,
+      items: res?.whyUs?.items?.map((item: any) => ({
+        id: item.id,
+        alt: item.alt,
+        title: item.title,
+        description: item.description,
+        url: BaseApiUrl + item.src?.data?.attributes?.url,
+      })),
+    },
+    work: {
+      id: res.work.id,
+      title: res.work.title,
+      description: res.work.description,
+      items: res?.work?.items?.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+      })),
+    },
+    project: {
+      id: res.project.id,
+      alt: res.project.image.alt,
+      url: BaseApiUrl + res.project.image.src?.data?.attributes?.url,
+      items: res?.project.items?.map((item: any) => ({
+        id: item.id,
+        alt: item.alt,
+        title: item.title,
+        description: item.description,
+        url: BaseApiUrl + item.src?.data?.attributes?.url,
+      })),
+    },
+    customer: {
+      id: res.customer.id,
+      title: res.customer.title,
+      description: res.customer.description,
+      images: res?.customer?.images?.map((item: any) => ({
+        id: item.id,
+        alt: item.alt,
+        url: BaseApiUrl + item.src?.data?.attributes?.url,
+      })),
+    },
+    chats: res?.chats?.map((item: any) => ({
+      id: item.id,
+      name: item.name,
+      position: item.position,
+      rating: item.rating,
+      content: item.content,
+      alt: item.image.alt,
+      url: BaseApiUrl + item.image.src?.data?.attributes?.url,
+    })),
   };
 
   return formattedData;
