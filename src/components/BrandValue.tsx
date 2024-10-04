@@ -8,7 +8,6 @@ import IconLock from '@/components/Icons/IconLock';
 import Link from 'next/link';
 import IconArrowUp from '@/components/Icons/IconArrowUp';
 import { IconCheck } from '@/components/Icons/IconCheck';
-
 import IconArrow6 from '@/components/Icons/IconArrow6';
 import IconVector_90 from '@/components/Icons/IconVector_90';
 import IconVuongCam from '@/components/Icons/IconVuongCam';
@@ -17,31 +16,36 @@ import IconVector_viet from '@/components/Icons/IconVector_viet';
 import IconVuongXanh from '@/components/Icons/IconVuongXanh';
 import IconVectorArrow from '@/components/Icons/IconVectorArrow';
 import HeaderInterfaceSlider from '@/components/HeaderInterfaceSlider';
+import IconDauCongXanh from '@/components/Icons/IconDau+Xanh';
 
+const items = [{
+    title: "Tăng giá trị thương hiệu, mở rộng kinh doanh",
+    content: "Khởi đầu doanh nghiệp với dấu ấn khác biệt cùng GUSWEB. Chuyển đổi website thành giải pháp kinh doanh hiện đại, giúp bạn phát triển không ngừng."
+}]
 
 const BrandValue = () => {
     useEffect(() => {
         AOS.init({ duration: 1000 }); // Khởi động AOS
     }, []);
     return (
-        <div className='flex flex-wrap items-center justify-center md:flex-row flex-col'>
+        <div className='flex flex-wrap items-center justify-center tablet:flex-row flex-col'>
             <Img_Internet_Earth />
             <div className="absolute top-32 left-0 right-0 bottom-0 px-4">
-                <div className='max-w-[1145px] mx-auto '>
-                    <div className='p-4' data-aos="zoom-in">
-                        <div className=' text-center'>
-                            <h1 className='text-white md:text-[80px] font-bricolage '>Tăng giá trị thương hiệu, mở
-                                <br /> rộng kinh doanh</h1>
-                            <p className='text-white mt-4 text-2xl'>Khởi đầu doanh nghiệp với dấu ấn khác biệt cùng GUSWEB. Chuyển đổi website thành giải pháp
-                                <br /> kinh doanh hiện đại, giúp bạn phát triển không ngừng.</p>
-                            <button
-                                type="button"
-                                className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] mt-4 rounded-[5px]"
-                            >
-                                Bắt đầu ngay
-                            </button>
+                <div className='max-w-[1109px] mx-auto '>
+                    {items.map((item, index) => (
+                        <div key={index} className='p-4' data-aos="zoom-in">
+                            <div className='text-center'>
+                                <h1 className='text-white text-[80px] font-bricolage '>{item.title}</h1>
+                                <p className='text-white mt-4 text-2xl'>{item.content}</p>
+                                <button
+                                    type="button"
+                                    className=" text-[#08BED5] bg-[#FFFFFF] text-sm w-[152px] h-[42px] mt-4 rounded-[5px]"
+                                >
+                                    Bắt đầu ngay
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    ))}
                     <div className='flex mt-4 gap-5'>
                         <div className='flex-1 mt-4'>
                             <div className='glass-card flex flex-row'>
@@ -144,14 +148,29 @@ const BrandValue = () => {
                             </div>
                             <button className='relative top-[28px] left-[115px] bg-gradient-to-r from-[#FF5F6D] to-[#FFC371] px-4 py-1 buttonBody'>Gabriel</button>
                         </div>
-                        <div className='flex-1 mt-10 mr-16'>
+                        <div className='flex-1 mt-10 '>
                             <div className='phone-glass-card p-2'>
                                 <Image src='/images/banGhe.png' alt='' width='191' height='232' />
-                                <Image src='/images/GreenSet.png' alt='' width='191' height='180' />
+                                <div className='bg-white w-[191px] h-[180px] rounded-b-md'>
+                                    <div className='p-2'>
+                                        <div className='flex justify-between text-base gap-4 mt-2 '>
+                                            Green Set    <span className='background-Gradient'>2500$</span>
+                                        </div>
+                                        <div className='mt-6 flex justify-between items-center'>
+                                            Product Info
+                                            <IconDauCongXanh />
+                                        </div>
+                                        <div className='mt-4'>
+                                            <button className='bg-[#31BEE6] text-white items-center bottom-4 right-4 w-[175px] h-[34px]'>
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

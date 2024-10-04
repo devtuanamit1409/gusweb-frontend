@@ -16,7 +16,7 @@ export default function Contact() {
         <div className=''>
             {items.map((item, index) => (
                 <React.Fragment key={index}>
-                    <div className="relative h-[428px] flex justify-center ">
+                    <div className="relative h-[428px]  flex justify-center ">
                         <Image
                             src={item.url}
                             alt="Header Banner"

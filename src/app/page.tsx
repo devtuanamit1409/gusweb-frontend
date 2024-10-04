@@ -1,6 +1,8 @@
 import AboutUs from "@/components/AboutUs";
+import BlogCard from "@/components/BlogCard";
 import BrandValue from "@/components/BrandValue";
 import Contact from "@/components/Contact";
+import CustomerSuccessStory from "@/components/CustomerSuccessStory";
 import OurExperts from "@/components/OurExperts";
 import PartnerList from "@/components/PartnerList";
 import WebsiteAsGateway from "@/components/WebsiteAsGateway";
@@ -18,6 +20,8 @@ export default function Home() {
       <WhyChooseUs />
       <WorkPrinciples />
       <PartnerList />
+      <CustomerSuccessStory />
+      <BlogCard />
       <Contact />
     </div>
   );

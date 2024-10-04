@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CardComponent from '@/components/CardComponent';
 import { CardModel } from '@/models/cardModel';
+import WhyCardComponent from '@/components/WhyCardComponent';
 
 export default function WhyChooseUs() {
     const items: CardModel[] = [
@@ -26,25 +26,32 @@ export default function WhyChooseUs() {
             description: "Với 15 năm kinh nghiệm, chúng tôi tối ưu hóa website để vận hành ổn định, tiết kiệm chi phí và ít gặp sự cố."
         },
     ]
+    const itemtitle = [
+        {
+            description: "Chúng tôi không chỉ thiết kế , mà còn xây dựng thương hiệu cho doanh nghiệp"
+        }
+    ]
 
     return (
         <div>
             <div className='relative flex flex-col items-center'>
                 <div className='mt-40 '>
-                    <p className="text-2xl relative text-preamble w-[470px]">
-                        Tại sao <b>GUSWEB</b>  là lựa chọn phù hợp nhất?.
-                    </p>
-                    <p className='text-[56px] max-w-[1100px] font-bricolage'>
-                        <b>
-                            Chúng tôi không chỉ thiết kế , mà còn xây dựng thương hiệu cho doanh nghiệp
-                        </b>
-                    </p>
+                    {itemtitle.map((title, conten) => (
+                        <React.Fragment key={conten}>
+                            <p className="text-2xl relative text-preamble w-[470px]">
+                                Tại sao <b>GUSWEB</b>  là lựa chọn phù hợp nhất?.
+                            </p>
+                            <p className='text-[56px] max-w-[1100px] font-bricolage'>
+                                <b>
+                                    {title.description}
+                                </b>
+                            </p>
+                        </React.Fragment>
+                    )
+                    )}
                     <div className='grid grid-cols-4 gap-6 justify-center mt-4'>
                         {items.map((item, index) => (
-                            <CardComponent key={index} item={item} showDescriptionOnHover={false} showDescription={true} customClassName="home-service-item__box " customClassNameTitle='font-bold text-xl'
-                                width={261}
-                                height={195}
-                            />
+                            <WhyCardComponent key={index} item={item} />
                         ))}
                     </div>
                 </div>

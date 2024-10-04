@@ -53,8 +53,9 @@ export default function WorkPrinciples() {
             </div>
         ),
     }));
+
     return (
-        <div className="relative h-[1517px] max-w-[1145px] mx-auto mt-20">
+        <div className="relative h-[1517px] max-w-[1109px] mx-auto mt-20">
             <div className='gap-10 mb-[469px]'>
                 {items.map((item, index) => (
                     <React.Fragment key={index}>
@@ -70,9 +71,9 @@ export default function WorkPrinciples() {
                             <span className='relative text-preamble w-[300px] text-2xl'>{item.title}</span>
                             <p className='text-[56px] font-bricolage'>{item.description}</p>
                             <p>{item.description2}</p>
-                            <hr className="border-t-2 mb-4 mt-10" />
+                            <hr className="border-t-2  mt-10" />
                             <Collapse defaultActiveKey={['']} expandIcon={() => null} bordered={false} items={collapseItems} />
-                            <hr className="border-t-2 mb-4 mt-5" />
+                            <hr className="border-t-2" />
                         </div>
                     </React.Fragment>
                 ))}

@@ -1,6 +1,9 @@
 import CardComponent from '@/components/CardComponent';
 import ImgBody from '@/components/ImgBody';
 import { CardModel } from '@/models/cardModel';
+import { Descriptions } from 'antd';
+import { title } from 'process';
+import React from 'react';
 
 
 export default function WebsiteAsGateway() {
@@ -32,28 +35,39 @@ export default function WebsiteAsGateway() {
         },
     ];
 
+    const itemtitle = [
+        {
+            title: " Website - Cánh Cửa Đến Thị Trường Toàn Cầu",
+            descriptions: " Một website mạnh mẽ là nền tảng cho sự thành công của doanh nghiệp. Khám phá từng lợi ích cụ thể mà website mang lại"
+        }
+    ]
+
     return (
         <div className='relative flex flex-col items-center'>
             <ImgBody />
             <div className='absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center'>
-                <h1 className='text-[56px] text-white w-[736px] h-[134px]'>
-                    Website - Cánh Cửa Đến Thị Trường Toàn Cầu
-                </h1>
-                <div className='text-white text-[16px] w-[680px] h-[48px] mt-10'>
-                    <h1>
-                        Một website mạnh mẽ là nền tảng cho sự thành công của doanh nghiệp. Khám phá từng lợi ích cụ thể mà website mang lại
-                    </h1>
-                </div>
+                {itemtitle.map((conten, index) => (
+                    <React.Fragment key={index}>
+                        <h1 className='text-[56px] text-white w-[736px] h-[134px] font-bricolage'>
+                            {conten.title}
+                        </h1>
+                        <div className='text-white text-[16px] w-[680px] h-[48px] mt-10'>
+                            <h1>
+                                {conten.descriptions}
+                            </h1>
+                        </div>
+                    </React.Fragment>
+                ))}
                 {/* Sử dụng grid để sắp xếp card */}
                 <div className='grid grid-cols-3 gap-6 justify-center mt-4'>
                     {items.slice(0, 3).map((item, index) => (
-                        <CardComponent key={item.title} item={item} showDescriptionOnHover={true} customClassNameTitle="text-white text-xl " />
+                        <CardComponent key={item.title} item={item} showDescriptionOnHover={true} />
                     ))}
                 </div>
                 {/* Hàng 2 card */}
                 <div className='grid grid-cols-2 gap-6 justify-center mt-4'>
                     {items.slice(3, 5).map((item) => (
-                        <CardComponent key={item.title} item={item} showDescriptionOnHover={true} customClassNameTitle="text-white text-xl " />
+                        <CardComponent key={item.title} item={item} showDescriptionOnHover={true} />
                     ))}
                 </div>
             </div>
