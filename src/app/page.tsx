@@ -7,10 +7,9 @@ import WebsiteAsGateway from "@/components/WebsiteAsGateway";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkPrinciples from "@/components/WorkPrinciples";
 
-
 export default function Home() {
   return (
-    <div className="">
+    <main className="">
       <BrandValue />
       <AboutUs />
       <WebsiteAsGateway />
@@ -19,6 +18,6 @@ export default function Home() {
       <WorkPrinciples />
       <PartnerList />
       <Contact />
-    </div>
+    </main>
   );
 }
