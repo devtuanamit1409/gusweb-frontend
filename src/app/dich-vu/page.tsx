@@ -34,7 +34,7 @@ const page = () => {
         <title>Client-Side Page Title</title>
         <meta name="description" content="This is a client-side description" />
       </Head>
-      <div className="">
+      <div className="w-full h-full">
         <Banner />
         <Slide />
         <div className="w-full h-[715px] py-[80px] px-[162px] justify-center items-center flex gap-10">
