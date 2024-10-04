@@ -67,7 +67,7 @@ const Page = () => {
           className="absolute top-0 left-0  "
         />
         <div className="w-[1116px] justify-start flex">
-          <div className="w-[642px] h-[382px] text-[#FEFEFE] flex flex-col gap-10 z-50">
+          <div className="w-[642px] h-[382px] text-[#FEFEFE] flex flex-col gap-10 ">
             <div className="h-[134px] flex flex-col w-[642px]">
               <p className="font-bold text-[56px] leading-[68px]">
                 Kinh nghiệm của GUSWEB
