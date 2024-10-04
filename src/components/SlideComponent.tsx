@@ -1,12 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import Image from "next/image"; // Nhập Image từ next/image
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-const Slide = () => {
-  // Mảng hình ảnh
+const Slide: React.FC<any> = ({ brands }) => {
   const images = [
     { image: "/images/logoClient.png", alt: "Logo Client 1" },
     { image: "/images/Audi_logo logo.png", alt: "Logo Client 2" },
@@ -30,14 +29,14 @@ const Slide = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        loop={true} // Cho phép lặp lại các slide
+        loop={true}
         className="w-full h-[68px]"
       >
-        {images.map((img, index) => (
+        {brands.map((img: any, index: number) => (
           <SwiperSlide key={index}>
             <div className="w-[208px] h-[68px] flex items-center justify-center px-[10px]">
               <Image
-                src={img.image}
+                src={img.url}
                 width={100}
                 height={64}
                 alt={img.alt}

@@ -11,14 +11,15 @@ import { fetchServicePage } from "@/utils/GlobalApi";
 
 const page = async () => {
   const data = await fetchServicePage("vi");
+
   return (
     <div className="w-full h-full">
-      <Banner />
-      <Slogan />
-      <IdeaCard />
-      <SupportIdeas />
-      <CustomerVip />
-      <DevelopmentSolutions />
+      <Banner intro={data.intro} brands={data.brands} />
+      <Slogan slogans={data.slogans} />
+      <IdeaCard solution={data.solution} />
+      <SupportIdeas help={data.help} />
+      <CustomerVip customerVips={data.customerVips} />
+      <DevelopmentSolutions whyUs={data.whyUs} />
       <Contact />
     </div>
   );

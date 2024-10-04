@@ -16,24 +16,24 @@ const data = {
   alt: "",
 };
 
-const Slogan = () => {
+const Slogan: React.FC<any> = ({ slogans }) => {
   return (
     <>
       <div className="w-full h-[715px] py-[80px] px-[162px] justify-center items-center flex gap-10">
         <div className="h-[294px] w-[523px] gap-4  flex flex-col">
           <h1 className="h-[134px] gap-2 font-bold leading-[67.2px] text-[56px] font-bricolage text-[#1C1C1C]">
-            {item.title}
+            {slogans[0].title}
           </h1>
           <p className=" h-[144px] font-normal text-[16px] leading-6 text-[#363636] tracking-[0.5px] line-clamp-2">
-            {item.description}
+            {slogans[0].description}
           </p>
         </div>
         <div className="w-[545px] h-[555px] justify-center items-center  ">
           <Image
-            src={item.image || "/images/OBJECTS.png"}
+            src={slogans[0].image || "/images/OBJECTS.png"}
             width={545}
             height={555}
-            alt=""
+            alt={slogans[0].alt}
             className="object-cover"
           />
         </div>
@@ -42,7 +42,7 @@ const Slogan = () => {
       <div className="w-full h-[715px] py-[80px] px-[160px]  justify-center items-center flex">
         <div className="w">
           <InfoComponent
-            data={data}
+            data={slogans[1]}
             styleTitle="h-[134px] font-bold text-5xl text-[#1C1C1C] leading-[67.2px] gap-2 font-bricolage"
             styleImage="h-[555px] w-[545px]"
           />

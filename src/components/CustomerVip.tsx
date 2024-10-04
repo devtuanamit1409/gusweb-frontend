@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const CustomerVip = () => {
+const CustomerVip: React.FC<any> = ({ customerVips }) => {
   return (
     <div
       className="relative w-full h-[319px] flex justify-center items-center "
@@ -19,23 +19,22 @@ const CustomerVip = () => {
 
       <div className="absolute bottom-[40px] w-[1116px] h-[88px] flex justify-center items-center">
         <ul className="flex gap-12">
-          <li className="w-[208px] h-[68px]  flex items-center justify-center">
-            <Image width={208} height={68} src="/images/logofima.png" alt="" />
-          </li>
-          <li className="w-[208px] h-[68px] flex items-center justify-center ">
-            <Image width={208} height={68} src="/images/logocanva.png" alt="" />
-          </li>
-          <li className="w-[208px] h-[68px]  flex items-center justify-center ">
-            <Image
-              width={208}
-              height={68}
-              src="/images/logozeplin.png"
-              alt=""
-            />
-          </li>
-          <li className="w-[208px] h-[68px]  flex items-center justify-center ">
-            <Image width={208} height={68} src="/images/logoadobe.png" alt="" />
-          </li>
+          {customerVips &&
+            customerVips.map((item: any, index: number) => {
+              return (
+                <li
+                  key={index}
+                  className="w-[208px] h-[68px]  flex items-center justify-center"
+                >
+                  <Image
+                    width={208}
+                    height={68}
+                    src={item.url}
+                    alt={item.alt}
+                  />
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>
