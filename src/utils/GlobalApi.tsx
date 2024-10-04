@@ -298,21 +298,23 @@ export const fetchServicePage = async (lang: string) => {
       id: res.help.id,
       title: res.help.title,
       description: res.help.description,
-      items: res?.help?.items.map((item: any) => ({
-        id: item.id,
-        title: item.title,
-        description: item.description,
-        icon: {
-          id: item.icon.id,
-          alt: item.icon.alt,
-          url: BaseApiUrl + item.icon.src?.data?.attributes?.url,
-        },
-        bg: {
-          id: item.bg.id,
-          alt: item.bg.alt,
-          url: BaseApiUrl + item.bg.src?.data?.attributes?.url,
-        },
-      })),
+      items: res.help.items.map((item: any) => {
+        return {
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          icon: {
+            id: item.icon.id,
+            alt: item.icon.alt,
+            url: BaseApiUrl + item.icon.src?.data?.attributes?.url,
+          },
+          bg: {
+            id: item.bg.id,
+            alt: item.bg.alt,
+            url: BaseApiUrl + item.bg.src?.data?.attributes?.url,
+          },
+        };
+      }),
     },
     customerVips: res?.customerVips?.map((item: any) => ({
       id: item.id,
@@ -322,7 +324,7 @@ export const fetchServicePage = async (lang: string) => {
     whyUs: {
       id: res.whyUs.id,
       title: res.whyUs.title,
-      description: res.whyUs,
+      description: res.whyUs.description,
       items: res?.whyUs.items?.map((item: any) => ({
         id: item.id,
         title: item.title,

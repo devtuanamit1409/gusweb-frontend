@@ -1,7 +1,8 @@
 import React from "react";
 import { Card } from "antd";
 import Image from "next/image";
-const DevelopmentSolutions: React.FC = () => {
+const DevelopmentSolutions: React.FC<any> = ({ whyUs }) => {
+  // console.log(whyUs);
   const cardData = [
     {
       id: 1,
@@ -34,27 +35,28 @@ const DevelopmentSolutions: React.FC = () => {
     <div className="w-full h-[589px] py-[80px] px-[162px] gap-6 justify-center items-center flex flex-col">
       <div className="w-[1116px] h-[209px] gap-4   justify-center items-center flex flex-col">
         <h1 className="h-[38px] font-normal text-2xl leading-[38.4px] text-preamble relative font-bricolage">
-          {data.premble}
+          TẠI SAO NÊN CHỌN GUSWEB?
         </h1>
         <h2 className="h-[67px] font-bold text-[56px] leading-[67.2px] items-center font-bricolage">
-          {data.title}
+          {whyUs.title}
         </h2>
         <p className="w-[736px] h-[72px] font-normal text-base leading-6 text-center ">
-          {data.description}
+          {whyUs.description}
         </p>
       </div>
       <div className="w-[1116px] h-[196px] gap-6 mt-6 bg-white flex flex-row">
-        {cardData.map((card) => (
-          <div
-            key={card.id}
-            className="w-[261px] h-[196px] rounded-3xl p-6 gap-6 bg-[#FEFEFE] shadow-custom-shadow justify-center items-center flex flex-col"
-          >
-            <Image src={card.image} alt="" width={80} height={80} />
-            <h1 className="w-[213px] h-[72px] font-semibold text-xl leading-6 items-center text-[#1C1C1C]">
-              {card.title}
-            </h1>
-          </div>
-        ))}
+        {whyUs.items &&
+          whyUs.items.map((item: any, index: number) => (
+            <div
+              key={index}
+              className="w-[261px] h-[196px] rounded-3xl p-6 gap-6 bg-[#FEFEFE] shadow-custom-shadow justify-center items-center flex flex-col"
+            >
+              <Image src={item.url} alt={item.alt} width={80} height={80} />
+              <h1 className="w-[213px] h-[72px] font-semibold text-xl leading-6 items-center text-[#1C1C1C]">
+                {item.title}
+              </h1>
+            </div>
+          ))}
       </div>
     </div>
   );
