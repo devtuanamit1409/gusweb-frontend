@@ -35,7 +35,7 @@ const ResponsibilityComponent = () => {
   useEffect(() => {
     AOS.init();
     setTimeout(() => {
-      setInitialLoad(false);
+     
     }, 1000); 
   }, []);
 
