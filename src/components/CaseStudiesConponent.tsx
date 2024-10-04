@@ -2,71 +2,85 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons"; // Import arrow icons
-const CaseStudies = () => {
-  const data = [
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-  ];
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { fetchArticle } from "@/utils/GlobalApi";
+import Link from "next/link";
+
+const CaseStudies: React.FC<any> = ({ data }) => {
+  // const data = [
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  //   {
+  //     imgSrc: "/images/Rectangle 5067.png",
+  //     title: "Web Design UI/UX & Development",
+  //     heading: "McLaren Group",
+  //   },
+  // ];
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [articleDatas, setArticleDatas] = useState<any>([]);
   const itemsPerPage = 6;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(data.length / itemsPerPage); // Calculate total pages
+  const currentItems = articleDatas?.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(articleDatas?.length / itemsPerPage);
+
+  useEffect(() => {
+    //casestudies co id = 2
+    const getArticleData = async () => {
+      const datas = await fetchArticle("vi", data.categoryId);
+      setArticleDatas(datas);
+      //console.log("day la articles ", datas);
+    };
+
+    getArticleData();
+  }, []);
   const handlePageChange = (page: number) => {
     if (page > 0 && page <= totalPages) {
       setCurrentPage(page);
-    
     }
   };
 
@@ -78,39 +92,40 @@ const CaseStudies = () => {
             DISCOVER OUR WORK
           </h1>
           <h2 className="w-[557px] font-bold font-bricolage text-[32px] leading-[38.4px] pt-[27px]">
-            Every design we crafted focuses on user-centered experience and our
-            client's business goal.
+            {data.title}
           </h2>
         </div>
         <div className="w-[502px] font-normal leading-[28.8px] pl-2">
-          We provide technology solutions that are personalized to your
-          company's needs, allowing you to save time and stay ahead of the
-          competition.
+          {data.description}
         </div>
       </div>
 
       <div className="w-[1113px] gap-[108px] mx-auto flex flex-col">
         <div className="grid grid-cols-2 gap-4 w-full">
-          {currentItems.map((item, index) => (
-            <div key={index} className="w-full gap-8 bg-white">
+          {currentItems.map((item: any, index: number) => (
+            <Link
+              href={item.slug}
+              key={index}
+              className="w-full gap-8 bg-white"
+            >
               <Image
+                priority
                 width={500}
                 height={500}
-                src={item.imgSrc}
-                alt={item.title}
-                className="object-cover rounded-3xl"
+                src={item.url || "/images/Rectangle5067.png"}
+                alt={item.alt || "day la hinh anh case studies"}
+                className="object-contain rounded-3xl h-[500px] w-[500px]"
               />
               <h1 className="font-bricolage font-normal text-2xl leading-[38.4px] pt-2">
-                {item.title}
+                {item.subCategory}
               </h1>
               <h2 className="w-full font-bricolage font-bold text-[42px] leading-[50.4px] pt-2">
-                {item.heading}
+                {item.title}
               </h2>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="pagination mt-6 flex justify-center items-center space-x-4">
-          {/* Previous Button */}
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${
@@ -124,7 +139,6 @@ const CaseStudies = () => {
             <span className="ml-2">Previous</span>
           </button>
 
-          {/* Page Numbers */}
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index + 1}
@@ -139,7 +153,6 @@ const CaseStudies = () => {
             </button>
           ))}
 
-          {/* Next Button */}
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${
