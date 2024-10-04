@@ -24,6 +24,34 @@ export const getAllItem = async (path: string, pop: string, lang: string) => {
   }
 };
 
+export const getFilterArticle = async (
+  path: string,
+  populate: string,
+  lang: string,
+  idCategory: string,
+  idSubCategories?: string
+) => {
+  try {
+    const params: { [key: string]: any } = {
+      locale: lang,
+      "populate[articles][populate]": populate,
+      "filters[category][id][$eq]": idCategory, //loc theo danh muc
+    };
+
+    if (idSubCategories) {
+      params[`filters[id][$eq]`] = idSubCategories;
+    }
+
+    const response = await api.get(path, { params });
+    // console.log("params ", params);
+    // console.log("data ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching ${path}:`, error);
+    throw error;
+  }
+};
+
 //fetch api header custom
 export const fetchHeader = async (lang: string) => {
   const data = await getAllItem("/header", "logo.src,items", lang);
@@ -341,6 +369,62 @@ export const fetchServicePage = async (lang: string) => {
       })),
     },
   };
+
+  return formattedData;
+};
+
+//fetch api case-studies
+export const fetchCaseStudies = async (lang: string) => {
+  const data = await getAllItem("/case-studies-page", "*", lang);
+  const res = data?.data?.attributes;
+
+  const formattedData = {
+    id: res.id,
+    locale: res?.locale,
+    title: res?.intro.title,
+    description: res?.intro.description,
+    categoryId: res?.category.data.id,
+  };
+
+  return formattedData;
+};
+
+//fetch api article
+export const fetchArticle = async (
+  lang: string,
+  idCategory: string,
+  idSubCategories?: string
+) => {
+  const data = await getFilterArticle(
+    "/sub-categories",
+    "image.src",
+    lang,
+    idCategory,
+    idSubCategories
+  );
+
+  const subCategories = data.data;
+  const formattedData: any = [];
+
+  subCategories.forEach((subCategory: any) => {
+    const res = subCategory.attributes;
+    const articles = res?.articles?.data;
+
+    if (articles) {
+      articles.forEach((item: any) => {
+        formattedData.push({
+          id: item.id,
+          locale: item.attributes.locale,
+          createdAt: item.attributes.createdAt,
+          subCategory: res.title,
+          slug: item.attributes.slug,
+          title: item.attributes.title,
+          alt: item.attributes.image.alt,
+          url: BaseApiUrl + item.attributes.image.src.data?.attributes?.url,
+        });
+      });
+    }
+  });
 
   return formattedData;
 };
