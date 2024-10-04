@@ -202,6 +202,7 @@
     format("truetype");
   font-weight: bold;
   font-style: normal;
+  
 }
 @font-face {
   font-family: "Bricolage Grotesque";
@@ -267,4 +268,18 @@
 .border-bottom-blue-custom {
   box-shadow: 0 8px 16px rgba(58, 123, 213, 0.4);
   border-radius: 1.5rem;
+}
+.title-custom {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 67.2px; /* Added 'px' unit */
+  color: #1C1C1C;
+}
+.label-custom {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* Added 'px' unit */
+  color: #363636;
+  letter-spacing: 0.5px;
+  
 }
