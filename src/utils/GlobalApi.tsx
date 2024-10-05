@@ -428,3 +428,90 @@ export const fetchArticle = async (
 
   return formattedData;
 };
+
+//fetch api aboutus page
+export const fetchAboutUsPage = async (lang: string) => {
+  const data = await getAllItem(
+    "/about-us-page",
+    "intro.image.src,about.src,taget.banner.src,taget.items,work.items,exp.src,meet.members.src,team.items.src",
+    lang
+  );
+  const res = data?.data?.attributes;
+
+  const formattedData = {
+    locale: res?.locale,
+    intro: {
+      id: res.intro.id,
+      title: res.intro.title,
+      subTitle: res.intro.subTitle,
+      description: res.intro.description,
+      url: BaseApiUrl + res.intro.image.src.data?.attributes?.url,
+      alt: res.intro.image.alt,
+    },
+    about: {
+      id: res.about.id,
+      alt: res.about.alt,
+      title: res.about.title,
+      description: res.about.description,
+      url: BaseApiUrl + res.about.src.data?.attributes?.url,
+    },
+    taget: {
+      id: res.taget.id,
+      items: res?.taget.items?.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+      })),
+      banner: {
+        id: res.taget.banner.id,
+        title: res.taget.banner.title,
+        alt: res.taget.banner.alt,
+        url: BaseApiUrl + res.taget.banner.src.data?.attributes?.url,
+      },
+    },
+    work: {
+      id: res.work.id,
+      title: res.work.title,
+      description: res.work.description,
+      items: res?.work.items?.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+      })),
+    },
+    exp: {
+      id: res.exp.id,
+      alt: res.exp.alt,
+      title: res.exp.title,
+      description: res.exp.description,
+      url: BaseApiUrl + res.exp.src.data?.attributes?.url,
+    },
+    meet: {
+      id: res.meet.id,
+      title: res.meet.title,
+      name: res.meet.name,
+      members: res?.meet.items?.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        position: item.position,
+        role: item.role,
+        description: item.description,
+        alt: item.alt,
+        url: BaseApiUrl + item.src.data?.attributes?.url,
+      })),
+    },
+    team: {
+      id: res.team.id,
+      name: res.team.name,
+      title: res.team.title,
+      description: res.team.description,
+      items: res?.team.items?.map((item: any) => ({
+        id: item.id,
+        alt: item.alt,
+        url: BaseApiUrl + item.src.data?.attributes?.url,
+      })),
+    },
+  };
+
+  return formattedData;
+};
