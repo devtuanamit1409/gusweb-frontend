@@ -69,7 +69,6 @@ const CaseStudies: React.FC<any> = ({ data }) => {
   const totalPages = Math.ceil(articleDatas?.length / itemsPerPage);
 
   useEffect(() => {
-    //casestudies co id = 2
     const getArticleData = async () => {
       const datas = await fetchArticle("vi", data.categoryId);
       setArticleDatas(datas);
