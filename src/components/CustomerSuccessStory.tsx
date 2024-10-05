@@ -6,13 +6,16 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Rate } from 'antd';
 
+const item = {
+    title: "Câu chuyện thành công của khách hàng",
+}
 
 export default function CustomerSuccessStory() {
     return (
         <div className='flex flex-row items-center relative h-[580px] max-w-[1109px] mx-auto'>
             <div className='flex flex-col gap-4 w-[40%]'>
                 <Image src='/images/Maskgroup.png' alt='' width='166' height='166'></Image>
-                <span className='font-semibold text-[42px] w-96'>Câu chuyện thành công của khách hàng</span>
+                <span className='font-semibold text-[42px] w-96'>{item.title}</span>
             </div>
             <div className='w-[70%]'>
                 <Swiper

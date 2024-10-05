@@ -9,6 +9,10 @@ export default function Icon_OurServices() {
 
     if (!isClient) return null;
 
+    const item = [{
+        svg: ""
+    }]
+
     return (
         <div>
             <svg width="103" height="103" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
