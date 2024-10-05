@@ -105,9 +105,6 @@
   background-color: #fefefe;
   box-shadow: 0 8px 16px rgba(58, 123, 213, 0.4);
   border-radius: 1.5rem;
-  width: 261px;
-  height: 499px;
-  gap: 0.5rem;
 }
 
 .home-service-item__image {
@@ -213,6 +210,15 @@
 }
 .background-custom {
   background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+}
+.background-LinearGradient {
+  background: linear-gradient(90deg, #3A7BD56B, #00D2FF6B);
+}
+.background-Gradient {
+  background: linear-gradient(90deg, #FF5F6D, #FFC371);
+  background-clip: text; /* Áp dụng gradient cho chữ */
+  -webkit-background-clip: text; /* Hỗ trợ cho Safari */
+  color: transparent;
 }
 .border-gradient {
   background-image: repeating-linear-gradient(

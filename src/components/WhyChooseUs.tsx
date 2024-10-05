@@ -21,11 +21,11 @@ export default function WhyChooseUs({ whyUs }: any) {
                   key={index}
                   item={item}
                   showDescriptionOnHover={false}
-                  showDescription={true}
-                  customClassName="home-service-item__box "
-                  customClassNameTitle="font-bold text-xl"
-                  width={261}
-                  height={195}
+                // // showDescription={true}
+                // customClassName="home-service-item__box "
+                // customClassNameTitle="font-bold text-xl"
+                // width={261}
+                // height={195}
                 />
               ))}
           </div>
