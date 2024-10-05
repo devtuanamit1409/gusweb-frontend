@@ -8,9 +8,9 @@ const ExpensiveComponent: React.FC<any> = ({ exp }) => {
       <Image
         src={exp.url}
         alt={exp.alt}
-        layout="fill"
-        objectFit="cover"
-        className="absolute top-0 left-0  "
+        width={1500}
+        height={500}
+        className="absolute top-0 h-auto w-full left-0 object-contain"
       />
       <div className="w-[1116px] justify-start flex">
         <div className="w-[642px] h-[382px] text-[#FEFEFE] flex flex-col gap-10 z-50">
