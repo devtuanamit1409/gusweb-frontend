@@ -1,6 +1,6 @@
 "use client";
 
-import ResponsibilityComponent from "@/app/about-us/components/ResponsibilityComponent";
+import ResponsibilityComponent from "@/app/[locale]/about-us/components/ResponsibilityComponent";
 import React from "react";
 
 const WorkAboutComponent: React.FC<any> = ({ work }) => {
