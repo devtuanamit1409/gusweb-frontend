@@ -1,12 +1,14 @@
 "use client";
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Dropdown } from 'antd';
-import { IconMenu } from '@/components/Icons/IconMenu';
-import Logo from '@/components/Logo';
-import Language from '@/components/language';
-import QuotationButton from '@/components/QuotationButton';
+
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Dropdown, Space } from "antd";
+import { IconMenu } from "@/components/Icons/IconMenu";
+import Logo from "@/components/Logo";
+import Language from "@/components/language";
+import QuotationButton from "@/components/QuotationButton";
+import { fetchHeader } from "@/utils/GlobalApi";
 
 const items = [
   {
@@ -29,24 +31,41 @@ const items = [
     key: "5",
     label: <Link href="/">Cung cấp nhân sự Công nghệ thông tin</Link>,
   },
-  {
-    key: "6",
-    label: <Link href="/">ádjifahjodfs</Link>,
-  },
 ];
 
 export default function Navbar() {
+  const [headerData, setHeaderData] = useState<any>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const getHeaderData = async () => {
+      const data = await fetchHeader("vi");
+      setHeaderData(data);
+      // console.log(data.items);
+    };
+
+    getHeaderData();
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="bg-white fixed w-full z-20 top-0 shadow-md h-[78px]">
-      <div className="max-w-[1140px] flex flex-wrap items-center justify-between mx-auto p-4">
-        <Logo />
-        <div className="flex items-center justify-center mobile:order-2 laptop:space-x-0 rtl:space-x-reverse space-x-3">
+    <nav className="bg-white fixed w-full z-20 top-0 start-0 shadow-md">
+      <div className="max-w-[1109px] flex flex-wrap items-center justify-between mx-auto p-4">
+        <Link
+          href="/"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <Image
+            src={headerData?.logo?.src || "/images/logo.png"}
+            alt={headerData?.logo?.alt || "logo vip"}
+            width={166}
+            height={44}
+          />
+        </Link>
+        <div className="flex items-center justify-center md:order-2 md:space-x-0 rtl:space-x-reverse space-x-3">
           <Language />
           <QuotationButton />
           <button
@@ -81,7 +100,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/Case-studies"
+                href="/case-studies"
                 className="text-[#000000] font-semibold text-base m-4 underline-animation hover:text-[#08BED5]"
               >
                 Case studies
@@ -89,7 +108,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/about"
+                href="/about-us"
                 className="text-[#000000] font-semibold text-base m-4 underline-animation hover:text-[#08BED5]"
               >
                 Về chúng tôi
@@ -130,7 +149,8 @@ export default function Navbar() {
       </div>
 
       <ul
-        className={`${isMenuOpen ? "flex" : "hidden"} flex-col items-center laptop:hidden`}
+        className={`${isMenuOpen ? "flex" : "hidden"
+          } flex-col items-center lg:hidden`}
       >
         <li className="underline-animation font-semibold text-base m-4 group relative hover:text-[#08BED5]">
           <Dropdown menu={{ items }} placement="bottom" arrow>

@@ -1,21 +1,26 @@
-"use client";
 import Banner from "@/components/Banner";
 import React from "react";
-import dynamic from "next/dynamic";
-import Slide from "@/components/Slide";
 import IdeaCard from "@/components/IdeaCard";
-const DynamicSlide = dynamic(() => import("@/components/Slide"), {
-  ssr: false, // Không render trên server
-});
-const page = () => {
-  return (
-    <div className="">
-      <Banner />
-      <Slide />
-      <p>tap trung vao nguoi dung </p>
-      <p>tao dung san pham</p>
+import SupportIdeas from "@/components/SupportIdeas";
+import DevelopmentSolutions from "@/components/DevelopmentSolutions";
+import Contact from "@/components/Contact";
+import Head from "next/head";
+import Slogan from "@/components/Slogan";
+import CustomerVip from "@/components/CustomerVip";
+import { fetchServicePage } from "@/utils/GlobalApi";
 
-      <IdeaCard />
+const page = async () => {
+  const data = await fetchServicePage("vi");
+
+  return (
+    <div className="w-full h-full">
+      <Banner intro={data.intro} brands={data.brands} />
+      <Slogan slogans={data.slogans} />
+      <IdeaCard solution={data.solution} />
+      <SupportIdeas help={data.help} />
+      <CustomerVip customerVips={data.customerVips} />
+      <DevelopmentSolutions whyUs={data.whyUs} />
+      <Contact />
     </div>
   );
 };
