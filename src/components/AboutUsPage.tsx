@@ -9,7 +9,7 @@ import Contact from "@/components/Contact";
 import WorkAboutComponent from "@/components/WorkAboutComponent";
 import ExpensiveComponent from "@/components/ExpensiveComponent";
 import TeamComponent from "@/components/TeamComponent";
-import TargetComponent from "@/app/about-us/components/TargetComponent";
+import TargetComponent from "@/app/[locale]/about-us/components/TargetComponent";
 
 const AboutUsPage: React.FC<any> = ({ data }) => {
   return (
