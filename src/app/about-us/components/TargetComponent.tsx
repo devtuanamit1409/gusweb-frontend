@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos";
@@ -7,7 +9,7 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
   useEffect(() => {
     AOS.init();
   }, []);
-
+  //test
   return (
     <div className="h-[716px] justify-center items-center flex ">
       <div className="h-[555px] w-[1116px] gap-[10px] flex justify-center items-center">

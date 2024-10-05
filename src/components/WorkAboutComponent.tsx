@@ -1,3 +1,5 @@
+"use client";
+
 import ResponsibilityComponent from "@/app/about-us/components/ResponsibilityComponent";
 import React from "react";
 

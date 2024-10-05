@@ -2,16 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 const TeamComponent: React.FC<any> = ({ team }) => {
-  const images = [
-    "/images/image1.png",
-    "/images/image2.png",
-    "/images/image3.png",
-    "/images/image4.png",
-    "/images/image5.png",
-    "/images/image6.png",
-    "/images/image7.png",
-    "/images/image8.png",
-  ];
   return (
     <div className="h-[946px] flex ">
       <div className="custom-container px-[160px] py-20 flex flex-col gap-10 relative">
