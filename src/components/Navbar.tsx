@@ -50,6 +50,7 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 shadow-md">
       <div className="max-w-[1109px] flex flex-wrap items-center justify-between mx-auto p-4">
@@ -70,7 +71,7 @@ export default function Navbar() {
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg lg:hidden"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg laptop:hidden"
             aria-controls="navbar-sticky"
             aria-expanded={isMenuOpen}
             onClick={toggleMenu}
@@ -79,16 +80,16 @@ export default function Navbar() {
           </button>
         </div>
         <div
-          className={`items-center  justify-between hidden w-full lg:flex md:w-auto md:order-1  `}
+          className={`items-center justify-between hidden w-full laptop:flex tablet:w-auto`}
           id="navbar-sticky"
         >
-          <ul className="flex items-center md:p-0 mt-4 font-medium md:space-x-8 lg:space-x-0 rtl:space-x-reverse flex-row md:mt-0 md:border-0 mr-4">
+          <ul className="flex items-center md:p-0 mt-4 font-medium tablet:space-x-8 laptop:space-x-0 rtl:space-x-reverse flex-row tablet:mt-0 tablet:border-0 mr-4">
             <li className="underline-animation font-semibold text-base m-4 group relative">
               <Dropdown menu={{ items }} placement="bottomLeft" arrow>
                 <p className="flex items-center cursor-pointer hover:text-[#08BED5]">
                   Dịch Vụ
                   <svg
-                    className="fill-current h-4 w-4 transform  group-hover:-rotate-180  transition duration-150 ease-in-out ml-1"
+                    className="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out ml-1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -97,7 +98,6 @@ export default function Navbar() {
                 </p>
               </Dropdown>
             </li>
-            <div></div>
             <li>
               <Link
                 href="/case-studies"
@@ -140,7 +140,7 @@ export default function Navbar() {
             </li>
             <button
               type="button"
-              className={`text-white ant-btn focus:outline-none font-medium rounded-md text-base px-4 py-2 text-center items-center justify-between block md:hidden`}
+              className={`text-white ant-btn focus:outline-none font-medium rounded-md text-base px-4 py-2 text-center items-center justify-between block tablet:hidden`}
             >
               Quotation
             </button>
@@ -149,9 +149,8 @@ export default function Navbar() {
       </div>
 
       <ul
-        className={`${
-          isMenuOpen ? "flex" : "hidden"
-        } flex-col items-center lg:hidden`}
+        className={`${isMenuOpen ? "flex" : "hidden"
+          } flex-col items-center lg:hidden`}
       >
         <li className="underline-animation font-semibold text-base m-4 group relative hover:text-[#08BED5]">
           <Dropdown menu={{ items }} placement="bottom" arrow>

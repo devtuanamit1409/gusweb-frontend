@@ -33,7 +33,6 @@ export default function WebsiteAsGateway({ webUs }: any) {
                 key={index}
                 item={item}
                 showDescriptionOnHover={true}
-                customClassNameTitle="text-white text-xl"
               />
             ))}
         </div>

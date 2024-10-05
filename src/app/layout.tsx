@@ -2,6 +2,8 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import HeaderComponent from "@/components/HeaderComponent";
+import BrandValue from "@/components/BrandValue";
 import "aos/dist/aos.css";
 
 // import { AntdRegistry } from '@ant-design/nextjs-registry';
@@ -20,8 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <main className="mt-[78px]"> {children}</main>
+        {/* <Navbar /> */}
+        <HeaderComponent />
+        <main> {children}</main>
         <Footer />
       </body>
     </html>
