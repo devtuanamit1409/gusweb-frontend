@@ -199,7 +199,6 @@
     format("truetype");
   font-weight: bold;
   font-style: normal;
-  
 }
 @font-face {
   font-family: "Bricolage Grotesque";
@@ -212,10 +211,10 @@
   background: linear-gradient(90deg, #3a7bd5, #00d2ff);
 }
 .background-LinearGradient {
-  background: linear-gradient(90deg, #3A7BD56B, #00D2FF6B);
+  background: linear-gradient(90deg, #3a7bd56b, #00d2ff6b);
 }
 .background-Gradient {
-  background: linear-gradient(90deg, #FF5F6D, #FFC371);
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
   background-clip: text; /* Áp dụng gradient cho chữ */
   -webkit-background-clip: text; /* Hỗ trợ cho Safari */
   color: transparent;
@@ -279,7 +278,7 @@
   font-size: 56px;
   font-weight: 700;
   line-height: 67.2px; /* Added 'px' unit */
-  color: #1C1C1C;
+  color: #1c1c1c;
 }
 .label-custom {
   font-size: 16px;
@@ -287,5 +286,50 @@
   line-height: 24px; /* Added 'px' unit */
   color: #363636;
   letter-spacing: 0.5px;
-  
+}
+
+.PageNotFound {
+  height: calc(100vh - 76px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: url(/images/notfound.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.PageNotFound-container {
+  padding: 5rem 0;
+  max-width: 736px;
+  text-align: center;
+}
+
+.PageNotFound-button,
+.PageNotFound-title {
+  background-image: linear-gradient(90deg, #ff5f6d, #ffc371);
+}
+
+.PageNotFound-title {
+  font-size: 48px;
+  line-height: 59px;
+  color: #363636;
+  font-weight: 700;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.PageNotFound-content {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #363636;
+}
+
+.PageNotFound-button {
+  margin-top: 2.5rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.08);
 }
