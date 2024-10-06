@@ -1,12 +1,10 @@
-import Image from "next/image";
 import React from "react";
-import imageNotFound from "../../public/images/notfound.svg";
 import { Button } from "antd";
 import Link from "next/link";
 
 const not_found = () => {
   return (
-    <div className="relative pt-[76px]">
+    <div className="pt-[76px]">
       <div className="PageNotFound ">
         <div className="PageNotFound-container">
           <h2 className="PageNotFound-title">Không tìm thấy trang</h2>

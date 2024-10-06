@@ -296,7 +296,14 @@
   background-image: url(/images/notfound.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 50%;
+}
+
+@media screen and (max-width: 767px) {
+  .PageNotFound {
+    background-image: url(/images/404-Mobile.bf71cd1d.png);
+    background-size: 100%, 100%;
+  }
 }
 
 .PageNotFound-container {
