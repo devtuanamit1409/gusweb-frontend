@@ -552,3 +552,46 @@ export const fetchAboutUsPage = async (lang: string) => {
 
   return formattedData;
 };
+
+//fetch api contact us page
+export const fetchContactUsPage = async (lang: string) => {
+  const data = await getAllItem(
+    "/contact-us-page",
+    "intro.src,map.logo.src,folow.image.src,folow.icons.src",
+    lang
+  );
+  const res = data?.data?.attributes;
+
+  const formattedData = {
+    locale: res?.locale,
+    intro: {
+      id: res.intro.id,
+      title: res.intro.title,
+      description: res.intro.description,
+      url: BaseApiUrl + res.intro.src.data?.attributes?.url,
+      alt: res.intro.alt,
+    },
+    map: {
+      id: res.map.id,
+      urlMap: res.map.urlMap,
+      alt: res.map.logo.alt,
+      url: BaseApiUrl + res.map.logo.src.data?.attributes?.url,
+      address: res.map.address,
+      phone: res.map.phone,
+      time: res.map.time,
+    },
+    folow: {
+      id: res.folow.id,
+      alt: res.folow.image.alt,
+      url: BaseApiUrl + res.folow.image.src.data?.attributes?.url,
+      icons: res?.folow?.icons?.map((item: any) => ({
+        id: item.id,
+        alt: item.alt,
+        url: BaseApiUrl + item.src.data?.attributes?.url,
+        slug: item.slug,
+      })),
+    },
+  };
+
+  return formattedData;
+};
