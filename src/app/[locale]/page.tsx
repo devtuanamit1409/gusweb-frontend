@@ -8,12 +8,11 @@ import PartnerList from "@/components/PartnerList";
 import WebsiteAsGateway from "@/components/WebsiteAsGateway";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkPrinciples from "@/components/WorkPrinciples";
-import { fetchHomePage } from "@/utils/GlobalApi";
+import { fetchHomePage, fetchSubCategoryByCategoryId } from "@/utils/GlobalApi";
 import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
   const data = await fetchHomePage("vi");
-  //console.log(data.main);
 
   return (
     <main className="">

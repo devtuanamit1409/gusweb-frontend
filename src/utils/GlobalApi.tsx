@@ -52,6 +52,27 @@ export const getFilterArticle = async (
   }
 };
 
+//fetch api get filter subcategory
+export const fetchSubCategoryByCategoryId = async (
+  lang: string,
+  categoryId: number
+) => {
+  const data = await getAllItem(`/categories/${categoryId}`, "*", lang);
+  const res = data?.data?.attributes;
+
+  const formattedData = {
+    locale: res?.locale,
+    subCategories: res?.sub_categories?.data?.map((item: any) => ({
+      id: item.id,
+      slug: item.attributes.slug,
+      title: item.attributes.title,
+      articleCount: item.attributes.articleCount,
+    })),
+  };
+
+  return formattedData;
+};
+
 //fetch api header custom
 export const fetchHeader = async (lang: string) => {
   const data = await getAllItem("/header", "logo.src,items", lang);
@@ -373,9 +394,25 @@ export const fetchServicePage = async (lang: string) => {
   return formattedData;
 };
 
-//fetch api case-studies
+//fetch api case-studies page
 export const fetchCaseStudies = async (lang: string) => {
   const data = await getAllItem("/case-studies-page", "*", lang);
+  const res = data?.data?.attributes;
+
+  const formattedData = {
+    id: res.id,
+    locale: res?.locale,
+    title: res?.intro.title,
+    description: res?.intro.description,
+    categoryId: res?.category.data.id,
+  };
+
+  return formattedData;
+};
+
+//fetch api blog page
+export const fetchBlogPage = async (lang: string) => {
+  const data = await getAllItem("/blog-page", "*", lang);
   const res = data?.data?.attributes;
 
   const formattedData = {

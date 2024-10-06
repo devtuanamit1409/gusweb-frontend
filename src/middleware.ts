@@ -9,20 +9,23 @@ export default function middleware(request: NextRequest) {
   const localeCookie = request.cookies.get("NEXT_LOCALE");
   const locale = localeCookie ? localeCookie.value : "vi";
 
-  // if (pathname === "/") {
-  //   if (locale === "vi") {
-  //     request.nextUrl.pathname = "/vi";
-  //   } else if (locale === "en") {
-  //     const response = NextResponse.redirect(new URL("/en", request.url));
-  //     return response;
-  //   }
-  // }
+  if (pathname === "/") {
+    if (locale === "vi") {
+      request.nextUrl.pathname = "/vi";
+    } else if (locale === "en") {
+      const response = NextResponse.redirect(new URL("/en", request.url));
+      return response;
+    } else if (locale === "ko") {
+      const response = NextResponse.redirect(new URL("/ko", request.url));
+      return response;
+    }
+  }
 
-  // if (pathname === "/vi") {
-  //   const response = NextResponse.redirect(new URL("/", request.url));
-  //   response.cookies.set("NEXT_LOCALE", "vi");
-  //   return response;
-  // }
+  if (pathname === "/vi") {
+    const response = NextResponse.redirect(new URL("/", request.url));
+    response.cookies.set("NEXT_LOCALE", "vi");
+    return response;
+  }
 
   // if (pathname === "/en") {
   //   if (locale === "vi") {
@@ -40,20 +43,24 @@ export default function middleware(request: NextRequest) {
   //   }
   // }
 
-  // if (pathname.startsWith("/vi")) {
-  //   const newPathname = pathname.replace(/^\/vi/, "");
-  //   if (locale === "en") {
-  //     const response = NextResponse.redirect(new URL(newPathname, request.url));
-  //     response.cookies.set("NEXT_LOCALE", "vi");
-  //     return response;
-  //   } else {
-  //     return NextResponse.redirect(new URL(newPathname, request.url));
-  //   }
-  // }
+  if (pathname.startsWith("/vi")) {
+    const newPathname = pathname.replace(/^\/vi/, "");
+    if (locale === "en") {
+      const response = NextResponse.redirect(new URL(newPathname, request.url));
+      response.cookies.set("NEXT_LOCALE", "vi");
+      return response;
+    } else if (locale === "ko") {
+      const response = NextResponse.redirect(new URL(newPathname, request.url));
+      response.cookies.set("NEXT_LOCALE", "vi");
+      return response;
+    } else {
+      return NextResponse.redirect(new URL(newPathname, request.url));
+    }
+  }
 
-  // if (!pathname.startsWith("/vi") && !pathname.startsWith("/en")) {
-  //   request.nextUrl.pathname = `/vi${pathname}`;
-  // }
+  if (!pathname.startsWith("/vi") && !pathname.startsWith("/en")) {
+    request.nextUrl.pathname = `/vi${pathname}`;
+  }
 
   // if (pathname.startsWith("/en")) {
   //   if (locale === "vi") {
