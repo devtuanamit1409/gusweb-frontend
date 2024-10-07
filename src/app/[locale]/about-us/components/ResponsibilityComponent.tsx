@@ -2,29 +2,29 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const ResponsibilityComponent = () => {
-  const data = [
-    {
-      title: "Trách Nhiệm Với Khách Hàng",
-      description:
-        "Chúng tôi luôn nỗ lực hoàn thiện các giải pháp toàn diện, nhằm đáp ứng nhu cầu chuyển đổi số trong nhiều lĩnh vực, giúp khách hàng tăng trưởng và phát triển bền vững.",
-    },
-    {
-      title: "Trách Nhiệm Với Nhân Sự",
-      description:
-        "Nhân sự là tài sản giá trị và góp phần quan trọng vào sự thành công của doanh nghiệp. Ở AMIT, chúng tôi luôn tạo điều kiện cho mỗi nhân sự có một môi trường làm việc chuyên nghiệp, năng động với nhiều cơ hội để vượt qua giới hạn và phát triển bản thân.",
-    },
-    {
-      title: "Trách Nhiệm Với Cổ Đông",
-      description:
-        "AMIT luôn đảm bảo sự minh bạch trong quá trình sử dụng các nguồn lực của công ty. Đội ngũ lãnh đạo của chúng tôi không ngừng nỗ lực tìm kiếm và phát triển những mô hình kinh doanh tiềm năng, nhằm mang lại hiệu quả tăng trưởng và sinh lợi cho cổ đông.",
-    },
-    {
-      title: "Trách Nhiệm Với Cộng Đồng & Xã Hội",
-      description:
-        "Chúng tôi tin rằng một môi trường sống trong lành và một xã hội văn minh là yếu tố tiên quyết dẫn đến sự thành công. Do đó, chúng tôi luôn nỗ lực hướng đến sự phát triển bền vững, tạo ra nhiều giá trị hơn cho Cộng đồng.",
-    },
-  ];
+const ResponsibilityComponent: React.FC<any> = ({ data }) => {
+  // const data = [
+  //   {
+  //     title: "Trách Nhiệm Với Khách Hàng",
+  //     description:
+  //       "Chúng tôi luôn nỗ lực hoàn thiện các giải pháp toàn diện, nhằm đáp ứng nhu cầu chuyển đổi số trong nhiều lĩnh vực, giúp khách hàng tăng trưởng và phát triển bền vững.",
+  //   },
+  //   {
+  //     title: "Trách Nhiệm Với Nhân Sự",
+  //     description:
+  //       "Nhân sự là tài sản giá trị và góp phần quan trọng vào sự thành công của doanh nghiệp. Ở AMIT, chúng tôi luôn tạo điều kiện cho mỗi nhân sự có một môi trường làm việc chuyên nghiệp, năng động với nhiều cơ hội để vượt qua giới hạn và phát triển bản thân.",
+  //   },
+  //   {
+  //     title: "Trách Nhiệm Với Cổ Đông",
+  //     description:
+  //       "AMIT luôn đảm bảo sự minh bạch trong quá trình sử dụng các nguồn lực của công ty. Đội ngũ lãnh đạo của chúng tôi không ngừng nỗ lực tìm kiếm và phát triển những mô hình kinh doanh tiềm năng, nhằm mang lại hiệu quả tăng trưởng và sinh lợi cho cổ đông.",
+  //   },
+  //   {
+  //     title: "Trách Nhiệm Với Cộng Đồng & Xã Hội",
+  //     description:
+  //       "Chúng tôi tin rằng một môi trường sống trong lành và một xã hội văn minh là yếu tố tiên quyết dẫn đến sự thành công. Do đó, chúng tôi luôn nỗ lực hướng đến sự phát triển bền vững, tạo ra nhiều giá trị hơn cho Cộng đồng.",
+  //   },
+  // ];
 
   const [activeFirstSet, setActiveFirstSet] = useState("left");
   const [showFirstSetContent, setShowFirstSetContent] = useState(true);
@@ -34,9 +34,7 @@ const ResponsibilityComponent = () => {
 
   useEffect(() => {
     AOS.init();
-    setTimeout(() => {
-      setInitialLoad(false);
-    }, 1000); 
+    setTimeout(() => {}, 1000);
   }, []);
 
   const handleFirstSetClick = (side: string) => {
@@ -62,7 +60,7 @@ const ResponsibilityComponent = () => {
   return (
     <div className="w-[1116px] flex flex-col gap-6">
       <div className="h-56 flex flex-row gap-6">
-        {data.slice(0, 2).map((item, index) => (
+        {data.slice(0, 2).map((item: any, index: number) => (
           <div
             key={index}
             className={`${
@@ -89,7 +87,7 @@ const ResponsibilityComponent = () => {
         ))}
       </div>
       <div className="h-56 flex flex-row gap-6">
-        {data.slice(2, 4).map((item, index) => (
+        {data.slice(2, 4).map((item: any, index: number) => (
           <div
             key={index}
             className={`${

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const SupportIdeas = () => {
+const SupportIdeas: React.FC<any> = ({ help }) => {
   const data = {
     Premble: "Chúng tôi luôn có thể giúp bạn",
     title:
@@ -60,53 +60,54 @@ const SupportIdeas = () => {
         <div className="h-[228px] gap-4 ">
           <div className=" w-[338px] h-[38px]">
             <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]">
-              {data.Premble}
+              "Chúng tôi luôn có thể giúp bạn"
             </span>
           </div>
           <h1 className="text-[56px] font-bold h-[134px] font-bricolage leading-[67.2px] text-[#1C1C1C]">
-            {data.title}
+            {help.title}
           </h1>
           <p className="w-[926px] h-[24px] font-normal text-base leading-6 tracking-[0.5px] text-[#1C1C1C]">
-            {data.description}
+            {help.description}
           </p>
         </div>
 
         <div className="grid grid-cols-2 grid-rows-3 gap-4">
-          {items.map((item, index) => (
-            <div key={index} className="relative w-full h-[280px]">
-              <Image
-                src={item.image}
-                alt=""
-                width={544}
-                height={280}
-                className="object-cover absolute inset-0 "
-              />
+          {help.items &&
+            help.items.map((item: any, index: number) => (
+              <div key={index} className="relative w-full h-[280px]">
+                <Image
+                  src={item.bg.url}
+                  alt={item.bg.alt}
+                  width={544}
+                  height={280}
+                  className="object-cover absolute inset-0 "
+                />
 
-              <div
-                className={`flex flex-row relative justify-between p-[20px] gap-[20px]  ${
-                  index === 2 || index === 3 ? "flex-row-reverse" : ""
-                }`}
-              >
-                <div className="w-[237px] h-[216px]  flex flex-row justify-start">
-                  <Image
-                    src={item.icon}
-                    alt="Icon"
-                    width={56}
-                    height={60}
-                    className="object-cover w-[56px] h-[56px]"
-                  />
-                  <h3 className="font-bricolage text-xl font-bold leading-6 text-[#1C1C1C] mt-[15px]">
-                    {item.title}
-                  </h3>
-                </div>
-                <div className="w-[235px] h-[192px] relative">
-                  <p className="font-normal text-base leading-6 tracking-[0.5px] text-[#363636]">
-                    {item.description}
-                  </p>
+                <div
+                  className={`flex flex-row relative justify-between p-[20px] gap-[20px]  ${
+                    index === 2 || index === 3 ? "flex-row-reverse" : ""
+                  }`}
+                >
+                  <div className="w-[237px] h-[216px]  flex flex-row justify-start">
+                    <Image
+                      src={item.icon.url}
+                      alt={item.icon.alt}
+                      width={56}
+                      height={60}
+                      className="object-cover w-[56px] h-[56px]"
+                    />
+                    <h3 className="font-bricolage text-xl font-bold leading-6 text-[#1C1C1C] mt-[15px]">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <div className="w-[235px] h-[192px] relative">
+                    <p className="font-normal text-base leading-6 tracking-[0.5px] text-[#363636]">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
