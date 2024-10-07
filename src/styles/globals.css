@@ -208,6 +208,7 @@
   font-weight: 400; /* Trọng lượng phông chữ mặc định */
   font-style: normal;
 }
+
 .background-custom {
   background: linear-gradient(90deg, #3a7bd5, #00d2ff);
 }
@@ -257,19 +258,21 @@
   background-position: 0 0, 0 0, 100% 0, 0 100%;
   background-repeat: no-repeat;
 }
-.text-preamble:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 11px;
-  opacity: 0.24;
-  width: 100%;
-  display: block;
-  background-color: #08bed5;
-  -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  z-index: -1;
+@layer utilities {
+  .text-preamble:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 11px;
+    opacity: 0.24;
+    width: 100%;
+    display: block;
+    background-color: #08bed5;
+    -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    z-index: -1;
+  }
 }
 .border-bottom-blue-custom {
   box-shadow: 0 8px 16px rgba(58, 123, 213, 0.4);

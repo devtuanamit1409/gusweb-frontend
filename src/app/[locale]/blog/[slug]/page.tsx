@@ -3,7 +3,7 @@ import BookComponent from "@/components/BookComponent";
 import TechnologyComponent from "@/components/TechnologyComponent";
 
 const article = {
-  type: "", 
+  type: "ebook", 
 };
 
 const Page = () => {

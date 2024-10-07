@@ -88,7 +88,7 @@ const CaseStudies: React.FC<any> = ({ data }) => {
       <div className="w-[1116px] items-center flex flex-row mx-auto">
         <div className="w-[557px] gap-6 ">
           <h1 className="w-[246px] font-normal text-2xl leading-[38.4px] text-[#1C1C1C] text-preamble relative">
-            DISCOVER OUR WORK
+            {/* {item.premble} */}
           </h1>
           <h2 className="w-[557px] font-bold font-bricolage text-[32px] leading-[38.4px] pt-[27px]">
             {data.title}
@@ -226,5 +226,4 @@ const CaseStudies: React.FC<any> = ({ data }) => {
     </div>
   );
 };
-
 export default CaseStudies;

@@ -52,14 +52,12 @@ const BookComponent = () => {
         </div>
       </div>
       <div className="custom-container py-20 px-[162px] flex flex-row gap-6">
-        <div className="h-[474px] w-[347.84px]">
+        <div className="h-[474px] w-[347.84px] relative">
           <Image
             src="/images/agile_scrum.png"
             alt="agile_scrum"
-            layout="responsive"
-            width={347.84}
-            height={474}
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
           />
         </div>
         <div className="w-[831px] h-[467px] flex flex-col gap-10  ">
@@ -100,11 +98,11 @@ const BookComponent = () => {
             </ul>
             <div className=" h-[51px]">
               <p className="line-clamp-3 italic text-[#737373] font-normal text-[12px] leading-[16.8px] ">
-                <span className="text-[#737373] font-bold">Ghi chú:</span> Chúng tôi sử
-                dụng thông tin bạn cung cấp cho chúng tôi để liên hệ với bạn về
-                nội dung, sản phẩm và dịch vụ có liên quan của chúng tôi. Chúng
-                tôi cam kết thông tin của bạn được an toàn và chúng tôi sẽ bảo
-                vệ dữ liệu của bạn cẩn thận.
+                <span className="text-[#737373] font-bold">Ghi chú:</span> Chúng
+                tôi sử dụng thông tin bạn cung cấp cho chúng tôi để liên hệ với
+                bạn về nội dung, sản phẩm và dịch vụ có liên quan của chúng tôi.
+                Chúng tôi cam kết thông tin của bạn được an toàn và chúng tôi sẽ
+                bảo vệ dữ liệu của bạn cẩn thận.
               </p>
             </div>
           </div>
