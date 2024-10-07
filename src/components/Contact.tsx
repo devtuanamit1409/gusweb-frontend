@@ -5,7 +5,6 @@ import { midPageModel } from "@/models/MidPageModel";
 import { Button } from "antd";
 import Link from "next/link";
 
-
 const items: midPageModel[] = [
   {
     url: "/images/Promotion.png",
@@ -16,7 +15,7 @@ const items: midPageModel[] = [
 
 export default function Contact() {
   return (
-    <div className="w-full h-[428px]">
+    <div className="w-full">
       {items.map((item, index) => (
         <div key={index} className="relative">
           <Image

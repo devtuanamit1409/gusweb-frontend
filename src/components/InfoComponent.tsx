@@ -10,6 +10,7 @@ interface Props {
 
 const InfoComponent = (props: Props) => {
   const { data, styleTitle, styleImage } = props;
+  console.log("data", data);
   return (
     <div className="h-[555px] w-[1116px] gap-[10px] flex justify-center items-center">
       <div

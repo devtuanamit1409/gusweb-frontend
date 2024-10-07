@@ -1,5 +1,5 @@
 "use client";
-import Banner from "@/components/Banner";
+import Banner from "@/components/BannerComponent";
 import React from "react";
 import Slide from "@/components/SlideComponent";
 import IdeaCard from "@/components/IdeaCard";
@@ -10,6 +10,7 @@ import Image from "next/image";
 import DevelopmentSolutions from "@/components/DevelopmentSolutions";
 import Contact from "@/components/Contact";
 import Head from "next/head";
+import BannerComponent from "@/components/BannerComponent";
 
 const DynamicSlide = dynamic(() => import("@/components/SlideComponent"), {
   ssr: false, // Không render trên server
@@ -35,7 +36,7 @@ const page = () => {
         <meta name="description" content="This is a client-side description" />
       </Head>
       <div className="w-full h-full">
-        <Banner />
+        <BannerComponent />
         <Slide />
         <div className="w-full h-[715px] py-[80px] px-[162px] justify-center items-center flex gap-10">
           <div className="h-[294px] w-[523px] gap-4  flex flex-col">
