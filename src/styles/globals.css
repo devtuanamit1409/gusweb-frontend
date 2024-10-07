@@ -67,6 +67,7 @@
   box-shadow: none;
   background: "#1FA9EC";
   position: relative;
+  color: #FEFEFE;
 }
 .gradient-text {
   position: relative;
@@ -342,4 +343,9 @@
 .PageNotFound-button {
   margin-top: 2.5rem;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.category-item__box {
+  box-shadow: 0px 8px 16px 0px #3A7BD566;
+  background: linear-gradient(89.71deg, #C6F5FF -2.43%, #FEFCFF 103.41%);
 }

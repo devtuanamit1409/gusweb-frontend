@@ -34,6 +34,7 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
 
   useEffect(() => {
     AOS.init();
+    setInitialLoad(false);
     setTimeout(() => {}, 1000);
   }, []);
 
