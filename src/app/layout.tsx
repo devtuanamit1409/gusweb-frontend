@@ -27,7 +27,7 @@ const RootLayout: React.FC<{
         <NextIntlClientProvider messages={messages}>
           {/* <Navbar /> */}
           <HeaderComponent />
-          <main> {children}</main>
+          <main className="mt-[76px]"> {children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>
