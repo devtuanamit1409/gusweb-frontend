@@ -7,7 +7,8 @@ import { bodyDesktopModel } from "@/models/bodyDesktopModel";
 export default function AboutUs({ whoUs }: any) {
   // console.log(whoUs);
   return (
-    <div className="flex items-center justify-center max-w-[1140px] mx-auto text-left">
+
+    <div className="flex items-center justify-center max-w-[1116px] mx-auto text-left ">
       <React.Fragment>
         <div
           className="flex-1 p-4"

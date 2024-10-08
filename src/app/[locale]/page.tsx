@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <main className="">
       <BrandValue mainData={data.main} />
-      <AboutUs whoUs={data.whoUs} />
+      {/* <AboutUs whoUs={data.whoUs} />
       <WebsiteAsGateway webUs={data.webUs} />
       <OurExperts about={data.about} />
       <WhyChooseUs whyUs={data.whyUs} />
@@ -25,7 +25,7 @@ export default async function Home() {
       <PartnerList customer={data.customer} />
       <CustomerSuccessStory />
       <BlogCard />
-      <Contact />
+      <Contact /> */}
     </main>
   );
 }

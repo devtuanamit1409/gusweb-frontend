@@ -34,7 +34,7 @@ const AboutUsPage: React.FC<any> = ({ data }) => {
       </div>
       <ExpensiveComponent exp={data.exp} />
 
-      <TeamComponent team={data.team} />
+      {/* <TeamComponent team={data.team} /> */}
       <Contact />
     </div>
   );

@@ -7,7 +7,7 @@ import WhyCardComponent from "@/components/WhyCardComponent";
 export default function WhyChooseUs({ whyUs }: any) {
   return (
     <div>
-      <div className="relative flex flex-col items-center">
+      <div className="flex flex-col items-center custom-container">
         <div className="mt-40 ">
           <p className="text-2xl relative text-preamble w-[470px]">
             Tại sao <b>{whyUs.name}</b> là lựa chọn phù hợp nhất?.

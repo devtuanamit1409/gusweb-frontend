@@ -55,12 +55,13 @@ export default function BlogCard() {
             {cardsData.map((item, index) => (
               <div key={index} className="home-service-item__box w-[356px] h-[454px] flex justify-center">
                 <div>
-                  <div className="relative">
+                  <div className="relative ">
                     <Image
                       src={item.url}
                       alt={item.title}
                       width={367}
                       height={267}
+                      className=' max-w-[356px] max-h-[267px]'
                     />
                     <button className="background-LinearGradient absolute bottom-4 right-4 w-[85px] h-[26px]">
                       eBook

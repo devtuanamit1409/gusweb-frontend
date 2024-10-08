@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import AOS from "aos";
 
-import Img_Internet_Earth from "@/components/Img_Internet_Earth";
 import IconLock from "@/components/Icons/IconLock";
 import Link from "next/link";
 import IconArrowUp from "@/components/Icons/IconArrowUp";
@@ -11,21 +10,17 @@ import { IconCheck } from "@/components/Icons/IconCheck";
 import IconArrow6 from "@/components/Icons/IconArrow6";
 import IconVector_90 from "@/components/Icons/IconVector_90";
 import IconVuongCam from "@/components/Icons/IconVuongCam";
-import Icon_OurServiecs from "@/components/Icons/Icon_OurServiecs";
-import IconVector_viet from "@/components/Icons/IconVector_viet";
 import IconVuongXanh from "@/components/Icons/IconVuongXanh";
 import IconVectorArrow from "@/components/Icons/IconVectorArrow";
 import HeaderInterfaceSlider from "@/components/HeaderInterfaceSlider";
-import { useTranslations } from "next-intl";
-import QuotationButton from "@/components/QuotationButton";
 
 const BrandValue: React.FC<any> = ({ mainData }) => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <div className="flex flex-wrap items-center justify-center md:flex-row flex-col">
-      <div className="relative w-full h-[1024px]">
+    <div className="flex flex-wrap items-center justify-center flex-col ">
+      <div className="relative w-full h-[1024px] ">
         <Image
           src={mainData.banner.url}
           alt={mainData.banner.alt}
@@ -33,7 +28,7 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           className="object-cover object-bottom"
           loading="lazy"
           decoding="async"
-          sizes="(min-width: 0px) 100vw"
+          sizes="(min-width: 0px) 100vh 100vw"
         />
       </div>
       <div className="absolute top-[110px] left-[148px] right-[148px] bottom-0  h-[885px] flex flex-col gap-[32px] max-w-[1116px] mx-auto " >
@@ -54,7 +49,7 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           </div>
         </div>
         <div className=" flex flex-row h-[519px] justify-between gap-8 w-[1145px] ">
-          <div className="flex-1 mt-7 ">
+          <div className="flex-1 mt-7 laptop:block hidden">
             <div className="glass-card flex flex-row">
               <IconLock />
               <Link href={mainData.url} className="text-white">
@@ -104,7 +99,7 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
             </div>
           </div>
           <div className="flex-1 items-center justify-center ">
-            <div className="p-[10px] gap-[10] Sopha-glass-card ml-[14.5px]">
+            <div className="p-[10px] gap-[10] Sopha-glass-card ml-[14.5px] laptop:block hidden">
               <Image
                 src={mainData.subImg.url}
                 alt={mainData.subImg.alt}
@@ -113,24 +108,25 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
                 className="gap-2"
               />
             </div>
-            <div className="Text-glass-card-dashed p-8 mt-4 gap-8">
-              <div className="text-white mb-10">
+            <div className="Text-glass-card-dashed p-8 mt-10 gap-8">
+              <div className="text-white mb-5 ">
                 <p className="text-2xl">{mainData.text.title}</p>
                 <p className="text-base">{mainData.text.subTitle}</p>
               </div>
-              <div className="TextCon-glass-card-dashed flex items-center justify-center text-center mb-10">
-                <p className="text-[#66F2EB] text-9xl ">
+              <div className="TextCon-glass-card-dashed flex items-center justify-center text-center mb-10 relative">
+                <p className="text-[#66F2EB] text-[120px] absolute -top-14">
                   {mainData.text.content}
                 </p>
-                <div className="mt-[-0.3px] ml-[7.78px] relative"></div>
-                <IconArrow6 />
+                <div className="mt-[-0.3px] ml-[7.78px] relative -right-[74px]">
+                  <IconArrow6 />
+                </div>
               </div>
-              <div className="text-white">
+              <div className="text-white ">
                 <p className="text-xs">{mainData.text.description}</p>
               </div>
             </div>
           </div>
-          <div className="flex-1 mt-20 gap-101">
+          <div className="flex-1 mt-20 gap-101 laptop:block hidden">
             <div className="Vuong-glass-card relative">
               <Image
                 src={mainData.icons[0].url}
@@ -182,7 +178,7 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
               {mainData.actor}
             </button>
           </div>
-          <div className="flex-1 mt-10 mr-8">
+          <div className="flex-1 mt-10 mr-8 laptop:block hidden">
             <div className="phone-glass-card p-2">
               <Image
                 src={mainData.card.url}
@@ -195,7 +191,7 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
                   <h3>{mainData.card.title}</h3>
                   <p className="gradient-text-camvang">{mainData.card.price}$</p>
                 </div>
-                <div className="p-2 border flex justify-between text-[#1FA9EC]">
+                <div className="p-2 border-y-2 flex justify-between text-[#1FA9EC]">
                   <p>{mainData.card.description}</p>
                   <p>+</p>
                 </div>

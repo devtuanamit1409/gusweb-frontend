@@ -35,7 +35,6 @@ export default function WebsiteAsGateway({ webUs }: any) {
               />
             ))}
         </div>
-
       </div>
     </div>
   );
