@@ -137,7 +137,9 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className="w-[1116px] h-[932px] gap-6 bg-green-400 pt-[50px] mx-auto"></div>
+        <div className="w-[1116px] h-[932px] gap-6 bg-green-400 pt-[50px] mx-auto">
+          {/* <BlogCardComponent  /> */}
+        </div>
         <div className="w-[312px] h-[49px] bg-purple-300">
           {/* <PaginationComponent
             currentPage={currentPage}
