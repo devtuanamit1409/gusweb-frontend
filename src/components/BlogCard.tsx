@@ -14,13 +14,13 @@ export default async function BlogCard() {
         <div className="flex flex-col gap-6">
           <div className="flex justify-between items-center">
             <span className="text-[56px] font-bricolage ">
-              askldfjasldfasdfasdf
+              Khai thác website hiệu quả
             </span>
             <button
               type="button"
               className="bg-[#27B3E9] text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
             >
-              asdfasdfasd
+              Xem tất cả
             </button>
           </div>
           <div className="flex gap-6">
