@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -18,7 +19,6 @@ const Slide: React.FC<any> = ({ brands }) => {
     { image: "/images/Logo Cilents.png", alt: "Logo Client 4" },
     { image: "/images/Logo FPT.png", alt: "Logo Client 5" },
   ];
-
   return (
     <div className="max-w-[1140px] mx-auto h-[68px] justify-between pt-[20px] mb-[20px]">
       <Swiper
@@ -26,7 +26,7 @@ const Slide: React.FC<any> = ({ brands }) => {
         spaceBetween={30}
         slidesPerView={5}
         autoplay={{
-          delay: 3000,
+          delay: 1000,
           disableOnInteraction: false,
         }}
         loop={true}

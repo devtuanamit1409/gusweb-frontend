@@ -30,7 +30,13 @@ const cardsData: CardModel[] = [
     date: "10 ngày trước",
   },
 ];
-
+const latestCards = cardsData
+  .sort((a, b) => {
+    const dateA = a.date ? new Date(a.date).getTime() : 0; // Kiểm tra date
+    const dateB = b.date ? new Date(b.date).getTime() : 0; // Kiểm tra date
+    return dateB - dateA; // Sắp xếp theo thứ tự giảm dần
+  })
+  .slice(0, 3);
 const BlogCard: React.FC<BlogCardProps> = ({ cardsData, title, url }) => {
   return (
     <div className=" h-[705px] custom-container flex items-center justify-center">
