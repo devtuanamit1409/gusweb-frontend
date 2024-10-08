@@ -150,9 +150,8 @@ const page = () => {
                   type="text"
                   id="name"
                   placeholder=""
-                  className={`w-[427px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                    nameError ? "border-red-500" : ""
-                  }`}
+                  className={`w-[427px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${nameError ? "border-red-500" : ""
+                    }`}
                   value={name}
                   onChange={handleNameChange}
                   required
@@ -173,9 +172,8 @@ const page = () => {
                   type="tel"
                   id="phone"
                   placeholder=" "
-                  className={`w-[230px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                    phoneError ? "border-red-500" : ""
-                  }`}
+                  className={`w-[230px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${phoneError ? "border-red-500" : ""
+                    }`}
                   value={phoneNumber}
                   onChange={handlePhoneChange}
                   required
@@ -196,9 +194,8 @@ const page = () => {
                 type="email"
                 id="email"
                 placeholder=" "
-                className={`w-full h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                  emailError ? "border-red-500" : ""
-                }`}
+                className={`w-full h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${emailError ? "border-red-500" : ""
+                  }`}
                 value={email}
                 onChange={handleEmailChange}
                 required
@@ -257,9 +254,9 @@ const page = () => {
                   valueLabelFormat={formatBudget}
                   min={0}
                   max={100000}
-                  step={1000} 
+                  step={1000}
                   sx={{
-                    color: "#08BED5", 
+                    color: "#08BED5",
                     height: 8,
                     "& .MuiSlider-thumb": {
                       height: 24,
@@ -272,15 +269,15 @@ const page = () => {
                     },
                     "& .MuiSlider-track": {
                       borderRadius: 4,
-                      backgroundColor: "#D1E9FE", 
+                      backgroundColor: "#D1E9FE",
                     },
                     "& .MuiSlider-rail": {
                       borderRadius: 4,
-                      backgroundColor: "#DDDDDD", 
+                      backgroundColor: "#DDDDDD",
                     },
                     "& .MuiSlider-valueLabel": {
-                      backgroundColor: "#D1E9FE", 
-                      color: "#000", 
+                      backgroundColor: "#D1E9FE",
+                      color: "#000",
                     },
                   }}
                 />

@@ -27,7 +27,7 @@ export default function WorkPrinciples({ work, project }: any) {
   }));
 
   return (
-    <div className="relative h-[1517px] max-w-[1145px] mx-auto mt-20">
+    <div className="relative h-[1517px] max-w-[1109px] mx-auto mt-20">
       <div className="gap-10 mb-[469px]">
         <Image
           src="/images/starrysky.png"

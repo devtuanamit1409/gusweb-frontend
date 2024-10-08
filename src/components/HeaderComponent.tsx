@@ -38,7 +38,9 @@ export default function HeaderComponent() {
         <div className=' bg-white fixed top-0 left-0 right-0 z-20'>
             <div className='custom-container py-4 px-[162px] h-[76px] '>
                 <div className=' flex justify-between h-[50px]'>
-                    <Logo />
+                    <Link href='/'>
+                        <Logo />
+                    </Link>
                     <div className=' flex gap-4 items-center justify-center'>
                         <ul className="flex items-center md:p-0 font-medium tablet:space-x-8 laptop:space-x-0 rtl:space-x-reverse flex-row tablet:mt-0 tablet:border-0 mr-4">
                             <li className="underline-animation font-semibold text-base m-4 group relative">
@@ -96,7 +98,7 @@ export default function HeaderComponent() {
                                 </Link>
                             </li>
                         </ul>
-                        <div className='gap-8 flex items-center'>
+                        <div className='gap-2 flex items-center'>
                             <div className=''><Language /></div>
                             <div className='w-[106px] h-[36px]'><QuotationButton /></div>
                         </div>

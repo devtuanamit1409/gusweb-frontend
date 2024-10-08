@@ -20,7 +20,7 @@ export default function AboutUs({ whoUs }: any) {
           <span
             className="text-2xl relative text-preamble"
             data-aos="fade-left"
-            data-aos-duration="1000"
+            data-aos-duration="2000"
           >
             <b className="font-bold uppercase ">GUSWEB </b>
             <span className="normal-case">LÀ AI?</span>

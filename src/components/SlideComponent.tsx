@@ -7,18 +7,18 @@ import "swiper/css";
 import "swiper/css/autoplay";
 
 const Slide: React.FC<any> = ({ brands }) => {
-  const images = [
-    { image: "/images/logoClient.png", alt: "Logo Client 1" },
-    { image: "/images/Audi_logo logo.png", alt: "Logo Client 2" },
-    { image: "/images/CocaCola logo.png", alt: "Logo Client 3" },
-    { image: "/images/Logo Cilents.png", alt: "Logo Client 4" },
-    { image: "/images/Logo FPT.png", alt: "Logo Client 5" },
-    { image: "/images/logoClient.png", alt: "Logo Client 1" },
-    { image: "/images/Audi_logo logo.png", alt: "Logo Client 2" },
-    { image: "/images/CocaCola logo.png", alt: "Logo Client 3" },
-    { image: "/images/Logo Cilents.png", alt: "Logo Client 4" },
-    { image: "/images/Logo FPT.png", alt: "Logo Client 5" },
-  ];
+  // const images = [
+  //   { image: "/images/logoClient.png", alt: "Logo Client 1" },
+  //   { image: "/images/Audi_logo logo.png", alt: "Logo Client 2" },
+  //   { image: "/images/CocaCola logo.png", alt: "Logo Client 3" },
+  //   { image: "/images/Logo Cilents.png", alt: "Logo Client 4" },
+  //   { image: "/images/Logo FPT.png", alt: "Logo Client 5" },
+  //   { image: "/images/logoClient.png", alt: "Logo Client 1" },
+  //   { image: "/images/Audi_logo logo.png", alt: "Logo Client 2" },
+  //   { image: "/images/CocaCola logo.png", alt: "Logo Client 3" },
+  //   { image: "/images/Logo Cilents.png", alt: "Logo Client 4" },
+  //   { image: "/images/Logo FPT.png", alt: "Logo Client 5" },
+  // ];
   return (
     <div className="max-w-[1140px] mx-auto h-[68px] justify-between pt-[20px] mb-[20px]">
       <Swiper

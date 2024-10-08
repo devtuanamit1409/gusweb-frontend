@@ -94,13 +94,7 @@ export default async function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="max-w-[1140px] justify-between ">
-                <hr className="border-t-2 mb-4" />
-                <p className="footer-bottom-copyRight text-left text-sm">
-                    Copyright © 2022 <b>AMIT GROUP</b>. All Rights Reserved | Design by{" "}
-                    <b>AMIT GROUP</b>
-                </p>
-            </div>
+            <hr className="border-t-2 mb-4" />
         </footer>
     );
 }
