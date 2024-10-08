@@ -65,7 +65,7 @@
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: none;
-  background: "#1FA9EC";
+  background: #1FA9EC;
   position: relative;
   color: #FEFEFE;
 }
@@ -76,6 +76,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.gradient-text-camvang {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #FF5F6D, #FFC371);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 .gradient-text::before {
   content: "";

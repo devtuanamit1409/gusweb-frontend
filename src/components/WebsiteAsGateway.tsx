@@ -25,8 +25,7 @@ export default function WebsiteAsGateway({ webUs }: any) {
         <div className="text-white text-[16px] w-[680px] h-[48px] mt-10">
           <h1>{webUs.intro.description}</h1>
         </div>
-
-        <div className="grid grid-cols-3 gap-6 justify-center mt-4">
+        <div className="grid grid-cols-3 gap-6 justify-items-center mt-4">
           {webUs.items &&
             webUs.items.map((item: any, index: number) => (
               <CardComponent
@@ -36,6 +35,7 @@ export default function WebsiteAsGateway({ webUs }: any) {
               />
             ))}
         </div>
+
       </div>
     </div>
   );
