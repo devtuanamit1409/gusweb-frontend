@@ -1,16 +1,11 @@
 "use client";
 import BannerComponent from "@/components/BannerComponent";
-import { Button, Tag } from "antd";
+import {
+    ArrowRightOutlined
+} from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import {
-  ArrowRightOutlined,
-  LeftOutlined,
-  RightOutlined,
-} from "@ant-design/icons";
-import PaginationComponent from "@/components/PaginationComponent";
-import BlogCardComponent from "@/components/BlogCardComponent";
+import { useState } from "react";
 const page = () => {
   const data = {
     premble: "GUSWEB SHARING",
@@ -84,11 +79,11 @@ const page = () => {
 
   return (
     <div className="w-full">
-      <BannerComponent
+      {/* <BannerComponent
         premble={data.premble}
         title={data.title}
         description={data.description}
-      />
+      /> */}
       <div className="px-[162px] py-[80px] gap-10 custom-container mx-auto ">
         <div className="w-[911px] h-[48px] rounded-2xl border py-2 px-4 gap-6  mx-auto flex flex-row justify-center items-center">
           <div className="flex items-center  py-[5px] px-[12px] gap-2 ">
