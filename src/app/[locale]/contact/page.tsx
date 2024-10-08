@@ -1,17 +1,18 @@
 "use client";
 import BannerComponent from "@/components/BannerComponent";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
+import { fetchContactUsPage } from "@/utils/GlobalApi";
 
 const page = () => {
-  const data = {
-    premble: "LIÊN HỆ",
-    title: "",
-    description:
-      "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
-  };
+  // const data = {
+  //   premble: "LIÊN HỆ",
+  //   title: "",
+  //   description:
+  //     "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
+  // };
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -21,6 +22,16 @@ const page = () => {
   const [emailError, setEmailError] = useState<string>("");
   const [formError, setFormError] = useState<string>("");
   const [submitError, setSubmitError] = useState<string>("");
+  const [contactData, setContactData] = useState<any>(null);
+
+  useEffect(() => {
+    const getContactData = async () => {
+      const data = await fetchContactUsPage("vi");
+      setContactData(data);
+    };
+
+    getContactData();
+  }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -116,11 +127,7 @@ const page = () => {
 
   return (
     <div className="w-full">
-      {/* <BannerComponent
-        premble={data.premble}
-        description={data.description}
-        title={data.title}
-      /> */}
+      <BannerComponent intro={contactData?.intro} />
       <div className="h-[1058px] mx-auto flex justify-center items-center pt-[100px] gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529]">
         <div className="w-full max-w-[736px] h-[806px] rounded-2xl border px-[24px] gap-4 flex flex-col mx-auto bg-white">
           <div className="w-full h-[68px] gap-2 pb-6 pt-6">
@@ -299,28 +306,27 @@ const page = () => {
           </form>
         </div>
       </div>
+
       <div className="h-[486px] flex flex-row py-[80px] px-[162px] justify-center">
         <div className="w-[736px] h-[326px] pr-4 overflow-hidden">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.16379361744!2d106.73273727570343!3d10.798764158779967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175261007e9e965%3A0xb27464e56bb30359!2zNyDEkMaw4budbmcgc-G7kSA3QywgVGjhuqNvIMSQaeG7gW4sIFF14bqtbiAyLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1728266550240!5m2!1svi!2s"
+            src={contactData?.map?.urlMap}
             className="w-full h-full border-none rounded-lg"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
         <div className="w-[356px] h-[326px] rounded-lg border border-[#1FA9EC] p-6 gap-4 ">
-          {/* Logo */}
           <div className="w-[156px] h-[50px] gap-2 flex justify-center items-center mx-auto  ">
             <Image
               width={156}
               height={50}
-              src="/images/logo.png"
-              alt=""
+              src={contactData?.map.url}
+              alt={contactData?.map.alt}
               className="object-cover w-[160px]"
             />
           </div>
 
-          {/* Office Info */}
           <div className="w-[308px] h-[80px] gap-2 ">
             <div className="mb-4">
               <div className="flex items-center">
@@ -336,12 +342,11 @@ const page = () => {
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                Số 07, Đường 7C, KĐT An Phú An Khánh, phường An Phú, TP. Thủ Đức
+                {contactData?.map?.address}
               </p>
             </div>
           </div>
 
-          {/* Phone Number */}
           <div className="w-[308px] h-[56px] gap-2 ">
             <div className="mb-4">
               <div className="flex items-center">
@@ -357,12 +362,11 @@ const page = () => {
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                +84.911.000.038
+                {contactData?.map?.phone}
               </p>
             </div>
           </div>
 
-          {/* Working Hours */}
           <div className="w-[308px] h-[56px] gap-2 ">
             <div className="mb-4">
               <div className="flex items-center">
@@ -378,7 +382,7 @@ const page = () => {
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                Thứ 2 đến Thứ 6: 8am - 6pm
+                {contactData?.map?.time}
               </p>
             </div>
           </div>
@@ -389,8 +393,8 @@ const page = () => {
         <Image
           width={1440}
           height={291}
-          src="/images/BannerPromotion.png"
-          alt=""
+          src={contactData?.folow?.url || "/images/BannerPromotion.png"}
+          alt={contactData?.folow?.alt || "image banner contact"}
           className="w-full"
           quality={100}
         />
@@ -399,8 +403,18 @@ const page = () => {
             Theo dõi GUSWEB tại
           </h1>
           <div className="w-[104px] h-[40px] gap-6 flex flex-row absolute bottom-0">
-            <Image src="/images/facebook.png" alt="" width={40} height={40} />
-            <Image src="/images/linkedin.png" alt="" width={40} height={40} />
+            {contactData?.folow?.icons &&
+              contactData?.folow?.icons.map((item: any, index: number) => {
+                return (
+                  <Image
+                    key={index}
+                    src={item.url}
+                    alt={item.alt}
+                    width={40}
+                    height={40}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>
