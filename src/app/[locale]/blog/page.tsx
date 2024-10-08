@@ -10,6 +10,7 @@ import {
   RightOutlined,
 } from "@ant-design/icons";
 import PaginationComponent from "@/components/PaginationComponent";
+import BlogCardComponent from "@/components/BlogCardComponent";
 const page = () => {
   const data = {
     premble: "GUSWEB SHARING",
@@ -141,7 +142,9 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className="w-[1116px] h-[932px] gap-6 bg-green-400 pt-[50px] mx-auto"></div>
+        <div className="w-[1116px] h-[932px] gap-6 bg-green-400 pt-[50px] mx-auto">
+          {/* <BlogCardComponent  /> */}
+        </div>
         <div className="w-[312px] h-[49px] bg-purple-300">
           {/* <PaginationComponent
             currentPage={currentPage}
