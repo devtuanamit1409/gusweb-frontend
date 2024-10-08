@@ -3,11 +3,8 @@ import BannerComponent from "@/components/BannerComponent";
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
-import Link from "next/link";
 import Image from "next/image";
-import { FaPhoneAlt } from "react-icons/fa";
-import { HiOutlineOfficeBuilding } from "react-icons/hi";
-import { BiTime } from "react-icons/bi";
+
 const page = () => {
   const data = {
     premble: "LIÊN HỆ",
@@ -19,16 +16,15 @@ const page = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [nameError, setNameError] = useState<string>(""); // Lỗi cho trường họ và tên
+  const [nameError, setNameError] = useState<string>("");
   const [phoneError, setPhoneError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
-  const [formError, setFormError] = useState<string>(""); // Lưu trữ thông báo lỗi cho toàn bộ form
-  const [submitError, setSubmitError] = useState<string>(""); // Thông báo lỗi trên nút gửi
+  const [formError, setFormError] = useState<string>("");
+  const [submitError, setSubmitError] = useState<string>("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Kiểm tra nếu có lỗi trước khi xử lý form
     if (
       nameError ||
       phoneError ||
@@ -38,15 +34,13 @@ const page = () => {
       !email
     ) {
       setFormError("Vui lòng điền đúng theo yêu cầu.");
-      return; // Không cho submit nếu có lỗi
+      return;
     }
 
-    // Xử lý logic khi form được submit
-    setFormError(""); // Reset thông báo lỗi nếu submit thành công
+    setFormError("");
   };
 
   const validateForm = () => {
-    // Kiểm tra tất cả các điều kiện của form
     if (
       nameError ||
       phoneError ||
@@ -63,7 +57,6 @@ const page = () => {
     }
   };
 
-  // Hàm để định dạng giá trị ngân sách hiển thị
   function formatBudget(value: number) {
     return `${value.toLocaleString()}`;
   }
@@ -76,14 +69,13 @@ const page = () => {
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    const isValidName = /^[A-Za-z\s]+$/.test(value); // Kiểm tra nếu chỉ có chữ cái và khoảng trắng
-
+    const isValidName = /^[A-Za-z\s]+$/.test(value);
     if (!value) {
       setNameError("Họ và tên không được để trống.");
     } else if (!isValidName && value.length > 0) {
       setNameError("Họ và tên chỉ được chứa các chữ cái.");
     } else {
-      setNameError(""); // Không có lỗi nếu hợp lệ
+      setNameError("");
     }
 
     setName(value);
@@ -92,21 +84,19 @@ const page = () => {
   const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    // Xóa tất cả các ký tự không phải số
     const sanitizedValue = value.replace(/[^0-9]/g, "");
 
-    // Kiểm tra định dạng số điện thoại
     if (sanitizedValue.length > 0) {
       if (sanitizedValue[0] !== "0") {
         setPhoneError("Số điện thoại phải bắt đầu bằng số 0.");
       } else if (sanitizedValue.length !== 10) {
         setPhoneError("Số điện thoại phải có đúng 10 chữ số.");
       } else {
-        setPhoneError(""); // Không có lỗi nếu hợp lệ
+        setPhoneError("");
       }
     }
 
-    setPhoneNumber(sanitizedValue); // Cập nhật số điện thoại sau khi loại bỏ ký tự không hợp lệ
+    setPhoneNumber(sanitizedValue);
   };
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -116,7 +106,7 @@ const page = () => {
     // Kiểm tra định dạng email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailPattern.test(value)) {
-      setEmailError(""); // Không có lỗi
+      setEmailError("");
     } else {
       setEmailError(
         "Vui lòng nhập đúng định dạng email, VD: example@gmail.com"
@@ -126,11 +116,11 @@ const page = () => {
 
   return (
     <div className="w-full">
-      <BannerComponent
+      {/* <BannerComponent
         premble={data.premble}
         description={data.description}
         title={data.title}
-      />
+      /> */}
       <div className="h-[1058px] mx-auto flex justify-center items-center pt-[100px] gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529]">
         <div className="w-full max-w-[736px] h-[806px] rounded-2xl border px-[24px] gap-4 flex flex-col mx-auto bg-white">
           <div className="w-full h-[68px] gap-2 pb-6 pt-6">
@@ -257,9 +247,9 @@ const page = () => {
                   valueLabelFormat={formatBudget}
                   min={0}
                   max={100000}
-                  step={1000} 
+                  step={1000}
                   sx={{
-                    color: "#08BED5", 
+                    color: "#08BED5",
                     height: 8,
                     "& .MuiSlider-thumb": {
                       height: 24,
@@ -272,15 +262,15 @@ const page = () => {
                     },
                     "& .MuiSlider-track": {
                       borderRadius: 4,
-                      backgroundColor: "#D1E9FE", 
+                      backgroundColor: "#D1E9FE",
                     },
                     "& .MuiSlider-rail": {
                       borderRadius: 4,
-                      backgroundColor: "#DDDDDD", 
+                      backgroundColor: "#DDDDDD",
                     },
                     "& .MuiSlider-valueLabel": {
-                      backgroundColor: "#D1E9FE", 
-                      color: "#000", 
+                      backgroundColor: "#D1E9FE",
+                      color: "#000",
                     },
                   }}
                 />
