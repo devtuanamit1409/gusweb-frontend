@@ -9,12 +9,27 @@ import {
 } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Sử dụng react-icons cho icon left/right
 
 const Page = () => {
   // State to manage current page
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const scrollContainerRef = useRef<HTMLDivElement>(null); // Ref cho phần danh sách cuộn
+
+  // Scroll handling
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -150, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 150, behavior: "smooth" });
+    }
+  };
 
   // Sample card data
   const cardsData: CardModel[] = [
@@ -30,36 +45,7 @@ const Page = () => {
       link: "#",
       date: "10 ngày trước",
     },
-    {
-      url: "/images/blog.png",
-      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-      link: "#",
-      date: "10 ngày trước",
-    },
-    {
-      url: "/images/blog.png",
-      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-      link: "#",
-      date: "10 ngày trước",
-    },
-    {
-      url: "/images/blog.png",
-      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-      link: "#",
-      date: "10 ngày trước",
-    },
-    {
-      url: "/images/blog.png",
-      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-      link: "#",
-      date: "10 ngày trước",
-    },
-    {
-      url: "/images/blog.png",
-      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-      link: "#",
-      date: "10 ngày trước",
-    },
+    // ... thêm các mục khác
   ];
 
   // Calculate pagination variables
@@ -68,13 +54,6 @@ const Page = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = cardsData.slice(indexOfFirstItem, indexOfLastItem);
-
-  const data = {
-    premble: "GUSWEB SHARING",
-    title: "",
-    description:
-      "Chia sẻ các mẹo, kiến thức và chiến lược để giúp doanh nghiệp tận dụng website như một công cụ mạnh mẽ trong marketing và phát triển thương hiệu, hỗ trợ tăng doanh thu.",
-  };
 
   const categories = [
     { name: "Tất cả", href: "", id: 0 },
@@ -96,25 +75,29 @@ const Page = () => {
 
   return (
     <div className="w-full">
-      {/* Optional Banner Component */}
-      {/* <BannerComponent
-        premble={data.premble}
-        title={data.title}
-        description={data.description}
-      /> */}
-
       <div className="px-[162px] py-[80px] gap-10 custom-container mx-auto ">
         {/* Categories Filter */}
-        <div className="w-[911px] h-[48px] rounded-2xl border py-2 px-4 gap-6 mx-auto flex flex-row justify-center items-center">
-          <div className="flex items-center py-[5px] px-[12px] gap-2">
+        <div className="relative w-full tablet:max-w-[712px] laptop:max-w-[911px] mobile:w-full  h-[48px] rounded-2xl border py-2 px-4 gap-6 mx-auto flex items-center">
+          {/* Left icon */}
+          <button
+            onClick={scrollLeft}
+            className="absolute left-0 tablet:flex hidden items-center justify-center w-10 h-full bg-white rounded-l-2xl z-10"
+          >
+            <FaChevronLeft className="text-gray-500" />
+          </button>
+
+          <div
+            ref={scrollContainerRef}
+            className="flex items-center py-[5px] px-[12px] gap-2 overflow-x-auto scrollbar-hide justify-between"
+          >
             {categories.map((category, index) => (
               <Link key={index} href={category.href} passHref>
                 <div
                   onClick={() => setActiveIndex(index)} // Update state on click
                   className={`px-4 py-2 rounded-full font-medium cursor-pointer ${
                     activeIndex === index
-                      ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] leading-[26px] font-medium font-montserrat" // Active button style
-                      : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] leading-[26px] font-medium font-montserrat" // Inactive button style
+                      ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] leading-[26px] font-medium font-montserrat"
+                      : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] leading-[26px] font-medium font-montserrat"
                   }`}
                 >
                   {category.name}
@@ -122,6 +105,14 @@ const Page = () => {
               </Link>
             ))}
           </div>
+
+          {/* Right icon */}
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 tablet:flex hidden items-center justify-center w-10 h-full bg-white rounded-r-2xl z-10"
+          >
+            <FaChevronRight className="text-gray-500" />
+          </button>
         </div>
 
         {/* Featured Blog Post Section */}
@@ -150,7 +141,7 @@ const Page = () => {
             </p>
 
             <div className="w-[108px] h-[42px] inline-flex items-center">
-              <Link href="">
+              <Link href="https://example.com">
                 <div className="text-[#1FA9EC] font-medium text-[15px] leading-[18px] font-montserrat flex items-center ml-2">
                   Xem thêm
                   <ArrowRightOutlined
@@ -177,7 +168,7 @@ const Page = () => {
                       alt={item.title}
                       width={367}
                       height={267}
-                      className="rounded-2xl"
+                      className="rounded-2xl !w-[356px] !h-[267px]"
                     />
                     <button className="background-LinearGradient absolute bottom-4 right-4 w-[85px] h-[26px]">
                       eBook

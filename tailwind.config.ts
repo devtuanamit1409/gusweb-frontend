@@ -7,15 +7,15 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    // screens: {
-    //   desktop: "1440px",
-    //   laptop: "1024px",
-    //   tablet: "744px",
-    //   mobile: "360px",
-    // },
+    screens: {
+      desktop: "1440px",
+      laptop: "1024px",
+      tablet: "744px",
+      mobile: "360px",
+    },
     extend: {
-      
-      
+
+
       // shadow-custom-shadow
       boxShadow: {
         'custom-shadow': '0 14px 25px rgba(58, 123, 213, 0.4)',
