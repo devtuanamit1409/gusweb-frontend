@@ -1,12 +1,74 @@
 "use client";
-import BannerComponent from "@/components/BannerComponent";
+import BlogCard from "@/components/BlogCard";
+import PaginationComponent from "@/components/PaginationComponent";
+import { CardModel } from "@/models/cardModel";
 import {
-    ArrowRightOutlined
+  ArrowRightOutlined,
+  LeftOutlined,
+  RightOutlined,
 } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-const page = () => {
+
+const Page = () => {
+  // State to manage current page
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
+  // Sample card data
+  const cardsData: CardModel[] = [
+    {
+      url: "/images/blog.png",
+      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
+      link: "#",
+      date: "10 ngày trước",
+    },
+    {
+      url: "/images/blog.png",
+      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
+      link: "#",
+      date: "10 ngày trước",
+    },
+    {
+      url: "/images/blog.png",
+      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
+      link: "#",
+      date: "10 ngày trước",
+    },
+    {
+      url: "/images/blog.png",
+      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
+      link: "#",
+      date: "10 ngày trước",
+    },
+    {
+      url: "/images/blog.png",
+      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
+      link: "#",
+      date: "10 ngày trước",
+    },
+    {
+      url: "/images/blog.png",
+      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
+      link: "#",
+      date: "10 ngày trước",
+    },
+    {
+      url: "/images/blog.png",
+      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
+      link: "#",
+      date: "10 ngày trước",
+    },
+  ];
+
+  // Calculate pagination variables
+  const totalItems = cardsData.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = cardsData.slice(indexOfFirstItem, indexOfLastItem);
+
   const data = {
     premble: "GUSWEB SHARING",
     title: "",
@@ -14,58 +76,6 @@ const page = () => {
       "Chia sẻ các mẹo, kiến thức và chiến lược để giúp doanh nghiệp tận dụng website như một công cụ mạnh mẽ trong marketing và phát triển thương hiệu, hỗ trợ tăng doanh thu.",
   };
 
-  const item = [
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-    {
-      imgSrc: "/images/Rectangle 5067.png",
-      title: "Web Design UI/UX & Development",
-      heading: "McLaren Group",
-    },
-  ];
   const categories = [
     { name: "Tất cả", href: "", id: 0 },
     { name: "Kiến thức website", href: "", id: 1 },
@@ -75,26 +85,36 @@ const page = () => {
     { name: "eBook", href: "", id: 5 },
     { name: "Hoạt động tại GUSWEB", href: "", id: 6 },
   ];
+
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const handlePageChange = (page: number) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
   return (
     <div className="w-full">
+      {/* Optional Banner Component */}
       {/* <BannerComponent
         premble={data.premble}
         title={data.title}
         description={data.description}
       /> */}
+
       <div className="px-[162px] py-[80px] gap-10 custom-container mx-auto ">
-        <div className="w-[911px] h-[48px] rounded-2xl border py-2 px-4 gap-6  mx-auto flex flex-row justify-center items-center">
-          <div className="flex items-center  py-[5px] px-[12px] gap-2 ">
+        {/* Categories Filter */}
+        <div className="w-[911px] h-[48px] rounded-2xl border py-2 px-4 gap-6 mx-auto flex flex-row justify-center items-center">
+          <div className="flex items-center py-[5px] px-[12px] gap-2">
             {categories.map((category, index) => (
               <Link key={index} href={category.href} passHref>
                 <div
-                  onClick={() => setActiveIndex(index)} // Cập nhật trạng thái khi nhấp vào nút
+                  onClick={() => setActiveIndex(index)} // Update state on click
                   className={`px-4 py-2 rounded-full font-medium cursor-pointer ${
                     activeIndex === index
-                      ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] leading-[26px] font-medium font-montserrat" // Màu nền cho nút đang hoạt động
-                      : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] leading-[26px] font-medium font-montserrat" // Màu nền cho nút không hoạt động
+                      ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] leading-[26px] font-medium font-montserrat" // Active button style
+                      : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] leading-[26px] font-medium font-montserrat" // Inactive button style
                   }`}
                 >
                   {category.name}
@@ -103,53 +123,99 @@ const page = () => {
             ))}
           </div>
         </div>
-        <div className="w-[1116px] h-[421.82px] gap-6  flex flex-row justify-center items-center mx-auto pt-[75px]">
-          <div className="">
+
+        {/* Featured Blog Post Section */}
+        <div className="w-[1116px] h-[421.82px] gap-6 flex flex-row justify-center items-center mx-auto mt-[50px] mb-[50px]">
+          <div>
             <Image
               width={546}
               height={421}
               src="/images/GusWeb - Blog1 1.png"
-              alt=""
+              alt="Featured Post"
               className="rounded-2xl"
             />
           </div>
-          <div className="w-[546px]  gap-4   ">
-            <h1 className="w-[126px] h-[38px] font-bricolage font-normal text-2xl leading-[38.4px] text-preamble relative">
+          <div className="w-[546px] h-[254px] gap-4">
+            <h1 className="w-[126px] h-[38px] font-bricolage font-normal text-2xl leading-[38.4px] text-preamble relative mb-[5px]">
               #CÔNG NGHỆ UI
             </h1>
-            <h2 className="h-[38px] font-bricolage font-bold text-[32px] leading-[38.4px] text-[#1C1C1C]">
+            <h2 className="h-[38px] font-bricolage font-bold text-[32px] leading-[38.4px] text-[#1C1C1C] mb-[18px]">
               Thiết kế UX và UI là gì?
             </h2>
-            <p className="h-[96px] font-normal text-[16px] leading-6 font-montserrat line-clamp-2">
+            <p className="h-[96px] font-normal text-[16px] leading-6 font-montserrat line-clamp-2 mb-[16px]">
               UI (User Interface) trong thiết kế UI là viết tắt của “giao diện
               người dùng”. Giao diện người dùng là bố cục đồ họa của một ứng
               dụng. UX (User Experience) là “trải nghiệm người dùng”. Trải
               nghiệm của người dùng về ứng dụng được xác định...
             </p>
 
-            <div className="w-[108px] h-[42px] inline-flex items-center  ">
+            <div className="w-[108px] h-[42px] inline-flex items-center">
               <Link href="">
-                <div className="text-[#1FA9EC] font-medium text-[15px] leading-[18px] font-montserrat flex items-center">
+                <div className="text-[#1FA9EC] font-medium text-[15px] leading-[18px] font-montserrat flex items-center ml-2">
                   Xem thêm
-                  <ArrowRightOutlined className="ml-2 h-5 w-5" />
+                  <ArrowRightOutlined
+                    style={{ marginLeft: "10px", color: "#1FA9EC" }}
+                  />
                 </div>
               </Link>
             </div>
           </div>
         </div>
-        <div className="w-[1116px] h-[932px] gap-6 bg-green-400 pt-[50px] mx-auto">
-          {/* <BlogCardComponent  /> */}
+
+        {/* Blog Cards Section */}
+        <div className="w-[1116px] gap-6 mx-auto">
+          <div className="grid grid-cols-3 gap-6">
+            {currentItems.map((item, index) => (
+              <div
+                key={index}
+                className="home-service-item__box w-[356px] h-[454px] flex justify-center"
+              >
+                <div>
+                  <div className="relative">
+                    <Image
+                      src={item.url}
+                      alt={item.title}
+                      width={367}
+                      height={267}
+                      className="rounded-2xl"
+                    />
+                    <button className="background-LinearGradient absolute bottom-4 right-4 w-[85px] h-[26px]">
+                      eBook
+                    </button>
+                  </div>
+                  <div className="flex flex-col gap-4 p-6">
+                    <p>{item.date}</p>
+                    <p className="font-bricolage text-[20px] font-bold">
+                      {item.title}
+                    </p>
+                    <div className="w-[108px] h-[42px] inline-flex items-center bottom-0">
+                      <Link href={item.link}>
+                        <div className="text-[#1FA9EC] font-medium text-[15px] leading-[18px] font-montserrat flex items-center ml-2">
+                          Xem thêm
+                          <ArrowRightOutlined
+                            style={{ marginLeft: "10px", color: "#1FA9EC" }}
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="w-[312px] h-[49px] bg-purple-300">
-          {/* <PaginationComponent
+
+        {/* Pagination Component */}
+        <div className="w-full flex justify-center mt-6">
+          <PaginationComponent
             currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
+            setCurrentPage={handlePageChange}
             totalPages={totalPages}
-          /> */}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;
