@@ -14,6 +14,8 @@ const config: Config = {
     //   mobile: "360px",
     // },
     extend: {
+      
+      
       // shadow-custom-shadow
       boxShadow: {
         'custom-shadow': '0 14px 25px rgba(58, 123, 213, 0.4)',
@@ -21,6 +23,7 @@ const config: Config = {
 
       fontFamily: {
         bricolage: ['"Bricolage Grotesque"', "sans-serif"],
+        montserrat: ['"Montserrat"', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

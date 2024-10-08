@@ -17,7 +17,7 @@ const BlogCardComponent = ({ item }: Props) => {
                         eBook
                     </button>
                 </div>
-                <div className='flex flex-col gap-4 p-6'>
+                <div className='flex flex-col gap-4 p-6 '>
                     <p>{item.date}</p>
                     <p className='font-bricolage text-[20px] font-bold'>{item.title}</p>
                     <Link href='' className='text-blue-500'>

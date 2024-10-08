@@ -7,7 +7,7 @@ import BrandValue from "@/components/BrandValue";
 import "aos/dist/aos.css";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-
+import NextTopLoader from "nextjs-toploader";
 // import { AntdRegistry } from '@ant-design/nextjs-registry';
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +25,10 @@ const RootLayout: React.FC<{
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
+          <NextTopLoader color="#08bed5" />
           {/* <Navbar /> */}
           <HeaderComponent />
-          <main> {children}</main>
+          <main className="mt-[76px]"> {children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

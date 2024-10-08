@@ -65,8 +65,9 @@
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: none;
-  background: "#1FA9EC";
+  background: #1FA9EC;
   position: relative;
+  color: #FEFEFE;
 }
 .gradient-text {
   position: relative;
@@ -75,6 +76,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.gradient-text-camvang {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #FF5F6D, #FFC371);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 .gradient-text::before {
   content: "";
@@ -207,6 +217,7 @@
   font-weight: 400; /* Trọng lượng phông chữ mặc định */
   font-style: normal;
 }
+
 .background-custom {
   background: linear-gradient(90deg, #3a7bd5, #00d2ff);
 }
@@ -256,19 +267,21 @@
   background-position: 0 0, 0 0, 100% 0, 0 100%;
   background-repeat: no-repeat;
 }
-.text-preamble:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 11px;
-  opacity: 0.24;
-  width: 100%;
-  display: block;
-  background-color: #08bed5;
-  -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  z-index: -1;
+@layer utilities {
+  .text-preamble:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 11px;
+    opacity: 0.24;
+    width: 100%;
+    display: block;
+    background-color: #08bed5;
+    -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    z-index: -1;
+  }
 }
 .border-bottom-blue-custom {
   box-shadow: 0 8px 16px rgba(58, 123, 213, 0.4);
@@ -339,4 +352,9 @@
 .PageNotFound-button {
   margin-top: 2.5rem;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.category-item__box {
+  box-shadow: 0px 8px 16px 0px #3A7BD566;
+  background: linear-gradient(89.71deg, #C6F5FF -2.43%, #FEFCFF 103.41%);
 }
