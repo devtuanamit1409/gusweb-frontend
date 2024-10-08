@@ -2,6 +2,7 @@ import React from "react";
 
 import CardComponent from "@/components/CardComponent";
 import { CardModel } from "@/models/cardModel";
+import WhyCardComponent from "@/components/WhyCardComponent";
 
 export default function WhyChooseUs({ whyUs }: any) {
   return (
@@ -17,15 +18,9 @@ export default function WhyChooseUs({ whyUs }: any) {
           <div className="grid grid-cols-4 gap-6 justify-center mt-4">
             {whyUs.items &&
               whyUs.items.map((item: any, index: number) => (
-                <CardComponent
+                <WhyCardComponent
                   key={index}
                   item={item}
-                  showDescriptionOnHover={false}
-                // // showDescription={true}
-                // customClassName="home-service-item__box "
-                // customClassNameTitle="font-bold text-xl"
-                // width={261}
-                // height={195}
                 />
               ))}
           </div>

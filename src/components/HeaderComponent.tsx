@@ -37,7 +37,7 @@ export default function HeaderComponent() {
     return (
         <div className=' bg-white fixed top-0 left-0 right-0 z-20'>
             <div className='custom-container py-4 px-[162px] h-[76px] '>
-                <div className=' max-w-[1109px] mx-auto flex justify-between h-[50px]'>
+                <div className=' flex justify-between h-[50px]'>
                     <Logo />
                     <div className=' flex gap-4 items-center justify-center'>
                         <ul className="flex items-center md:p-0 font-medium tablet:space-x-8 laptop:space-x-0 rtl:space-x-reverse flex-row tablet:mt-0 tablet:border-0 mr-4">
