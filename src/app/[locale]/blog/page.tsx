@@ -12,7 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const pageSize = 6;
   const [activeIndex, setActiveIndex] = useState(0);
   const [blogData, setBlogData] = useState<any>(null);
@@ -136,7 +136,9 @@ const page = () => {
               <Link href={blogOutStanding?.slug || "/"}>
                 <div className="text-[#1FA9EC] font-medium text-[15px] leading-[18px] font-montserrat flex items-center">
                   Xem thêm
-                  <ArrowRightOutlined className="ml-2 h-5 w-5" />
+                  <ArrowRightOutlined
+                    style={{ marginLeft: "10px", color: "#1FA9EC" }}
+                  />
                 </div>
               </Link>
             </div>
@@ -160,4 +162,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

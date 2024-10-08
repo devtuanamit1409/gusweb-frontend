@@ -136,7 +136,6 @@ const CaseStudies: React.FC<any> = ({ data }) => {
             <LeftOutlined />
             <span className="ml-2">Previous</span>
           </button>
-
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index + 1}
@@ -150,7 +149,6 @@ const CaseStudies: React.FC<any> = ({ data }) => {
               {index + 1}
             </button>
           ))}
-
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${
@@ -164,63 +162,6 @@ const CaseStudies: React.FC<any> = ({ data }) => {
             <RightOutlined />
           </button>
         </div>
-
-        {/* <div className="pagination mt-6">
-          <Pagination
-            current={currentPage}
-            pageSize={itemsPerPage}
-            total={data.length}
-            onChange={handlePageChange}
-            itemRender={(page, type, originalElement) => {
-              if (type === "prev") {
-                return (
-                  <button
-                    className={`flex items-center text-gray-500 px-4 py-1.5 rounded-md ${
-                      currentPage === 1
-                        ? "cursor-not-allowed"
-                        : "hover:text-blue-500"
-                    }`}
-                    onClick={() => handlePageChange(page)}
-                    disabled={currentPage === 1}
-                  >
-                    <LeftOutlined />
-                    <span className="ml-2">Previous</span>
-                  </button>
-                );
-              }
-              if (type === "next") {
-                return (
-                  <button
-                    className={`flex items-center text-gray-500 px-4 py-1.5 rounded-md ${
-                      currentPage === Math.ceil(data.length / itemsPerPage)
-                        ? "cursor-not-allowed"
-                        : "hover:text-blue-500"
-                    }`}
-                    onClick={() => handlePageChange(page)}
-                    disabled={
-                      currentPage === Math.ceil(data.length / itemsPerPage)
-                    }
-                  >
-                    <span className="mr-2">Next</span>
-                    <RightOutlined />
-                  </button>
-                );
-              }
-              return (
-                <button
-                  className={`mx-2 px-3 py-1.5 rounded-md ${
-                    page === currentPage
-                      ? "bg-blue-500 text-white"
-                      : "text-gray-700 hover:text-blue-500"
-                  }`}
-                  onClick={() => handlePageChange(page)}
-                >
-                  {page}
-                </button>
-              );
-            }}
-          />
-        </div> */}
       </div>
     </div>
   );

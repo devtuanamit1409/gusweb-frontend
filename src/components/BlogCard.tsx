@@ -2,29 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { CardModel } from "@/models/cardModel";
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
-
-const cardsData: CardModel[] = [
-  {
-    url: "/images/blog.png",
-    title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-    link: "#",
-    date: "2024-09-27",
-  },
-  {
-    url: "/images/blog.png",
-    title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-    link: "#",
-    date: "2024-09-29",
-  },
-  {
-    url: "/images/blog.png",
-    title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-    link: "#",
-    date: "2024-09-25",
-  },
-];
 
 export default async function BlogCard() {
   //prop: locale, page, pagesize, idcategoy, ?idsubcategory => danh sach tra ve da co sap xep moi nhat
@@ -32,17 +10,17 @@ export default async function BlogCard() {
 
   return (
     <div className=" h-[705px] custom-container flex items-center justify-center">
-      <div className="w-[1116px] h-[545px]  mx-auto ">
+      <div className="w-[1116px] h-[545px] mx-auto">
         <div className="flex flex-col gap-6">
           <div className="flex justify-between items-center">
             <span className="text-[56px] font-bricolage ">
-              Khai thác website hiệu quả
+              askldfjasldfasdfasdf
             </span>
             <button
               type="button"
               className="bg-[#27B3E9] text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
             >
-              Báo Giá
+              asdfasdfasd
             </button>
           </div>
           <div className="flex gap-6">
