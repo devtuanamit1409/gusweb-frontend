@@ -2,11 +2,7 @@
 import BlogCard from "@/components/BlogCard";
 import PaginationComponent from "@/components/PaginationComponent";
 import { CardModel } from "@/models/cardModel";
-import {
-  ArrowRightOutlined,
-  LeftOutlined,
-  RightOutlined,
-} from "@ant-design/icons";
+import { ArrowRightOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -16,7 +12,7 @@ const Page = () => {
   // State to manage current page
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const scrollContainerRef = useRef<HTMLDivElement>(null); // Ref cho phần danh sách cuộn
+   const scrollContainerRef = useRef<HTMLDivElement>(null);// Ref cho phần danh sách cuộn
 
   // Scroll handling
   const scrollLeft = () => {
@@ -33,12 +29,6 @@ const Page = () => {
 
   // Sample card data
   const cardsData: CardModel[] = [
-    {
-      url: "/images/blog.png",
-      title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
-      link: "#",
-      date: "10 ngày trước",
-    },
     {
       url: "/images/blog.png",
       title: "AGILE SCRUM - Quá trình quản lý và thực hiện dự án",
@@ -88,7 +78,7 @@ const Page = () => {
 
           <div
             ref={scrollContainerRef}
-            className="flex items-center py-[5px] px-[12px] gap-2 overflow-x-auto scrollbar-hide justify-between"
+            className="flex items-center py-[5px] px-[12px] gap-2 overflow-x-auto scrollbar-hide"
           >
             {categories.map((category, index) => (
               <Link key={index} href={category.href} passHref>

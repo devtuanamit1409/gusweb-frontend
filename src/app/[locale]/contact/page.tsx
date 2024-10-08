@@ -1,34 +1,41 @@
 "use client";
 import BannerComponent from "@/components/BannerComponent";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
-import Link from "next/link";
 import Image from "next/image";
-import { FaPhoneAlt } from "react-icons/fa";
-import { HiOutlineOfficeBuilding } from "react-icons/hi";
-import { BiTime } from "react-icons/bi";
+import { fetchContactUsPage } from "@/utils/GlobalApi";
+
 const page = () => {
-  const data = {
-    premble: "LIÊN HỆ",
-    title: "",
-    description:
-      "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
-  };
+  // const data = {
+  //   premble: "LIÊN HỆ",
+  //   title: "",
+  //   description:
+  //     "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
+  // };
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [nameError, setNameError] = useState<string>(""); // Lỗi cho trường họ và tên
+  const [nameError, setNameError] = useState<string>("");
   const [phoneError, setPhoneError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
-  const [formError, setFormError] = useState<string>(""); // Lưu trữ thông báo lỗi cho toàn bộ form
-  const [submitError, setSubmitError] = useState<string>(""); // Thông báo lỗi trên nút gửi
+  const [formError, setFormError] = useState<string>("");
+  const [submitError, setSubmitError] = useState<string>("");
+  const [contactData, setContactData] = useState<any>(null);
+
+  useEffect(() => {
+    const getContactData = async () => {
+      const data = await fetchContactUsPage("vi");
+      setContactData(data);
+    };
+
+    getContactData();
+  }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Kiểm tra nếu có lỗi trước khi xử lý form
     if (
       nameError ||
       phoneError ||
@@ -38,15 +45,13 @@ const page = () => {
       !email
     ) {
       setFormError("Vui lòng điền đúng theo yêu cầu.");
-      return; // Không cho submit nếu có lỗi
+      return;
     }
 
-    // Xử lý logic khi form được submit
-    setFormError(""); // Reset thông báo lỗi nếu submit thành công
+    setFormError("");
   };
 
   const validateForm = () => {
-    // Kiểm tra tất cả các điều kiện của form
     if (
       nameError ||
       phoneError ||
@@ -63,7 +68,6 @@ const page = () => {
     }
   };
 
-  // Hàm để định dạng giá trị ngân sách hiển thị
   function formatBudget(value: number) {
     return `${value.toLocaleString()}`;
   }
@@ -76,14 +80,13 @@ const page = () => {
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    const isValidName = /^[A-Za-z\s]+$/.test(value); // Kiểm tra nếu chỉ có chữ cái và khoảng trắng
-
+    const isValidName = /^[A-Za-z\s]+$/.test(value);
     if (!value) {
       setNameError("Họ và tên không được để trống.");
     } else if (!isValidName && value.length > 0) {
       setNameError("Họ và tên chỉ được chứa các chữ cái.");
     } else {
-      setNameError(""); // Không có lỗi nếu hợp lệ
+      setNameError("");
     }
 
     setName(value);
@@ -92,21 +95,19 @@ const page = () => {
   const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    // Xóa tất cả các ký tự không phải số
     const sanitizedValue = value.replace(/[^0-9]/g, "");
 
-    // Kiểm tra định dạng số điện thoại
     if (sanitizedValue.length > 0) {
       if (sanitizedValue[0] !== "0") {
         setPhoneError("Số điện thoại phải bắt đầu bằng số 0.");
       } else if (sanitizedValue.length !== 10) {
         setPhoneError("Số điện thoại phải có đúng 10 chữ số.");
       } else {
-        setPhoneError(""); // Không có lỗi nếu hợp lệ
+        setPhoneError("");
       }
     }
 
-    setPhoneNumber(sanitizedValue); // Cập nhật số điện thoại sau khi loại bỏ ký tự không hợp lệ
+    setPhoneNumber(sanitizedValue);
   };
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -116,7 +117,7 @@ const page = () => {
     // Kiểm tra định dạng email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailPattern.test(value)) {
-      setEmailError(""); // Không có lỗi
+      setEmailError("");
     } else {
       setEmailError(
         "Vui lòng nhập đúng định dạng email, VD: example@gmail.com"
@@ -126,11 +127,7 @@ const page = () => {
 
   return (
     <div className="w-full">
-      <BannerComponent
-        premble={data.premble}
-        description={data.description}
-        title={data.title}
-      />
+      <BannerComponent intro={contactData?.intro} />
       <div className="h-[1058px] mx-auto flex justify-center items-center pt-[100px] gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529]">
         <div className="w-full max-w-[736px] h-[806px] rounded-2xl border px-[24px] gap-4 flex flex-col mx-auto bg-white">
           <div className="w-full h-[68px] gap-2 pb-6 pt-6">
@@ -257,9 +254,9 @@ const page = () => {
                   valueLabelFormat={formatBudget}
                   min={0}
                   max={100000}
-                  step={1000} 
+                  step={1000}
                   sx={{
-                    color: "#08BED5", 
+                    color: "#08BED5",
                     height: 8,
                     "& .MuiSlider-thumb": {
                       height: 24,
@@ -272,15 +269,15 @@ const page = () => {
                     },
                     "& .MuiSlider-track": {
                       borderRadius: 4,
-                      backgroundColor: "#D1E9FE", 
+                      backgroundColor: "#D1E9FE",
                     },
                     "& .MuiSlider-rail": {
                       borderRadius: 4,
-                      backgroundColor: "#DDDDDD", 
+                      backgroundColor: "#DDDDDD",
                     },
                     "& .MuiSlider-valueLabel": {
-                      backgroundColor: "#D1E9FE", 
-                      color: "#000", 
+                      backgroundColor: "#D1E9FE",
+                      color: "#000",
                     },
                   }}
                 />
@@ -309,28 +306,27 @@ const page = () => {
           </form>
         </div>
       </div>
+
       <div className="h-[486px] flex flex-row py-[80px] px-[162px] justify-center">
         <div className="w-[736px] h-[326px] pr-4 overflow-hidden">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.16379361744!2d106.73273727570343!3d10.798764158779967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175261007e9e965%3A0xb27464e56bb30359!2zNyDEkMaw4budbmcgc-G7kSA3QywgVGjhuqNvIMSQaeG7gW4sIFF14bqtbiAyLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1728266550240!5m2!1svi!2s"
+            src={contactData?.map?.urlMap}
             className="w-full h-full border-none rounded-lg"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
         <div className="w-[356px] h-[326px] rounded-lg border border-[#1FA9EC] p-6 gap-4 ">
-          {/* Logo */}
           <div className="w-[156px] h-[50px] gap-2 flex justify-center items-center mx-auto  ">
             <Image
               width={156}
               height={50}
-              src="/images/logo.png"
-              alt=""
+              src={contactData?.map.url}
+              alt={contactData?.map.alt}
               className="object-cover w-[160px]"
             />
           </div>
 
-          {/* Office Info */}
           <div className="w-[308px] h-[80px] gap-2 ">
             <div className="mb-4">
               <div className="flex items-center">
@@ -346,12 +342,11 @@ const page = () => {
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                Số 07, Đường 7C, KĐT An Phú An Khánh, phường An Phú, TP. Thủ Đức
+                {contactData?.map?.address}
               </p>
             </div>
           </div>
 
-          {/* Phone Number */}
           <div className="w-[308px] h-[56px] gap-2 ">
             <div className="mb-4">
               <div className="flex items-center">
@@ -367,12 +362,11 @@ const page = () => {
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                +84.911.000.038
+                {contactData?.map?.phone}
               </p>
             </div>
           </div>
 
-          {/* Working Hours */}
           <div className="w-[308px] h-[56px] gap-2 ">
             <div className="mb-4">
               <div className="flex items-center">
@@ -388,7 +382,7 @@ const page = () => {
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                Thứ 2 đến Thứ 6: 8am - 6pm
+                {contactData?.map?.time}
               </p>
             </div>
           </div>
@@ -399,8 +393,8 @@ const page = () => {
         <Image
           width={1440}
           height={291}
-          src="/images/BannerPromotion.png"
-          alt=""
+          src={contactData?.folow?.url || "/images/BannerPromotion.png"}
+          alt={contactData?.folow?.alt || "image banner contact"}
           className="w-full"
           quality={100}
         />
@@ -409,8 +403,18 @@ const page = () => {
             Theo dõi GUSWEB tại
           </h1>
           <div className="w-[104px] h-[40px] gap-6 flex flex-row absolute bottom-0">
-            <Image src="/images/facebook.png" alt="" width={40} height={40} />
-            <Image src="/images/linkedin.png" alt="" width={40} height={40} />
+            {contactData?.folow?.icons &&
+              contactData?.folow?.icons.map((item: any, index: number) => {
+                return (
+                  <Image
+                    key={index}
+                    src={item.url}
+                    alt={item.alt}
+                    width={40}
+                    height={40}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>
