@@ -8,10 +8,10 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      desktop: "1440px",
-      laptop: "1024px",
-      tablet: "744px",
-      mobile: "360px",
+      mobile: "360px",  
+      tablet: "744px",  
+      laptop: "1024px", 
+      desktop: "1440px" 
     },
     extend: {
       

@@ -10,7 +10,7 @@ export default function HeaderComponent() {
     return (
         <div className='bg-white fixed top-0 left-0 right-0 z-20'>
             <div className='custom-container'>
-                <div className='max-w-[1146px] flex justify-between items-center h-[76px] mx-auto p-4'>
+                <div className='max-w-[1140px] flex justify-between items-center h-[76px] mx-auto p-4 '>
                     <div className=''>
                         <Link href='/'>
                             <Logo />
@@ -68,7 +68,7 @@ export default function HeaderComponent() {
                             </li>
                         </ul>
                         <div className=''><Language /></div>
-                        <div className='w-[106px] h-[36px] justify-end mobile:block hidden -mr-4'>
+                        <div className='w-[106px] h-[36px] justify-end tablet:block hidden -mr-4'>
                             <QuotationButton />
                         </div>
                         <div className="flex laptop:hidden ml-4">

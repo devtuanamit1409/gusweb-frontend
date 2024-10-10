@@ -28,28 +28,26 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           className="object-cover object-bottom"
           loading="lazy"
           decoding="async"
-          sizes="(min-width: 0px) 100vh 100vw"
+          sizes="(min-width: 0px) 100vw"
         />
       </div>
-      <div className="absolute top-[110px] left-[148px] right-[148px] bottom-0  h-[885px] flex flex-col gap-[32px] max-w-[1116px] mx-auto " >
-        <div className="h-[334px]">
-          <div className=" flex flex-col items-center text-center">
-            <div className="text-white text-[80px] font-semibold font-bricolage h-[192px] w-[1000px] ">
-              {mainData.banner.title}
-            </div>
-            <p className="text-white mt-7 text-2xl h-[68px]">
-              {mainData.banner.description}
-            </p>
-            <button
-              type="button"
-              className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] mt-4 rounded-[5px]"
-            >
-              Bắt đầu ngay
-            </button>
+      <div className="absolute top-[110px] h-[885px] flex flex-col gap-[32px] max-w-[1140px] mx-auto" >
+        <div className=" flex flex-col items-center text-center ">
+          <div className="text-white laptop:text-[80px] text-[64px] font-semibold font-bricolage max-w">
+            {mainData.banner.title}
           </div>
+          <p className="text-white text-2xl h-[68px]">
+            {mainData.banner.description}
+          </p>
+          <button
+            type="button"
+            className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] mt-10  rounded-[5px]"
+          >
+            Bắt đầu ngay
+          </button>
         </div>
-        <div className=" flex flex-row h-[519px] justify-between gap-8 w-[1145px] ">
-          <div className="flex-1 mt-7 laptop:block hidden">
+        <div className=" flex justify-between gap-8 px-4">
+          <div className="flex-1 mt-7 laptop:block hidden ">
             <div className="glass-card flex flex-row">
               <IconLock />
               <Link href={mainData.url} className="text-white">
@@ -98,8 +96,8 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
               </div>
             </div>
           </div>
-          <div className="flex-1 items-center justify-center ">
-            <div className="p-[10px] gap-[10] Sopha-glass-card ml-[14.5px] laptop:block hidden">
+          <div className="flex-1 items-center justify-center  ml-4 ">
+            <div className="p-2 gap-2 ml-[14.5px] mobile:block hidden w-[230px] h-[168px] bg-white/30 border border-white/50 rounded-[10px]">
               <Image
                 src={mainData.subImg.url}
                 alt={mainData.subImg.alt}
@@ -108,8 +106,8 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
                 className="gap-2"
               />
             </div>
-            <div className="Text-glass-card-dashed p-8 mt-10 gap-8">
-              <div className="text-white mb-5 ">
+            <div className="p-8 mt-10 gap-8 w-[259px] h-[327px] bg-white/30 border-2 border-white/50 border-dashed rounded-[16px]">
+              <div className="text-white mb-5">
                 <p className="text-2xl">{mainData.text.title}</p>
                 <p className="text-base">{mainData.text.subTitle}</p>
               </div>
@@ -121,13 +119,13 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
                   <IconArrow6 />
                 </div>
               </div>
-              <div className="text-white ">
+              <div className="text-white">
                 <p className="text-xs">{mainData.text.description}</p>
               </div>
             </div>
           </div>
-          <div className="flex-1 mt-20 gap-101 laptop:block hidden">
-            <div className="Vuong-glass-card relative">
+          <div className="flex-1 mt-20 gap-101 mobile:block hidden  w-[180px] flex-wrap">
+            <div className="relative w-[101px] h-[101px] top-[6px] left-[6px] border-2 border-white">
               <Image
                 src={mainData.icons[0].url}
                 alt={mainData.icons[0].url}
@@ -148,7 +146,7 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
                 <IconVuongCam />
               </div>
             </div>
-            <div className="Vuong-glass-card mt-20 relative">
+            <div className="relative w-[101px] h-[101px] top-[6px] left-[6px] border-2 border-white mt-20">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Image
                   src={mainData.icons[1].url}
@@ -178,7 +176,8 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
               {mainData.actor}
             </button>
           </div>
-          <div className="flex-1 mt-10 mr-8 laptop:block hidden">
+
+          <div className="flex-1 mt-10 mobile:block hidden">
             <div className="phone-glass-card p-2">
               <Image
                 src={mainData.card.url}

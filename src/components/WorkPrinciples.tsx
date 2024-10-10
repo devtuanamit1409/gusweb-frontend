@@ -29,14 +29,14 @@ export default function WorkPrinciples({ work, project }: any) {
   return (
     <div className="relative h-[1517px] max-w-[1116px] mx-auto mt-20">
       <div className="gap-10 mb-[469px]">
-        <Image
+        {/* <Image
           src="/images/starrysky.png"
           alt="Header Banner"
           fill
           className="object-cover"
           loading="lazy"
           decoding="async"
-        />
+        /> */}
         <div className="w-[800px]">
           <span className="relative text-preamble w-[300px] text-2xl">
             NGUYÊN TẮC LÀM VIỆC
@@ -80,7 +80,7 @@ export default function WorkPrinciples({ work, project }: any) {
         </div>
       </div>
       <div className="absolute bottom-52 left-0 right-0">
-        <ProjectShowcase project={project} />
+        {/* <ProjectShowcase project={project} /> */}
       </div>
     </div>
   );

@@ -43,12 +43,12 @@ export default function CustomerSuccessStory() {
         },
     ]);
     return (
-        <div className='flex flex-row items-center relative h-[580px] max-w-[1109px] mx-auto'>
-            <div className='flex flex-col gap-4 w-[40%]'>
-                <Image src='/images/Maskgroup.png' alt='' width='166' height='166'></Image>
+        <div className='flex flex-row items-center relative h-[580px] max-w-[1140px] mx-auto p-4 '>
+            <div className='flex flex-col gap-4 w-auto'>
+                <Image src='/images/Maskgroup.png' alt='' width='166' height='166' ></Image>
                 <span className='font-semibold text-[42px] w-96'>{item.title}</span>
             </div>
-            <div className='w-[60%]'>
+            <div className='w-[65%]'>
                 <Swiper
                     spaceBetween={20}
                     slidesPerView="auto"
@@ -57,10 +57,11 @@ export default function CustomerSuccessStory() {
                     slideToClickedSlide={true}
                     onSlideChange={() => console.log('slide changed')}
                     onSwiper={(swiper) => console.log(swiper)}
+
                 >
                     {items.map((item, index) => (
-                        <SwiperSlide key={index} className='!w-max !h-[430px]'>
-                            <div className='ml-2 bg-[#fefefe] shadow-lg shadow-[rgba(58,123,213,0.4)] rounded-[10px] w-[451px] h-[420px]'>
+                        <SwiperSlide key={index} className='laptop:!w-max laptop:!h-[430px] tablet:!w-[376px] tablet:!h-[380px]'>
+                            <div className='ml-2 bg-[#fefefe] shadow-lg shadow-[rgba(58,123,213,0.4)] rounded-[10px] laptop:w-[451px] laptop:h-[420px] tablet:w-[366px] tablet:h-[372px] '>
                                 <div className='text-black flex flex-col gap-[14px] p-4 bg-[#E5FCFF] rounded-[10px]'>
                                     <div className='relative flex flex-row items-center px-5 '>
                                         <div className='flex-grow'>

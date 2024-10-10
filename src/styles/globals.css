@@ -3,9 +3,38 @@
 @tailwind utilities;
 
 .custom-container {
-  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 1440px) {
+  .custom-container {
+    max-width: 1440px;
+  }
+}
+
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .custom-container {
+    max-width: 1439px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 744px) {
+  .custom-container {
+    max-width: 1023px;
+  }
+}
+
+@media (max-width: 743px) and (min-width: 360px) {
+  .custom-container {
+    max-width: 743px;
+  }
+}
+
+@media (max-width: 359px) {
+  .custom-container {
+    max-width: 359px;
+  }
 }
 
 /* Underline animation for scale from center */
@@ -150,13 +179,7 @@
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 16px;
 }
-.Sopha-glass-card {
-  width: 230px;
-  height: 168px;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-}
+
 .Text-glass-card-dashed {
   width: 259px;
   height: 327px;
@@ -171,13 +194,6 @@
   border: 1px white;
   border-style: dashed;
   border-left: none;
-}
-.Vuong-glass-card {
-  width: 101px;
-  height: 101px;
-  top: 6px;
-  left: 6px;
-  border: 2px solid white;
 }
 .buttonBody {
   width: 87px;
