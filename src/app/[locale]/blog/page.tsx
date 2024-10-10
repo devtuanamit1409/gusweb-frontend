@@ -112,38 +112,41 @@ const Page = () => {
               ))}
           </div>
         </div>
-        <div className="w-[1116px] h-[421.82px] gap-6 flex flex-row justify-center items-center mx-auto pt-[75px]">
-          <div>
-            <Image
-              width={546}
-              height={421}
-              src={blogOutStanding?.url || "/images/blogOutstanding.png"}
-              alt={blogOutStanding?.alt || "image blog item outstanding"}
-              className="rounded-2xl"
-            />
-          </div>
-          <div className="w-[546px] gap-4">
-            <h1 className="w-[126px] h-[38px] font-bricolage font-normal text-2xl leading-[38.4px] text-preamble relative">
-              #{blogOutStanding?.sub_category}
-            </h1>
-            <h2 className="h-[38px] font-bricolage font-bold text-[32px] leading-[38.4px] text-[#1C1C1C]">
-              {blogOutStanding?.title}
-            </h2>
-            <p className="h-[96px] font-normal text-[16px] leading-6 font-montserrat line-clamp-2">
-              {blogOutStanding?.description}
-            </p>
-            <div className="w-[108px] h-[42px] inline-flex items-center">
-              <Link href={blogOutStanding?.slug || "/"}>
-                <div className="text-[#1FA9EC] font-medium text-[15px] leading-[18px] font-montserrat flex items-center">
-                  Xem thêm
-                  <ArrowRightOutlined
-                    style={{ marginLeft: "10px", color: "#1FA9EC" }}
-                  />
-                </div>
-              </Link>
+        {blogOutStanding && (
+          <div className="w-[1116px] h-[421.82px] gap-6 flex flex-row justify-center items-center mx-auto pt-[75px]">
+            <div>
+              <Image
+                width={546}
+                height={421}
+                src={blogOutStanding?.url || "/images/blogOutstanding.png"}
+                alt={blogOutStanding?.alt || "image blog item outstanding"}
+                className="rounded-2xl"
+              />
+            </div>
+            <div className="w-[546px] gap-4">
+              <h1 className="w-[126px] h-[38px] font-bricolage font-normal text-2xl leading-[38.4px] text-preamble relative">
+                #{blogOutStanding?.sub_category}
+              </h1>
+              <h2 className="h-[38px] font-bricolage font-bold text-[32px] leading-[38.4px] text-[#1C1C1C]">
+                {blogOutStanding?.title}
+              </h2>
+              <p className="h-[96px] font-normal text-[16px] leading-6 font-montserrat line-clamp-2">
+                {blogOutStanding?.description}
+              </p>
+              <div className="w-[108px] h-[42px] inline-flex items-center">
+                <Link href={blogOutStanding?.slug || "/"}>
+                  <div className="text-[#1FA9EC] font-medium text-[15px] leading-[18px] font-montserrat flex items-center">
+                    Xem thêm
+                    <ArrowRightOutlined
+                      style={{ marginLeft: "10px", color: "#1FA9EC" }}
+                    />
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
         <div className="w-[1116px] gap-6 pt-[50px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {articles &&
             articles.map((item: any) => (
