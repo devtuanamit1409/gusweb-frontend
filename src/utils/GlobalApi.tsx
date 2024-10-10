@@ -72,7 +72,7 @@ export const getFilteredArticles = async (
     }
 
     const response = await api.get(path, { params });
-    console.log("pagram ", params);
+
     return response.data;
   } catch (error) {
     console.error(`Error fetching ${path}:`, error);
