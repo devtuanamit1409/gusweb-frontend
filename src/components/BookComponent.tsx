@@ -18,7 +18,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1b55a5] to-[#00d2ff] opacity-70 z-0"></div>
         <div className="w-[1440px] h-[506px] py-20 px-[162px] z-10">
-          <div className="w-[1116px] h-[346px] text-[#FEFEFE] justify-center gap-2 flex flex-col">
+          <div className="w-[1116px] h-[346px] text-[#FEFEFE] justify-center gap-2 flex flex-col ">
             <h5 className="!font-normal text-[24px] font-bricolage line-clamp-1">
               #{article.sub_category.title}
             </h5>
