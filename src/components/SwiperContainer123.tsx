@@ -15,11 +15,11 @@ export default function SwiperContainer123({
         spaceBetween={100}
         slidesPerView={2}
         loop={true}
-        autoplay={{
-          delay: 1500,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay]}
+        // autoplay={{
+        //   delay: 1500,
+        //   disableOnInteraction: false,
+        // }}
+        // modules={[Autoplay]}
         onSlideChange={(swiper) => onSlideChangeIndex(swiper.realIndex)}
         slideToClickedSlide={true}
       >
@@ -27,7 +27,7 @@ export default function SwiperContainer123({
           projects.map((item: any, index: number) => {
             return (
               <SwiperSlide key={index}>
-                <div className="flex flex-col items-center ml-20">
+                <div className="flex flex-col items-center ml-20 ">
                   <div className="w-[400px] h-[258px] relative">
                     <Image
                       src={item.url}
