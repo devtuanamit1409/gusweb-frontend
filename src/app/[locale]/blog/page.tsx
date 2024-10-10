@@ -123,47 +123,44 @@ const Page = () => {
   return (
     <div className="w-full">
       {/* <BannerComponent intro={blogData} /> */}
-      <div className=" py-[8px] px-[16px] gap-10 custom-container mx-auto">
-        <div className="relative mobile:max-w-[540px] mobile:w-full h-[48px] tablet:w-[712px] tablet:h-[48px] lg:w-full flex items-center justify-between tablet:justify-center laptop:justify-center rounded-2xl border px-2 overflow-hidden mx-auto">
+      <div className="mobile:w-[360px] tablet:w-[744px] laptop:w-[1080px] py-[8px] px-[16px] gap-10 custom-container mx-auto bg-red-400">
+        <div className="relative mobile:max-w-[328px] mobile:w-full h-[48px] tablet:max-w-[712px] tablet:w-full tablet:h-[48px] lg:w-full flex items-center justify-between tablet:justify-center laptop:justify-center rounded-2xl border px-2 overflow-hidden mx-auto bg-cyan-300">
           <AiOutlineLeft
-            className={`cursor-pointer text-[#FFFFFF] bg-[#31BEE6] rounded-full w-[90px] h-[32px] tablet:w-[40px] laptop:hidden mr-2`}
+            className={`cursor-pointer text-[#FFFFFF] bg-[#31BEE6] rounded-full w-[32px] h-[32px]  laptop:hidden mr-2`}
             size={32}
             onClick={handlePrev}
           />
 
           <div className="flex overflow-hidden items-center justify-center mx-auto gap-2 flex-grow">
-            {/* Chỉ hiển thị hai sub-category khi active */}
-            {subCategory.map(
-              (category: any, index: number) =>
-                activeIndex === index && (
-                  <div key={index} className="flex flex-row">
-                    {" "}
-                    {/* Chuyển sang hàng ngang */}
-                    {subCategory
-                      .slice(activeIndex, activeIndex + 2)
-                      .map((subCat: any, subIndex: number) => (
-                        <button
-                          key={subIndex}
-                          id={`button-${activeIndex + subIndex}`} // ID cho từng nút
-                          onClick={() =>
-                            handleSubCategoryClick(activeIndex + subIndex)
-                          }
-                          className={`px-4 py-2 rounded-full font-medium cursor-pointer ${
-                            activeIndex + subIndex === index
-                              ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] leading-[26px] font-medium font-montserrat"
-                              : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] leading-[26px] font-medium font-montserrat"
-                          } block laptop:hidden`}
-                        >
-                          {subCat.title}
-                        </button>
-                      ))}
-                  </div>
-                )
+            {subCategory.map((category: any, index: number) =>
+              activeIndex === index ? (
+                <div key={index} className="flex flex-row">
+                  {/* Chỉ hiển thị 2 sub-category trên mobile và 6 trên tablet */}
+                  {subCategory
+                    .slice(0, window.innerWidth < 768 ? 2 : 6) // 2 trên mobile, 6 trên tablet
+                    .map((subCat: any, subIndex: number) => (
+                      <button
+                        key={subIndex}
+                        id={`button-${activeIndex + subIndex}`}
+                        onClick={() =>
+                          handleSubCategoryClick(activeIndex + subIndex)
+                        }
+                        className={`px-4 py-2 rounded-full font-medium cursor-pointer ${
+                          activeIndex + subIndex === index
+                            ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] leading-[26px] font-medium font-montserrat"
+                            : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] leading-[26px] font-medium font-montserrat"
+                        } mobile:block tablet:block laptop:hidden`}
+                      >
+                        {subCat.title}
+                      </button>
+                    ))}
+                </div>
+              ) : null
             )}
           </div>
 
           <AiOutlineRight
-            className={`cursor-pointer text-[#FFFFFF] bg-[#31BEE6] rounded-full w-[90px] tablet:w-[40px] h-[32px] laptop:hidden ml-2`}
+            className={`cursor-pointer text-[#FFFFFF] bg-[#31BEE6] rounded-full w-[32px] h-[32px] laptop:hidden ml-2`}
             size={32}
             onClick={handleNext}
           />
