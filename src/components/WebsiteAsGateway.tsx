@@ -1,6 +1,4 @@
 import CardComponent from "@/components/CardComponent";
-import ImgBody from "@/components/ImgBody";
-import { CardModel } from "@/models/cardModel";
 import Image from "next/image";
 
 export default function WebsiteAsGateway({ webUs }: any) {
@@ -25,14 +23,15 @@ export default function WebsiteAsGateway({ webUs }: any) {
         <div className="text-white text-[16px] w-[680px] h-[48px] mt-10">
           <h1>{webUs.intro.description}</h1>
         </div>
-        <div className="grid grid-cols-3 gap-6 justify-items-center mt-4">
+        <div className="flex flex-wrap justify-center gap-6 mt-4 max-w-[1116px] mx-auto">
           {webUs.items &&
-            webUs.items.map((item: any, index: number) => (
-              <CardComponent
+            webUs.items.slice(-6).map((item: any, index: number) => (
+              <div
                 key={index}
-                item={item}
-                showDescriptionOnHover={true}
-              />
+                className="flex-1 min-w-[300px] max-w-[33%] flex justify-center"
+              >
+                <CardComponent item={item} showDescriptionOnHover={true} />
+              </div>
             ))}
         </div>
       </div>

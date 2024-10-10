@@ -10,13 +10,14 @@ import WorkAboutComponent from "@/components/WorkAboutComponent";
 import ExpensiveComponent from "@/components/ExpensiveComponent";
 import TeamComponent from "@/components/TeamComponent";
 import TargetComponent from "@/app/[locale]/about-us/components/TargetComponent";
+import LeaderComponent from "@/app/[locale]/about-us/components/LeaderComponent";
 
 const AboutUsPage: React.FC<any> = ({ data }) => {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full flex flex-col mobile:gap-10 tablet:gap-10 laptop:gap-0 ">
       <BannerComponent intro={data.intro} />
-      <div className="custom-container relative">
-        <div className="absolute top-20 right-24 w-[418px] h-[498px]">
+      <div className="flex flex-col relative mobile:gap-10 tablet:gap-10 laptop:gap-0">
+        <div className="absolute top-20 right-24 w-[418px] h-[498px] hidden laptop:block">
           <Image
             src="/images/Framea.png"
             alt=""
@@ -25,7 +26,6 @@ const AboutUsPage: React.FC<any> = ({ data }) => {
             className="object-cover"
           />
         </div>
-
         <InfoComponent data={data.about} />
 
         <TargetComponent taget={data.taget} />
