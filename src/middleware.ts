@@ -10,7 +10,6 @@ export default function middleware(request: NextRequest) {
   const locale = localeCookie ? localeCookie.value : "vi";
 
   if (pathname === "/") {
-    console.log("catch 8");
     if (locale === "vi") {
       request.nextUrl.pathname = "/vi";
     } else if (locale === "en") {
@@ -23,14 +22,12 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname === "/vi") {
-    console.log("catch 7");
     const response = NextResponse.redirect(new URL("/", request.url));
     response.cookies.set("NEXT_LOCALE", "vi", { path: "/" });
     return response;
   }
 
   if (pathname === "/en") {
-    console.log("catch 6");
     if (locale === "vi") {
       const response = NextResponse.redirect(new URL("/en", request.url));
       response.cookies.set("NEXT_LOCALE", "en", { path: "/" });
@@ -47,7 +44,6 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname === "/ko") {
-    console.log("catch 5");
     if (locale === "vi") {
       const response = NextResponse.redirect(new URL("/ko", request.url));
       response.cookies.set("NEXT_LOCALE", "ko", { path: "/" });
@@ -64,7 +60,6 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname.startsWith("/vi")) {
-    console.log("catch 4");
     const newPathname = pathname.replace(/^\/vi/, "");
     if (locale === "en") {
       const response = NextResponse.redirect(new URL(newPathname, request.url));
@@ -85,12 +80,10 @@ export default function middleware(request: NextRequest) {
     !pathname.startsWith("/en") &&
     !pathname.startsWith("/ko")
   ) {
-    console.log("catch 1");
     request.nextUrl.pathname = `/vi${pathname}`;
   }
 
   if (pathname.startsWith("/ko")) {
-    console.log("day la pathname: ", pathname);
     if (locale === "vi" || locale === "en") {
       const response = NextResponse.redirect(new URL(pathname, request.url));
       response.cookies.set("NEXT_LOCALE", "ko");
@@ -106,7 +99,6 @@ export default function middleware(request: NextRequest) {
     }
   } else {
     if (locale === "ko" && !pathname.startsWith("/en")) {
-      console.log("no da vao day");
       const response = NextResponse.redirect(
         new URL(`/ko/${pathname}`, request.url)
       );

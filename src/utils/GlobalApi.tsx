@@ -128,6 +128,90 @@ export const fetchFilteredArticles = async (
   return formattedData;
 };
 
+//get filter article detail
+export const getFilteredArticleDetail = async (
+  path: string,
+  populate: string,
+  lang: string,
+  slug: string
+) => {
+  try {
+    const params: { [key: string]: any } = {
+      locale: lang,
+      populate: populate,
+      "filters[slug]": slug,
+    };
+
+    const response = await api.get(path, { params });
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching ${path}:`, error);
+    throw error;
+  }
+};
+
+export const fetchFilteredArticleDetail = async (
+  lang: string,
+  slug: string
+) => {
+  const data = await getFilteredArticleDetail(
+    "/articles",
+    "sub_category.banner.src,sub_category.category,image.src,typeOrder.detail,typeEbook.intro,typeEbook.ebook.src,typeEbook.ebook.pdfFile",
+    lang,
+    slug
+  );
+
+  const formattedData = {
+    articles: data.data.map((item: any) => ({
+      id: item.id,
+      sub_category: {
+        title: item?.attributes.sub_category?.data?.attributes?.title || "",
+        alt: item?.attributes.sub_category?.data?.attributes?.banner.alt || "",
+        url:
+          BaseApiUrl +
+            item?.attributes?.sub_category?.data?.attributes?.banner?.src?.data
+              ?.attributes?.url || "",
+      },
+      categoryId:
+        item?.attributes.sub_category?.data?.attributes?.category?.data?.id,
+      createdAt: item.attributes.createdAt,
+      slug: item.attributes.slug,
+      title: item.attributes.title,
+      locale: item.attributes.locale,
+      url: BaseApiUrl + item.attributes.image?.src?.data?.attributes?.url || "",
+      alt: item.attributes.image?.alt || "",
+      outStanding: item.attributes.isOutstanding,
+
+      typeOrder: { detail: item.attributes.typeOrder?.detail || "" },
+
+      typeEbook: {
+        intro: {
+          title: item.attributes.typeEbook?.intro?.title || "",
+          description: item.attributes.typeEbook?.intro?.description || "",
+        },
+        ebook: {
+          alt: item.attributes.typeEbook?.ebook?.alt || "",
+          src: item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
+            ? BaseApiUrl +
+              item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
+            : "",
+          titleBook: item.attributes.typeEbook?.ebook?.titleBook || "",
+          descBook: item.attributes.typeEbook?.ebook?.descBook || "",
+          note: item.attributes.typeEbook?.ebook?.note || "",
+          option: item.attributes.typeEbook?.ebook?.option || "",
+          pdfFile: item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes
+            ?.url
+            ? BaseApiUrl +
+              item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
+            : "",
+        },
+      },
+    })),
+  };
+
+  return formattedData;
+};
+
 //fetch api header custom
 export const fetchHeader = async (lang: string) => {
   const data = await getAllItem("/header", "logo.src,items", lang);
