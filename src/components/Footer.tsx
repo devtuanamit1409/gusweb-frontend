@@ -7,7 +7,7 @@ export default async function Footer() {
     const data = await fetchFooter("vi");
     //console.log(data.icons)
     return (
-        <footer className="h-[620px] flex flex-col max-w-[1116px] mx-auto gap-8 mt-10">
+        <footer className="h-[620px] flex flex-col max-w-[1116px] mx-auto gap-8 mt-10 ">
             <div className=" flex flex-row justify-between">
                 <div className=" w-[379px] h-[68px]" >
                     <Image
@@ -96,10 +96,6 @@ export default async function Footer() {
             </div>
             <div className="max-w-[1140px] justify-between ">
                 <hr className="border-t-2 mb-4" />
-                <p className="footer-bottom-copyRight text-left text-sm">
-                    Copyright © 2022 <b>AMIT GROUP</b>. All Rights Reserved | Design by{" "}
-                    <b>AMIT GROUP</b>
-                </p>
             </div>
         </footer>
     );
