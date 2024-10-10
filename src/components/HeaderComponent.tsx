@@ -57,7 +57,7 @@ export default function HeaderComponent() {
                             </li>
                             <li>
                                 <Link
-                                    href="/Case-studies"
+                                    href="/case-studies"
                                     className="text-[#000000] font-semibold text-base m-4 underline-animation hover:text-[#08BED5]"
                                 >
                                     Case studies
@@ -65,7 +65,7 @@ export default function HeaderComponent() {
                             </li>
                             <li>
                                 <Link
-                                    href="/about"
+                                    href="/about-us"
                                     className="text-[#000000] font-semibold text-base m-4 underline-animation hover:text-[#08BED5]"
                                 >
                                     Về chúng tôi
