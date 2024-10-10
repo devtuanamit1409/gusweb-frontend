@@ -3,7 +3,7 @@ import React from "react";
 
 const BannerComponent: React.FC<any> = ({ intro }) => {
   return (
-    <div className="relative w-full h-[734px] px-[162px] py-[80px]">
+    <div className="relative  h-[734px] px-[162px] py-[80px]">
       <Image
         src={intro?.url || "/images/BannerBlog.png"}
         alt={intro?.alt || "image banner blog"}

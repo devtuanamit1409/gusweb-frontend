@@ -3,7 +3,44 @@
 @tailwind utilities;
 
 .custom-container {
-  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1440px) {
+  .custom-container {
+    max-width: 1440px;
+  }
+}
+
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .custom-container {
+    max-width: 1439px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 744px) {
+  .custom-container {
+    max-width: 1023px;
+  }
+}
+
+@media (max-width: 743px) and (min-width: 360px) {
+  .custom-container {
+    max-width: 743px;
+  }
+}
+
+@media (max-width: 359px) {
+  .custom-container {
+    max-width: 359px;
+  }
+}
+
+
+
+.container-tablet {
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
 }
