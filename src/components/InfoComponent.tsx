@@ -43,7 +43,7 @@ const InfoComponent = (props: Props) => {
             className={
               styleTitle
                 ? styleTitle
-                : "font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff] line-clamp-2 tablet:text-center mobile:text-center"
+                : "font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff] tablet:text-center mobile:text-center"
             }
           >
             {data?.title}

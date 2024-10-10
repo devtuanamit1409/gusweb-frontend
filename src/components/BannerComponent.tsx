@@ -3,14 +3,14 @@ import React from "react";
 
 const BannerComponent: React.FC<any> = ({ intro }) => {
   return (
-    <div className="relative mobile:w-full mobile:min-h-[582px] py-[80px] px-[16px] tablet:w-full tablet:min-h-[734px] laptop:w-full  laptop:h-[734px]  ">
+    <div className="relative mobile:min-w-[360px]   mobile:min-h-[582px] py-[80px] tablet:w-full  laptop:min-w-[1440px]  laptop:h-[734px] ">
       <Image
         src={intro?.url || "/images/BannerBlog.png"}
         alt={intro?.alt || "image banner blog"}
         width={1440}
         height={734}
         layout="responsive"
-        className="w-full h-full object-cover"
+        className="absolute w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#1b55a5] to-[#00d2ff] opacity-70 z-0"></div>
       <div className="absolute inset-0 bg-opacity-70 flex items-center justify-center mx-auto w-[328px] h-[422px] tablet:w-[712px] tablet:h-[574px] laptop:w-[1116px] laptop:h-[574px] gap-4">

@@ -38,8 +38,12 @@ const Slogan: React.FC<any> = ({ slogans }) => {
           />
         </div>
       </div>
-
-      <div className="w-full h-[715px] py-[80px] px-[160px]  justify-center items-center flex">
+      <InfoComponent
+        data={slogans[1]}
+        styleTitle="h-[134px] font-bold text-5xl text-[#1C1C1C] leading-[67.2px] gap-2 font-bricolage"
+        styleImage="h-[555px] w-[545px]"
+      />
+      {/* <div className="w-full h-[715px] py-[80px] px-[160px]  justify-center items-center flex">
         <div className="w">
           <InfoComponent
             data={slogans[1]}
@@ -47,7 +51,7 @@ const Slogan: React.FC<any> = ({ slogans }) => {
             styleImage="h-[555px] w-[545px]"
           />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
