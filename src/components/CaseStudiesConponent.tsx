@@ -3,8 +3,8 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { fetchArticle } from "@/utils/GlobalApi";
 import Link from "next/link";
+import { fetchFilteredArticles } from "@/utils/GlobalApi";
 
 const CaseStudies: React.FC<any> = ({ data }) => {
   // const data = [
@@ -70,9 +70,8 @@ const CaseStudies: React.FC<any> = ({ data }) => {
 
   useEffect(() => {
     const getArticleData = async () => {
-      const datas = await fetchArticle("vi", data.categoryId);
-      setArticleDatas(datas);
-      //console.log("day la articles ", datas);
+      const datas = await fetchFilteredArticles("vi", 1, 6, data.categoryId);
+      setArticleDatas(datas.articles);
     };
 
     getArticleData();
@@ -88,7 +87,7 @@ const CaseStudies: React.FC<any> = ({ data }) => {
       <div className="w-[1116px] items-center flex flex-row mx-auto">
         <div className="w-[557px] gap-6 ">
           <h1 className="w-[246px] font-normal text-2xl leading-[38.4px] text-[#1C1C1C] text-preamble relative">
-            {/* {item.premble} */}
+            DISCOVER OUR WORK
           </h1>
           <h2 className="w-[557px] font-bold font-bricolage text-[32px] leading-[38.4px] pt-[27px]">
             {data.title}
@@ -116,7 +115,7 @@ const CaseStudies: React.FC<any> = ({ data }) => {
                 className="object-contain rounded-3xl h-[500px] w-[500px]"
               />
               <h1 className="font-bricolage font-normal text-2xl leading-[38.4px] pt-2">
-                {item.subCategory}
+                {item.sub_category}
               </h1>
               <h2 className="w-full font-bricolage font-bold text-[42px] leading-[50.4px] pt-2">
                 {item.title}
@@ -137,7 +136,6 @@ const CaseStudies: React.FC<any> = ({ data }) => {
             <LeftOutlined />
             <span className="ml-2">Previous</span>
           </button>
-
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index + 1}
@@ -151,7 +149,6 @@ const CaseStudies: React.FC<any> = ({ data }) => {
               {index + 1}
             </button>
           ))}
-
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${
@@ -165,63 +162,6 @@ const CaseStudies: React.FC<any> = ({ data }) => {
             <RightOutlined />
           </button>
         </div>
-
-        {/* <div className="pagination mt-6">
-          <Pagination
-            current={currentPage}
-            pageSize={itemsPerPage}
-            total={data.length}
-            onChange={handlePageChange}
-            itemRender={(page, type, originalElement) => {
-              if (type === "prev") {
-                return (
-                  <button
-                    className={`flex items-center text-gray-500 px-4 py-1.5 rounded-md ${
-                      currentPage === 1
-                        ? "cursor-not-allowed"
-                        : "hover:text-blue-500"
-                    }`}
-                    onClick={() => handlePageChange(page)}
-                    disabled={currentPage === 1}
-                  >
-                    <LeftOutlined />
-                    <span className="ml-2">Previous</span>
-                  </button>
-                );
-              }
-              if (type === "next") {
-                return (
-                  <button
-                    className={`flex items-center text-gray-500 px-4 py-1.5 rounded-md ${
-                      currentPage === Math.ceil(data.length / itemsPerPage)
-                        ? "cursor-not-allowed"
-                        : "hover:text-blue-500"
-                    }`}
-                    onClick={() => handlePageChange(page)}
-                    disabled={
-                      currentPage === Math.ceil(data.length / itemsPerPage)
-                    }
-                  >
-                    <span className="mr-2">Next</span>
-                    <RightOutlined />
-                  </button>
-                );
-              }
-              return (
-                <button
-                  className={`mx-2 px-3 py-1.5 rounded-md ${
-                    page === currentPage
-                      ? "bg-blue-500 text-white"
-                      : "text-gray-700 hover:text-blue-500"
-                  }`}
-                  onClick={() => handlePageChange(page)}
-                >
-                  {page}
-                </button>
-              );
-            }}
-          />
-        </div> */}
       </div>
     </div>
   );

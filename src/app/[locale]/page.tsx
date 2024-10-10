@@ -13,7 +13,6 @@ import { fetchHomePage } from "@/utils/GlobalApi";
 export default async function Home() {
   const data = await fetchHomePage("vi");
 
-
   return (
     <main className="">
       <BrandValue mainData={data.main} />
@@ -23,7 +22,7 @@ export default async function Home() {
       <WhyChooseUs whyUs={data.whyUs} />
       <WorkPrinciples work={data.work} project={data.project} />
       <PartnerList customer={data.customer} />
-      <CustomerSuccessStory />
+      <CustomerSuccessStory chats={data.chats} />
       <BlogCard />
       <Contact />
     </main>
