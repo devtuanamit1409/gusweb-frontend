@@ -35,7 +35,7 @@ const InfoComponent = (props: Props) => {
         </div>
 
         <div
-          className="laptop:max-h-[372px] laptop:max-w-[570px] tablet:max-w-[712px] tablet:max-h-[367px] mobile:max-w-[328px] mobile:max-h-[417px] mobile:px-6 mobile:py-6 tablet:py-[80px] taplet:px-6 gap-6 flex flex-col laptop:order-2 tablet:order-1 mobile:order-1 w-full"
+          className="laptop:max-h-[372px] laptop:max-w-[570px] tablet:max-w-[712px] tablet:max-h-[367px] mobile:max-w-[328px] mobile:max-h-[417px] mobile:px-6 mobile:py-6 tablet:py-[80px] tablet:px-6 gap-6 flex flex-col laptop:order-2 tablet:order-1 mobile:order-1 w-full"
           data-aos="fade-left"
           data-aos-duration="1000"
         >

@@ -23,41 +23,30 @@ const IdeaCard: React.FC<any> = ({ solution }) => {
     },
   ];
   return (
-    <div className="w-full h-[539px] bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] py-[80px] px-[162px] gap-6  ">
-      <div className="custom-container mt-[20px]">
-        <div className="w-[736px] h-[171px] gap-4  flex flex-col  items-center mx-auto  text-center mt-[20px]">
-          <span className="w-[329px] h-[29px] text-[#FFFFFF] text-2xl leading-[28.8px] font-bricolage font-bold">
+    <div className="w-full laptop:h-[539px] tablet:h-[728px]  laptop:py-[80px] laptop:px-[162px]  bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5]  items-center flex ">
+      <div className="custom-container flex flex-col gap-6 mobile:gap-8 mobile:py-10  items-center ">
+        <div className="laptop:max-w-[736px] tablet:max-w-[736px] mobile:max-w-[328px] laptop:h-[180px] gap-4  flex flex-col  items-center text-center w-full">
+          <span className="laptop:max-w-[329px] h-[38px]  text-[#FFFFFF] text-[24px] leading-[28.8px] font-bricolage font-bold w-full">
             CÁC GIẢI PHÁP CỦA GUSWEB
           </span>
-          <h1 className="w-[736px] h-[134px] font-bold text-[56px] leading-[67.2px] justify-center items-center font-bricolage text-[#FFFFFF]">
+          <h1 className="laptop:max-w-[736px] laptop:h-[134px] font-bold text-[56px] leading-[67.2px] justify-center items-center font-bricolage text-[#FFFFFF] w-full">
             {solution.title}
           </h1>
         </div>
-        <div className="w-[1116px] h-[184px] gap-6 flex flex-row mx-auto mt-[20px]">
+        <div className="laptop:max-w-[1116px] tablet:max-w-[712px] mobile:max-w-[328px] mobile:h-[600px] laptop:h-[184px] tablet:h-[392px] gap-6 flex flex-wrap laptop:flex-nowrap w-full justify-center">
           {solution.items &&
             solution.items.map((item: any, index: number) => (
-              <Card
+              <div
                 key={index}
-                style={{
-                  width: 356,
-                  height: 184,
-                  gap: 4,
-                  borderRadius: 24,
-                  borderTop: 1,
-                  borderRight: 1,
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "row",
-                }}
+                className="laptop:max-w-[356px] tablet:max-w-[342px] h-[184px] bg-[#FFFFFF] rounded-[24px] p-[24px] flex flex-col items-center gap-4 w-full"
               >
-                <h3 className="font-semibold w-[308px] h-[24px] text-xl leading-6 text-center bg-gradient-to-r from-[#00D2FF] to-[#3A7BD5] bg-clip-text text-transparent font-bricolage">
+                <h3 className="font-semibold laptop:max-w-[308px] h-[24px] text-xl leading-6 text-center bg-gradient-to-r from-[#00D2FF] to-[#3A7BD5] bg-clip-text text-transparent font-bricolage w-full">
                   {item.title}
                 </h3>
-                <p className="font-normal w-[308px] h-[96px] text-base  leading-6  tracking-[0.5px] text-[#363636] text-start ">
+                <p className="font-normal laptop:max-w-[308px] h-[96px] text-base leading-6 tracking-[0.5px] text-[#363636] text-start w-full line-clamp-4">
                   {item.description}
                 </p>
-              </Card>
+              </div>
             ))}
         </div>
       </div>
