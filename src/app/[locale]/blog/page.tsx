@@ -15,6 +15,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Swiper as SwiperType } from "swiper"; // Import Swiper type for typing
 import { Navigation } from "swiper/modules";
 const Page = () => {
   const pageSize = 6;
@@ -33,12 +34,12 @@ const Page = () => {
 
       const getListSubCategory = async () => {
         const data2 = await fetchSubCategoryByCategoryId("vi", data.categoryId);
-
+        console.log("data2", data2);
         const subCategoriesWithAll = [
           { title: "Tất cả", id: 0 },
           ...data2.subCategories,
         ];
-
+        console.log("subCategoriesWithAll", subCategoriesWithAll);
         setSubCategory(subCategoriesWithAll);
       };
       getListSubCategory();
@@ -168,21 +169,49 @@ const Page = () => {
   const [visibleCount, setVisibleCount] = useState(
     window.innerWidth < 768 ? 2 : 6
   );
-
+  const [screenSize, setScreenSize] = useState("mobile"); // Default to mobile
   useEffect(() => {
     const handleResize = () => {
-      setVisibleCount(window.innerWidth < 768 ? 2 : 6);
+      const width = window.innerWidth;
+
+      if (width <= 743) {
+        setScreenSize("mobile"); // Mobile
+      } else if (width >= 744 && width <= 1024) {
+        setScreenSize("tablet"); // Tablet
+      } else if (width > 1025 && width < 1440) {
+        setScreenSize("laptop"); // Laptop
+      } else {
+        setScreenSize("large"); // Large desktop
+      }
     };
+
+    // Initial check
+    handleResize();
+
+    // Event listener for resizing
     window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const handleSubCategoryClick = (index: number) => {
-    setActiveIndex(index); // Đặt active index
+  const slidesPerView = () => {
+    switch (screenSize) {
+      case "mobile":
+        return 2; // 2 slides for mobile
+      case "tablet":
+        return 6; // 3 slides for tablet
+      case "laptop":
+        return 7; // 4 slides for laptop
+      default:
+        return 6; // 6 slides for large screens
+    }
   };
-
+  const handleSubCategoryClick = (index: number) => {
+    setActiveIndex(index);
+  };
+  const swiperRef = useRef<SwiperType | null>(null);
   const handlePrev = () => {
     setActiveIndex(
       (prevIndex) => (prevIndex - 1 + subCategory.length) % subCategory.length
@@ -193,90 +222,51 @@ const Page = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % subCategory.length);
   };
 
+  const handleSlideChange = (swiper: any) => {
+    setActiveIndex(swiper.activeIndex); // Update active index when slide changes
+  };
   return (
-    <div className=" ">
+    <div className="">
       <BannerComponent intro={blogData} />
-      <div className="mobile:w-[360px] tablet:w-[744px] laptop:w-[1080px] py-[8px] px-[16px] gap-10 flex mx-auto ">
-        <div className="relative mobile:max-w-[328px] mobile:w-full h-[48px] tablet:max-w-[712px] tablet:w-full tablet:h-[48px] lg:w-full flex items-center justify-between tablet:justify-center laptop:justify-center rounded-2xl border px-2  mx-auto ">
+      <div className=" mobile:w-[360px] tablet:w-[744px] laptop:min-w-[1440px] laptop:w-full py-[8px] px-[16px] laptop:px-[162px] gap-10 flex flex-col justify-center laptop:custom-container items-center mx-auto ">
+        <div className=" mobile:max-w-[360px] mobile:w-full h-[48px] tablet:max-w-[712px] tablet:w-full tablet:h-[48px]  laptop:max-w-[1080px] laptop:w-full flex items-center laptop:justify-center border px-2 mx-auto ">
           <AiOutlineLeft
-            className={`cursor-pointer text-[#FFFFFF] bg-[#31BEE6] rounded-full w-[32px] h-[32px]  laptop:hidden mr-2`}
             size={32}
             onClick={handlePrev}
+            className="cursor-pointer rounded-full bg-[#31BEE6] w-[32px] h-[32px] m-1 z-10" // Ensure it's above the Swiper
           />
-
-          <div
-            className="flex items-center justify-center flex-grow"
-            id="sub-category-container"
+          <Swiper
+            slidesPerView={slidesPerView()}
+            className="flex items-center w-full h-[38px] relative" // Make sure to keep the Swiper relative
+            onSlideChange={handleSlideChange}
           >
-            <Swiper
-              rewind={true}
-              navigation={true}
-              spaceBetween={10} // Khoảng cách giữa các slide
-              className="mySwiper"
-              style={{ width: "100%" }} // Đảm bảo Swiper chiếm toàn bộ chiều rộng
-              breakpoints={{
-                // Đặt số lượng slide hiển thị cho từng kích thước màn hình
-                640: {
-                  slidesPerView: 2, // Trên mobile (<= 640px) hiển thị 2 sub-category
-                },
-                768: {
-                  slidesPerView: 6, // Trên tablet (>= 768px) hiển thị 6 sub-category
-                },
-                1024: {
-                  slidesPerView: 6, // Trên laptop (>= 1024px) hiển thị 6 sub-category
-                },
-              }}
-            >
-              {subCategory.map((subCat: any, index: number) => (
-                <SwiperSlide key={index}>
-                  <button
-                    id={`button-${index}`}
-                    onClick={() => handleSubCategoryClick(index)}
-                    className={`px-1 py-2 rounded-full font-medium cursor-pointer gap-2 flex ${
-                      activeIndex === index
-                        ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] font-medium font-montserrat"
-                        : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] font-medium font-montserrat"
-                    } mobile:block`}
-                  >
-                    {subCat.title}
-                  </button>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          {/* <div
-            className="flex items-center justify-center flex-grow"
-            id="sub-category-container"
-          >
-            <div className="flex flex-row tablet:gap-4 justify-between bg-red-400">
-              {subCategory
-                .slice(0, visibleCount)
-                .map((subCat: any, index: number) => (
-                  <button
-                    key={index}
-                    id={`button-${index}`}
-                    onClick={() => handleSubCategoryClick(index)} // Sử dụng index trực tiếp
-                    className={`px-1 py-2 rounded-full font-medium cursor-pointer gap-2 flex ${
-                      activeIndex === index // So sánh với activeIndex
-                        ? "bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white text-[15px] font-medium font-montserrat"
-                        : "bg-[#F7F7F7] text-[#363636] opacity-50 text-[15px] font-medium font-montserrat"
-                    } mobile:block`}
-                  >
-                    {subCat.title}
-                  </button>
-                ))}
-            </div>
-          </div> */}
-
+            {subCategory.map((subCat: any, index: number) => (
+              <SwiperSlide
+                key={index}
+                className="flex items-center justify-center rounded-full text-center px-[12px] py-[5px]"
+                id={`button-${index}`}
+                onClick={() => handleSubCategoryClick(index)}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor:
+                    activeIndex === index ? "#31BEE6" : "transparent",
+                  color: activeIndex === index ? "#FFFFFF" : "#000000",
+                }}
+              >
+                {subCat.title}
+              </SwiperSlide>
+            ))}
+          </Swiper>
           <AiOutlineRight
-            className={`cursor-pointer text-[#FFFFFF] bg-[#31BEE6] rounded-full w-[32px] h-[32px] laptop:hidden ml-2`}
             size={32}
             onClick={handleNext}
+            className="cursor-pointer rounded-full bg-[#31BEE6] w-[32px] h-[32px] m-1 z-10" // Ensure it's above the Swiper
           />
         </div>
 
-        {/* <div className="w-full max-w-[328px] h-auto sm:max-w-[500px] lg:max-w-[1116px]  flex flex-col lg:flex-row justify-center mt-[48px] mx-auto  gap-6">
+        <div className="w-full mobile:max-w-[360px] mobile:w-full h-auto tablet:max-w-[500px] tablet:w-full laptop:max-w-[1116px] laptop:w-full  flex flex-col lg:flex-row justify-center mt-[48px] mx-auto  gap-6 ">
           <div>
             <Image
               width={546}
@@ -312,15 +302,15 @@ const Page = () => {
               </Link>
             </div>
           </div>
-        </div> */}
-        {/* <div className="w-full h-auto mt-[48px]">
-          <div className="grid grid-cols-1 lg:grid-cols-3  gap-6 lg:gap-8 mx-auto  ">
+        </div>
+        <div className=" w-full   h-auto mt-[48px] bg-gray-400">
+          <div className="grid grid-cols-1 laptop:grid-cols-3  gap-6 lg:gap-8 mx-auto  ">
             {articles &&
               articles.map((item: any) => (
                 <BlogCardComponent key={item.id} item={item} />
               ))}
           </div>
-        </div> */}
+        </div>
         {/* <div className="w-full flex justify-center sm:mt-[25.5rem] mx-auto">
           <PaginationComponent
             currentPage={currentPage}

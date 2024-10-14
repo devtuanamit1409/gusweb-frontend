@@ -7,7 +7,7 @@ const BlogCardComponent = ({ item, key }: any) => {
   return (
     <div
       key={key}
-      className="home-service-item__box w-[250px] h-[318px] sm:w-[356px] sm:h-[454px]  flex justify-center bg-cyan-400 mx-auto"
+      className="home-service-item__box mobile:max-w-[360px] mobile:w-full mobile:min-h-[454px] tablet:h-[454px] tablet:max-w-[356px] tablet:w-full  laptop:w-full laptop:h-[454px]  flex justify-center bg-cyan-400 mx-auto "
     >
       <div>
         <div className="relative">
@@ -17,7 +17,7 @@ const BlogCardComponent = ({ item, key }: any) => {
             width={367}
             height={267}
             objectFit="cover"
-            className="w-[250px] h-[147px] rounded-lg sm:w-[356px] sm:h-[267px] sm:rounded-3xl"
+            className="w-[250px] h-[147px] rounded-lg tablet:w-[356px] tablet:h-[267px] sm:rounded-3xl"
           />
           <button className="background-LinearGradient absolute bottom-4 right-4 rounded w-[85px] h-[26px]">
             {item.sub_category}

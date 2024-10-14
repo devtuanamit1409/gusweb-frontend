@@ -412,3 +412,28 @@
   box-shadow: 0px 8px 16px 0px #3A7BD566;
   background: linear-gradient(89.71deg, #C6F5FF -2.43%, #FEFCFF 103.41%);
 }
+
+
+.custom-prev-button,
+.custom-next-button {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.custom-prev-button {
+  left: -25px; /* Adjust position of the prev button */
+}
+
+.custom-next-button {
+  right: -25px; /* Adjust position of the next button */
+}
