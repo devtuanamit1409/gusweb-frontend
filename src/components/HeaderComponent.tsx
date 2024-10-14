@@ -23,7 +23,7 @@ export default function HeaderComponent() {
                         <ul className="hidden laptop:flex flex-row space-x-4">
                             <li>
                                 <Link
-                                    href="/Case-studies"
+                                    href="/service"
                                     className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
                                 >
                                     Thiết kế trang web
@@ -39,7 +39,7 @@ export default function HeaderComponent() {
                             </li>
                             <li>
                                 <Link
-                                    href="/Case-studies"
+                                    href="/case-studies"
                                     className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
                                 >
                                     Case studies
@@ -47,7 +47,7 @@ export default function HeaderComponent() {
                             </li>
                             <li>
                                 <Link
-                                    href="/tuyen-dung"
+                                    href="#"
                                     className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
                                 >
                                     Tuyển dụng
@@ -63,7 +63,7 @@ export default function HeaderComponent() {
                             </li>
                             <li>
                                 <Link
-                                    href="/lien-he"
+                                    href="/contact"
                                     className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5] mr-7"
                                 >
                                     Liên hệ
