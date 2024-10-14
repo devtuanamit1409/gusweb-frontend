@@ -1,14 +1,58 @@
+"use client";
+
+import axios from "axios";
 import Image from "next/image";
-import Link from "next/link";
+import { useState } from "react";
+import { Button, message } from "antd";
 
 const BookComponent: React.FC<any> = ({ article }) => {
-  // console.log(article);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
+  const key = "updatable";
+
+  const openMessage = (
+    content: string,
+    type: "success" | "error" | "loading"
+  ) => {
+    messageApi.open({
+      key,
+      type,
+      content,
+      duration: 2,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:1337/api/send-email",
+        { email }
+      );
+
+      openMessage(
+        `File đã được gửi về gmail ${email}!`,
+        response.status === 200 ? "success" : "error"
+      );
+      setEmail("");
+    } catch (error) {
+      console.error("Error sending form", error);
+      openMessage("An error occurred while sending the email.", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const listItems = article.typeEbook.ebook.option
     .split(", ")
     .map((item: string) => item.trim());
 
   return (
     <div className="flex flex-col justify-center">
+      {contextHolder}
       <div className="h-[448px] relative justify-center items-center flex">
         <Image
           src={article.sub_category.url}
@@ -50,23 +94,33 @@ const BookComponent: React.FC<any> = ({ article }) => {
             className="object-cover"
           />
         </div>
-        <div className="w-[831px] h-[467px] flex flex-col gap-10  ">
+        <div className="w-[831px] h-[467px] flex flex-col gap-10">
           <h4 className="line-clamp-2 !font-bold text-[32px] text-[#1C1C1C]  w-[600px] leading-[38.4px] font-bricolage ">
             {article.typeEbook.ebook.titleBook}
           </h4>
           <div className="flex flex-row h-[56px] gap-6 line-clamp-2 items-center">
-            <input
-              type="text"
-              className="w-[341px] h-[56px] px-3 rounded-[8px] border border-[#C9C9C9]"
-              placeholder="Địa chỉ email"
-            />
-            <button className="ant-btn w-[135px] !h-[56px] bg-[#27B3E9]">
-              <Link href="">Tải về ngay</Link>
-            </button>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Nhập email của bạn"
+                required
+                className="w-[341px] h-[56px] px-3 rounded-[8px] border border-[#C9C9C9]"
+              />
+              <Button
+                type="primary"
+                loading={loading}
+                htmlType="submit"
+                className="!h-[56px] w-[135px] hover:!opacity-90 hover:!bg-[#1FA9EC]"
+              >
+                Tải về ngay
+              </Button>
+            </form>
           </div>
           <div className="flex flex-col w-[642px] h-[225px] gap-6">
             <div className="h-11">
-              <p className=" font-medium tetx-4 leading-[22.4px] text-[#1C1C1C] line-clamp-2">
+              <p className="font-medium tetx-4 leading-[22.4px] text-[#1C1C1C] line-clamp-2">
                 {article.typeEbook.ebook.descBook}
               </p>
             </div>
@@ -84,7 +138,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
                 </li>
               ))}
             </ul>
-            <div className=" h-[51px]">
+            <div className="h-[51px]">
               <p className="line-clamp-3 italic text-[#737373] font-normal text-[12px] leading-[16.8px] ">
                 <span className="text-[#737373] font-bold">Ghi chú:</span>{" "}
                 {article.typeEbook.ebook.note}
