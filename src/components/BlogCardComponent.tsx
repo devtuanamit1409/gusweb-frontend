@@ -28,7 +28,7 @@ const BlogCardComponent = ({ item, key }: any) => {
           <p className="font-bricolage text-[16px] font-semibold leading-[19.2px] h-[38px]">
             {item.title}
           </p>
-          <Link href="/">
+          <Link href={item.slug}>
             <div className="text-[#1FA9EC] w-[102px] h-[36px] py-[10px] gap-2 font-medium text-[15px] leading-[18px] font-montserrat flex items-center ">
               Xem thêm
               <ArrowRightOutlined

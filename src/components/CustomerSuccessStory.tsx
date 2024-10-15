@@ -1,91 +1,120 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
-import { Rate } from "antd";
+import { Autoplay } from "swiper/modules";
+import { Button, Rate } from "antd";
+import IconSlideNext from "./Icons/IconSlideNext";
 
 export default function CustomerSuccessStory({ chats }: any) {
-    const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<any>(null);
 
-    const handleResize = () => {
-        setIsLargeScreen(window.innerWidth <= 1024);
-    };
+  const handleSlideClick = (index: number) => {
+    const currentRealIndex = swiperRef.current?.realIndex;
+    if (index === currentRealIndex) {
+      return;
+    }
+    setActiveIndex(index);
 
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-        handleResize();
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    return (
-        <div className=" flex  relative mx-auto p-3 laptop:h-[580px] laptop:max-w-[1109px] tablet:max-w-[1109px] tablet:h-[580px] mobile:max-h-[673px] mobile:max-w-[360px] tablet:items-center tablet:flex-row mobile:flex-col">
-            <div className="flex flex-col gap-4 max-w-[450px] ">
-                <Image
-                    src="/images/Maskgroup.png"
-                    alt=""
-                    width="166"
-                    height="166"
-                />
-                <span className="font-semibold text-[42px] tablet:w-[356px] tablet:h-[150px]  mobile:h-[78px]">
-                    Câu chuyện thành công của khách hàng
-                </span>
-            </div>
-            <Swiper
-                spaceBetween={300}
-                loop={true}
-                modules={[Autoplay, Navigation]}
-                navigation={isLargeScreen}
-                style={{ padding: 24 }}
-                breakpoints={{
-                    1024: {
-                        slidesPerView: 2,
-                    },
-                    744: {
-                        slidesPerView: 1,
-                    },
-                    360: {
-                        slidesPerView: 1,
-                    },
-                }}
-            >
-                {chats &&
-                    chats.map((item: any, index: number) => {
-                        return (
-                            <SwiperSlide key={index}>
-                                <div className="bg-[#fefefe] shadow-lg shadow-[rgba(58,123,213,0.4)] rounded-[10px] laptop:w-[451px] laptop:h-[390px] tablet:max-w-[451px] tablet:max-h-[390px] mobile:max-w-[328px] mobile:max-h-[360px]">
-                                    <div className="text-black flex flex-row bg-[#E5FCFF] rounded-[10px] tablet:h-[124px] tablet:w-[451px] mobile:h-[104px] mobile:w-[328px] gap-2 tablet:px-10 tablet:py-6 mobile:px-6 mobile:py-2 ">
-                                        <div className="flex flex-col w-[313px] h-[76px] gap-2">
-                                            <div>
-                                                <span className="text-[20px]">{item.name}</span>
-                                                <p className="text-[14px]">{item.position}</p>
-                                            </div>
-                                            <Rate disabled defaultValue={item.rating} />
-                                        </div>
-                                        <div className="relative max-w-[50px] w-full h-full max-h-[50px]">
-                                            <Image
-                                                src={item.url}
-                                                alt={item.alt}
-                                                priority
-                                                layout="fill"
-                                                objectFit="cover"
-                                                className="rounded-full"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="text-black text-[16px] h-[296px] laptop:p-10 tablet:p-8 mobile:p-4">
-                                        <span>{item.content}</span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        );
-                    })}
-            </Swiper>
+  return (
+    <div className="relative custom-container">
+      <div className="tablet:absolute tablet:top-0 tablet:left-0 tablet:right-0 tablet:bottom-0">
+        <div className="px-4 h-full flex flex-row items-start relative max-w-[1109px] mx-auto">
+          <div className="flex flex-row tablet:flex-col gap-4 w-full tablet:w-[40%]">
+            <Image
+              src="/images/Maskgroup.png"
+              alt=""
+              width="166"
+              height="166"
+            />
+            <span className="font-semibold text-[42px] w-full tablet:w-96">
+              Câu chuyện thành công của khách hàng
+            </span>
+          </div>
+          <div className="hidden tablet:w-[60%] relative"></div>
         </div>
-    );
+      </div>
+      <div className="flex flex-row items-center justify-between">
+        <div className="hidden tablet:block tablet:w-1/2 laptop:w-[45%]"></div>
+        <div className="w-full tablet:w-1/2 laptop:w-[55%] overflow-hidden relative">
+          <div
+            className="block tablet:hidden w-[40px] h-[40px] absolute top-[40%] transform translate-y-[-1/2%] right-[12px] z-10 cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-80"
+            onClick={() => handleSlideClick(activeIndex + 1)}
+          >
+            <IconSlideNext />
+          </div>
+          <div className="h-[490px] rounded-[10px] w-[900px] ">
+            <Swiper
+              spaceBetween={50}
+              slidesPerView={2}
+              loop={true}
+              modules={[Autoplay]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+            >
+              {chats &&
+                chats.map((item: any, index: number) => {
+                  const isActive = index === activeIndex;
+                  return (
+                    <SwiperSlide
+                      key={index}
+                      onClick={() => handleSlideClick(index)}
+                    >
+                      <div
+                        className={`mx-3 my-6 bg-[#fefefe] ${
+                          isActive
+                            ? "shadow-lg shadow-[rgba(58,123,213,0.4)]"
+                            : "shadow-lg shadow-[rgba(198,217,225,.3)]"
+                        } rounded-[10px] w-[450px] h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
+                      >
+                        <div className="text-black flex flex-col gap-[14px] h-[108px] laptop:h-[124px] p-4 bg-[#E5FCFF] rounded-tl-[10px] rounded-tr-[10px]">
+                          <div className="relative flex flex-row px-5 h-full">
+                            <div className="flex-grow">
+                              <span className="mr-2 text-[20px]">
+                                {item.name}
+                              </span>
+                              <p className="mr-2 text-[14px]">
+                                {item.position}
+                              </p>
+                              <Rate
+                                disabled
+                                defaultValue={item.rating}
+                                className="mt-2"
+                              />
+                            </div>
+                            <Image
+                              src={item.url}
+                              alt={item.alt}
+                              width={50}
+                              height={50}
+                              className="rounded-full w-auto max-w-[50px] h-[50px] object-cover ml-4 mt-2"
+                            />
+                          </div>
+                        </div>
+                        <div className="flex flex-row text-black laptop:mt-5 gap-[5px] h-[264px] px-3 py-4 laptop:p-10 text-[16px]">
+                          <span>{item.content}</span>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+            </Swiper>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
