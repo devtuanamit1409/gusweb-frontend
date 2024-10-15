@@ -19,16 +19,16 @@ const data = {
 const Slogan: React.FC<any> = ({ slogans }) => {
   return (
     <>
-      <div className="w-full h-[715px] py-[80px] px-[162px] justify-center items-center flex gap-10">
-        <div className="h-[294px] w-[523px] gap-4  flex flex-col">
-          <h1 className="h-[134px] gap-2 font-bold leading-[67.2px] text-[56px] font-bricolage text-[#1C1C1C]">
+      <div className="custom-container  laptop:h-[715px] tablet:h-[979px] mobile:h-[702px] laptop:py-[80px] tablet:py-[80px] laptop:px-[162px] tablet:px-4  justify-center items-center flex  laptop:flex-row flex-col gap-10  mobile:gap-4 ">
+        <div className="laptop:h-[294px] laptop:max-w-[523px] tablet:max-w-[712px] tablet:h-[261px] mobile:max-w-[328px] mobile:h-[326px] flex justify-center flex-col gap-4  w-full  ">
+          <h1 className="laptop:h-[134px] tablet:h-[100px] mobile:h-[76px] font-bold laptop:leading-[67.2px] laptop:text-[56px] tablet:leading-[50.2px] tablet:text-[42px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage text-[#1C1C1C] laptop:text-start text-center line-clamp-2">
             {slogans[0].title}
           </h1>
-          <p className=" h-[144px] font-normal text-[16px] leading-6 text-[#363636] tracking-[0.5px] line-clamp-2">
+          <p className="laptop:h-[144px] tablet:h-[145px] mobile:h-[234px] font-normal text-[16px] leading-6 text-[#363636] ">
             {slogans[0].description}
           </p>
         </div>
-        <div className="w-[545px] h-[555px] justify-center items-center  ">
+        <div className="laptop:max-w-[545px] laptop:h-[555px] tablet:max-w-[500px] tablet:h-[510px] mobile:max-w-[328px] mobile:h-[328px]  justify-center items-center w-full ">
           <Image
             src={slogans[0].image || "/images/OBJECTS.png"}
             width={545}
@@ -38,13 +38,22 @@ const Slogan: React.FC<any> = ({ slogans }) => {
           />
         </div>
       </div>
-
-      <div className="w-full h-[715px] py-[80px] px-[160px]  justify-center items-center flex">
-        <div className="w">
-          <InfoComponent
-            data={slogans[1]}
-            styleTitle="h-[134px] font-bold text-5xl text-[#1C1C1C] leading-[67.2px] gap-2 font-bricolage"
-            styleImage="h-[555px] w-[545px]"
+      <div className="custom-container  laptop:h-[715px] tablet:h-[979px] mobile:h-[702px] laptop:py-[80px] tablet:py-[80px] laptop:px-[162px] tablet:px-4  justify-center items-center flex  laptop:flex-row flex-col gap-10  mobile:gap-4 ">
+        <div className="laptop:h-[294px] laptop:max-w-[523px] tablet:max-w-[712px] tablet:h-[261px] mobile:max-w-[328px] mobile:h-[326px] flex justify-center flex-col gap-4  w-full laptop:order-2 ">
+          <h1 className="laptop:h-[134px] tablet:h-[100px] mobile:h-[76px] font-bold laptop:leading-[67.2px] laptop:text-[56px] tablet:leading-[50.2px] tablet:text-[42px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage text-[#1C1C1C] laptop:text-start text-center line-clamp-2">
+            {slogans[1].title}
+          </h1>
+          <p className="laptop:h-[144px] tablet:h-[145px] mobile:h-[234px] font-normal text-[16px] leading-6 text-[#363636] ">
+            {slogans[1].description}
+          </p>
+        </div>
+        <div className="laptop:max-w-[545px] laptop:h-[555px] tablet:max-w-[500px] tablet:h-[510px] mobile:max-w-[328px] mobile:h-[328px]  justify-center items-center w-full ">
+          <Image
+            src={slogans[1].image || "/images/OBJECTS.png"}
+            width={545}
+            height={555}
+            alt={slogans[1].alt}
+            className="object-cover"
           />
         </div>
       </div>

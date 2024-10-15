@@ -413,46 +413,28 @@
   background: linear-gradient(89.71deg, #C6F5FF -2.43%, #FEFCFF 103.41%);
 }
 
-:root {
-  --swiper-navigation-size: 40px; 
+
+.custom-prev-button,
+.custom-next-button {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    background-color: #08BED5 !important; 
-    color: #ffffff !important; 
-    border-radius: 50% !important;
-    display: flex !important; 
-    justify-content: center !important; 
-    align-items: center !important;
-    width: calc(var(--swiper-navigation-size) / 25 * 27) !important; 
-    height: var(--swiper-navigation-size) !important; 
-    margin-top: calc(0px - (var(--swiper-navigation-size) / 2)) !important; 
-    z-index: 10 !important; 
-    cursor: pointer !important; 
+.custom-prev-button {
+  left: -25px; /* Adjust position of the prev button */
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background-color: #007BBA !important; 
+.custom-next-button {
+  right: -25px; /* Adjust position of the next button */
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
-    content: ''; 
-    font-size: 0 !important; 
-}
-
-.swiper-button-next:after {
-    background-image: url('/svg/IconArrowTabler.svg'); 
-    display: block; 
-    width: 20px; 
-    height: 20px; 
-    background-size: contain; 
-    background-repeat: no-repeat; 
-    background-position: center;
-}
-
-.swiper-button-prev {
-    display: none !important; 
-}
