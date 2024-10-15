@@ -303,21 +303,20 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div className=" w-full   h-auto mt-[48px] bg-gray-400">
+        <div className="  h-auto mt-[48px] laptop:w-[1116px]  tablet:w-[356px] mobile:w-[312px]">
           <div className="grid grid-cols-1 laptop:grid-cols-3  gap-6 lg:gap-8 mx-auto  ">
             {articles &&
               articles.map((item: any, index: number) => (
                 <BlogCardComponent key={index} item={item} />
               ))}
           </div>
-        </div>
-        {/* <div className="w-full flex justify-center sm:mt-[25.5rem] mx-auto">
           <PaginationComponent
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             totalPages={Math.ceil(pagination?.total / pagination?.pageSize)}
           />
-        </div> */}
+        </div>
+        <div className="w-full flex justify-center sm:mt-[25.5rem] mx-auto"></div>
       </div>
     </div>
   );

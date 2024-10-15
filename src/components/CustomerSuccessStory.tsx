@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Autoplay } from "swiper/modules"; // Đảm bảo bạn đã import Autoplay
+import { Autoplay } from "swiper/modules";
 import { Button, Rate } from "antd";
 import IconSlideNext from "./Icons/IconSlideNext";
 
