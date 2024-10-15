@@ -24,6 +24,7 @@ const page = () => {
   const [submitError, setSubmitError] = useState<string>("");
   const [contactData, setContactData] = useState<any>(null);
 
+
   useEffect(() => {
     const getContactData = async () => {
       const data = await fetchContactUsPage("vi");
@@ -31,6 +32,7 @@ const page = () => {
     };
 
     getContactData();
+
   }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -147,9 +149,8 @@ const page = () => {
                   type="text"
                   id="name"
                   placeholder=""
-                  className={`w-[427px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                    nameError ? "border-red-500" : ""
-                  }`}
+                  className={`w-[427px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${nameError ? "border-red-500" : ""
+                    }`}
                   value={name}
                   onChange={handleNameChange}
                   required
@@ -170,9 +171,8 @@ const page = () => {
                   type="tel"
                   id="phone"
                   placeholder=" "
-                  className={`w-[230px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                    phoneError ? "border-red-500" : ""
-                  }`}
+                  className={`w-[230px] h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${phoneError ? "border-red-500" : ""
+                    }`}
                   value={phoneNumber}
                   onChange={handlePhoneChange}
                   required
@@ -193,9 +193,8 @@ const page = () => {
                 type="email"
                 id="email"
                 placeholder=" "
-                className={`w-full h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                  emailError ? "border-red-500" : ""
-                }`}
+                className={`w-full h-[56px] p-2 pt-5 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${emailError ? "border-red-500" : ""
+                  }`}
                 value={email}
                 onChange={handleEmailChange}
                 required
