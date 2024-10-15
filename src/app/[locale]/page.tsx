@@ -20,10 +20,10 @@ export default async function Home() {
       <WebsiteAsGateway webUs={data.webUs} />
       <OurExperts about={data.about} />
       <WhyChooseUs whyUs={data.whyUs} />
-      <WorkPrinciples work={data.work} project={data.project} />
+      {/* <WorkPrinciples work={data.work} project={data.project} /> */}
       <PartnerList customer={data.customer} />
       <CustomerSuccessStory chats={data.chats} />
-      <BlogCard />
+      {/* <BlogCard /> */}
       <Contact />
     </main>
   );

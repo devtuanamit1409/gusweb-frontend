@@ -48,7 +48,7 @@ const page = () => {
         content,
         value,
       };
-      console.log("Form Data:", formData);
+      // console.log("Form Data:", formData);
       // Process formData as needed
     } else {
       setFormError("Please fix the errors in the form.");
