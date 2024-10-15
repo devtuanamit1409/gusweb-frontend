@@ -138,12 +138,15 @@ export default function Navbar() {
                 Liên hệ
               </Link>
             </li>
-            <button
-              type="button"
-              className={`text-white ant-btn focus:outline-none font-medium rounded-md text-base px-4 py-2 text-center items-center justify-between block tablet:hidden`}
-            >
-              Quotation
-            </button>
+
+            <Link href="/your-target-url">
+              <button
+                type="button"
+                className={`text-white ant-btn focus:outline-none font-medium rounded-md text-base px-4 py-2 text-center items-center justify-between block tablet:hidden`}
+              >
+                Quotation
+              </button>
+            </Link>
           </ul>
         </div>
       </div>
@@ -207,12 +210,14 @@ export default function Navbar() {
             Liên hệ
           </Link>
         </li>
-        <button
-          type="button"
-          className={`text-white ant-btn focus:outline-none font-medium rounded-md text-base px-4 py-2 text-center items-center justify-between block`}
-        >
-          Quotation
-        </button>
+        <Link href="/quick-quotes">
+          <button
+            type="button"
+            className={`text-white ant-btn focus:outline-none font-medium rounded-md text-base px-4 py-2 text-center items-center justify-between block`}
+          >
+            Quotation
+          </button>
+        </Link>
       </ul>
     </nav>
   );

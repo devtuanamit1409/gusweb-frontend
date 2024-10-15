@@ -433,3 +433,14 @@
 .custom-next-button {
   right: -25px; /* Adjust position of the next button */
 }
+.text-gradient {
+  background: linear-gradient(to right, #0B8C2F, #004d77);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-2 {
+  background: linear-gradient(to right, #00aa30, #009b2c);
+  -webkit-background-clip: text;
+  color: transparent;
+}
