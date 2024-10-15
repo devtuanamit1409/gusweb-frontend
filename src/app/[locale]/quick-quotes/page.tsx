@@ -1,19 +1,11 @@
 "use client";
-import BannerComponent from "@/components/BannerComponent";
-import React, { useEffect, useState } from "react";
+import { fetchContactUsPage } from "@/utils/GlobalApi";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
-import { fetchContactUsPage } from "@/utils/GlobalApi";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
-  // const data = {
-  //   premble: "LIÊN HỆ",
-  //   title: "",
-  //   description:
-  //     "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
-  // };
-
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -25,7 +17,7 @@ const page = () => {
   const [contactData, setContactData] = useState<any>(null);
   const [companyName, setCompanyName] = useState<string>("");
   const [content, setContent] = useState<string>("");
-
+  const [isDisabled, setIsDisabled] = useState(true);
   useEffect(() => {
     const getContactData = async () => {
       const data = await fetchContactUsPage("vi");
@@ -36,7 +28,6 @@ const page = () => {
   }, []);
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
     validateForm();
 
     if (!nameError && !phoneError && !emailError) {
@@ -107,8 +98,6 @@ const page = () => {
         setPhoneError("Số điện thoại bắt đầu bằng số 0.");
       } else if (sanitizedValue.length !== 10) {
         setPhoneError("Số điện thoại có đúng 10 chữ số.");
-      } else {
-        setPhoneError("");
       }
     }
 
@@ -133,7 +122,6 @@ const page = () => {
   const handleContentChange = (e: any) => setContent(e.target.value);
   return (
     <div className="w-full flex flex-col gap-10">
-      <BannerComponent intro={contactData?.intro} />
       <div className="custom-contaier flex flex-col gap-10">
         <div className="laptop:h-[1058px] h-[1025px] mobile:py-20  flex flex-col justify-center items-center px-6 py-10 gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529] ">
           <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:max-w-[500px] tablet:h-[1000px] mobile:max-w-[328px] mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
@@ -314,7 +302,8 @@ const page = () => {
               <div className="flex justify-end mt-4">
                 <button
                   type="submit"
-                  className="bg-gray-300 text-white flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded  transition-colors"
+                  className={`bg-gray-300 text-white flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors`}
+                
                   onClick={validateForm} // Kiểm tra form khi bấm nút
                 >
                   Gửi yêu cầu
@@ -329,130 +318,6 @@ const page = () => {
                 <span className="text-red-500 text-sm mt-2">{formError}</span>
               )}
             </form>
-          </div>
-        </div>
-
-        <div className="laptop:h-[486px] tablet:h-[399px] mobile:h-[794px] flex tablet:flex-row laptop:flex-row laptop:py-[80px] laptop:px-[162px] tablet:p-4 mobile:py-6 mobile:px-3 mobile:flex-col justify-center items-center gap-6">
-          <div className="laptop:max-w-[736px] laptop:h-[326px] tablet:max-w-[344px] tablet:h-[338px] mobile:max-w-[328px] mobile:h-[361px]  overflow-hidden w-full">
-            <iframe
-              src={contactData?.map?.urlMap}
-              className="w-full h-full border-none rounded-lg"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div className="laptop:max-w-[356px] laptop:h-[326px] tablet:max-w-[344px] tablet:h-[338px] mobile:max-w-[328px] mobile:h-[361px]   rounded-lg border border-[#1FA9EC] flex flex-col p-6 gap-4 w-full">
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] h-[50px] flex justify-center items-center w-full">
-              <div className="w-[156px]  h-[50px]">
-                <Image
-                  width={156}
-                  height={50}
-                  src={contactData?.map.url}
-                  alt={contactData?.map.alt}
-                  className="object-contain"
-                />
-              </div>
-            </div>
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] mobile:max-w-[280px] mobile:h-[104px] h-[80px] w-full flex flex-col gap-2">
-              <div className="flex items-center">
-                <Image
-                  src="/images/Iconsoffice.png"
-                  alt=""
-                  width={24}
-                  height={24}
-                  className="mr-2"
-                />
-                <h2 className="font-semibold font-bricolage text-[20px] leading-6 text-[#1C1C1C]">
-                  Văn phòng của chúng tôi
-                </h2>
-              </div>
-              <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                {contactData?.map?.address}
-              </p>
-            </div>
-
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] mobile:max-w-[280px] h-[56px] w-full flex flex-col gap-2">
-              <div className="flex items-center">
-                <Image
-                  src="/images/phone-call.png"
-                  alt=""
-                  width={24}
-                  height={24}
-                  className="mr-2"
-                />
-                <h2 className="text-xl font-semibold leading-6 text-[#1C1C1C] font-bricolage">
-                  Số điện thoại
-                </h2>
-              </div>
-              <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                {contactData?.map?.phone}
-              </p>
-            </div>
-
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] mobile:max-w-[280px] h-[56px] w-full flex flex-col gap-2">
-              <div className="flex items-center">
-                <Image
-                  src="/images/IconsClock.png"
-                  alt=""
-                  width={24}
-                  height={24}
-                  className="mr-2"
-                />
-                <h2 className="text-xl font-semibold leading-6 text-[#1C1C1C] font-bricolage">
-                  Giờ làm việc
-                </h2>
-              </div>
-              <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
-                {contactData?.map?.time}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="relative laptop:h-[291px] tablet:h-[291px] mobile:h-[443px]">
-          <Image
-            src={contactData?.folow?.url || "/images/BannerPromotion.png"}
-            alt={contactData?.folow?.alt || "image banner contact"}
-            layout="fill"
-            className="absolute top-0 left-0 w-full laptop:h-[291px] tablet:h-[291px] mobile:h-[443px]"
-          />
-          <div className="custom-container laptop:px-[162px] tablet:px-[162px] mobile:px-[162px] flex laptop:justify-start laptop:items-center tablet:justify-start tablet:items-center mobile:justify-center mobile:items-start h-full">
-            <div className="laptop:max-w-[542px] laptop:h-[131px] tablet:max-w-[542px] tablet:h-[114px] mobile:min-w-[328px] mobile:h-[164px] flex flex-col gap-6 justify-center tablet:items-start laptop:items-start mobile:items-center tablet:pt-[45px] w-full">
-              <h3 className="laptop:text-[56px] laptop:leading-[67.2px] tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[42px] mobile:leading-[50.4px] font-bold font-bricolage text-[#FEFEFE] text-center z-10">
-                Theo dõi GUSWEB tại
-              </h3>
-              <div className="w-[104px] h-[40px] gap-6 flex flex-row z-20">
-                {contactData?.folow?.icons &&
-                  contactData?.folow?.icons.map((item: any, index: number) => {
-                    return (
-                      <Image
-                        key={index}
-                        src={item.url}
-                        alt={item.alt}
-                        width={40}
-                        height={40}
-                      />
-                    );
-                  })}
-              </div>
-            </div>
-          </div>
-          <div className="absolute top-0 right-0 w-[455px] h-[291]px] hidden laptop:block ">
-            <Image
-              src="/images/OBJECTS2.png"
-              alt="Overlay Image"
-              width={455}
-              height={291}
-              objectFit="contain"
-            />
-          </div>
-          <div className="absolute bottom-0 right-0 w-[234px] h-[222px] laptop:hidden mobile:block tablet:block">
-            <Image
-              src="/images/OBJECTS3.png"
-              alt="Overlay Image"
-              width={234}
-              height={222}
-              objectFit="contain"
-            />
           </div>
         </div>
       </div>

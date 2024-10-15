@@ -14,6 +14,9 @@ const config: Config = {
         tablet: "744px",
         mobile: "360px",
       },
+      textShadow: {
+        'custom': '0 4px 6.5px rgba(42, 78, 131, 0.31)',
+      },
       // shadow-custom-shadow
       boxShadow: {
         "custom-shadow": "0 14px 25px rgba(58, 123, 213, 0.4)",
