@@ -35,7 +35,7 @@ const InfoComponent = (props: Props) => {
         </div>
 
         <div
-          className="laptop:max-h-[372px] laptop:max-w-[570px] tablet:max-w-[712px] tablet:max-h-[367px] mobile:max-w-[328px] mobile:max-h-[417px] mobile:px-6 mobile:py-6 tablet:py-[80px] taplet:px-6 gap-6 flex flex-col laptop:order-2 tablet:order-1 mobile:order-1 w-full"
+          className="laptop:max-h-[372px] laptop:max-w-[570px] tablet:max-w-[712px] tablet:max-h-[367px] mobile:max-w-[328px] mobile:max-h-[417px] mobile:px-6 mobile:py-6 tablet:py-[80px] tablet:px-6 gap-6 flex flex-col laptop:order-2 tablet:order-1 mobile:order-1 w-full"
           data-aos="fade-left"
           data-aos-duration="1000"
         >
@@ -43,7 +43,7 @@ const InfoComponent = (props: Props) => {
             className={
               styleTitle
                 ? styleTitle
-                : "font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff] line-clamp-2 tablet:text-center mobile:text-center"
+                : "font-bold leading-[68px] text-[56px] bg-clip-text text-transparent bg-gradient-to-r from-[#3a7bd5] to-[#00d2ff] tablet:text-center mobile:text-center"
             }
           >
             {data?.title}

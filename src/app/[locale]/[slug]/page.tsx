@@ -24,7 +24,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           article={data.articles[0]}
         />
       )}
-      <BlogCard />
+      {/* <BlogCard /> */}
     </div>
   );
 };

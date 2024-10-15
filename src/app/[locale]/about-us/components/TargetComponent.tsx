@@ -11,7 +11,7 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
-
+ 
   return (
     <div className="custom-container laptop:py-20 laptop:px-[162px]">
       <div className=" laptop:max-h-[555px] laptop:max-w-[1116px] laptop:gap-[10px]  laptop:flex-row laptop:justify-between tablet:max-h-[832px] tablet:max-w-[546px] mobile:max-h-[660px] mobile:max-w-[360px] flex flex-col  w-full items-center gap-10  ">
