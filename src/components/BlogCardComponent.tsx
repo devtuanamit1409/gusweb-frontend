@@ -7,7 +7,7 @@ const BlogCardComponent = ({ item, key }: any) => {
   return (
     <div
       key={key}
-      className="home-service-item__box mobile:max-w-[360px] mobile:w-full mobile:min-h-[454px] tablet:h-[454px] tablet:max-w-[356px] tablet:w-full  laptop:w-full laptop:h-[454px]  flex justify-center bg-cyan-400 mx-auto "
+      className="home-service-item__box mobile:max-w-[360px] mobile:min-h-[318px] tablet:h-[454px] tablet:max-w-[356px] tablet:w-full bg-red-300 laptop:w-[1116px] laptop:h-[454px]  flex justify-center  mx-auto "
     >
       <div>
         <div className="relative">
