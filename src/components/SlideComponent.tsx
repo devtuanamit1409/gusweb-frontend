@@ -1,40 +1,61 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/autoplay";
+import { IconArrowTronButtonPhai } from "@/components/Icons/IconArrowTronButtonPhai";
+import { IconArrowTronButtonTrai } from "@/components/Icons/IconArrowTronButtonTrai";
 
 const Slide: React.FC<any> = ({ brands }) => {
-  // const images = [
-  //   { image: "/images/logoClient.png", alt: "Logo Client 1" },
-  //   { image: "/images/Audi_logo logo.png", alt: "Logo Client 2" },
-  //   { image: "/images/CocaCola logo.png", alt: "Logo Client 3" },
-  //   { image: "/images/Logo Cilents.png", alt: "Logo Client 4" },
-  //   { image: "/images/Logo FPT.png", alt: "Logo Client 5" },
-  //   { image: "/images/logoClient.png", alt: "Logo Client 1" },
-  //   { image: "/images/Audi_logo logo.png", alt: "Logo Client 2" },
-  //   { image: "/images/CocaCola logo.png", alt: "Logo Client 3" },
-  //   { image: "/images/Logo Cilents.png", alt: "Logo Client 4" },
-  //   { image: "/images/Logo FPT.png", alt: "Logo Client 5" },
-  // ];
+  const swiperRef = useRef<any>(null);
+
+  const handlePrevClick = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleNextClick = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
   return (
-    <div className="max-w-[1140px] mx-auto h-[68px] justify-between pt-[20px] mb-[20px]">
+    <div className="laptop:max-w-[1140px] laptop:h-[68px] tablet:max-w-[712px] tablet:max-h-[49px] mobile:max-w-[328px] mobile:max-h-[40px] pt-[20px] mb-[20px] relative flex items-center mx-auto justify-between ">
+      <div
+        className=" rounded-full cursor-pointer shadow-md z-10 laptop:hidden tablet:block mobile:block"
+        onClick={handlePrevClick}
+      >
+        <IconArrowTronButtonTrai />
+      </div>
       <Swiper
+        ref={swiperRef} // Gán ref vào Swiper
         modules={[Autoplay]}
         spaceBetween={30}
-        slidesPerView={5}
         autoplay={{
           delay: 1500,
           disableOnInteraction: false,
+        }}
+        breakpoints={{
+          1024: {
+            slidesPerView: 5,
+          },
+          744: {
+            slidesPerView: 4,
+          },
+          360: {
+            slidesPerView: 2,
+          },
         }}
         loop={true}
         className="w-full h-[68px]"
       >
         {brands.map((img: any, index: number) => (
           <SwiperSlide key={index}>
-            <div className="w-[208px] h-[68px] flex items-center justify-center px-[10px]">
+            <div className="laptop:w-[208px] laptop:h-[68px] tablet:w-[170px] !tablet:h-[49px] mobile:w-[124px] mobile:h-[40px]  px-[10px]">
               <Image
                 src={img.url}
                 width={100}
@@ -46,6 +67,13 @@ const Slide: React.FC<any> = ({ brands }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div
+        className="rounded-full  cursor-pointer shadow-md z-10 laptop:hidden tablet:block mobile:block"
+        onClick={handleNextClick}
+      >
+        <IconArrowTronButtonPhai />
+      </div>
     </div>
   );
 };

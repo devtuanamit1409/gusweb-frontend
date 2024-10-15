@@ -169,8 +169,8 @@ export const fetchFilteredArticleDetail = async (
         alt: item?.attributes.sub_category?.data?.attributes?.banner.alt || "",
         url:
           BaseApiUrl +
-            item?.attributes?.sub_category?.data?.attributes?.banner?.src?.data
-              ?.attributes?.url || "",
+          item?.attributes?.sub_category?.data?.attributes?.banner?.src?.data
+            ?.attributes?.url || "",
       },
       categoryId:
         item?.attributes.sub_category?.data?.attributes?.category?.data?.id,
@@ -193,7 +193,7 @@ export const fetchFilteredArticleDetail = async (
           alt: item.attributes.typeEbook?.ebook?.alt || "",
           src: item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
             ? BaseApiUrl +
-              item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
+            item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
             : "",
           titleBook: item.attributes.typeEbook?.ebook?.titleBook || "",
           descBook: item.attributes.typeEbook?.ebook?.descBook || "",
@@ -202,7 +202,7 @@ export const fetchFilteredArticleDetail = async (
           pdfFile: item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes
             ?.url
             ? BaseApiUrl +
-              item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
+            item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
             : "",
         },
       },
@@ -430,6 +430,7 @@ export const fetchHomePage = async (lang: string) => {
     customer: {
       id: res.customer.id,
       title: res.customer.title,
+      text1: res.customer.text1,
       description: res.customer.description,
       images: res?.customer?.images?.map((item: any) => ({
         id: item.id,

@@ -15,16 +15,16 @@ export default async function Home() {
 
   return (
     <main className="">
-      <BrandValue mainData={data.main} />
-      <AboutUs whoUs={data.whoUs} />
-      <WebsiteAsGateway webUs={data.webUs} />
-      <OurExperts about={data.about} />
-      <WhyChooseUs whyUs={data.whyUs} />
-      <WorkPrinciples work={data.work} project={data.project} />
+      {/* <BrandValue mainData={data.main} />? */}
+      {/* <AboutUs whoUs={data.whoUs} />R */}
+      {/* <WebsiteAsGateway webUs={data.webUs} />C */}
+      {/* <OurExperts about={data.about} />R */}
+      {/* <WhyChooseUs whyUs={data.whyUs} />R */}
+      {/* <WorkPrinciples work={data.work} project={data.project} />? */}
       <PartnerList customer={data.customer} />
-      <CustomerSuccessStory chats={data.chats} />
-      <BlogCard />
-      <Contact />
+      {/* <CustomerSuccessStory chats={data.chats} />? */}
+      {/* <BlogCard /> */}
+      {/* <Contact /> */}
     </main>
   );
 }
