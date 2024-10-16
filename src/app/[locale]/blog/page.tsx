@@ -15,7 +15,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Swiper as SwiperType } from "swiper"; // Import Swiper type for typing
+import { Swiper as SwiperType } from "swiper";
 import { Navigation } from "swiper/modules";
 const Page = () => {
   const pageSize = 6;
@@ -34,12 +34,12 @@ const Page = () => {
 
       const getListSubCategory = async () => {
         const data2 = await fetchSubCategoryByCategoryId("vi", data.categoryId);
-        console.log("data2", data2);
+        // console.log("data2", data2);
         const subCategoriesWithAll = [
           { title: "Tất cả", id: 0 },
           ...data2.subCategories,
         ];
-        console.log("subCategoriesWithAll", subCategoriesWithAll);
+        // console.log("subCategoriesWithAll", subCategoriesWithAll);
         setSubCategory(subCategoriesWithAll);
       };
       getListSubCategory();
@@ -303,21 +303,20 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div className=" w-full   h-auto mt-[48px] bg-gray-400">
+        <div className="  h-auto mt-[48px] laptop:w-[1116px]  tablet:w-[356px] mobile:w-[312px]">
           <div className="grid grid-cols-1 laptop:grid-cols-3  gap-6 lg:gap-8 mx-auto  ">
             {articles &&
-              articles.map((item: any) => (
-                <BlogCardComponent key={item.id} item={item} />
+              articles.map((item: any, index: number) => (
+                <BlogCardComponent key={index} item={item} />
               ))}
           </div>
-        </div>
-        {/* <div className="w-full flex justify-center sm:mt-[25.5rem] mx-auto">
           <PaginationComponent
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             totalPages={Math.ceil(pagination?.total / pagination?.pageSize)}
           />
-        </div> */}
+        </div>
+        <div className="w-full flex justify-center sm:mt-[25.5rem] mx-auto"></div>
       </div>
     </div>
   );

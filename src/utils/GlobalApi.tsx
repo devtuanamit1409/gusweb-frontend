@@ -169,8 +169,8 @@ export const fetchFilteredArticleDetail = async (
         alt: item?.attributes.sub_category?.data?.attributes?.banner.alt || "",
         url:
           BaseApiUrl +
-          item?.attributes?.sub_category?.data?.attributes?.banner?.src?.data
-            ?.attributes?.url || "",
+            item?.attributes?.sub_category?.data?.attributes?.banner?.src?.data
+              ?.attributes?.url || "",
       },
       categoryId:
         item?.attributes.sub_category?.data?.attributes?.category?.data?.id,
@@ -193,7 +193,7 @@ export const fetchFilteredArticleDetail = async (
           alt: item.attributes.typeEbook?.ebook?.alt || "",
           src: item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
             ? BaseApiUrl +
-            item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
+              item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
             : "",
           titleBook: item.attributes.typeEbook?.ebook?.titleBook || "",
           descBook: item.attributes.typeEbook?.ebook?.descBook || "",
@@ -202,7 +202,7 @@ export const fetchFilteredArticleDetail = async (
           pdfFile: item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes
             ?.url
             ? BaseApiUrl +
-            item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
+              item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
             : "",
         },
       },
@@ -628,7 +628,7 @@ export const fetchAboutUsPage = async (lang: string) => {
       id: res.meet.id,
       title: res.meet.title,
       name: res.meet.name,
-      members: res?.meet.items?.map((item: any) => ({
+      members: res?.meet.members?.map((item: any) => ({
         id: item.id,
         name: item.name,
         position: item.position,

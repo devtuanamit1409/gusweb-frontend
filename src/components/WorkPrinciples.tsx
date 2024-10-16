@@ -6,12 +6,10 @@ import {
 } from "@/models/principleModel";
 import Image from "next/image";
 import React from "react";
-import { Collapse } from "antd"; // Import Collapse từ Ant Design
-import ProjectShowcase from "@/components/ProjectShowcase";
-
+import { Collapse } from "antd";
 const { Panel } = Collapse;
 
-export default function WorkPrinciples({ work, project }: any) {
+export default function WorkPrinciples({ work }: any) {
   const collapseItems = work.items.map((itemDescription: any, idx: number) => ({
     key: idx.toString(),
     label: (
@@ -27,8 +25,8 @@ export default function WorkPrinciples({ work, project }: any) {
   }));
 
   return (
-    <div className="relative h-[1517px] max-w-[1116px] mx-auto mt-20 px-4">
-      <div className="gap-10 mb-[469px]">
+    <div className="relative max-w-[1116px] mx-auto mt-20">
+      <div className="">
         <Image
           src="/images/starrysky.png"
           alt="Header Banner"
@@ -78,9 +76,6 @@ export default function WorkPrinciples({ work, project }: any) {
           </Collapse>
           <hr className="border-t-2" />
         </div>
-      </div>
-      <div className="absolute bottom-52 left-0 right-0">
-        <ProjectShowcase project={project} />
       </div>
     </div>
   );

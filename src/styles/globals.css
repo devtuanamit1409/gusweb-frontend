@@ -37,8 +37,6 @@
   }
 }
 
-
-
 .container-tablet {
   max-width: 1024px;
   margin-left: auto;
@@ -132,9 +130,9 @@
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: none;
-  background: #1FA9EC;
+  background: #1fa9ec;
   position: relative;
-  color: #FEFEFE;
+  color: #fefefe;
 }
 .gradient-text {
   position: relative;
@@ -147,11 +145,10 @@
 .gradient-text-camvang {
   position: relative;
   display: inline-block;
-  background: linear-gradient(90deg, #FF5F6D, #FFC371);
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 
 .gradient-text::before {
   content: "";
@@ -367,10 +364,9 @@
 }
 
 .category-item__box {
-  box-shadow: 0px 8px 16px 0px #3A7BD566;
-  background: linear-gradient(89.71deg, #C6F5FF -2.43%, #FEFCFF 103.41%);
+  box-shadow: 0px 8px 16px 0px #3a7bd566;
+  background: linear-gradient(89.71deg, #c6f5ff -2.43%, #fefcff 103.41%);
 }
-
 
 .custom-prev-button,
 .custom-next-button {
@@ -395,4 +391,56 @@
 .custom-next-button {
   right: -25px; /* Adjust position of the next button */
 }
+.text-gradient {
+  background: linear-gradient(to right, #0b8c2f, #004d77);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
+.text-gradient-2 {
+  background: linear-gradient(to right, #00aa30, #009b2c);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.card-top-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 260px;
+  height: 260px;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5) border-box;
+  -webkit-mask: linear-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: destination-out;
+  -webkit-mask: near-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  mask: near-gradient(#fefefe 0 0) padding-box, linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.card-top-image-no-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 166px;
+  height: 166px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5) border-box;
+  -webkit-mask: linear-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: destination-out;
+  -webkit-mask: near-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  mask: near-gradient(#fefefe 0 0) padding-box, linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}

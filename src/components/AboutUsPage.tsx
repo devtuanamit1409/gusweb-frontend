@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 import InfoComponent from "@/components/InfoComponent";
 
 import BannerComponent from "@/components/BannerComponent";
@@ -10,12 +9,13 @@ import WorkAboutComponent from "@/components/WorkAboutComponent";
 import ExpensiveComponent from "@/components/ExpensiveComponent";
 import TeamComponent from "@/components/TeamComponent";
 import TargetComponent from "@/app/[locale]/about-us/components/TargetComponent";
-import LeaderComponent from "@/app/[locale]/about-us/components/LeaderComponent";
+import LeaderComponent from "./LeaderComponent";
 
 const AboutUsPage: React.FC<any> = ({ data }) => {
+  // console.log(data);
   return (
     <div className="w-full h-full flex flex-col mobile:gap-10 tablet:gap-10 laptop:gap-0 ">
-      <BannerComponent intro={data.intro} />
+      {/* <BannerComponent intro={data.intro} /> */}
       <div className="flex flex-col relative mobile:gap-10 tablet:gap-10 laptop:gap-0">
         <div className="absolute top-20 right-24 w-[418px] h-[498px] hidden laptop:block">
           <Image
@@ -33,8 +33,8 @@ const AboutUsPage: React.FC<any> = ({ data }) => {
         <WorkAboutComponent work={data.work} />
       </div>
       <ExpensiveComponent exp={data.exp} />
-
-      {/* <TeamComponent team={data.team} /> */}
+      <LeaderComponent meet={data.meet} />
+      <TeamComponent team={data.team} />
       <Contact />
     </div>
   );
