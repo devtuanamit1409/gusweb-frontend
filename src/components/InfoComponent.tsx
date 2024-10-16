@@ -18,24 +18,24 @@ const InfoComponent = (props: Props) => {
     AOS.init();
   }, []);
   return (
-    <div className="custom-container laptop:py-20 laptop:px-[162px] laptop:h-[716px] tablet:h-[877px] mobile:h-[811px] justify-center items-center flex  w-full">
-      <div className="laptop:h-[555px] laptop:max-w-[1116px] laptop:flex-row laptop:justify-between  laptop:gap-[10px] tablet:max-w-[743px] tablet:max-h-[877px] mobile:max-w-[360px]  mobile:max-h-[811px] w-full  flex  flex-col items-center  ">
+    <div className="custom-container laptop:py-20 laptop:px-[162px] px-4   justify-center items-center flex  w-full">
+      <div className="laptop:max-w-[1116px] laptop:flex-row laptop:justify-between  laptop:gap-[10px]  w-full  flex  flex-col items-center  ">
         <div
-          className={`justify-center items-center flex ${styleImage} laptop:order-1 tablet:order-2 mobile:order-2 laptop:max-w-[418px] laptop:h-[434px] tablet:max-w-[500px] tablet:h-[510px] mobile:max-w-[315.72px] mobile:h-[328px] w-full`}
+          className={`laptop:justify-between justify-center items-center flex ${styleImage} laptop:order-1 tablet:order-2 mobile:order-2 w-full`}
           data-aos="fade-right"
           data-aos-duration="1000"
         >
           <Image
             src={data?.url}
-            fill
-            style={{ objectFit: "cover" }}
+            width={500}
+            height={500}
             alt={data?.alt}
             className={styleImage}
           />
         </div>
 
         <div
-          className="laptop:max-h-[372px] laptop:max-w-[570px] tablet:max-w-[712px] tablet:max-h-[367px] mobile:max-w-[328px] mobile:max-h-[417px] mobile:px-6 mobile:py-6 tablet:py-[80px] tablet:px-6 gap-6 flex flex-col laptop:order-2 tablet:order-1 mobile:order-1 w-full"
+          className=" px-6 py-6 tablet:py-[80px] tablet:px-6 gap-6 flex flex-col laptop:order-2 tablet:order-1 mobile:order-1 w-full"
           data-aos="fade-left"
           data-aos-duration="1000"
         >

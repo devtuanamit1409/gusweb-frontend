@@ -13,24 +13,24 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
   }, []);
  
   return (
-    <div className="custom-container laptop:py-20 laptop:px-[162px]">
-      <div className=" laptop:max-h-[555px] laptop:max-w-[1116px] laptop:gap-[10px]  laptop:flex-row laptop:justify-between tablet:max-h-[832px] tablet:max-w-[546px] mobile:max-h-[660px] mobile:max-w-[360px] flex flex-col  w-full items-center gap-10  ">
+    <div className="custom-container laptop:py-20 laptop:px-[162px] tablet:px-[100px] px-4">
+      <div className=" laptop:max-w-[1116px] laptop:gap-[10px]  laptop:flex-row laptop:justify-between flex flex-col  w-full items-center gap-10  ">
         <div
-          className="laptop:max-h-[392px] laptop:max-w-[570px] tablet:max-w-[546px] tablet:max-h-[308px] mobile:max-h-[660px] mobile:max-w-[360px] gap-6 flex flex-col w-full items-start"
+          className=" laptop:max-w-[570px] gap-6 flex flex-col w-full items-start"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
-          <div className="laptop:max-h-[166px] laptop:max-w-[400px] mobile:max-h-[100px] mobile:max-w-[360px] w-full ">
+          <div className=" w-full ">
             <h2 className="font-bold font-bricolage line-clamp-2 laptop:text-[56px] laptop:leading-[67.2px] text-[42px] leading-[50.4px] text-start ">
               {taget.banner.title}
             </h2>
           </div>
-          <div className="laptop:max-w-[546px] tablet:max-w-[546px] mobile:max-w-[345px]  min-h-[66px]  flex tablet:gap-10 laptop:gap-10 border-t-2 border-[#C9C9C9] w-full">
+          <div className=" min-h-[66px]  flex tablet:gap-10 laptop:gap-10 border-t-2 border-[#C9C9C9] w-full">
             {taget.items &&
               taget.items.map((item: any) => (
                 <button
                   key={item.id}
-                  className={`relative laptop:max-w-[182px] tablet:max-w-[182px] mobile:max-w-[115px] px-4 flex items-center justify-center w-full ${
+                  className={`relative  px-4 flex items-center justify-center w-full ${
                     activeTab === item.id ? "gradient-text" : "text-[#C9C9C9]"
                   }`}
                   onClick={() => setActiveTab(item.id)}
@@ -45,12 +45,12 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
                       />
                     </div>
                   )}
-                  <h6 className="line-clamp-1 w-full">{item.title}</h6>
+                  <h6 className="w-full">{item.title}</h6>
                 </button>
               ))}
           </div>
-
-          <div className="max-h-[120px] mt-[-24px] p-6">
+ 
+          <div className=" mt-[-24px] p-6 h-full">
             {taget.items &&
               taget.items.map(
                 (item: any) =>
@@ -65,7 +65,7 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
           </div>
         </div>
         <div
-          className="justify-center items-center flex  laptop:w-[555px] laptop:h-[555px] tablet:w-[500px] tablet:h-[500px] mobile:w-[328px] mobile:h-[328px] "
+          className="justify-center items-center flex w-full"
           data-aos="fade-left"
           data-aos-duration="1000"
         >
