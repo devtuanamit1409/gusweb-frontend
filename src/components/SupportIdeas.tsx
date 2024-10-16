@@ -87,12 +87,12 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
           <h1 className="laptop:text-[56px] font-bold tablet:tetx-[42px] tablet:leading-[50.4px] font-bricolage mobile:text-[32px]  mobile:leading-[38.4px] laptop:leading-[67.2px] text-[#1C1C1C]  laptop:text-start text-center ">
             {help.title}
           </h1>
-          <p className=" font-normal text-base leading-6 tracking-[0.5px] text-[#1C1C1C]   w-full laptop:text-start text-center">
+          <p className=" font-normal text-base leading-6 tracking-[0.5px] text-[#1C1C1C] w-full laptop:text-start text-center">
             {help.description}
           </p>
         </div>
 
-        <div className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6  gap-4 w-full    ">
+        <div className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 w-full    ">
           {help.items &&
             help.items.map((item: any, index: number) => (
               <div
@@ -116,8 +116,7 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
                     alt={`Background number ${index + 1}`}
                     width={118}
                     height={68}
-                    objectFit="cover"
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div

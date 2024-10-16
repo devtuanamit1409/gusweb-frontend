@@ -8,9 +8,8 @@ const ExpensiveComponent: React.FC<any> = ({ exp }) => {
       <Image
         src={exp.url}
         alt={exp.alt}
-        layout="fill"
-        objectFit="cover"
-        className="absolute top-0 left-0  "
+        fill
+        className="absolute top-0 left-0  object-cover"
       />
       <div className="custom-container  laptop:px-[162px] py-20 px-4 mobile:py-10 flex">
         <div className=" justify-start flex">

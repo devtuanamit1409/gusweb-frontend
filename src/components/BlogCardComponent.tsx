@@ -16,8 +16,7 @@ const BlogCardComponent = ({ item, key }: any) => {
             alt={item.alt}
             width={367}
             height={267}
-            objectFit="cover"
-            className="w-[250px] h-[147px] rounded-lg tablet:w-[356px] tablet:h-[267px] sm:rounded-3xl"
+            className="w-[250px] h-[147px] rounded-lg tablet:w-[356px] tablet:h-[267px] sm:rounded-3xl object-cover"
           />
           <button className="background-LinearGradient absolute bottom-4 right-4 rounded w-[85px] h-[26px]">
             {item.sub_category}

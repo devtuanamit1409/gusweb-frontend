@@ -412,7 +412,7 @@ const page = () => {
           <Image
             src={contactData?.folow?.url || "/images/BannerPromotion.png"}
             alt={contactData?.folow?.alt || "image banner contact"}
-            layout="fill"
+            fill
             className="absolute top-0 left-0 w-full laptop:h-[291px] tablet:h-[291px] mobile:h-[443px]"
           />
           <div className="custom-container laptop:px-[162px] tablet:px-[162px] mobile:px-[162px] flex laptop:justify-start laptop:items-center tablet:justify-start tablet:items-center mobile:justify-center mobile:items-start h-full">
@@ -442,7 +442,7 @@ const page = () => {
               alt="Overlay Image"
               width={455}
               height={291}
-              objectFit="contain"
+              className="object-contain"
             />
           </div>
           <div className="absolute bottom-0 right-0 w-[234px] h-[222px] laptop:hidden mobile:block tablet:block">
@@ -451,7 +451,7 @@ const page = () => {
               alt="Overlay Image"
               width={234}
               height={222}
-              objectFit="contain"
+              className="object-contain"
             />
           </div>
         </div>
