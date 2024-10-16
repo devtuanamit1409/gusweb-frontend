@@ -24,7 +24,7 @@ export default function CustomerSuccessStory({ chats }: any) {
   };
 
   return (
-    <div className="relative custom-container">
+    <div className="relative custom-container ">
       <div className="tablet:absolute tablet:top-0 tablet:left-0 tablet:right-0 tablet:bottom-0">
         <div className="px-4 h-full flex flex-row items-start relative max-w-[1109px] mx-auto">
           <div className="flex flex-row tablet:flex-col gap-4 w-full tablet:w-[40%]">

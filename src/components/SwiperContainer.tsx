@@ -16,11 +16,11 @@ export default function SwiperContainer({ projects, onSlideChangeIndex }: any) {
             slidesPerView: 2,
           },
         }}
-        // modules={[Autoplay]}
-        // autoplay={{
-        //   delay: 3000,
-        //   disableOnInteraction: false,
-        // }}
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         onSlideChange={(swiper) => onSlideChangeIndex(swiper.realIndex)}
         slideToClickedSlide={true}
         className="h-full"
