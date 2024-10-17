@@ -31,7 +31,7 @@ const CaseStudies: React.FC<any> = ({ data }) => {
   };
 
   return (
-    <div className="custom-container laptop:gap-[108px] laptop:py-[108px] laptop:px-20 tablet:px-[122px] tablet:gap-20 px-4 mobile:gap-10 flex flex-col justify-center items-center">
+    <div className="custom-container laptop:gap-[108px] laptop:py-[108px] tablet:gap-20 px-4 mobile:gap-10 flex flex-col justify-center items-center">
       <div className="laptop:max-w-[1116px] laptop:h-[203px] tablet:w-full items-center flex laptop:flex-row flex-col justify-center  gap-6 w-full">
         <div className=" flex flex-col w-full">
           <h1 className="max-w-[246px] font-normal text-[24px] leading-[38.4px] text-[#1C1C1C] text-preamble relative w-full">

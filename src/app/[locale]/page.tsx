@@ -21,7 +21,7 @@ export default async function Home() {
       <WebsiteAsGateway webUs={data.webUs} />
       <OurExperts about={data.about} />
       <WhyChooseUs whyUs={data.whyUs} />
-      <WorkPrinciples work={data.work} />
+      {/* <WorkPrinciples work={data.work} /> */}
       <ProjectShowcase project={data.project} />
       <PartnerList customer={data.customer} />
       <CustomerSuccessStory chats={data.chats} />
