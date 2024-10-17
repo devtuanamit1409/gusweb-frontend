@@ -7,7 +7,7 @@ export default async function Footer() {
     const data = await fetchFooter("vi");
 
     return (
-        <footer className="laptop:min-h-[520px] tablet:min-h-[620px] mobile:min-h-[950px] h-[900px] flex flex-col max-w-[1140px] mx-auto gap-8 mt-10 p-4">
+        <footer className="laptop:min-h-[520px] tablet:min-h-[620px] mobile:min-h-[950px] flex flex-col max-w-[1140px] mx-auto gap-8 mt-10 p-4">
             <div className="flex flex-col  laptop:flex-row justify-between mobile:flex-col tablet:flex-row mobile:gap-6 tablet:gap-10">
                 <div className="laptop:w-[379px] h-[68px] tablet:justify-start mobile:w-full mobile:flex mobile:items-center mobile:justify-center items-center justify-center ">
                     <Image
@@ -90,8 +90,7 @@ export default async function Footer() {
                     </div>
                 </div>
             </div>
-
-            <div className="max-w-[1140px] mt-auto">
+            <div className="max-w-[1140px] laptop:mt-4 tablet:mt-20 mobile:mt-72">
                 <hr className="border-t-2 mb-4" />
             </div>
         </footer>
