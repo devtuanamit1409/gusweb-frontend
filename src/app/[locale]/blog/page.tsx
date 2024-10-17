@@ -223,7 +223,7 @@ const Page = () => {
   };
 
   const handleSlideChange = (swiper: any) => {
-    setActiveIndex(swiper.activeIndex); // Update active index when slide changes
+    setActiveIndex(swiper.activeIndex); 
   };
   return (
     <div className="">
@@ -233,11 +233,11 @@ const Page = () => {
           <AiOutlineLeft
             size={32}
             onClick={handlePrev}
-            className="cursor-pointer rounded-full bg-[#31BEE6] w-[32px] h-[32px] m-1 z-10" // Ensure it's above the Swiper
+            className="cursor-pointer rounded-full bg-[#31BEE6] w-[32px] h-[32px] m-1 z-10" 
           />
           <Swiper
             slidesPerView={slidesPerView()}
-            className="flex items-center w-full h-[38px] relative" // Make sure to keep the Swiper relative
+            className="flex items-center w-full h-[38px] relative" 
             onSlideChange={handleSlideChange}
           >
             {subCategory.map((subCat: any, index: number) => (
@@ -262,7 +262,7 @@ const Page = () => {
           <AiOutlineRight
             size={32}
             onClick={handleNext}
-            className="cursor-pointer rounded-full bg-[#31BEE6] w-[32px] h-[32px] m-1 z-10" // Ensure it's above the Swiper
+            className="cursor-pointer rounded-full bg-[#31BEE6] w-[32px] h-[32px] m-1 z-10" 
           />
         </div>
 
