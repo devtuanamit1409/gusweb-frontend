@@ -18,7 +18,7 @@ const page = () => {
   const [contactData, setContactData] = useState<any>(null);
   const [companyName, setCompanyName] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isFormValid, setIsFormValid] = useState(false);
   useEffect(() => {
     const getContactData = async () => {
       const data = await fetchContactUsPage("vi");
@@ -76,6 +76,7 @@ const page = () => {
       );
     } else {
       setSubmitError("");
+      setIsFormValid(true);
     }
   };
 
@@ -315,11 +316,13 @@ const page = () => {
                 </Box>
               </div>
 
-              <div className="flex justify-end mt-4">
+              <div className="flex justify-end mt-10">
                 <button
                   type="submit"
-                  className={`bg-gray-300 text-white flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors`}
-                  onClick={validateForm} // Kiểm tra form khi bấm nút
+                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${
+                    isFormValid ? "bg-[#27B3E9]" : "bg-gray-300"
+                  } text-white`}
+                  onClick={validateForm}
                 >
                   Gửi yêu cầu
                 </button>

@@ -14,11 +14,11 @@ const page = async () => {
 
   return (
     <div className="">
-      {/* <BannerComponent intro={data.intro} brands={data.brands} /> */}
+      <BannerComponent intro={data.intro} brands={data.brands} />
       <Slogan slogans={data.slogans} />
       <IdeaCard solution={data.solution} />
       <SupportIdeas help={data.help} />
-      {/* <CustomerVip customerVips={data.customerVips} /> */}
+      <CustomerVip customerVips={data.customerVips} />
       <DevelopmentSolutions whyUs={data.whyUs} />
       <Contact />
     </div>
