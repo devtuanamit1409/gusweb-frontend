@@ -27,15 +27,15 @@ export default function WorkPrinciples({ work }: any) {
   return (
     <div className="relative max-w-[1116px] mx-auto mt-20">
       <div className="">
-        {/* <Image
+        <Image
           src="/images/starrysky.png"
           alt="Header Banner"
           fill
           className="object-cover"
           loading="lazy"
           decoding="async"
-        /> */}
-        <div className="w-[800px]">
+        />
+        <div className="max-w-[800px]">
           <span className="relative text-preamble w-[300px] text-2xl">
             NGUYÊN TẮC LÀM VIỆC
           </span>

@@ -1,11 +1,11 @@
 "use client";
-import BannerComponent from "@/components/BannerComponent";
-import React, { useEffect, useState } from "react";
+
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
 import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
 import { message } from "antd";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
   // const data = {
@@ -26,6 +26,7 @@ const page = () => {
   const [contactData, setContactData] = useState<any>(null);
   const [companyName, setCompanyName] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const getContactData = async () => {
@@ -84,6 +85,7 @@ const page = () => {
       );
     } else {
       setSubmitError("");
+      setIsFormValid(true);
     }
   };
 
@@ -168,14 +170,14 @@ const page = () => {
                   nameError || phoneError
                     ? "laptop:max-h-[77px]"
                     : "laptop:max-h-[56px]"
-                } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
+                } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col w-full`}
               >
                 <div className="relative laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
                   <input
                     type="text"
                     id="name"
                     placeholder=""
-                    className={`laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
+                    className={`laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2 rounded-lg  border border-gray-300  focus:border-[#08BED5] focus:outline-none peer ${
                       nameError ? "focus:border-red-500" : ""
                     }`}
                     value={name}
@@ -200,7 +202,7 @@ const page = () => {
                     type="tel"
                     id="phone"
                     placeholder=" "
-                    className={`laptop:max-w-[237px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
+                    className={`laptop:max-w-[237px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2  border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer ${
                       phoneError ? "focus:border-red-500" : ""
                     }`}
                     value={phoneNumber}
@@ -225,7 +227,7 @@ const page = () => {
                   type="email"
                   id="email"
                   placeholder=" "
-                  className={`laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
+                  className={`laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer ${
                     emailError ? "focus:border-red-500" : ""
                   }`}
                   value={email}
@@ -250,7 +252,7 @@ const page = () => {
                   type="text"
                   id="companyName"
                   placeholder=" "
-                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
+                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer"
                   required
                   value={companyName}
                   onChange={handleCompanyNameChange}
@@ -267,7 +269,7 @@ const page = () => {
                 <textarea
                   id="content"
                   placeholder=""
-                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[176px] p-2 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
+                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[176px] p-2 border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer"
                   rows={4}
                   value={content}
                   onChange={handleContentChange}
@@ -320,17 +322,23 @@ const page = () => {
                     }}
                   />
                   <div className="flex justify-between text-sm">
-                    <span>$0</span>
-                    <span>$100,000</span>
+                    <span className="font-normal text-base leading-6 tracking-[0.5px]">
+                      0 $
+                    </span>
+                    <span className="font-normal text-base leading-6 tracking-[0.5px]">
+                      100,000 $
+                    </span>
                   </div>
                 </Box>
               </div>
 
-              <div className="flex justify-end mt-4">
+              <div className="flex justify-end mt-10">
                 <button
                   type="submit"
-                  className="bg-gray-300 text-white flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded  transition-colors"
-                  onClick={validateForm} // Kiểm tra form khi bấm nút
+                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${
+                    isFormValid ? "bg-[#27B3E9]" : "bg-gray-300"
+                  } text-white`}
+                  onClick={validateForm}
                 >
                   Gửi yêu cầu
                 </button>
