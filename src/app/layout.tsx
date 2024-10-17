@@ -29,7 +29,7 @@ const RootLayout: React.FC<{
           {/* <Navbar /> */}
           <HeaderComponent />
           <main className="mt-[76px]"> {children}</main>
-          {/* <Footer /> */}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
