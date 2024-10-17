@@ -12,8 +12,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     "vi",
     data.articles[0].categoryId
   );
-  // console.log(data.articles[0]);
-  // console.log(subCateList);
   return (
     <div>
       {data.articles[0].sub_category.title.toLowerCase() === "ebook" ? (
