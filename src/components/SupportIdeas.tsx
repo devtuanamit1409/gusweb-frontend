@@ -26,10 +26,10 @@ console.log(help.items);
 
 
   return (
-    <div className="custom-conatiner laptop:py-[80px] laptop:px-[162px] px-4 py-10 flex flex-col items-center ">
-      <div className="laptop:max-w-[1116px] flex flex-col gap-6 w-full items-center justify-center">
+    <div className="custom-container laptop:py-[80px]  px-4 py-10 flex flex-col items-center ">
+      <div className="laptop:max-w-[1116px] flex flex-col gap-6 items-center justify-center">
         <div className="gap-4  flex flex-col ">
-          <div className=" w-full flex laptop:justify-start justify-center">
+          <div className=" flex laptop:justify-start justify-center">
             <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]  ">
               "Chúng tôi luôn có thể giúp bạn"
             </span>
@@ -42,7 +42,7 @@ console.log(help.items);
           </p>
         </div>
 
-        <div className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 w-full    ">
+        <div className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 laptop:max-w-[1116px] tablet:px-20 laptop:px-0">
           {help.items &&
             help.items.map((item: any, index: number) => (
               <div

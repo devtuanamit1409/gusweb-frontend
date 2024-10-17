@@ -16,11 +16,11 @@ const WorkAboutComponent: React.FC<any> = ({ work }) => {
             <h5 className="font-normal text-[24px] line-clamp-2 leading-[38.4px] text-[#1C1C1C] relative text-preamble uppercase text-center ">
               NGUYÊN TẮC LÀM VIỆC GUSWEB
             </h5>
-            <h2 className="font-bold text-center font-bricolage line-clamp-2 laptop:text-[56px] laptop:leading-[67.2px]  tablet:leading-[50.4px] tablet:text-[42px] mobile:leading-[38.4px] mobile:text-[32px] mobile:line-clamp-3">
+            <h2 className="font-bold text-center font-bricolage  laptop:text-[56px] laptop:leading-[67.2px]  tablet:leading-[50.4px] tablet:text-[42px] mobile:leading-[38.4px] mobile:text-[32px] mobile:line-clamp-3">
               {work.title}
             </h2>
           </div>
-          <p className="lable-custom line-clamp-2 text-center ">
+          <p className="lable-custom text-center ">
             {work.description}
           </p>
         </div>

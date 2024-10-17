@@ -25,7 +25,7 @@ const page = () => {
   const [contactData, setContactData] = useState<any>(null);
   const [companyName, setCompanyName] = useState<string>("");
   const [content, setContent] = useState<string>("");
-
+  const [isFormValid, setIsFormValid] = useState(false);
   useEffect(() => {
     const getContactData = async () => {
       const data = await fetchContactUsPage("vi");
@@ -35,8 +35,7 @@ const page = () => {
     getContactData();
   }, []);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     validateForm();
 
     if (!nameError && !phoneError && !emailError) {
@@ -48,8 +47,6 @@ const page = () => {
         content,
         value,
       };
-      // console.log("Form Data:", formData);
-      // Process formData as needed
     } else {
       setFormError("Please fix the errors in the form.");
     }
@@ -69,6 +66,7 @@ const page = () => {
       );
     } else {
       setSubmitError("");
+      setIsFormValid(true);
     }
   };
 
@@ -133,7 +131,7 @@ const page = () => {
   const handleContentChange = (e: any) => setContent(e.target.value);
   return (
     <div className="w-full flex flex-col gap-10">
-      {/* <BannerComponent intro={contactData?.intro} /> */}
+      <BannerComponent intro={contactData?.intro} />
       <div className="custom-contaier flex flex-col gap-10">
         <div className="laptop:h-[1058px] h-[1025px] mobile:py-20  flex flex-col justify-center items-center px-6 py-10 gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529] ">
           <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:max-w-[500px] tablet:h-[1000px] mobile:max-w-[328px] mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
@@ -314,8 +312,10 @@ const page = () => {
               <div className="flex justify-end mt-4">
                 <button
                   type="submit"
-                  className="bg-gray-300 text-white flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded  transition-colors"
-                  onClick={validateForm} // Kiểm tra form khi bấm nút
+                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${
+                    isFormValid ? "bg-[#27B3E9]" : "bg-gray-300"
+                  } text-white`}
+                  onClick={validateForm}
                 >
                   Gửi yêu cầu
                 </button>
