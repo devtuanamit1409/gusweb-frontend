@@ -10,7 +10,7 @@ interface Props {
 const WhyCardComponent = (props: Props) => {
   const { item, className = "" } = props;
   return (
-    <div className={`home-service-item__box laptop:h-[499px] laptop:max-w-[261px] tablet:w-[712px] tablet:h-[256px] p-6 rounded-3xl gap-4 bg-white/25 border-white/25 border-2 backdrop-blur-[10px] relative overflow-hidden flex flex-col items-center ${className}`}>
+    <div className={`home-service-item__box laptop:h-[499px] laptop:max-w-[261px] tablet:!max-w-[991px] tablet:h-[256px] p-6 rounded-3xl gap-4 bg-white/25 border-white/25 border-2 backdrop-blur-[10px] relative overflow-hidden flex flex-col items-center ${className}`}>
       <div className="laptop:flex-col mobile:flex-col flex tablet:flex-row flex-col items-center gap-4 w-full">
         <Image
           src={item.url || ""}
@@ -34,9 +34,9 @@ const WhyCardComponent = (props: Props) => {
 
 export default function WhyChooseUs({ whyUs }: any) {
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center max-w-[1116px] mx-auto ">
       <div className="mt-40 p-4">
-        <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:w-[715px] mobile:w-[328px]  ml-4  ">
+        <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:max-w-[715px] mobile:max-w-[328px]  ml-4  ">
           Tại sao <b>{whyUs.name}</b> là lựa chọn phù hợp nhất?
         </p>
         <p className="text-[56px] font-bricolage ml-4 max-w-[1100px]">

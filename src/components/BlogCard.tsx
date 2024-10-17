@@ -7,7 +7,6 @@ import { fetchFilteredArticles } from "@/utils/GlobalApi";
 export default async function BlogCard() {
   //prop: locale, page, pagesize, idcategoy, ?idsubcategory => danh sach tra ve da co sap xep moi nhat
   const data = await fetchFilteredArticles("vi", 1, 3, 4);
-
   return (
     <div className=" h-[705px] custom-container flex items-center justify-center">
       <div className="w-[1116px] h-[545px] mx-auto">

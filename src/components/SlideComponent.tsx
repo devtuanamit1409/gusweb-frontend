@@ -32,6 +32,7 @@ const Slide: React.FC<any> = ({ brands }) => {
         <IconArrowTronButtonTrai />
       </div>
       <Swiper
+        slidesPerView={5}
         ref={swiperRef} // Gán ref vào Swiper
         modules={[Autoplay]}
         spaceBetween={30}

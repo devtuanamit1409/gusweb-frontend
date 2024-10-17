@@ -187,42 +187,6 @@
   position: relative;
 }
 
-/* styles/glassCard.css */
-.glass-card {
-  width: 333px;
-  height: 53px;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 100px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 12px 24px 12px 24px;
-  gap: 8px;
-}
-.color-glass-card {
-  width: 355px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  border-style: dashed;
-}
-.Orders-glass-card {
-  width: 355px;
-  height: 146px;
-  background: rgba(255, 255, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-}
-
-.Text-glass-card-dashed {
-  width: 259px;
-  height: 327px;
-  background: rgba(255, 255, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  border-style: dashed;
-}
 .TextCon-glass-card-dashed {
   width: 156px;
   height: 84px;
@@ -235,13 +199,7 @@
   height: 30px;
   border-radius: 32px;
 }
-.phone-glass-card {
-  width: 207px;
-  height: 428px;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-}
+
 .hover-glass-card {
   padding: 24px;
   width: 356px;
@@ -433,10 +391,8 @@
 .custom-next-button {
   right: -25px; /* Adjust position of the next button */
 }
-
-
 .text-gradient {
-  background: linear-gradient(to right, #0B8C2F, #004d77);
+  background: linear-gradient(to right, #0b8c2f, #004d77);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -445,4 +401,46 @@
   background: linear-gradient(to right, #00aa30, #009b2c);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+.card-top-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 260px;
+  height: 260px;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5) border-box;
+  -webkit-mask: linear-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: destination-out;
+  -webkit-mask: near-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  mask: near-gradient(#fefefe 0 0) padding-box, linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.card-top-image-no-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 166px;
+  height: 166px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5) border-box;
+  -webkit-mask: linear-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: destination-out;
+  -webkit-mask: near-gradient(#fefefe 0 0) padding-box,
+    linear-gradient(#fefefe 0 0);
+  mask: near-gradient(#fefefe 0 0) padding-box, linear-gradient(#fefefe 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
