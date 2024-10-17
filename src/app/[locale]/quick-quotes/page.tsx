@@ -1,7 +1,8 @@
 "use client";
-import { fetchContactUsPage } from "@/utils/GlobalApi";
+import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { message } from "antd";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -27,7 +28,9 @@ const page = () => {
     getContactData();
   }, []);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
     validateForm();
 
     if (!nameError && !phoneError && !emailError) {
@@ -39,8 +42,21 @@ const page = () => {
         content,
         value,
       };
-      console.log("Form Data:", formData);
-      // Process formData as needed
+
+      try {
+        const response = await postContactUser(formData);
+        // console.log("Form submitted successfully:", response);
+        message.success("Form submitted successfully!");
+
+        setName("");
+        setPhoneNumber("");
+        setEmail("");
+        setCompanyName("");
+        setContent("");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setFormError("Error submitting the form. Please try again.");
+      }
     } else {
       setFormError("Please fix the errors in the form.");
     }
@@ -303,7 +319,6 @@ const page = () => {
                 <button
                   type="submit"
                   className={`bg-gray-300 text-white flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors`}
-                
                   onClick={validateForm} // Kiểm tra form khi bấm nút
                 >
                   Gửi yêu cầu

@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
-import { fetchContactUsPage } from "@/utils/GlobalApi";
+import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
+import { message } from "antd";
 
 const page = () => {
   // const data = {
@@ -35,8 +36,9 @@ const page = () => {
     getContactData();
   }, []);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+
     validateForm();
 
     if (!nameError && !phoneError && !emailError) {
@@ -48,8 +50,21 @@ const page = () => {
         content,
         value,
       };
-      // console.log("Form Data:", formData);
-      // Process formData as needed
+
+      try {
+        const response = await postContactUser(formData);
+        // console.log("Form submitted successfully:", response);
+        message.success("Form submitted successfully!");
+
+        setName("");
+        setPhoneNumber("");
+        setEmail("");
+        setCompanyName("");
+        setContent("");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setFormError("Error submitting the form. Please try again.");
+      }
     } else {
       setFormError("Please fix the errors in the form.");
     }
@@ -347,8 +362,8 @@ const page = () => {
                 <Image
                   width={156}
                   height={50}
-                  src={contactData?.map.url}
-                  alt={contactData?.map.alt}
+                  src={contactData?.map?.url || "/images/logo.png"}
+                  alt={contactData?.map?.alt || "image logo"}
                   className="object-contain"
                 />
               </div>
