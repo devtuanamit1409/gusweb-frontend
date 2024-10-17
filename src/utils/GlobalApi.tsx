@@ -24,6 +24,18 @@ export const getAllItem = async (path: string, pop: string, lang: string) => {
   }
 };
 
+export const postItem = async (path: string, data: any) => {
+  try {
+    const response = await api.post(path, { data });
+    return response.data;
+  } catch (error) {
+    console.error(`Error posting to ${path}:`, error);
+    throw error;
+  }
+};
+
+/////////////////////////////////GET/////////////////////////////////////////////
+
 //fetch api get filter subcategory
 export const fetchSubCategoryByCategoryId = async (
   lang: string,
@@ -156,7 +168,7 @@ export const fetchFilteredArticleDetail = async (
 ) => {
   const data = await getFilteredArticleDetail(
     "/articles",
-    "sub_category.banner.src,sub_category.category,image.src,typeOrder.detail,typeEbook.intro,typeEbook.ebook.src,typeEbook.ebook.pdfFile",
+    "sub_category.banner.src,sub_category.category,image.src,detail,typeEbook.intro,typeEbook.ebook.src,typeEbook.ebook.pdfFile",
     lang,
     slug
   );
@@ -182,7 +194,7 @@ export const fetchFilteredArticleDetail = async (
       alt: item.attributes.image?.alt || "",
       outStanding: item.attributes.isOutstanding,
 
-      typeOrder: { detail: item.attributes.typeOrder?.detail || "" },
+      detail: item?.attributes?.detail || "",
 
       typeEbook: {
         intro: {
@@ -695,4 +707,28 @@ export const fetchContactUsPage = async (lang: string) => {
   };
 
   return formattedData;
+};
+
+////////////////////////////POST///////////////////////////////////////
+
+//post data user contact
+export const postContactUser = async (contactData: any) => {
+  const formattedData = {
+    name: contactData.name,
+    phoneNumber: contactData.phoneNumber,
+    email: contactData.email,
+    companyName: contactData.companyName,
+    content: contactData.content,
+    minPrice: contactData.value[0],
+    maxPrice: contactData.value[1],
+  };
+  const response = await postItem("/contact-users", formattedData);
+
+  return response;
+};
+
+export const postEmailUser = async (gmailUser: any) => {
+  const response = await postItem("/gmail-users", gmailUser);
+
+  return response;
 };

@@ -28,9 +28,9 @@ const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
       </div>
       <div className="custom-container laptop:py-20 laptop:px-[162px] flex flex-row gap-6">
         <div
-          className="laptop:max-w-[831px] tablet:max-w-[500px] mobile:max-w-[328px] w-full"
+          className="mx-auto max-w-[1116px] px-4 w-full"
           dangerouslySetInnerHTML={{
-            __html: article.typeOrder.detail,
+            __html: article.detail,
           }}
         />
 
