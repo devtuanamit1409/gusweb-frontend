@@ -30,8 +30,17 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
   };
 
   return (
-    <>
-      <div className="mx-auto max-w-[1116px] px-4 mt-[80px]">
+    <div className="w-full relative">
+      <div className="absolute top-0 left-0 w-[418px] h-[498px] hidden laptop:block transform rotate-[8deg]">
+        <Image
+          src="/images/Frameb.png"
+          alt=""
+          width={418}
+          height={498}
+          className="object-cover"
+        />
+      </div>
+      <div className="custom-container px-4 max-w-[1116px]  mt-[80px]">
         <h2 className="font-bold text-center font-bricolage line-clamp-2 laptop:text-[56px] laptop:leading-[67.2px]  tablet:leading-[50.4px] tablet:text-[42px] mobile:leading-[38.4px] mobile:text-[32px] mobile:line-clamp-3">
           {meet.title}
           <p className="text-sky-500">{meet.name}</p>
@@ -177,7 +186,7 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

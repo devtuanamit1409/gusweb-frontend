@@ -91,17 +91,18 @@ const BookComponent: React.FC<any> = ({ article }) => {
   return (
     <div className="flex flex-col gap-10 laptop:gap-0">
       {contextHolder}
-      <div className="h-[506px] relative justify-center items-center flex">
+      <div className="w-full relative justify-center items-center flex">
         <Image
           src={article.sub_category.url}
           alt={article.sub_category.alt}
-          fill
+          width={1440}
+          height={506}
           className="absolute top-0 left-0 object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1b55a5] to-[#00d2ff] opacity-70 z-0"></div>
-        <div className="laptop:max-w-[1440px] tablet:max-w-[744px] mobile:max-w-[360px] h-[506px] py-20 px-[162px] mobile:px-4 z-10 w-full flex justify-center items-center ">
-          <div className="laptop:max-w-[1116px] laptop:h-[346px] tablet:max-w-[557px] tablet:h-[129px] mobile:max-w-[328px] mobile:h-[234px] text-[#FEFEFE] justify-center laptop:items-start tablet:items-center mobile:items-center tablet:gap-6 laptop:gap-2 flex flex-col  w-full">
-            <h5 className="font-normal text-[24px] leading-[38.4px] font-bricolage line-clamp-1 mobile:h-[76px] relative text-preamble  mobile:line-clamp-2 z-30">
+        <div className=" py-20 px-[162px] mobile:px-4 z-10 w-full flex justify-center items-center ">
+          <div className=" text-[#FEFEFE] justify-center laptop:items-start tablet:items-center mobile:items-center tablet:gap-6 laptop:gap-2 flex flex-col  w-full">
+            <h5 className="font-normal text-[24px] leading-[38.4px] font-bricolage line-clamp-1 relative text-preamble  mobile:line-clamp-2 z-30">
               #{article.sub_category.title}
             </h5>
             <h2 className="font-bold text-[56px] leading-[67.2px]  font-bricolage laptop:line-clamp-2 tablet:line-clamp-1 mobile:h-[134px] mobile:line-clamp-2">
@@ -110,7 +111,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
           </div>
         </div>
       </div>
-      <div className="custom-container py-20 px-[162px] h-[248px] hidden laptop:flex flex-row gap-6">
+      {/* <div className="custom-container py-20 px-[162px] h-[248px] hidden laptop:flex flex-row gap-6">
         <div className="laptop:h-[122px] laptop:max-w-[451px] items-start gap-6 flex flex-col w-full">
           <h5 className="line-clamp-1 label-custom flex relative text-preamble">
             QUẢN LÝ DỰ ÁN VỚI
@@ -197,7 +198,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

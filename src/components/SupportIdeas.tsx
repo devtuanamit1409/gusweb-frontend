@@ -1,14 +1,7 @@
 import Image from "next/image";
 
 const SupportIdeas: React.FC<any> = ({ help }) => {
-  const data = {
-    Premble: "Chúng tôi luôn có thể giúp bạn",
-    title:
-      "Từ giai đoạn lên ý tưởng đến khi website sẵn sàng phục vụ khách hàng",
-    description:
-      " Chúng tôi sẽ biến những ý tưởng của bạn thành hiện thực thông qua những giải pháp thiết kế bền vững và hiện đại.",
-  };
-
+console.log(help.items);
   const imageNumber = [
     {
       image: "/images/number1.png",
@@ -30,50 +23,7 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
     },
   ];
 
-  const items = [
-    {
-      title: "Nghiên cứu",
-      icon: "/images/Maskgroup.png",
-      description:
-        "Bao gồm nghiên cứu thị trường người dùng, đối thủ cạnh tranh của doanh nghiệp, phân tích nhu cầu, mục tiêu kinh doanh của khách hàng để đưa ra những tư vấn về chiến lược và định hình mục tiêu cho website.",
-      image: "/images/Card1.png",
-    },
-    {
-      title: "Nghiên cứu",
-      icon: "/images/Maskgroup.png",
-      description:
-        "Bao gồm nghiên cứu thị trường người dùng, đối thủ cạnh tranh của doanh nghiệp, phân tích nhu cầu, mục tiêu kinh doanh của khách hàng để đưa ra những tư vấn về chiến lược và định hình mục tiêu cho website.",
-      image: "/images/Card2.png",
-    },
-    {
-      title: "Nghiên cứu",
-      icon: "/images/Maskgroup.png",
-      description:
-        "Bao gồm nghiên cứu thị trường người dùng, đối thủ cạnh tranh của doanh nghiệp, phân tích nhu cầu, mục tiêu kinh doanh của khách hàng để đưa ra những tư vấn về chiến lược và định hình mục tiêu cho website.",
-      image: "/images/Card3.png",
-    },
-    {
-      title: "Nghiên cứu",
-      icon: "/images/Maskgroup.png",
-      description:
-        "Bao gồm nghiên cứu thị trường người dùng, đối thủ cạnh tranh của doanh nghiệp, phân tích nhu cầu, mục tiêu kinh doanh của khách hàng để đưa ra những tư vấn về chiến lược và định hình mục tiêu cho website.",
-      image: "/images/Card4.png",
-    },
-    {
-      title: "Nghiên cứu",
-      icon: "/images/Maskgroup.png",
-      description:
-        "Bao gồm nghiên cứu thị trường người dùng, đối thủ cạnh tranh của doanh nghiệp, phân tích nhu cầu, mục tiêu kinh doanh của khách hàng để đưa ra những tư vấn về chiến lược và định hình mục tiêu cho website.",
-      image: "/images/Card5.png",
-    },
-    {
-      title: "Nghiên cứu",
-      icon: "/images/Maskgroup.png",
-      description:
-        "Bao gồm nghiên cứu thị trường người dùng, đối thủ cạnh tranh của doanh nghiệp, phân tích nhu cầu, mục tiêu kinh doanh của khách hàng để đưa ra những tư vấn về chiến lược và định hình mục tiêu cho website.",
-      image: "/images/Card6.png",
-    },
-  ];
+
 
   return (
     <div className="custom-conatiner laptop:py-[80px] laptop:px-[162px] px-4 py-10 flex flex-col items-center ">
@@ -126,8 +76,8 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
                 >
                   <div className="gap-2 flex flex-row justify-start items-center">
                     <Image
-                      src={item.icon}
-                      alt={item.title}
+                      src={item.icon.url}
+                      alt={item.icon.alt}
                       width={56}
                       height={60}
                       className="object-cover w-[56px] h-[56px]"

@@ -56,7 +56,7 @@ const Slide: React.FC<any> = ({ brands }) => {
       >
         {brands.map((img: any, index: number) => (
           <SwiperSlide key={index}>
-            <div className="laptop:w-[208px] laptop:h-[68px] tablet:w-[170px] !tablet:h-[49px] mobile:w-[124px] mobile:h-[40px]  px-[10px]">
+            <div className="w-full   px-[10px]">
               <Image
                 src={img.url}
                 width={100}
