@@ -26,7 +26,7 @@ export default function CustomerSuccessStory({ chats }: any) {
   return (
     <div className="relative custom-container ">
       <div className="tablet:absolute tablet:top-0 tablet:left-0 tablet:right-0 tablet:bottom-0">
-        <div className="px-4 h-full flex flex-row items-start relative max-w-[1109px] mx-auto">
+        <div className="px-4 h-full flex flex-row items-start relative max-w-[1116px] mx-auto">
           <div className="flex flex-row tablet:flex-col gap-4 w-full tablet:w-[40%]">
             <Image
               src="/images/Maskgroup.png"
@@ -74,11 +74,10 @@ export default function CustomerSuccessStory({ chats }: any) {
                       onClick={() => handleSlideClick(index)}
                     >
                       <div
-                        className={`mx-3 my-6 bg-[#fefefe] ${
-                          isActive
-                            ? "shadow-lg shadow-[rgba(58,123,213,0.4)]"
-                            : "shadow-lg shadow-[rgba(198,217,225,.3)]"
-                        } rounded-[10px] w-[450px] h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
+                        className={`mx-3 my-6 bg-[#fefefe] ${isActive
+                          ? "shadow-lg shadow-[rgba(58,123,213,0.4)]"
+                          : "shadow-lg shadow-[rgba(198,217,225,.3)]"
+                          } rounded-[10px] w-[450px] h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
                       >
                         <div className="text-black flex flex-col gap-[14px] h-[108px] laptop:h-[124px] p-4 bg-[#E5FCFF] rounded-tl-[10px] rounded-tr-[10px]">
                           <div className="relative flex flex-row px-5 h-full">

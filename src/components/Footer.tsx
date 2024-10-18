@@ -5,11 +5,10 @@ import { fetchFooter } from "@/utils/GlobalApi";
 
 export default async function Footer() {
     const data = await fetchFooter("vi");
-
     return (
-        <footer className="laptop:min-h-[520px] tablet:min-h-[620px] mobile:min-h-[950px] flex flex-col max-w-[1140px] mx-auto gap-8 mt-10 p-4">
-            <div className="flex flex-col  laptop:flex-row justify-between mobile:flex-col tablet:flex-row mobile:gap-6 tablet:gap-10">
-                <div className="laptop:w-[379px] h-[68px] tablet:justify-start mobile:w-full mobile:flex mobile:items-center mobile:justify-center items-center justify-center ">
+        <footer className="laptop:min-h-[520px] tablet:min-h-[620px] mobile:min-h-[950px] flex flex-col max-w-[1116px] mx-auto gap-8 mt-10 p-4">
+            <div className="flex flex-col laptop:flex-row justify-between mobile:flex-col tablet:flex-row mobile:gap-6 tablet:gap-10">
+                <div className="laptop:w-[379px] tablet:w-[261px] mobile:w-[328px] h-[68px] tablet:justify-start  mobile:flex mobile:items-center mobile:justify-center items-center justify-center mx-auto">
                     <Image
                         src={data.logo.src}
                         alt={data.logo.alt}
@@ -18,7 +17,7 @@ export default async function Footer() {
                     />
                 </div>
                 <div className="flex laptop:flex-row tablet:flex-col mobile:flex-col flex-col">
-                    <div className="w-[379px] h-[68px] flex items-center">
+                    <div className="max-w-[379px] h-[68px] flex items-center">
                         <Image
                             alt={data.address.alt}
                             loading="lazy"
@@ -31,7 +30,7 @@ export default async function Footer() {
                             <p>{data.address.description}</p>
                         </div>
                     </div>
-                    <div className="w-[379px] h-[68px] flex items-center mobile:mt-6 tablet:mt-0">
+                    <div className="max-w-[379px] h-[68px] flex items-center mobile:mt-6 tablet:mt-0">
                         <Image
                             alt={data.gmail.alt}
                             loading="lazy"
@@ -90,7 +89,7 @@ export default async function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="max-w-[1140px] laptop:mt-4 tablet:mt-20 mobile:mt-72">
+            <div className="max-w-[1140px] laptop:mt-4 tablet:mt-20 mobile:mt-[300px]">
                 <hr className="border-t-2 mb-4" />
             </div>
         </footer>
