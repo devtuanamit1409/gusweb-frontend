@@ -3,23 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function BlogCard() {
+  const localActive = await getLocale();
   //prop: locale, page, pagesize, idcategoy, ?idsubcategory => danh sach tra ve da co sap xep moi nhat
-  const data = await fetchFilteredArticles("vi", 1, 3, 4);
+  const t = await getTranslations();
+  const data = await fetchFilteredArticles(localActive, 1, 3, 4);
   return (
     <div className=" h-[705px] custom-container flex items-center justify-center">
       <div className="w-[1116px] h-[545px] mx-auto">
         <div className="flex flex-col gap-6">
           <div className="flex justify-between items-center">
             <span className="text-[56px] font-bricolage ">
-              Khai thác website hiệu quả
+              {t("homePage.article")}
             </span>
             <button
               type="button"
               className="bg-[#27B3E9] text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
             >
-              Xem tất cả
+              {t("homePage.buttonAll")}
             </button>
           </div>
           <div className="flex gap-6">
