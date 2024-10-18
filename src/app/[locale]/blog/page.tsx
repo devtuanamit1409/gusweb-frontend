@@ -173,7 +173,7 @@ const Page = () => {
           </div>
         </div>
 
-        {blogOutStanding ? (
+        {blogOutStanding && (
           <div className="w-full mobile:w-full h-auto tablet:w-full laptop:max-w-[1116px] laptop:w-full  flex flex-col lg:flex-row justify-center items-center mt-[40px] mx-auto tablet:px-[106px] laptop:px-4 gap-6 ">
             <div className="w-full laptop:w-1/2 ">
               <Image
@@ -214,25 +214,28 @@ const Page = () => {
               </div>
             </div>
           </div>
-        ) : (
-          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         )}
 
-        <div className="w-full max-w-[1116px] mx-auto px-[39px] tablet:px-[178px] laptop:px-4 mt-[40px]">
-          <div className="grid grid-cols-1 laptop:grid-cols-3 gap-6 mx-auto  ">
-            {articles &&
-              articles.map((item: any, index: number) => (
+        {articles.length > 0 ? (
+          <div className="w-full max-w-[1116px] mx-auto px-[39px] tablet:px-[178px] laptop:px-4 mt-[40px]">
+            <div className="grid grid-cols-1 laptop:grid-cols-3 gap-6 mx-auto  ">
+              {articles.map((item: any, index: number) => (
                 <div key={index}>
                   <BlogCardComponent item={item} />
                 </div>
               ))}
+            </div>
+            <PaginationComponent
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPages={Math.ceil(pagination?.total / pagination?.pageSize)}
+            />
           </div>
-          <PaginationComponent
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            totalPages={Math.ceil(pagination?.total / pagination?.pageSize)}
-          />
-        </div>
+        ) : (
+          <div>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          </div>
+        )}
       </div>
     </div>
   );
