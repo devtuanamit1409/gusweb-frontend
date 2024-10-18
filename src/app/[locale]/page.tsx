@@ -10,9 +10,11 @@ import WebsiteAsGateway from "@/components/WebsiteAsGateway";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkPrinciples from "@/components/WorkPrinciples";
 import { fetchHomePage } from "@/utils/GlobalApi";
+import { getLocale } from "next-intl/server";
 
 export default async function Home() {
-  const data = await fetchHomePage("vi");
+  const localActive = await getLocale();
+  const data = await fetchHomePage(localActive);
 
   return (
     <>
@@ -25,7 +27,7 @@ export default async function Home() {
       <ProjectShowcase project={data.project} />
       <PartnerList customer={data.customer} />
       <CustomerSuccessStory chats={data.chats} />
-      <BlogCard />
+      {/* <BlogCard /> */}
       <Contact />
     </>
   );

@@ -3,10 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function BlogCard() {
+  const localActive = await getLocale();
   //prop: locale, page, pagesize, idcategoy, ?idsubcategory => danh sach tra ve da co sap xep moi nhat
-  const data = await fetchFilteredArticles("vi", 1, 3, 4);
+  const t = await getTranslations();
+  const data = await fetchFilteredArticles(localActive, 1, 3, 4);
   return (
     <div className="custom-container laptop:py-20 py-10 flex items-center justify-center px-4 ">
       <div className="flex laptop:items-start  mobile:items-start tablet:items-center flex-col gap-6 ">

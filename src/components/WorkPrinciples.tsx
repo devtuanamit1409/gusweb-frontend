@@ -25,8 +25,8 @@ export default function WorkPrinciples({ work }: any) {
   }));
 
   return (
-    <div className="relative max-w-[1116px] mx-auto mt-20">
-      <div className="">
+    <div className="relative max-w-[1116px] mx-auto mt-20 p-4 h-[833px]">
+      <div className="mt-10">
         <Image
           src="/images/starrysky.png"
           alt="Header Banner"
