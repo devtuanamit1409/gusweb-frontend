@@ -26,15 +26,14 @@ const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
           </div>
         </div>
       </div>
-      <div className="custom-container laptop:py-20 justify-center  laptop:max-w-[1116px] px-4 flex flex-row gap-6">
-        <div
-          className="mx-auto "
+      <div className="custom-container laptop:py-20 justify-center  laptop:max-w-[1116px] tablet:px-[122px]  laptop:px-2 px-4 flex flex-row gap-6">
+        <div className="flex flex-col gap-10 flex-grow justify-between laptop:w-[831px]"
           dangerouslySetInnerHTML={{
-            __html: article.detail,
+            __html: article.detail || "",
           }}
         />
 
-        <div className="max-w-[261px] w-full h-full flex-col gap-4 p-4 rounded-[16px]  category-item__box hidden laptop:block">
+        <div className="max-w-[261px] h-[244px]  flex-col gap-4 p-4 rounded-[16px]  category-item__box hidden laptop:block">
           <h6 className="!font-semibold text-[20px] leading-[24.2px] font-bricolage uppercase">
             Danh mục bài viết
           </h6>
@@ -45,12 +44,12 @@ const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
                 return (
                   <div
                     key={index}
-                    className="h-[22px] flex flex-row gap-2 rounded-[1px] w-full"
+                    className=" flex flex-row gap-2 rounded-[1px] items-center"
                   >
                     <p className="font-medium text-4 leading-[22.4px]">
                       {item.title}
                     </p>
-                    <p className="font-medium text-4 leading-[22.4px]">{`(${item.articleCount})`}</p>
+                    <p className="font-medium text-4 leading-[22.4px] ">{`(${item.articleCount})`}</p>
                   </div>
                 );
               })

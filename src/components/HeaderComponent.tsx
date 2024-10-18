@@ -53,14 +53,6 @@ export default function HeaderComponent() {
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
-                >
-                  Tuyển dụng
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/blog"
                   className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
                 >
