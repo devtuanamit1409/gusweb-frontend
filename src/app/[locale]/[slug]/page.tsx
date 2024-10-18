@@ -5,11 +5,13 @@ import {
   fetchFilteredArticleDetail,
   fetchSubCategoryByCategoryId,
 } from "@/utils/GlobalApi";
+import { getLocale } from "next-intl/server";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
-  const data = await fetchFilteredArticleDetail("vi", params.slug);
+  const localActive = await getLocale();
+  const data = await fetchFilteredArticleDetail(localActive, params.slug);
   const subCateList = await fetchSubCategoryByCategoryId(
-    "vi",
+    localActive,
     data.articles[0].categoryId
   );
   return (
