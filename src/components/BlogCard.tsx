@@ -3,13 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
-import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function BlogCard() {
-  const localActive = await getLocale();
   //prop: locale, page, pagesize, idcategoy, ?idsubcategory => danh sach tra ve da co sap xep moi nhat
-  const t = await getTranslations();
-  const data = await fetchFilteredArticles(localActive, 1, 3, 4);
+  const data = await fetchFilteredArticles("vi", 1, 3, 4);
   return (
     <div className="custom-container laptop:py-20 py-10 flex items-center justify-center px-4 ">
       <div className="flex laptop:items-start  mobile:items-start tablet:items-center flex-col gap-6 ">
@@ -24,25 +21,31 @@ export default async function BlogCard() {
             Xem tất cả
           </button>
         </div>
-        <div className="flex gap-6 flex-wrap laptop:flex-nowrap max-w-[1116px]  tablet:px-[194px] laptop:px-0 justify-center">
+        <div className="grid gap-6 laptop:grid-cols-3 tablet:px-[194px] laptop:px-0 max-w-[1116px]">
           {data.articles &&
-            data.articles.map((item: any, index: number) => (
+            data.articles.slice(-3).map((item: any, index: number) => (
               <div
                 key={index}
-                className="home-service-item__box w-full  flex  "
+                className={`home-service-item__box col-span-${
+                  data.articles.length === 1
+                    ? "3"
+                    : data.articles.length === 2
+                    ? "2"
+                    : "1"
+                }`}
               >
                 <div>
                   <div className="relative flex flex-col ">
                     <div className="w-full h-[267px] overflow-hidden relative">
                       <Image
-                      src={item.url}
-                      alt={item.alt}
-                      width={711}
-                      height={267}
-                      className="object-fill h-full rounded-[24px]"
+                        src={item.url}
+                        alt={item.alt}
+                        width={711}
+                        height={267}
+                        className="object-fill h-full rounded-[24px]"
                       />
                       <button className="background-LinearGradient absolute bottom-4 right-4 w-[85px] h-[26px]">
-                      {item.sub_category}
+                        {item.sub_category}
                       </button>
                     </div>
                   </div>
