@@ -5,17 +5,10 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
 
-import { fetchContactUsPage } from "@/utils/GlobalApi";
-
+import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
+import { message } from "antd";
 
 const page = () => {
-  // const data = {
-  //   premble: "LIÊN HỆ",
-  //   title: "",
-  //   description:
-  //     "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
-  // };
-
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -37,7 +30,8 @@ const page = () => {
     getContactData();
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
     validateForm();
 
     if (!nameError && !phoneError && !emailError) {
@@ -49,6 +43,19 @@ const page = () => {
         content,
         value,
       };
+      try {
+        const response = await postContactUser(formData);
+        message.success("Form submitted successfully!");
+
+        setName("");
+        setPhoneNumber("");
+        setEmail("");
+        setCompanyName("");
+        setContent("");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setFormError("Error submitting the form. Please try again.");
+      }
     } else {
       setFormError("Please fix the errors in the form.");
     }
