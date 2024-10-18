@@ -6,10 +6,13 @@ import { message } from "antd";
 import { postEmailUser } from "@/utils/GlobalApi";
 import type { NotificationArgsProps } from "antd";
 import { Button, Divider, notification, Space } from "antd";
+import BlogCardComponent from "./BlogCardComponent";
+import BlogCard from "./BlogCard";
 
 type NotificationPlacement = NotificationArgsProps["placement"];
 
 const BookComponent: React.FC<any> = ({ article }) => {
+  console.log(article);
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (placement: NotificationPlacement) => {
@@ -67,7 +70,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
             src={article.sub_category.url}
             alt={article.sub_category.alt}
             fill
-            className="absolute top-0 left-0 object-cover"
+            className="absolute top-0 left-0 object-fill"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1b55a5] to-[#00d2ff] opacity-70 z-0"></div>
           <div className="laptop:max-w-[1440px] tablet:max-w-[744px] mobile:max-w-[360px] h-[506px] py-20 px-[162px] mobile:px-4 z-10 w-full flex justify-center items-center ">
@@ -97,23 +100,23 @@ const BookComponent: React.FC<any> = ({ article }) => {
 
         <div className="custom-container items-center ">
           <div
-            className="max-w-[1116px] mx-auto w-full laptop:px-4 tablet:px-[122px] mobile:px-4"
+            className="max-w-[1116px] mx-auto w-full laptop:px-2 tablet:px-[122px] mobile:px-4 flex flex-col gap-10"
             dangerouslySetInnerHTML={{
               __html: article.detail,
             }}
           />
         </div>
-        <div className="custom-container laptop:py-20  flex laptop:flex-row tablet:flex-row  laptop:gap-6 mobile:gap-6 mobile:flex-col tablet:justify-between  px-4  mobile:items-center">
-          <div className="laptop:max-h-[474px] laptop:max-w-[347.84px] tablet:max-w-[304px] tablet:max-h-[298px] mobile:max-w-[328px] mobile:max-h-[298px] h-full  relative w-full flex ">
+        <div className="custom-container laptop:max-w-[1116px] laptop:py-20 laptop:flex-grow  flex  tablet:flex-row  laptop:gap-6 mobile:gap-6 mobile:flex-col tablet:justify-between  px-4  mobile:items-center">
+          <div className="  relative w-full  items-center justify-center flex">
             <Image
-              src="/images/book1.png"
-              alt="Book"
-              width={347.84}
+              src={article.typeEbook.ebook.src}
+              alt={article.typeEbook.ebook.alt}
+              width={348}
               height={474}
-              className="laptop:max-h-[474px]  tablet:max-h-[298px] mobile:max-h-[298px] h-full   object-cover"
+              className=" h-[474px]   object-fill"
             />
           </div>
-          <div className="laptop:max-w-[831px] laptop:h-[467px] tablet:max-w-[408px] h-[298px] mobile:max-w-[360px]  flex flex-col gap-10 w-full">
+          <div className=" flex flex-col gap-10 w-full justify-center ">
             <h4 className="line-clamp-2 !font-bold text-[32px] text-[#1C1C1C]  laptop:max-w-[600px] leading-[38.4px] h-[76px] font-bricolage w-full hidden laptop:block">
               {article.typeEbook.ebook.titleBook}
             </h4>
@@ -121,7 +124,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
               Tai ebook
             </h1>
             <form
-              className="flex flex-row min-h-[56px] mobile:max-w-[328px] tablet:max-w-[408px]  line-clamp-2 items-center  laptop:gap-6 justify-between w-full"
+              className="flex flex-row min-h-[56px]   line-clamp-2 items-center  gap-6 laptop:justify-start justify-between w-full"
               onSubmit={handleSubmit}
             >
               <input
@@ -130,20 +133,20 @@ const BookComponent: React.FC<any> = ({ article }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Nhập email của bạn"
                 required
-                className="laptop:max-w-[341px] tablet:max-w-[250px] mobile:max-w-[178px]  h-[56px] px-3 rounded-[8px] border border-[#C9C9C9] w-full"
+                className=" h-[56px] px-3 rounded-[8px] border border-[#C9C9C9] laptop:max-w-[341px] flex-grow"
               />
               <Button
                 type="primary"
                 loading={loading}
                 htmlType="submit"
-                className="!h-[56px] laptop:max-w-[135px] tablet:max-w-[149px] mobile:max-w-[140px] hover:!opacity-90 hover:!bg-[#1FA9EC] w-full"
+                className="!h-[56px]  hover:!opacity-90 hover:!bg-[#1FA9EC] mobile:w-[140px] tablet:w-[150px] laptop:w-[135px]"
               >
                 {loading ? "Đang tải..." : "Tải về ngay"}
               </Button>
             </form>
-            <div className="flex flex-col laptop:max-w-[642px] laptop:h-[225px] gap-6 w-full">
+            <div className="flex flex-col laptop:h-[225px] gap-6 w-full">
               <div className="h-11  hidden laptop:block">
-                <p className="font-medium tetx-4 leading-[22.4px] text-[#1C1C1C] line-clamp-2">
+                <p className="font-medium tetx-4 leading-[22.4px] text-[#1C1C1C] ">
                   {article.typeEbook.ebook.descBook}
                 </p>
               </div>
