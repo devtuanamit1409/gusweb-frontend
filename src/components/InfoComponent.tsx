@@ -18,7 +18,7 @@ const InfoComponent = (props: Props) => {
     AOS.init();
   }, []);
   return (
-    <div className="custom-container laptop:py-20 laptop:px-[162px] px-4   justify-center items-center flex  w-full">
+    <div className="custom-container laptop:py-20  px-4   justify-center items-center flex  w-full">
       <div className="laptop:max-w-[1116px] laptop:flex-row laptop:justify-between  laptop:gap-[10px]  w-full  flex  flex-col items-center  ">
         <div
           className={`laptop:justify-between justify-center items-center flex ${styleImage} laptop:order-1 tablet:order-2 mobile:order-2 w-full`}

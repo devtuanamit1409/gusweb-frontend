@@ -14,7 +14,7 @@ const CardComponent = (props: Props) => {
   } = props;
 
   return (
-    <div className={`group w-[356px] h-[250px] p-6 rounded-3xl gap-4 bg-white/25 border-white/25 border-2 backdrop-blur-[10px] flex flex-col items-center justify-center relative`}>
+    <div className={`group w-full h-[250px] p-6 rounded-3xl gap-4 bg-white/25 border-white/25 border-2 backdrop-blur-[10px] flex flex-col items-center justify-center relative`}>
       <Image
         src={item.url || ""}
         alt='Image not available'

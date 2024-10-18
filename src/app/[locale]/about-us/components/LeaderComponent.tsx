@@ -84,7 +84,7 @@ const LeaderComponent = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center px-4">
       <div className="w-[1116px] h-[112px] gap-40 py-20 bg-slate-600">
         <p className="text-center text-white text-2xl mb-8">
           Gặp gỡ những trụ cột chính của GUSWEB

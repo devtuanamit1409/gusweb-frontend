@@ -13,8 +13,8 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
   }, []);
  
   return (
-    <div className="custom-container laptop:py-20 laptop:px-[162px] tablet:px-[100px] px-4">
-      <div className=" laptop:max-w-[1116px] laptop:gap-[10px]  laptop:flex-row laptop:justify-between flex flex-col  w-full items-center gap-10  ">
+    <div className="custom-container laptop:py-20  px-4">
+      <div className=" laptop:gap-[10px]  laptop:flex-row laptop:justify-between flex flex-col  w-full items-center gap-10  ">
         <div
           className=" laptop:max-w-[570px] gap-6 flex flex-col w-full items-start"
           data-aos="fade-right"

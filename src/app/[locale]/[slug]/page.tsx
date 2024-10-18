@@ -13,7 +13,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     data.articles[0].categoryId
   );
   return (
-    <div>
+    <div className="w-full flex flex-col gap-4 laptop:gap-0">
       {data.articles[0].sub_category.title.toLowerCase() === "ebook" ? (
         <BookComponent article={data.articles[0]} />
       ) : (
@@ -22,7 +22,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           article={data.articles[0]}
         />
       )}
-      {/* <BlogCard /> */}
+      <BlogCard />
     </div>
   );
 };

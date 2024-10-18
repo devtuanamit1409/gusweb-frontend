@@ -27,34 +27,41 @@ export default async function BlogCard() {
   };
   const data = await fetchFilteredArticles("vi", 1, 3, 4);
   return (
-    <div className=" h-[705px] custom-container flex items-center justify-center">
-      <div className="w-[1116px] h-[545px] mx-auto">
-        <div className="flex flex-col gap-6">
-          <div className="flex justify-between items-center">
-            <span className="text-[56px] font-bricolage ">
-              Khai thác website hiệu quả
-            </span>
-            <button
-              type="button"
-              className="bg-[#27B3E9] text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
-            >
-              Xem tất cả
-            </button>
-          </div>
-          <div className="flex gap-6">
-            {data.articles &&
-              data.articles.map((item: any, index: number) => (
-                <div
-                  key={index}
-                  className="home-service-item__box w-[356px] h-[454px] flex justify-center"
-                >
-                  <div>
-                    <div className="relative">
+    <div className="custom-container laptop:py-20 py-10 flex items-center justify-center px-4 ">
+      <div className="flex laptop:items-start  mobile:items-start tablet:items-center flex-col gap-6 ">
+        <div className="flex  tablet:items-center justify-between w-full tablet:px-[90px] laptop:px-0 laptop:max-w-[1116px]  laptop:flex-row flex-col">
+          <span className="tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage tablet:text-center">
+            Những dự án khác có thể bạn quan tâm
+          </span>
+          <button
+            type="button"
+            className="bg-[#27B3E9] text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
+          >
+            Xem tất cả
+          </button>
+        </div>
+        <div className="grid gap-6 laptop:grid-cols-3 tablet:px-[194px] laptop:px-0 max-w-[1116px]">
+          {data.articles &&
+            data.articles.slice(-3).map((item: any, index: number) => (
+              <div
+                key={index}
+                className={`home-service-item__box col-span-${
+                  data.articles.length === 1
+                    ? "3"
+                    : data.articles.length === 2
+                    ? "2"
+                    : "1"
+                }`}
+              >
+                <div>
+                  <div className="relative flex flex-col ">
+                    <div className="w-full h-[267px] overflow-hidden relative">
                       <Image
                         src={item.url}
                         alt={item.alt}
-                        width={367}
+                        width={711}
                         height={267}
+                        className="object-fill h-full rounded-[24px]"
                       />
                       <button className="background-LinearGradient absolute bottom-4 right-4 w-[85px] h-[26px]">
                         {item.sub_category}
@@ -71,8 +78,8 @@ export default async function BlogCard() {
                     </div>
                   </div>
                 </div>
-              ))}
-          </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>
