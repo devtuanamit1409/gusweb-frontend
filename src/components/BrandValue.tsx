@@ -31,21 +31,23 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           sizes="(min-width: 0px) 100vw"
         />
       </div>
-
       <div className="absolute top-[110px] h-[885px] flex flex-col gap-[32px] max-w-[1140px] mx-auto " >
         <div className=" flex flex-col items-center text-center ">
-          <div className="text-white laptop:text-[80px] tablet:text-[64px] mobile:text-[40px] font-semibold font-bricolage max-w">
+          <div className="text-white laptop:text-[80px] tablet:text-[64px] mobile:text-[40px] font-semibold font-bricolage mx-10 flex-1">
             {mainData.banner.title}
           </div>
-          <p className="text-white text-2xl h-[68px] ">
+          <p className="text-white text-2xl flex-1">
             {mainData.banner.description}
           </p>
-          <button
-            type="button"
-            className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] mobile:mt-40 tablet:mt-10  rounded-[5px]"
-          >
-            Bắt đầu ngay
-          </button>
+          <div className="flex-1 mt-5">
+            <button
+              type="button"
+              className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] mobile: tablet:mt-10  rounded-[5px]"
+            >
+              Bắt đầu ngay
+            </button>
+          </div>
+
         </div>
 
         <div className="flex flex-row tablet:gap-2 laptop:gap-4 px-4 max-w-[1140px]">

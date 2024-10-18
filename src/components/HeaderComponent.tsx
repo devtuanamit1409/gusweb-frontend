@@ -16,7 +16,7 @@ export default function HeaderComponent() {
   return (
     <div className="bg-white fixed top-0 left-0 right-0 z-20 shadow-md">
       <div className="custom-container">
-        <div className="max-w-[1140px] flex justify-between items-center h-[76px] mx-auto px-4 ">
+        <div className="max-w-[1122px] flex justify-between items-center h-[76px] mx-auto px-4 ">
           {/* Logo Section */}
           <div>
             <Link href="/">

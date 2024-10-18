@@ -36,13 +36,13 @@ export default function WhyChooseUs({ whyUs }: any) {
   return (
     <div className="flex flex-col items-center max-w-[1116px] mx-auto ">
       <div className="mt-40 p-4">
-        <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:max-w-[715px] mobile:max-w-[328px]  ml-4  ">
+        <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:max-w-[715px] mobile:max-w-[328px]  ">
           Tại sao <b>{whyUs.name}</b> là lựa chọn phù hợp nhất?
         </p>
-        <p className="text-[56px] font-bricolage ml-4 max-w-[1100px]">
+        <p className="text-[56px] font-bricolage max-w-[1100px]">
           <b>{whyUs.title}</b>
         </p>
-        <div className="flex flex-col gap-6 mt-4 p-4 tablet:grid tablet:grid-cols-1 laptop:flex laptop:flex-row">
+        <div className="flex flex-col gap-6 tablet:grid tablet:grid-cols-1 laptop:flex laptop:flex-row">
           {whyUs.items &&
             whyUs.items.slice(0, 4).map((item: any, index: number) => (
               <WhyCardComponent

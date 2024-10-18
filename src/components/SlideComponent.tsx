@@ -24,7 +24,7 @@ const Slide: React.FC<any> = ({ brands }) => {
   };
 
   return (
-    <div className="laptop:max-w-[1140px] laptop:h-[68px] tablet:max-w-[712px] tablet:max-h-[49px] mobile:max-w-[328px] mobile:max-h-[40px] pt-[20px] mb-[20px] relative flex items-center mx-auto justify-between ">
+    <div className="laptop:max-w-[1116px] laptop:h-[68px] tablet:max-w-[712px] tablet:max-h-[49px] mobile:max-w-[328px] mobile:max-h-[40px] pt-[20px] mb-[20px] relative flex items-center mx-auto justify-between ">
       <div
         className=" rounded-full cursor-pointer shadow-md z-10 laptop:hidden tablet:block mobile:block"
         onClick={handlePrevClick}
