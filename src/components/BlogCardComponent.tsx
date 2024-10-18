@@ -5,6 +5,26 @@ import Link from "next/link";
 import { ArrowRightOutlined } from "@ant-design/icons";
 
 const BlogCardComponent = ({ item }: any) => {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+
+    // Tính toán thời gian còn lại
+    const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    if (diffInSeconds < 60) {
+      return `${diffInSeconds} giây trước`;
+    } else if (diffInSeconds < 3600) {
+      const diffInMinutes = Math.floor(diffInSeconds / 60);
+      return `${diffInMinutes} phút trước`;
+    } else if (diffInSeconds < 86400) {
+      const diffInHours = Math.floor(diffInSeconds / 3600);
+      return `${diffInHours} giờ trước`;
+    } else {
+      const diffInDays = Math.floor(diffInSeconds / 86400);
+      return `${diffInDays} ngày trước`;
+    }
+  };
   return (
     <div className="home-service-item__box ">
       <div className="relative">
@@ -21,7 +41,7 @@ const BlogCardComponent = ({ item }: any) => {
       </div>
       <div className="flex flex-col gap-4 p-6 ">
         <p className="text-[12px] leading-[16.8px] text-[#363636]">
-          {item.createdAt}
+          {formatDate(item.createdAt)}
         </p>
         <p className="font-bricolage text-base tablet:text-[20px] text-[#1C1C1C] font-semibold leading-[24px] h-[48px] line-clamp-2 tablet:line-clamp-3">
           {item.title}

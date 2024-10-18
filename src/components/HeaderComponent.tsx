@@ -19,7 +19,6 @@ export default function HeaderComponent() {
     { href: t("header.items.0.slug"), label: t("header.items.0.title") },
     { href: t("header.items.1.slug"), label: t("header.items.1.title") },
     { href: t("header.items.2.slug"), label: t("header.items.2.title") },
-    { href: t("header.items.3.slug"), label: t("header.items.3.title") },
     { href: t("header.items.4.slug"), label: t("header.items.4.title") },
     { href: t("header.items.5.slug"), label: t("header.items.5.title") },
   ];

@@ -45,7 +45,6 @@ const page = () => {
 
       try {
         const response = await postContactUser(formData);
-        // console.log("Form submitted successfully:", response);
         message.success("Form submitted successfully!");
 
         setName("");

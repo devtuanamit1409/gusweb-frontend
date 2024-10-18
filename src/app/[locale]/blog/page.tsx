@@ -1,6 +1,5 @@
 "use client";
 import BannerComponent from "@/components/BannerComponent";
-import BlogCardComponent from "@/components/BlogCardComponent";
 import PaginationComponent from "@/components/PaginationComponent";
 import {
   fetchBlogPage,
@@ -22,6 +21,7 @@ import { IconArrowTronButtonTrai } from "@/components/Icons/IconArrowTronButtonT
 import { IconArrowTronButtonPhai } from "@/components/Icons/IconArrowTronButtonPhai";
 import { useLocale } from "next-intl";
 import { Empty } from "antd";
+import BlogCardComponent from "@/components/BlogCardComponent";
 
 const Page = () => {
   const pageSize = 6;
