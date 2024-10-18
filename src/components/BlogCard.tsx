@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
+import BlogCardComponent from "./BlogCardComponent";
 
 export default async function BlogCard() {
   const formatDate = (dateString: string) => {
@@ -33,51 +34,18 @@ export default async function BlogCard() {
           <span className="tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage tablet:text-center">
             Những dự án khác có thể bạn quan tâm
           </span>
-          <button
-            type="button"
-            className="bg-[#27B3E9] text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
+          <Link
+            href="/blog"
+            className="bg-[#27B3E9] flex items-center justify-center text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
           >
-            Xem tất cả
-          </button>
+            <p>Xem tất cả</p>
+          </Link>
         </div>
         <div className="grid gap-6 laptop:grid-cols-3 tablet:px-[194px] laptop:px-0 max-w-[1116px]">
           {data.articles &&
             data.articles.slice(-3).map((item: any, index: number) => (
-              <div
-                key={index}
-                className={`home-service-item__box col-span-${
-                  data.articles.length === 1
-                    ? "3"
-                    : data.articles.length === 2
-                    ? "2"
-                    : "1"
-                }`}
-              >
-                <div>
-                  <div className="relative flex flex-col ">
-                    <div className="w-full h-[267px] overflow-hidden relative">
-                      <Image
-                        src={item.url}
-                        alt={item.alt}
-                        width={711}
-                        height={267}
-                        className="object-fill h-full rounded-[24px]"
-                      />
-                      <button className="background-LinearGradient absolute bottom-4 right-4 w-[85px] h-[26px]">
-                        {item.sub_category}
-                      </button>
-                    </div>
-                    <div className="flex flex-col gap-4 p-6">
-                      <p>{formatDate(item.createdAt)}</p>
-                      <p className="font-bricolage text-[20px] font-bold">
-                        {item.title}
-                      </p>
-                      <Link href={item.slug} className="text-blue-500">
-                        Xem thêm
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+              <div key={index}>
+                <BlogCardComponent item={item} />
               </div>
             ))}
         </div>
