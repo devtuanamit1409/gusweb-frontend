@@ -33,13 +33,12 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           sizes="(min-width: 0px) 100vw"
         />
       </div>
-
       <div className="absolute top-[110px] h-[885px] flex flex-col gap-[32px] max-w-[1140px] mx-auto ">
         <div className=" flex flex-col items-center text-center ">
-          <div className="text-white laptop:text-[80px] tablet:text-[64px] mobile:text-[40px] font-semibold font-bricolage max-w">
+          <div className="text-white laptop:text-[80px] tablet:text-[64px] mobile:text-[40px] font-semibold font-bricolage mx-10 flex-1">
             {mainData.banner.title}
           </div>
-          <p className="text-white text-2xl h-[68px] ">
+          <p className="text-white text-2xl flex-1">
             {mainData.banner.description}
           </p>
           <button

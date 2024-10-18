@@ -16,14 +16,14 @@ const PartnerList: React.FC<any> = async ({ customer }) => {
         decoding="async"
         sizes="(min-width: 0px) 100vw"
       />
-      <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center max-w-[700px] bg-white bg-opacity-70 p-4 rounded-lg ">
-        <span className="tablet:text-[24px] mobile:text-[18px] min-w-[247px] relative text-preamble">
-          {t("homePage.customers")}
+      <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-opacity-70 p-4 rounded-lg ">
+        <span className="tablet:text-[24px] mobile:text-[18px] relative text-preamble">
+          KHÁCH HÀNG CỦA GUSWEB
         </span>
-        <p className="mobile:text-[32px] tablet:text-[56px] font-bricolage font-bold min-w-[328px]">
+        <p className="mobile:text-[32px] tablet:text-[56px] font-bricolage font-bold ">
           {customer.title}
         </p>
-        <span className="min-w-[328px]">{customer.description}</span>
+        <span>{customer.description}</span>
       </div>
       <div className="absolute bottom-14 left-0 right-0">
         <Slide brands={customer.images} />

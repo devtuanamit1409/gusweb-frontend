@@ -27,7 +27,7 @@ export default async function Home() {
       <ProjectShowcase project={data.project} />
       <PartnerList customer={data.customer} />
       <CustomerSuccessStory chats={data.chats} />
-      <BlogCard />
+      {/* <BlogCard /> */}
       <Contact />
     </>
   );
