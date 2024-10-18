@@ -13,8 +13,10 @@ import IconVuongCam from "@/components/Icons/IconVuongCam";
 import IconVuongXanh from "@/components/Icons/IconVuongXanh";
 import IconVectorArrow from "@/components/Icons/IconVectorArrow";
 import HeaderInterfaceSlider from "@/components/HeaderInterfaceSlider";
+import { useTranslations } from "next-intl";
 
 const BrandValue: React.FC<any> = ({ mainData }) => {
+  const t = useTranslations();
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -31,7 +33,7 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           sizes="(min-width: 0px) 100vw"
         />
       </div>
-      <div className="absolute top-[110px] h-[885px] flex flex-col gap-[32px] max-w-[1140px] mx-auto " >
+      <div className="absolute top-[110px] h-[885px] flex flex-col gap-[32px] max-w-[1140px] mx-auto ">
         <div className=" flex flex-col items-center text-center ">
           <div className="text-white laptop:text-[80px] tablet:text-[64px] mobile:text-[40px] font-semibold font-bricolage mx-10 flex-1">
             {mainData.banner.title}
@@ -39,19 +41,15 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           <p className="text-white text-2xl flex-1">
             {mainData.banner.description}
           </p>
-          <div className="flex-1 mt-5">
-            <button
-              type="button"
-              className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] mobile: tablet:mt-10  rounded-[5px]"
-            >
-              Bắt đầu ngay
-            </button>
-          </div>
-
+          <button
+            type="button"
+            className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] mobile:mt-40 tablet:mt-10  rounded-[5px]"
+          >
+            {t("homePage.buttonMain")}
+          </button>
         </div>
 
         <div className="flex flex-row tablet:gap-2 laptop:gap-4 px-4 max-w-[1140px]">
-
           <div className="w-4/12 mt-7 laptop:block hidden ">
             <div className="max-w-[333px] h-[53px] bg-[rgba(255,255,255,0.3)] backdrop-blur-[10px] border-2 border-white/50 rounded-[100px] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-[12px] px-[24px] flex flex-row gap-2">
               <IconLock />
@@ -196,7 +194,9 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
                 <div className="bg-white h-[180px] rounded-b-md max-w-[189px] ">
                   <div className="flex flex-row justify-between max-w-[189px] h-[51px] items-center p-2">
                     <h3>{mainData.card.title}</h3>
-                    <p className="gradient-text-camvang">{mainData.card.price}$</p>
+                    <p className="gradient-text-camvang">
+                      {mainData.card.price}$
+                    </p>
                   </div>
                   <div className="p-2 border-y-2 flex justify-between text-[#1FA9EC]">
                     <p>{mainData.card.description}</p>
@@ -205,17 +205,15 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
                   <div className=" p-2 ">
                     <button
                       type="button"
-
                       className="text-white bg-[#1FA9EC] font-medium rounded-md text-sm w-full h-[34px] "
                     >
-                      Báo Giá
+                      {t("homePage.buttonMain2")}
                     </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

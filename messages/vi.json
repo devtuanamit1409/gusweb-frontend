@@ -1,6 +1,47 @@
 {
-  "HomePage": {
-    "title": "tieng viet",
-    "about": "day la tieng viet"
+  "header": {
+    "items": [
+      {
+        "title": "Thiết kế trang web",
+        "slug": "/service"
+      },
+      {
+        "title": "Về chúng tôi",
+        "slug": "/about-us"
+      },
+      {
+        "title": "Case studies",
+        "slug": "/case-studies"
+      },
+      {
+        "title": "Tuyển dụng",
+        "slug": "/recruitment"
+      },
+      {
+        "title": "Blog",
+        "slug": "/blog"
+      },
+      {
+        "title": "Liên hệ",
+        "slug": "/contact"
+      }
+    ],
+    "button": "Báo giá"
+  },
+  "contact": {
+    "buttonLeft": "Tải ebook",
+    "buttonRight": "Xem Thêm"
+  },
+  "homePage": {
+    "buttonMain": "Bắt đầu ngay",
+    "buttonMain2": "Báo giá",
+    "whoWeb": "GUSWEB LÀ AI?",
+    "whyWeb": "Tại sao GUSWEB là lựa chọn phù hợp nhất?",
+    "project": "Các dự án tiêu biểu",
+    "buttonProj": "Xem chi tiết",
+    "customer": "KHÁCH HÀNG CỦA GUSWEB",
+    "comment": "Câu chuyện thành công của khách hàng",
+    "article": "Khai thác website hiệu quả",
+    "buttonAll": "Xem tất cả"
   }
 }
