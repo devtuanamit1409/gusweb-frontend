@@ -6,6 +6,7 @@ import Image from "next/image";
 import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
 import { message } from "antd";
 import React, { useEffect, useState } from "react";
+import BannerComponent from "@/components/BannerComponent";
 
 const page = () => {
   // const data = {
@@ -54,7 +55,7 @@ const page = () => {
 
       try {
         const response = await postContactUser(formData);
-        // console.log("Form submitted successfully:", response);
+
         message.success("Form submitted successfully!");
 
         setName("");
@@ -96,7 +97,6 @@ const page = () => {
   const [value, setValue] = React.useState<number[]>([20000, 80000]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
-    //lay ra khoang gia tri
     setValue(newValue as number[]);
   };
 
@@ -150,7 +150,7 @@ const page = () => {
   const handleContentChange = (e: any) => setContent(e.target.value);
   return (
     <div className="w-full flex flex-col gap-10">
-      {/* <BannerComponent intro={contactData?.intro} /> */}
+      <BannerComponent intro={contactData?.intro} />
       <div className="custom-contaier flex flex-col gap-10">
         <div className="laptop:h-[1058px] h-[1025px] mobile:py-20  flex flex-col justify-center items-center px-6 py-10 gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529] ">
           <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:max-w-[500px] tablet:h-[1000px] mobile:max-w-[328px] mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
@@ -469,6 +469,7 @@ const page = () => {
             />
           </div>
           <div className="absolute bottom-0 right-0 w-[234px] h-[222px] laptop:hidden mobile:block tablet:block">
+            123
             <Image
               src="/images/OBJECTS3.png"
               alt="Overlay Image"

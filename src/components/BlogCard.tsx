@@ -5,7 +5,26 @@ import Link from "next/link";
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
 
 export default async function BlogCard() {
-  //prop: locale, page, pagesize, idcategoy, ?idsubcategory => danh sach tra ve da co sap xep moi nhat
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+
+    // Tính toán thời gian còn lại
+    const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    if (diffInSeconds < 60) {
+      return `${diffInSeconds} giây trước`;
+    } else if (diffInSeconds < 3600) {
+      const diffInMinutes = Math.floor(diffInSeconds / 60);
+      return `${diffInMinutes} phút trước`;
+    } else if (diffInSeconds < 86400) {
+      const diffInHours = Math.floor(diffInSeconds / 3600);
+      return `${diffInHours} giờ trước`;
+    } else {
+      const diffInDays = Math.floor(diffInSeconds / 86400);
+      return `${diffInDays} ngày trước`;
+    }
+  };
   const data = await fetchFilteredArticles("vi", 1, 3, 4);
   return (
     <div className=" h-[705px] custom-container flex items-center justify-center">
@@ -42,7 +61,7 @@ export default async function BlogCard() {
                       </button>
                     </div>
                     <div className="flex flex-col gap-4 p-6">
-                      <p>{item.createdAt}</p>
+                      <p>{formatDate(item.createdAt)}</p>
                       <p className="font-bricolage text-[20px] font-bold">
                         {item.title}
                       </p>
