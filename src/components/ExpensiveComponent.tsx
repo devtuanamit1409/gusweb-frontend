@@ -11,8 +11,8 @@ const ExpensiveComponent: React.FC<any> = ({ exp }) => {
         fill
         className="absolute top-0 left-0  object-cover"
       />
-      <div className="custom-container  laptop:px-[162px] py-20 px-4 mobile:py-10 flex">
-        <div className=" justify-start flex">
+      <div className="custom-container  py-20 px-4 mobile:py-10 flex  justify-center">
+        <div className=" justify-start flex   max-w-[1116px]">
           <div className=" text-[#FEFEFE] flex flex-col laptop:gap-10 gap-4 z-10 w-full">
             <p className="laptop:text-[56px] laptop:leading-[67.2px] tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[32px] font-bold font-bricolage !text-[#FEFEFE] ">
               {exp.title}

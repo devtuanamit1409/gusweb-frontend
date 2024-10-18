@@ -18,8 +18,8 @@ const data = {
 
 const Slogan: React.FC<any> = ({ slogans }) => {
   return (
-    <div className="custom-container laptop:py-[80px] tablet:py-[80px] laptop:px-[162px] tablet:px-4 flex flex-col laptop:gap-20 gap-10  ">
-      <div className="justify-center items-center flex  laptop:flex-row flex-col mobile:gap-12">
+    <div className="custom-container laptop:py-[80px] tablet:py-[80px] tablet:px-4 flex flex-col laptop:gap-20 gap-10 items-center ">
+      <div className="justify-center items-center flex max-w-[1116px]  laptop:flex-row flex-col mobile:gap-12">
         <div className=" px-4 tablet:px-0 flex justify-center flex-col gap-4  w-full  ">
           <h1 className="font-bold laptop:leading-[67.2px] laptop:text-[56px] tablet:leading-[50.2px] tablet:text-[42px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage text-[#1C1C1C] laptop:text-start text-center ">
             {slogans[0].title}
@@ -38,7 +38,7 @@ const Slogan: React.FC<any> = ({ slogans }) => {
           />
         </div>
       </div>
-      <div className="justify-center items-center flex  laptop:flex-row flex-col mobile:gap-12">
+      <div className="justify-center items-center flex  laptop:flex-row flex-col mobile:gap-12 max-w-[1116px]">
         <div className=" px-4 tablet:px-0 flex justify-center flex-col gap-4  w-full  laptop:order-2 ">
           <h1 className="font-bold laptop:leading-[67.2px] laptop:text-[56px] tablet:leading-[50.2px] tablet:text-[42px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage text-[#1C1C1C] laptop:text-start text-center ">
             {slogans[1].title}

@@ -15,7 +15,7 @@ const AboutUsPage: React.FC<any> = ({ data }) => {
   // console.log(data);
   return (
     <div className="w-full h-full flex flex-col mobile:gap-10 tablet:gap-10 laptop:gap-0 ">
-      {/* <BannerComponent intro={data.intro} /> */}
+      <BannerComponent intro={data.intro} />
       <div className="flex flex-col relative mobile:gap-10 tablet:gap-10 laptop:gap-0">
         <div className="absolute top-20 right-24 w-[418px] h-[498px] hidden laptop:block">
           <Image
