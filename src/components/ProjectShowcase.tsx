@@ -34,7 +34,7 @@ export default function ProjectShowcase({ project }: any) {
             <p>{t("homePage.buttonProj")}</p>
             <IconArrowDesc />
           </Link>
-          <ModalExample />
+          {/* <ModalExample /> */}
         </div>
         <div className="hidden tablet:w-[60%]"></div>
       </div>
