@@ -1,12 +1,10 @@
 "use client";
-
+import BannerComponent from "@/components/BannerComponent";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
-import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
-import { message } from "antd";
-import React, { useEffect, useState } from "react";
-import BannerComponent from "@/components/BannerComponent";
+import { fetchContactUsPage } from "@/utils/GlobalApi";
 
 const page = () => {
   // const data = {
@@ -28,7 +26,6 @@ const page = () => {
   const [companyName, setCompanyName] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [isFormValid, setIsFormValid] = useState(false);
-
   useEffect(() => {
     const getContactData = async () => {
       const data = await fetchContactUsPage("vi");
@@ -38,9 +35,7 @@ const page = () => {
     getContactData();
   }, []);
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
+  const handleSubmit = () => {
     validateForm();
 
     if (!nameError && !phoneError && !emailError) {
@@ -52,21 +47,6 @@ const page = () => {
         content,
         value,
       };
-
-      try {
-        const response = await postContactUser(formData);
-        // console.log("Form submitted successfully:", response);
-        message.success("Form submitted successfully!");
-
-        setName("");
-        setPhoneNumber("");
-        setEmail("");
-        setCompanyName("");
-        setContent("");
-      } catch (error) {
-        console.error("Error submitting form:", error);
-        setFormError("Error submitting the form. Please try again.");
-      }
     } else {
       setFormError("Please fix the errors in the form.");
     }
@@ -151,10 +131,10 @@ const page = () => {
   const handleContentChange = (e: any) => setContent(e.target.value);
   return (
     <div className="w-full flex flex-col gap-10">
-      <BannerComponent intro={contactData?.intro} />
+      {/* <BannerComponent intro={contactData?.intro} /> */}
       <div className="custom-contaier flex flex-col gap-10">
         <div className="laptop:h-[1058px] h-[1025px] mobile:py-20  flex flex-col justify-center items-center px-6 py-10 gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529] ">
-          <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:max-w-[500px] tablet:h-[1000px] mobile:max-w-[328px] mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
+          <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:h-[1000px]  mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
             <div className="laptop:h-[68px] tablet:h-[112px] pb-6 ">
               <h1 className="laptop:text-[36px] font-bold font-montserrat leading-[44px] tablet:text-[36px]  text-[#1C1C1C] mobile:text-[32px]">
                 Chúng tôi sẵn sàng giúp bạn
@@ -171,14 +151,14 @@ const page = () => {
                   nameError || phoneError
                     ? "laptop:max-h-[77px]"
                     : "laptop:max-h-[56px]"
-                } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col w-full`}
+                } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
               >
-                <div className="relative laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
+                <div className="relative laptop:max-w-[427px]  w-full">
                   <input
                     type="text"
                     id="name"
                     placeholder=""
-                    className={`laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2 rounded-lg  border border-gray-300  focus:border-[#08BED5] focus:outline-none peer ${
+                    className={`laptop:max-w-[427px]  w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
                       nameError ? "focus:border-red-500" : ""
                     }`}
                     value={name}
@@ -198,12 +178,12 @@ const page = () => {
                   )}
                 </div>
 
-                <div className="relative laptop:max-w-[237px]  tablet:max-w-[468px] mobile:max-w-[296px]   w-full">
+                <div className="relative laptop:max-w-[237px]     w-full">
                   <input
                     type="tel"
                     id="phone"
                     placeholder=" "
-                    className={`laptop:max-w-[237px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2  border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer ${
+                    className={`laptop:max-w-[237px]  w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
                       phoneError ? "focus:border-red-500" : ""
                     }`}
                     value={phoneNumber}
@@ -223,12 +203,12 @@ const page = () => {
                   )}
                 </div>
               </div>
-              <div className="relative mb-4 laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px]  w-full ">
+              <div className="relative mb-4 laptop:max-w-[688px]   w-full ">
                 <input
                   type="email"
                   id="email"
                   placeholder=" "
-                  className={`laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer ${
+                  className={`laptop:max-w-[688px]  w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
                     emailError ? "focus:border-red-500" : ""
                   }`}
                   value={email}
@@ -248,12 +228,12 @@ const page = () => {
                 )}
               </div>
 
-              <div className="relative mb-4 laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
+              <div className="relative mb-4 laptop:max-w-[688px]  w-full">
                 <input
                   type="text"
                   id="companyName"
                   placeholder=" "
-                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer"
+                  className="laptop:max-w-[688px]  w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
                   required
                   value={companyName}
                   onChange={handleCompanyNameChange}
@@ -266,11 +246,11 @@ const page = () => {
                 </label>
               </div>
 
-              <div className="relative mb-4 laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
+              <div className="relative mb-4 laptop:max-w-[688px]  w-full">
                 <textarea
                   id="content"
                   placeholder=""
-                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[176px] p-2 border border-gray-300 rounded-lg focus:border-[#08BED5] focus:outline-none peer"
+                  className="laptop:max-w-[688px]  w-full  h-[176px] p-2 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
                   rows={4}
                   value={content}
                   onChange={handleContentChange}
@@ -284,7 +264,7 @@ const page = () => {
                 </label>
               </div>
 
-              <div className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full laptop:h-[136px] tablet:h-[136px] mobile:h-[160px] flex flex-col gap-14">
+              <div className="laptop:max-w-[688px]  w-full laptop:h-[136px] tablet:h-[136px] mobile:h-[160px] flex flex-col gap-14">
                 <p className="">Ngân sách tài chính cho dự án muốn đầu tư</p>
                 <Box sx={{ width: "100%" }}>
                   <Slider
@@ -323,17 +303,13 @@ const page = () => {
                     }}
                   />
                   <div className="flex justify-between text-sm">
-                    <span className="font-normal text-base leading-6 tracking-[0.5px]">
-                      0 $
-                    </span>
-                    <span className="font-normal text-base leading-6 tracking-[0.5px]">
-                      100,000 $
-                    </span>
+                    <span>$0</span>
+                    <span>$100,000</span>
                   </div>
                 </Box>
               </div>
 
-              <div className="flex justify-end mt-10">
+              <div className="flex justify-end mt-4">
                 <button
                   type="submit"
                   className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${
@@ -356,8 +332,8 @@ const page = () => {
           </div>
         </div>
 
-        <div className="laptop:h-[486px] tablet:h-[399px] mobile:h-[794px] flex tablet:flex-row laptop:flex-row laptop:py-[80px] laptop:px-[162px] tablet:p-4 mobile:py-6 mobile:px-3 mobile:flex-col justify-center items-center gap-6">
-          <div className="laptop:max-w-[736px] laptop:h-[326px] tablet:max-w-[344px] tablet:h-[338px] mobile:max-w-[328px] mobile:h-[361px]  overflow-hidden w-full">
+        <div className="custom-container laptop:max-w-[1116px] laptop:h-[486px] tablet:h-[399px] mobile:h-[794px] flex tablet:flex-row laptop:flex-row  tablet:p-4 mobile:py-6 mobile:px-3 mobile:flex-col justify-center items-center gap-6 w-full">
+          <div className=" laptop:h-[326px]  tablet:h-[338px] mobile:h-[361px] w-full">
             <iframe
               src={contactData?.map?.urlMap}
               className="w-full h-full border-none rounded-lg"
@@ -365,19 +341,19 @@ const page = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <div className="laptop:max-w-[356px] laptop:h-[326px] tablet:max-w-[344px] tablet:h-[338px] mobile:max-w-[328px] mobile:h-[361px]   rounded-lg border border-[#1FA9EC] flex flex-col p-6 gap-4 w-full">
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] h-[50px] flex justify-center items-center w-full">
+          <div className="laptop:max-w-[356px] laptop:h-[326px]  tablet:h-[338px] mobile:h-[361px]   rounded-lg border border-[#1FA9EC] flex flex-col p-6 gap-4 w-full">
+            <div className="laptop:max-w-[308px]  h-[50px] flex justify-center items-center w-full">
               <div className="w-[156px]  h-[50px]">
                 <Image
                   width={156}
                   height={50}
-                  src={contactData?.map?.url || "/images/logo.png"}
-                  alt={contactData?.map?.alt || "image logo"}
+                  src={contactData?.map.url}
+                  alt={contactData?.map.alt}
                   className="object-contain"
                 />
               </div>
             </div>
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] mobile:max-w-[280px] mobile:h-[104px] h-[80px] w-full flex flex-col gap-2">
+            <div className="laptop:max-w-[308px]  mobile:h-[104px] h-[80px] w-full flex flex-col gap-2">
               <div className="flex items-center">
                 <Image
                   src="/images/Iconsoffice.png"
@@ -395,7 +371,7 @@ const page = () => {
               </p>
             </div>
 
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] mobile:max-w-[280px] h-[56px] w-full flex flex-col gap-2">
+            <div className="laptop:max-w-[308px]  h-[56px] w-full flex flex-col gap-2">
               <div className="flex items-center">
                 <Image
                   src="/images/phone-call.png"
@@ -413,7 +389,7 @@ const page = () => {
               </p>
             </div>
 
-            <div className="laptop:max-w-[308px] tablet:max-w-[296px] mobile:max-w-[280px] h-[56px] w-full flex flex-col gap-2">
+            <div className="laptop:max-w-[308px]  h-[56px] w-full flex flex-col gap-2">
               <div className="flex items-center">
                 <Image
                   src="/images/IconsClock.png"
@@ -439,8 +415,8 @@ const page = () => {
             fill
             className="absolute top-0 left-0 w-full laptop:h-[291px] tablet:h-[291px] mobile:h-[443px]"
           />
-          <div className="custom-container laptop:px-[162px] tablet:px-[162px] mobile:px-[162px] flex laptop:justify-start laptop:items-center tablet:justify-start tablet:items-center mobile:justify-center mobile:items-start h-full">
-            <div className="laptop:max-w-[542px] laptop:h-[131px] tablet:max-w-[542px] tablet:h-[114px] mobile:min-w-[328px] mobile:h-[164px] flex flex-col gap-6 justify-center tablet:items-start laptop:items-start mobile:items-center tablet:pt-[45px] w-full">
+          <div className="custom-container laptop:px-[162px] px-4 flex laptop:justify-start  tablet:justify-start tablet:items-center mobile:justify-center mobile:items-start h-full">
+            <div className="laptop:max-w-[542px] laptop:h-[131px]  tablet:h-[114px]  mobile:h-[164px] flex flex-col gap-6 justify-center tablet:items-start laptop:items-start mobile:items-center tablet:pt-[45px] w-full">
               <h3 className="laptop:text-[56px] laptop:leading-[67.2px] tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[42px] mobile:leading-[50.4px] font-bold font-bricolage text-[#FEFEFE] text-center z-10">
                 Theo dõi GUSWEB tại
               </h3>
