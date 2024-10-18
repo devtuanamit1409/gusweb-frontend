@@ -23,7 +23,7 @@ import { useLocale } from "next-intl";
 import { Empty } from "antd";
 import BlogCardComponent from "@/components/BlogCardComponent";
 
-const Page = () => {
+const Page = ({ params }: { params: { slug: string } }) => {
   const pageSize = 6;
   const localActive = useLocale();
   const swiperRef = useRef<any>(null);
@@ -34,6 +34,9 @@ const Page = () => {
   const [articles, setArticles] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pagination, setPagination] = useState<any>(null);
+
+  const searchParams = new URLSearchParams(window.location.search);
+  const subCategoryQueryParam = searchParams.get("sub-category");
 
   useEffect(() => {
     const getBlogData = async () => {
@@ -52,12 +55,21 @@ const Page = () => {
         ];
         // console.log("subCategoriesWithAll", subCategoriesWithAll);
         setSubCategorys(subCategoriesWithAll);
+
+        if (subCategoryQueryParam) {
+          const foundIndex = subCategoriesWithAll.findIndex(
+            (subCategory) => subCategory.slug === subCategoryQueryParam
+          );
+          if (foundIndex !== -1) {
+            setActiveIndex(foundIndex);
+          }
+        }
       };
       getListSubCategory();
     };
 
     getBlogData();
-  }, []);
+  }, [localActive, subCategoryQueryParam]);
 
   useEffect(() => {
     const getFilteredArticles = async () => {

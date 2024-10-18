@@ -70,6 +70,7 @@ export default function middleware(request: NextRequest) {
       response.cookies.set("NEXT_LOCALE", "vi");
       return response;
     } else {
+      console.log("no da vao day", pathname);
       return NextResponse.redirect(new URL(newPathname, request.url));
     }
   }
