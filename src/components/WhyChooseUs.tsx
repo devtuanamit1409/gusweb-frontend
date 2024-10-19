@@ -20,7 +20,7 @@ const WhyCardComponent = (props: Props) => {
           className="mb-4 w-[261px] h-[195px]"
         />
         <div className='flex flex-col flex-grow'>
-          <p className='text-base font-bold max-h-[120px] overflow-hidden overflow-ellipsis mb-2 text-center'>
+          <p className='tablet:text-base font-bold max-h-[120px] overflow-hidden overflow-ellipsis mb-2 text-center mobile:text-[20px] font-bricolage'>
             {item.title}
           </p>
           <p>
@@ -39,10 +39,10 @@ export default function WhyChooseUs({ whyUs }: any) {
         <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:max-w-[715px] mobile:max-w-[328px]  ">
           Tại sao <b>{whyUs.name}</b> là lựa chọn phù hợp nhất?
         </p>
-        <p className="text-[56px] font-bricolage max-w-[1100px]">
+        <p className="mobile:font-bold mobile:leading-[38.4px] mobile:text-[33px] tablet:text-[56px] font-bricolage tablet:leading-[67.2px] max-w-[1100px]">
           <b>{whyUs.title}</b>
         </p>
-        <div className="flex flex-col gap-6 tablet:grid tablet:grid-cols-1 laptop:flex laptop:flex-row">
+        <div className="flex flex-col gap-6 tablet:grid tablet:grid-cols-1 laptop:flex laptop:flex-row mt-4">
           {whyUs.items &&
             whyUs.items.slice(0, 4).map((item: any, index: number) => (
               <WhyCardComponent

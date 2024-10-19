@@ -33,10 +33,10 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
       </div>
       <div className="absolute top-[110px] h-[885px] flex flex-col gap-[32px] max-w-[1140px] mx-auto " >
         <div className=" flex flex-col items-center text-center ">
-          <div className="text-white laptop:text-[80px] tablet:text-[64px] mobile:text-[40px] font-semibold font-bricolage mx-10 flex-1">
+          <div className="text-white laptop:text-[80px] laptop:leading-[96px] tablet:text-[64px] mobile:text-[40px] font-semibold font-bricolage mx-10 flex-1">
             {mainData.banner.title}
           </div>
-          <p className="text-white text-2xl flex-1">
+          <p className="text-white laptop:text-2xl flex-1 laptop:leading-[33.6px]">
             {mainData.banner.description}
           </p>
           <div className="flex-1 mt-5">

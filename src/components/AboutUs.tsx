@@ -22,7 +22,7 @@ export default function AboutUs({ whoUs }: any) {
             <span className="normal-case">LÀ AI?</span>
           </span>
 
-          <h3 className=" font-bold text-[56px] font-bricolage">
+          <h3 className=" font-bold text-[56px] font-bricolage laptop:leading-[67.2px]">
             {whoUs.title}
           </h3>
           <p>{whoUs.description}</p>

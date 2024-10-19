@@ -17,7 +17,7 @@ export default function ProjectShowcase({ project }: any) {
     <div className="flex flex-col tablet:flex-row items-center relative tablet:h-[436px] laptop:h-[545px] mt-20">
       <div className="max-w-[1116px] w-full mx-auto flex flex-row px-4 desktop:px-0 z-10">
         <div className="flex flex-col gap-2 w-full tablet:w-[40%] mt-[80px]">
-          <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C]">
+          <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C] ">
             CÁC DỰ ÁN TIÊU BIỂU
           </p>
           <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]">
@@ -26,13 +26,13 @@ export default function ProjectShowcase({ project }: any) {
           <span className="text-base line-clamp-2 leading-6 text-[#363636]">
             {project.items[activeSlideIndex].description}{" "}
           </span>
-          <Link
+          {/* <Link
             href="/chi-tiet"
             className="text-[#1FA9EC] font-medium text-[15px] underline mt-2 flex flex-row items-center gap-2 leading-6 w-max h-8"
           >
             <p>Xem chi tiết</p>
             <IconArrowDesc />
-          </Link>
+          </Link> */}
           <ModalExample />
         </div>
         <div className="hidden tablet:w-[60%]"></div>
@@ -65,12 +65,12 @@ export default function ProjectShowcase({ project }: any) {
             />
           </div>
           <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
-            <QuotationButton />
+            <QuotationButton label="Xem tất cả dự án" />
           </div>
         </div>
       </div>
-      <div className="tablet:hidden mt-8">
-        <QuotationButton />
+      <div className="tablet:hidden">
+        <QuotationButton label="Xem tất cả dự án" />
       </div>
     </div>
   );

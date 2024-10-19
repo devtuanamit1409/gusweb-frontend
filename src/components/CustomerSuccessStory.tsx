@@ -27,14 +27,14 @@ export default function CustomerSuccessStory({ chats }: any) {
     <div className="relative custom-container ">
       <div className="tablet:absolute tablet:top-0 tablet:left-0 tablet:right-0 tablet:bottom-0">
         <div className="px-4 h-full flex flex-row items-start relative max-w-[1116px] mx-auto">
-          <div className="flex flex-row tablet:flex-col gap-4 w-full tablet:w-[40%]">
+          <div className="flex laptop:flex-col tablet:flex-col mobile:flex-col gap-4 w-full tablet:w-[40%]">
             <Image
               src="/images/Maskgroup.png"
               alt=""
               width="166"
               height="166"
             />
-            <span className="font-semibold text-[42px] w-full tablet:w-96">
+            <span className="font-semibold text-[42px] w-full tablet:w-96 font-bricolage">
               Câu chuyện thành công của khách hàng
             </span>
           </div>
@@ -56,10 +56,10 @@ export default function CustomerSuccessStory({ chats }: any) {
               slidesPerView={2}
               loop={true}
               modules={[Autoplay]}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
+              // autoplay={{
+              //   delay: 3000,
+              //   disableOnInteraction: false,
+              // }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
@@ -77,7 +77,7 @@ export default function CustomerSuccessStory({ chats }: any) {
                         className={`mx-3 my-6 bg-[#fefefe] ${isActive
                           ? "shadow-lg shadow-[rgba(58,123,213,0.4)]"
                           : "shadow-lg shadow-[rgba(198,217,225,.3)]"
-                          } rounded-[10px] w-[450px] h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
+                          } rounded-[10px] mobile:w-[450px] mobile:h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
                       >
                         <div className="text-black flex flex-col gap-[14px] h-[108px] laptop:h-[124px] p-4 bg-[#E5FCFF] rounded-tl-[10px] rounded-tr-[10px]">
                           <div className="relative flex flex-row px-5 h-full">

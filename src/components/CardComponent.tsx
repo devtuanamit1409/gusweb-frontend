@@ -22,7 +22,7 @@ const CardComponent = (props: Props) => {
         height={80}
         className='transition-opacity duration-300 group-hover:opacity-0'
       />
-      <p className='transition-opacity duration-300 group-hover:opacity-0 text-white'>
+      <p className='transition-opacity duration-300 group-hover:opacity-0 text-white font-bricolage'>
         {item.title}
       </p>
       {showDescriptionOnHover && (
