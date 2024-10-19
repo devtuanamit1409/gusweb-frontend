@@ -9,6 +9,7 @@ import IconArrowDesc from "./Icons/IconArrowDesc";
 import SwiperContainer from "@/components/SwiperContainer";
 import QuotationButton from "./QuotationButton";
 import { useTranslations } from "next-intl";
+import ModalExample from "@/components/ModalExample";
 
 export default function ProjectShowcase({ project }: any) {
   const t = useTranslations();
@@ -27,14 +28,14 @@ export default function ProjectShowcase({ project }: any) {
           <span className="text-base line-clamp-2 leading-6 text-[#363636]">
             {project.items[activeSlideIndex].description}{" "}
           </span>
-          <Link
+          {/* <Link
             href="/chi-tiet"
             className="text-[#1FA9EC] font-medium text-[15px] underline mt-2 flex flex-row items-center gap-2 leading-6 w-max h-8"
           >
             <p>{t("homePage.buttonProj")}</p>
             <IconArrowDesc />
-          </Link>
-          {/* <ModalExample /> */}
+          </Link> */}
+          <ModalExample />
         </div>
         <div className="hidden tablet:w-[60%]"></div>
       </div>
@@ -66,12 +67,12 @@ export default function ProjectShowcase({ project }: any) {
             />
           </div>
           <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
-            <QuotationButton />
+            <QuotationButton label="Xem tất cả dự án" />
           </div>
         </div>
       </div>
-      <div className="tablet:hidden mt-8">
-        <QuotationButton />
+      <div className="tablet:hidden">
+        <QuotationButton label="Xem tất cả dự án" />
       </div>
     </div>
   );

@@ -66,7 +66,7 @@ export default function WorkPrinciples({ work }: any) {
                 />
               )
             }
-            className="bg-white"
+            className="bg-white font-bricolage"
           >
             {collapseItems.map((item: any) => (
               <Panel key={item.key} header={item.label}>

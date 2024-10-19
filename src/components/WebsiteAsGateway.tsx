@@ -16,10 +16,10 @@ export default function WebsiteAsGateway({ webUs }: any) {
       </div>
       <div className="absolute w-full h-full flex flex-col items-center text-center p-4">
         <div className="laptop:max-w-[736px] w-full gap-4 flex flex-col mt-11">
-          <h1 className="tablet:text-[56px] mobile:text-[40px] text-white mobile:leading-[48px] mobile:tracking-[0.2px]">
+          <h1 className="tablet:text-[56px] mobile:text-[40px] text-white mobile:leading-[48px] font-semibold mobile:tracking-[0.2px] font-bricolage laptop:leading-[67.2px]">
             {webUs.intro.title}
           </h1>
-          <div className="text-white text-[16px]  h-full  leading-[24px] tracking-[0.5px]">
+          <div className="text-white text-[16px]  h-full laptop:leading-[24px] leading-[24px] tracking-[0.5px] font-bricolage">
             <h1>{webUs.intro.description}</h1>
           </div>
         </div>

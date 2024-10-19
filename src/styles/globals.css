@@ -444,3 +444,24 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
+
+/* Thêm vào globals.css hoặc một file css tùy chỉnh */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 10px; /* Độ dày của scrollbar */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px; /* Bo tròn track scrollbar */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #888; /* Màu của thanh cuộn */
+  border-radius: 10px; /* Bo tròn thanh cuộn */
+  border: 2px solid #f1f1f1; /* Viền bên ngoài thanh cuộn */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Màu khi hover trên thanh cuộn */
+}
+
