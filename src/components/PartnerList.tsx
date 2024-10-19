@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import Slide from "@/components/SlideComponent";
+import { getTranslations } from "next-intl/server";
 
-const PartnerList: React.FC<any> = ({ customer }) => {
+const PartnerList: React.FC<any> = async ({ customer }) => {
+  const t = await getTranslations();
   return (
     <div className="relative w-full h-[559px]">
       <Image

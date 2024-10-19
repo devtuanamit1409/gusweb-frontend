@@ -5,15 +5,17 @@ import {
   fetchFilteredArticleDetail,
   fetchSubCategoryByCategoryId,
 } from "@/utils/GlobalApi";
+import { getLocale } from "next-intl/server";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
-  const data = await fetchFilteredArticleDetail("vi", params.slug);
+  const localActive = await getLocale();
+  const data = await fetchFilteredArticleDetail(localActive, params.slug);
   const subCateList = await fetchSubCategoryByCategoryId(
-    "vi",
+    localActive,
     data.articles[0].categoryId
   );
   return (
-    <div>
+    <div className="w-full flex flex-col gap-4 laptop:gap-0">
       {data.articles[0].sub_category.title.toLowerCase() === "ebook" ? (
         <BookComponent article={data.articles[0]} />
       ) : (
@@ -22,7 +24,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           article={data.articles[0]}
         />
       )}
-      {/* <BlogCard /> */}
+      <BlogCard />
     </div>
   );
 };

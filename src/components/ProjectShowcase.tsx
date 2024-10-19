@@ -8,17 +8,19 @@ import SwiperContainer123 from "@/components/SwiperContainer";
 import IconArrowDesc from "./Icons/IconArrowDesc";
 import SwiperContainer from "@/components/SwiperContainer";
 import QuotationButton from "./QuotationButton";
+import { useTranslations } from "next-intl";
 import ModalExample from "@/components/ModalExample";
 
 export default function ProjectShowcase({ project }: any) {
+  const t = useTranslations();
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   return (
     <div className="flex flex-col tablet:flex-row items-center relative tablet:h-[436px] laptop:h-[545px] mt-20">
       <div className="max-w-[1116px] w-full mx-auto flex flex-row px-4 desktop:px-0 z-10">
         <div className="flex flex-col gap-2 w-full tablet:w-[40%] mt-[80px]">
-          <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C] ">
-            CÁC DỰ ÁN TIÊU BIỂU
+          <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C]">
+            {t("homePage.project")}
           </p>
           <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]">
             {project.items[activeSlideIndex].title}
@@ -30,7 +32,7 @@ export default function ProjectShowcase({ project }: any) {
             href="/chi-tiet"
             className="text-[#1FA9EC] font-medium text-[15px] underline mt-2 flex flex-row items-center gap-2 leading-6 w-max h-8"
           >
-            <p>Xem chi tiết</p>
+            <p>{t("homePage.buttonProj")}</p>
             <IconArrowDesc />
           </Link> */}
           <ModalExample />

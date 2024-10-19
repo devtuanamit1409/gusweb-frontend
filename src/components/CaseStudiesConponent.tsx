@@ -45,22 +45,22 @@ const CaseStudies: React.FC<any> = ({ data }) => {
           {data.description}
         </div>
       </div>
-      <div className="laptop:max-w-[1113px] mobie:max-w-[328px] tablet:gap-10 flex flex-col w-full ">
+      <div className="laptop:max-w-[1113px] mobie:max-w-[328px] tablet:gap-10 flex tablet:px-[122px] laptop:px-0 flex-col w-full ">
         <div className="grid laptop:grid-cols-2 tablet:grid-cols-1 laptop:gap-24 tablet:gap-10 mobile:gap-10 items-start justify-center gap-4 w-full">
           {currentItems.map((item: any, index: number) => (
             <Link
               href={item.slug}
               key={index}
-              className="gap-8 bg-white flex flex-col items-center justify-center laptop:justify-center laptop:items-start w-full h-full"
+              className="gap-8 bg-white flex flex-col items-center justify-center laptop:justify-center laptop:items-start  overflow-hidden w-full "
             >
-              <div className="relative w-full h-full flex justify-center items-center">
+              <div className="  w-full  flex justify-center items-center ">
                 <Image
                   priority
-                  width={500}
+                  width={863}
                   height={500}
                   src={item.url || "/images/Rectangle5067.png"}
                   alt={item.alt || "day la hinh anh case studies"}
-                  className="rounded-[24px]"
+                  className="rounded-[24px] object-cover h-[500px]"
                 />
               </div>
               <div className="flex flex-col gap-4 w-full h-full justify-center items-center laptop:justify-start laptop:items-start">

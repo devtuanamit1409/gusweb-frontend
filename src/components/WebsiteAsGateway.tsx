@@ -2,7 +2,6 @@ import CardComponent from "@/components/CardComponent";
 import Image from "next/image";
 
 export default function WebsiteAsGateway({ webUs }: any) {
-  //   console.log(webUs);
   return (
     <div className=" flex flex-col items-center">
       <div className="relative  w-full laptop:h-[931px] tablet:h-[1101px] mobile:h-[1666px]">

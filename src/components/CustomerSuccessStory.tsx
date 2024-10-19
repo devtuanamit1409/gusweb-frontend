@@ -6,8 +6,10 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { Button, Rate } from "antd";
 import IconSlideNext from "./Icons/IconSlideNext";
+import { useTranslations } from "next-intl";
 
 export default function CustomerSuccessStory({ chats }: any) {
+  const t = useTranslations();
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<any>(null);
 
@@ -34,8 +36,8 @@ export default function CustomerSuccessStory({ chats }: any) {
               width="166"
               height="166"
             />
-            <span className="font-semibold text-[42px] w-full tablet:w-96 font-bricolage">
-              Câu chuyện thành công của khách hàng
+            <span className="font-semibold text-[42px] w-full tablet:w-96">
+              {t("homePage.comment")}
             </span>
           </div>
           <div className="hidden tablet:w-[60%] relative"></div>

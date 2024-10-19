@@ -1,6 +1,47 @@
 {
-  "HomePage": {
-    "title": "English",
-    "about": "this is English"
+  "header": {
+    "items": [
+      {
+        "title": "Website Design",
+        "slug": "/service"
+      },
+      {
+        "title": "About us",
+        "slug": "/about-us"
+      },
+      {
+        "title": "Case studies",
+        "slug": "/case-studies"
+      },
+      {
+        "title": "Recruitment",
+        "slug": "/recruitment"
+      },
+      {
+        "title": "Blog",
+        "slug": "/blog"
+      },
+      {
+        "title": "Contact",
+        "slug": "/contact"
+      }
+    ],
+    "button": "Quotation"
+  },
+  "contact": {
+    "buttonLeft": "Download eBook",
+    "buttonRight": "Read more"
+  },
+  "homePage": {
+    "buttonMain": "Get started now",
+    "buttonMain2": "Quotation",
+    "whoWeb": "WHO IS GUSWEB?",
+    "whyWeb": "Why is GUSWEB the most suitable choice?",
+    "project": "Typical projects",
+    "buttonProj": "View details",
+    "customer": "GUSWEB CUSTOMERS",
+    "comment": "Customer success story",
+    "article": "Effective website exploitation",
+    "buttonAll": "View All"
   }
 }
