@@ -1,5 +1,4 @@
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import HeaderComponent from "@/components/HeaderComponent";
@@ -26,7 +25,6 @@ const RootLayout: React.FC<{
       <body>
         <NextIntlClientProvider messages={messages}>
           <NextTopLoader color="#08bed5" />
-          {/* <Navbar /> */}
           <HeaderComponent />
           <main className="mt-[76px]"> {children}</main>
           <Footer />
