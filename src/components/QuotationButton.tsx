@@ -13,7 +13,7 @@ export default function QuotationButton({ label = "Báo Giá" }: QuotationButton
         type="button"
         className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
       >
-        {label} {/* Nội dung của nút sẽ thay đổi theo prop */}
+        {/* {label} */}
         {t("header.button")}
       </button>
     </Link>

@@ -10,9 +10,30 @@ import { fetchServicePage } from "@/utils/GlobalApi";
 import { Slide } from "@mui/material";
 import SlideComponent from "@/components/SlideComponent";
 import BannerComponent from "@/components/BannerComponent";
+import { Metadata } from "next";
+import { getLocale } from "next-intl/server";
+export async function generateMetadata(): Promise<Metadata | undefined> {
+  const localActive = await getLocale();
+  const service: any = await fetchServicePage(localActive);
 
+  return {
+    title: service.seo.title || "Service Page",
+    description: service.seo.description || "",
+    icons: {
+      icon: "/images/logo.png",
+    },
+    openGraph: {
+      title: service.seo.title || "",
+      description: service.seo.description || "",
+      url: service.seo.url || "",
+      type: service.seo.type || "website",
+      images: service.seo.image || "",
+    },
+  };
+}
 const page = async () => {
-  const data = await fetchServicePage("vi");
+  const localActive = await getLocale();
+  const data = await fetchServicePage(localActive);
 console.log(data);
   return (
     <div className="flex flex-col laptop:gap-0 gap-10">
