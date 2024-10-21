@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconMenu } from "@/components/Icons/IconMenu";
 import Language from "@/components/language";
 import Logo from "@/components/Logo";
@@ -9,6 +9,21 @@ import { useTranslations } from "next-intl";
 
 export default function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Đọc chỉ số được chọn từ local storage khi component được khởi tạo
+    const savedIndex = localStorage.getItem('selectedIndex');
+    if (savedIndex) {
+      setSelectedIndex(Number(savedIndex)); // Chuyển đổi từ string sang number
+    }
+  }, []);
+
+  const handleClick = (index: number) => {
+    setSelectedIndex(index);
+    localStorage.setItem('selectedIndex', index.toString()); // Lưu vào local storage
+  };
+
   const t = useTranslations();
 
   const toggleMenu = () => {
@@ -37,11 +52,12 @@ export default function HeaderComponent() {
           {/* Navigation Menu */}
           <div className="flex items-center">
             <ul className="hidden laptop:flex flex-row space-x-4">
-              {navItems.map((item, index) => (
+              {navItems.map((item, index: any) => (
                 <li key={index}>
                   <Link
                     href={item.href}
-                    className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
+                    className={`${selectedIndex === index ? "text-[#08BED5]" : "text-[#000000]"} font-semibold text-base`}
+                    onClick={() => handleClick(index)} // Gọi hàm handleClick
                   >
                     {item.label}
                   </Link>
