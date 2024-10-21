@@ -10,8 +10,27 @@ import WebsiteAsGateway from "@/components/WebsiteAsGateway";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkPrinciples from "@/components/WorkPrinciples";
 import { fetchHomePage } from "@/utils/GlobalApi";
+import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
+export async function generateMetadata(): Promise<Metadata | undefined> {
+  const localActive = await getLocale();
+  const homePage: any = await fetchHomePage(localActive);
 
+  return {
+    title: homePage.seo.title || "Home Page",
+    description: homePage.seo.description || "",
+    icons: {
+      icon: "/images/logo.png",
+    },
+    openGraph: {
+      title: homePage.seo.title || "",
+      description: homePage.seo.description || "",
+      url: homePage.seo.url || "",
+      type: homePage.seo.type || "website",
+      images: homePage.seo.image || "",
+    },
+  };
+}
 export default async function Home() {
   const localActive = await getLocale();
   const data = await fetchHomePage(localActive);

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
 
 const CaseStudies: React.FC<any> = ({ data }) => {
- 
+
   const [currentPage, setCurrentPage] = useState(1);
   const [articleDatas, setArticleDatas] = useState<any>([]);
   const itemsPerPage = 6;
@@ -33,7 +33,7 @@ const CaseStudies: React.FC<any> = ({ data }) => {
   return (
     <div className="custom-container laptop:gap-[108px] laptop:py-[108px] tablet:gap-20 px-4 mobile:gap-10 flex flex-col justify-center items-center">
       <div className="laptop:max-w-[1116px] laptop:h-[203px] tablet:w-full items-center flex laptop:flex-row flex-col justify-center  gap-6 w-full">
-        <div className=" flex flex-col w-full">
+        <div className=" flex flex-col w-full laptop:max-w-[557px]">
           <h1 className="max-w-[246px] font-normal text-[24px] leading-[38.4px] text-[#1C1C1C] text-preamble relative w-full">
             DISCOVER OUR WORK
           </h1>
@@ -41,9 +41,17 @@ const CaseStudies: React.FC<any> = ({ data }) => {
             {data.title}
           </h2>
         </div>
-        <div className="laptop:max-w-[502px]  w-full font-normal leading-[28.8px] laptop:pl-2">
-          {data.description}
+        <div className="relative laptop:max-w-[502px] w-full font-normal leading-[28.8px] ">
+          <Image
+            src={'/images/vungnuoc.png'}
+            alt=""
+            height={300}
+            width={400}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 hidden laptop:block h-[300px]"
+          />
+          <p className="relative z-20">{data.description}</p>
         </div>
+
       </div>
       <div className="laptop:max-w-[1113px] mobie:max-w-[328px] tablet:gap-10 flex tablet:px-[122px] laptop:px-0 flex-col w-full ">
         <div className="grid laptop:grid-cols-2 tablet:grid-cols-1 laptop:gap-24 tablet:gap-10 mobile:gap-10 items-start justify-center gap-4 w-full">
@@ -77,11 +85,10 @@ const CaseStudies: React.FC<any> = ({ data }) => {
         <div className="pagination mt-6 flex justify-center items-center space-x-4">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
-            className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${
-              currentPage === 1
-                ? "cursor-not-allowed opacity-50"
-                : "hover:text-blue-500"
-            }`}
+            className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${currentPage === 1
+              ? "cursor-not-allowed opacity-50"
+              : "hover:text-blue-500"
+              }`}
             disabled={currentPage === 1}
           >
             <LeftOutlined />
@@ -91,22 +98,20 @@ const CaseStudies: React.FC<any> = ({ data }) => {
             <button
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
-              className={`px-4 py-2 rounded-md ${
-                currentPage === index + 1
-                  ? "bg-blue-500 text-white"
-                  : "text-gray-700 hover:text-blue-500"
-              }`}
+              className={`px-4 py-2 rounded-md ${currentPage === index + 1
+                ? "bg-blue-500 text-white"
+                : "text-gray-700 hover:text-blue-500"
+                }`}
             >
               {index + 1}
             </button>
           ))}
           <button
             onClick={() => handlePageChange(currentPage + 1)}
-            className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${
-              currentPage === totalPages
-                ? "cursor-not-allowed opacity-50"
-                : "hover:text-blue-500"
-            }`}
+            className={`flex items-center text-gray-500 px-4 py-2 rounded-md ${currentPage === totalPages
+              ? "cursor-not-allowed opacity-50"
+              : "hover:text-blue-500"
+              }`}
             disabled={currentPage === totalPages}
           >
             <span className="mr-2">Next</span>

@@ -4,11 +4,17 @@ import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
-
-import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
-import { message } from "antd";
+import { fetchContactUsPage } from "@/utils/GlobalApi";
+import { useLocale } from "next-intl";
 
 const page = () => {
+  // const data = {
+  //   premble: "LIÊN HỆ",
+  //   title: "",
+  //   description:
+  //     "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
+  // };
+
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -21,17 +27,17 @@ const page = () => {
   const [companyName, setCompanyName] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [isFormValid, setIsFormValid] = useState(false);
+  const localActive = useLocale();
   useEffect(() => {
     const getContactData = async () => {
-      const data = await fetchContactUsPage("vi");
+      const data = await fetchContactUsPage(localActive);
       setContactData(data);
     };
 
     getContactData();
   }, []);
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     validateForm();
 
     if (!nameError && !phoneError && !emailError) {
@@ -43,19 +49,6 @@ const page = () => {
         content,
         value,
       };
-      try {
-        const response = await postContactUser(formData);
-        message.success("Form submitted successfully!");
-
-        setName("");
-        setPhoneNumber("");
-        setEmail("");
-        setCompanyName("");
-        setContent("");
-      } catch (error) {
-        console.error("Error submitting form:", error);
-        setFormError("Error submitting the form. Please try again.");
-      }
     } else {
       setFormError("Please fix the errors in the form.");
     }
@@ -86,6 +79,7 @@ const page = () => {
   const [value, setValue] = React.useState<number[]>([20000, 80000]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
+    //lay ra khoang gia tri
     setValue(newValue as number[]);
   };
 
@@ -141,8 +135,8 @@ const page = () => {
     <div className="w-full flex flex-col gap-10">
       <BannerComponent intro={contactData?.intro} />
       <div className="custom-contaier flex flex-col gap-10">
-        <div className="laptop:h-[1058px] h-[1025px] mobile:py-20  flex flex-col justify-center items-center px-6 py-10 gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529] ">
-          <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:h-[1000px]  mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
+        <div className="laptop:h-[1058px] h-[1025px] mobile:py-20  flex flex-col justify-center items-center tablet:px-[162px] px-4 py-10 gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529] ">
+          <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:h-[1000px]  mobile:h-[988px] rounded-2xl border py-[24px] px-4  gap-4 flex flex-col tablet:justify-between bg-white">
             <div className="laptop:h-[68px] tablet:h-[112px] pb-6 ">
               <h1 className="laptop:text-[36px] font-bold font-montserrat leading-[44px] tablet:text-[36px]  text-[#1C1C1C] mobile:text-[32px]">
                 Chúng tôi sẵn sàng giúp bạn
@@ -454,7 +448,6 @@ const page = () => {
             />
           </div>
           <div className="absolute bottom-0 right-0 w-[234px] h-[222px] laptop:hidden mobile:block tablet:block">
-            123
             <Image
               src="/images/OBJECTS3.png"
               alt="Overlay Image"

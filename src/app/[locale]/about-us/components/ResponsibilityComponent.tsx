@@ -7,11 +7,9 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
   const [showFirstSetContent, setShowFirstSetContent] = useState(true);
   const [activeSecondSet, setActiveSecondSet] = useState("left");
   const [showSecondSetContent, setShowSecondSetContent] = useState(true);
-  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
     AOS.init({ once: true });
-    setInitialLoad(false);
     setTimeout(() => {}, 1000);
   }, []);
 
@@ -35,29 +33,27 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
     <div className=" flex flex-col gap-6 jus  w-full items-center">
       <div className="laptop:h-56 tablet:h-[248px] flex-row gap-6 laptop:flex tablet:flex  mobile:hidden">
         {data.slice(0, 2).map((item: any, index: number) => (
-            <div
+          <div
             key={index}
             className={`${
               activeFirstSet === (index === 0 ? "left" : "right")
-              ? "bg-[#FEFEFE] w-[66%]"
-              : "bg-[#E5FCFF] w-[34%]"
+                ? "bg-[#FEFEFE] w-[66%]"
+                : "bg-[#E5FCFF] w-[34%]"
             } laptop:h-56 tablet:h-[248px] flex flex-col gap-2 p-6 border-bottom-blue-custom justify-center cursor-pointer transition-all duration-500 ${
               activeFirstSet === (index === 0 ? "left" : "right")
-              ? "items-start"
-              : "items-center"
+                ? "items-start"
+                : "items-center"
             }`}
             onClick={() => handleFirstSetClick(index === 0 ? "left" : "right")}
-            {...(initialLoad && {
-              "data-aos": "fade-left",
-              "data-aos-duration": "1000",
-            })}
-            >
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
             <h6 className="text-[#1C1C1C] font-semibold text-[20px] leading-6 text-center">
               {item.title}
             </h6>
             {activeFirstSet === (index === 0 ? "left" : "right") &&
               showFirstSetContent && <p className="">{item.description}</p>}
-            </div>
+          </div>
         ))}
       </div>
       <div className="laptop:min-h-56 tablet:min-h-[248px] laptop:flex tablet:flex flex-row gap-6  mobile:hidden">
@@ -74,10 +70,8 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
                 : "items-center"
             }`}
             onClick={() => handleSecondSetClick(index === 0 ? "right" : "left")}
-            {...(initialLoad && {
-              "data-aos": "fade-right",
-              "data-aos-duration": "1000",
-            })}
+            data-aos="fade-right"
+            data-aos-duration="1000"
           >
             <h6 className="text-[#1C1C1C] font-semibold text-[20px] leading-6 text-center">
               {item.title}
