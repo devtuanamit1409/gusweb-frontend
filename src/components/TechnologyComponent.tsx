@@ -2,9 +2,11 @@ import React from "react";
 import Image from "next/image";
 import BlogCardComponent from "./BlogCardComponent";
 import BlogCard from "./BlogCard";
-const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
+import Link from "next/link";
+import { getLocale } from "next-intl/server";
+const TechnologyComponent: React.FC<any> = async ({ subCates, article }) => {
   // console.log(article);
-
+  const localActive = await getLocale();
   return (
     <div className="flex flex-col justify-center  gap-10">
       <div className="h-[506px] relative justify-center items-center flex">
@@ -27,7 +29,8 @@ const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
         </div>
       </div>
       <div className="custom-container laptop:py-20 justify-center  laptop:max-w-[1116px] tablet:px-[122px]  laptop:px-2 px-4 flex flex-row gap-6">
-        <div className="flex flex-col gap-10 flex-grow justify-between laptop:w-[831px]"
+        <div
+          className="flex flex-col gap-10 flex-grow justify-between laptop:w-[831px]"
           dangerouslySetInnerHTML={{
             __html: article.detail || "",
           }}
@@ -38,11 +41,12 @@ const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
             Danh mục bài viết
           </h6>
 
-          <div className=" flex flex-col gap-2 w-full">
+          <div className=" flex flex-col gap-2 w-full mt-4">
             {subCates && subCates.length > 0 ? (
               subCates.map((item: any, index: number) => {
                 return (
-                  <div
+                  <Link
+                    href={"blog?sub-category=" + item.slug}
                     key={index}
                     className=" flex flex-row gap-2 rounded-[1px] items-center"
                   >
@@ -50,7 +54,7 @@ const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
                       {item.title}
                     </p>
                     <p className="font-medium text-4 leading-[22.4px] ">{`(${item.articleCount})`}</p>
-                  </div>
+                  </Link>
                 );
               })
             ) : (

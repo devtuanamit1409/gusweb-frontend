@@ -12,7 +12,6 @@ import TargetComponent from "@/app/[locale]/about-us/components/TargetComponent"
 import LeaderComponent from "./LeaderComponent";
 
 const AboutUsPage: React.FC<any> = ({ data }) => {
-  // console.log(data);
   return (
     <div className="w-full h-full flex flex-col mobile:gap-10 tablet:gap-10 laptop:gap-0 ">
       <BannerComponent intro={data.intro} />

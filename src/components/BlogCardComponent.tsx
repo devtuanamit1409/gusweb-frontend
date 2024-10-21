@@ -3,39 +3,57 @@ import Image from "next/image";
 import { CardModel } from "@/models/cardModel";
 import Link from "next/link";
 import { ArrowRightOutlined } from "@ant-design/icons";
-const BlogCardComponent = ({ item, key }: any) => {
+
+const BlogCardComponent = ({ item }: any) => {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+
+    // Tính toán thời gian còn lại
+    const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    if (diffInSeconds < 60) {
+      return `${diffInSeconds} giây trước`;
+    } else if (diffInSeconds < 3600) {
+      const diffInMinutes = Math.floor(diffInSeconds / 60);
+      return `${diffInMinutes} phút trước`;
+    } else if (diffInSeconds < 86400) {
+      const diffInHours = Math.floor(diffInSeconds / 3600);
+      return `${diffInHours} giờ trước`;
+    } else {
+      const diffInDays = Math.floor(diffInSeconds / 86400);
+      return `${diffInDays} ngày trước`;
+    }
+  };
   return (
-    <div
-      key={key}
-      className="home-service-item__box mobile:max-w-[360px] mobile:min-h-[318px] tablet:h-[454px] tablet:max-w-[356px] tablet:w-full bg-red-300 laptop:w-[1116px] laptop:h-[454px]  flex justify-center  mx-auto "
-    >
-      <div>
-        <div className="relative">
-          <Image
-            src={item.url}
-            alt={item.alt}
-            width={367}
-            height={267}
-            className="w-[250px] h-[147px] rounded-lg tablet:w-[356px] tablet:h-[267px] sm:rounded-3xl object-cover"
-          />
-          <button className="background-LinearGradient absolute bottom-4 right-4 rounded w-[85px] h-[26px]">
-            {item.sub_category}
-          </button>
+    <div className="home-service-item__box ">
+      <div className="relative">
+        <Image
+          src={item.url}
+          alt={item.alt}
+          width={400}
+          height={300}
+          className="w-full laptop:h-[267px] rounded-lg tablet:max-h-[500px] max-h-[400px] sm:rounded-3xl object-cover object-top"
+        />
+        <div className=" background-LinearGradient text-[13px] font-montserrat text-[#363636] font-medium leading-[26px] absolute bottom-4 right-4 rounded px-2 w-max max-w-[70%] h-[26px] line-clamp-1">
+          {item.sub_category}
         </div>
-        <div className="flex flex-col gap-2 p-6 w-[202px] h-[17px] ">
-          <p>{item.createdAt}</p>
-          <p className="font-bricolage text-[16px] font-semibold leading-[19.2px] h-[38px]">
-            {item.title}
-          </p>
-          <Link href={item.slug}>
-            <div className="text-[#1FA9EC] w-[102px] h-[36px] py-[10px] gap-2 font-medium text-[15px] leading-[18px] font-montserrat flex items-center ">
-              Xem thêm
-              <ArrowRightOutlined
-                style={{ marginLeft: "10px", color: "#1FA9EC" }}
-              />
-            </div>
-          </Link>
-        </div>
+      </div>
+      <div className="flex flex-col gap-4 p-6 ">
+        <p className="text-[12px] leading-[16.8px] text-[#363636]">
+          {formatDate(item.createdAt)}
+        </p>
+        <p className="font-bricolage text-base tablet:text-[20px] text-[#1C1C1C] font-semibold leading-[24px] h-[48px] line-clamp-2 tablet:line-clamp-3">
+          {item.title}
+        </p>
+        <Link href={item.slug}>
+          <div className="text-[#1FA9EC] w-[102px] gap-2 font-medium text-[15px] leading-[18px] font-montserrat flex items-center ">
+            Xem thêm
+            <ArrowRightOutlined
+              style={{ marginLeft: "10px", color: "#1FA9EC" }}
+            />
+          </div>
+        </Link>
       </div>
     </div>
   );

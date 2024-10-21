@@ -42,10 +42,10 @@ const Slide: React.FC<any> = ({ brands }) => {
         }}
         breakpoints={{
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 5,
           },
           744: {
-            slidesPerView: 3,
+            slidesPerView: 4,
           },
           360: {
             slidesPerView: 2,

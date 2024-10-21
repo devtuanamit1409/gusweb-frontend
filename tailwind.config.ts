@@ -15,7 +15,7 @@ const config: Config = {
         mobile: "360px",
       },
       textShadow: {
-        'custom': '0 4px 6.5px rgba(42, 78, 131, 0.31)',
+        custom: "0 4px 6.5px rgba(42, 78, 131, 0.31)",
       },
       // shadow-custom-shadow
       boxShadow: {
@@ -30,6 +30,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "custom-gradient": "linear-gradient(90deg, #00D2FF 0%, #3A7BD5 100%)",
       },
 
       animation: {
@@ -43,7 +44,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 };
 
 export default config;
