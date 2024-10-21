@@ -23,6 +23,8 @@ import { useLocale } from "next-intl";
 import { Empty } from "antd";
 import BlogCardComponent from "@/components/BlogCardComponent";
 
+
+
 const Page = ({ params }: { params: { slug: string } }) => {
   const pageSize = 6;
   const localActive = useLocale();

@@ -168,7 +168,7 @@ export const fetchFilteredArticleDetail = async (
 ) => {
   const data = await getFilteredArticleDetail(
     "/articles",
-    "sub_category.banner.src,sub_category.category,image.src,detail,typeEbook.intro,typeEbook.ebook.src,typeEbook.ebook.pdfFile",
+    "sub_category.banner.src,sub_category.category,image.src,detail,typeEbook.intro,typeEbook.ebook.src,typeEbook.ebook.pdfFile, seo.images.src",
     lang,
     slug
   );
@@ -217,6 +217,22 @@ export const fetchFilteredArticleDetail = async (
               item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
             : "",
         },
+      },
+      seo: {
+        title: item.attributes.seo?.title || "",
+        description: item.attributes.seo?.description || "",
+        url: item.attributes.seo?.url || "",
+        type: item.attributes.seo?.type || "website",
+        image: item.attributes.seo?.images
+          ? {
+              url:
+                BaseApiUrl +
+                  item.attributes.image?.src?.data?.attributes?.url || "",
+              width: 800,
+              height: 600,
+              alt: item.attributes.seo?.images?.alt || "",
+            }
+          : "",
       },
     })),
   };
@@ -317,7 +333,7 @@ export const fetchContactUsComp = async (lang: string) => {
 export const fetchHomePage = async (lang: string) => {
   const data = await getAllItem(
     "/home-page",
-    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.image.src,customer.images.src,chats.image.src",
+    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.image.src,customer.images.src,chats.image.src, seo.images.src",
     lang
   );
   const res = data?.data?.attributes;
@@ -459,6 +475,13 @@ export const fetchHomePage = async (lang: string) => {
       alt: item.image.alt,
       url: BaseApiUrl + item.image.src?.data?.attributes?.url,
     })),
+    seo: {
+      title: res.seo?.title || "",
+      description: res.seo?.description || "",
+      url: res.seo?.url || "",
+      type: res.seo?.type || "website",
+      image: BaseApiUrl + res.seo?.images?.src?.data?.attributes?.url || "",
+    },
   };
 
   return formattedData;
@@ -468,7 +491,7 @@ export const fetchHomePage = async (lang: string) => {
 export const fetchServicePage = async (lang: string) => {
   const data = await getAllItem(
     "/service-page",
-    "intro.image.src,brands.src,slogans.src,help.items.icon.src,help.items.bg.src,customerVips.src,whyUs.items.src,solution.items",
+    "intro.image.src,brands.src,slogans.src,help.items.icon.src,help.items.bg.src,customerVips.src,whyUs.items.src,solution.items, seo.images.src",
     lang
   );
   const res = data?.data?.attributes;
@@ -541,6 +564,13 @@ export const fetchServicePage = async (lang: string) => {
         description: item.description,
       })),
     },
+    seo: {
+      title: res.seo?.title || "",
+      description: res.seo?.description || "",
+      url: res.seo?.url || "",
+      type: res.seo?.type || "website",
+      image: BaseApiUrl + res.seo?.images?.src?.data?.attributes?.url || "",
+    },
   };
 
   return formattedData;
@@ -557,6 +587,13 @@ export const fetchCaseStudies = async (lang: string) => {
     title: res?.intro.title,
     description: res?.intro.description,
     categoryId: res?.category.data.id,
+    seo:{
+      title: res.seo?.title || "",
+      description: res.seo?.description || "",
+      url: res.seo?.url || "",
+      type: res.seo?.type || "website",
+      image: BaseApiUrl + res.seo?.images?.src?.data?.attributes?.url || "",
+    }
   };
 
   return formattedData;
@@ -564,7 +601,7 @@ export const fetchCaseStudies = async (lang: string) => {
 
 //fetch api blog page
 export const fetchBlogPage = async (lang: string) => {
-  const data = await getAllItem("/blog-page", "intro.src,category", lang);
+  const data = await getAllItem("/blog-page", "intro.src,category, seo.images.src", lang);
   const res = data?.data?.attributes;
 
   const formattedData = {
@@ -574,6 +611,13 @@ export const fetchBlogPage = async (lang: string) => {
     categoryId: res?.category.data.id,
     url: BaseApiUrl + res.intro.src.data?.attributes?.url,
     alt: res.intro.alt,
+    seo: {
+      title: res.seo?.title || "",
+      description: res.seo?.description || "",
+      url: res.seo?.url || "",
+      type: res.seo?.type || "website",
+      image: BaseApiUrl + res.seo?.images?.src?.data?.attributes?.url || "",
+    },
   };
 
   return formattedData;
@@ -583,7 +627,7 @@ export const fetchBlogPage = async (lang: string) => {
 export const fetchAboutUsPage = async (lang: string) => {
   const data = await getAllItem(
     "/about-us-page",
-    "intro.image.src,about.src,taget.banner.src,taget.items,work.items,exp.src,meet.members.src,team.items.src",
+    "intro.image.src,about.src,taget.banner.src,taget.items,work.items,exp.src,meet.members.src,team.items.src, seo.images.src",
     lang
   );
   const res = data?.data?.attributes;
@@ -661,6 +705,13 @@ export const fetchAboutUsPage = async (lang: string) => {
         url: BaseApiUrl + item.src.data?.attributes?.url,
       })),
     },
+    seo:{
+      title: res.seo?.title || "",
+      description: res.seo?.description || "",
+      url: res.seo?.url || "",
+      type: res.seo?.type || "website",
+      image: BaseApiUrl + res.seo.images?.src?.data?.attributes?.url || "",
+    }
   };
 
   return formattedData;
@@ -670,10 +721,11 @@ export const fetchAboutUsPage = async (lang: string) => {
 export const fetchContactUsPage = async (lang: string) => {
   const data = await getAllItem(
     "/contact-us-page",
-    "intro.src,map.logo.src,folow.image.src,folow.icons.src",
+    "intro.src,map.logo.src,folow.image.src,folow.icons.src, seo.images.src",
     lang
   );
   const res = data?.data?.attributes;
+  console.log(res);
 
   const formattedData = {
     locale: res?.locale,
@@ -704,6 +756,13 @@ export const fetchContactUsPage = async (lang: string) => {
         slug: item.slug,
       })),
     },
+    seo:{
+      title: res.seo?.title || "",
+      description: res.seo?.description || "",
+      url: res.seo?.url || "",
+      type: res.seo?.type || "website",
+      image: BaseApiUrl + res.seo.images?.src?.data?.attributes?.url || "",
+    }
   };
 
   return formattedData;
