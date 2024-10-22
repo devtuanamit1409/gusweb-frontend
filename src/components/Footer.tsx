@@ -7,8 +7,9 @@ export default async function Footer() {
     const data = await fetchFooter("vi");
     return (
         <footer className="laptop:min-h-[520px] tablet:min-h-[620px] mobile:min-h-[950px] flex flex-col max-w-[1116px] mx-auto gap-8 mt-10 p-4">
-            <div className="flex flex-col laptop:flex-row justify-between mobile:flex-col tablet:flex-row mobile:gap-6 tablet:gap-10">
-                <div className="laptop:w-[379px] tablet:w-[261px] mobile:w-[328px] h-[68px] tablet:justify-start  mobile:flex mobile:items-center mobile:justify-center items-center justify-center mx-auto">
+            <div className="flex laptop:flex-row  mobile:flex-col tablet:flex-row target:items-start mobile:gap-6 tablet:gap-10">
+                {/* <div className="laptop:w-[369px] tablet:w-[261px] mobile:w-[328px] h-[68px] tablet:justify-start  mobile:flex mobile:items-center mobile:justify-center items-center justify-center tablet:mx-0 "> */}
+                <div className="laptop:w-[360px] tablet:w-[525px] mobile:mx-auto tablet:m">
                     <Image
                         src={data.logo.src}
                         alt={data.logo.alt}
@@ -16,8 +17,8 @@ export default async function Footer() {
                         height={80}
                     />
                 </div>
-                <div className="flex laptop:flex-row tablet:flex-col mobile:flex-col flex-col">
-                    <div className="max-w-[379px] h-[68px] flex items-center">
+                <div className="flex laptop:flex-row tablet:flex-col mobile:flex-col flex-col gap-[20px]">
+                    <div className=" w-full h-[68px] flex items-center">
                         <Image
                             alt={data.address.alt}
                             loading="lazy"
@@ -30,7 +31,7 @@ export default async function Footer() {
                             <p>{data.address.description}</p>
                         </div>
                     </div>
-                    <div className="max-w-[379px] h-[68px] flex items-center mobile:mt-6 tablet:mt-0">
+                    <div className="w-full h-[68px] flex items-center mobile:mt-6 tablet:mt-0">
                         <Image
                             alt={data.gmail.alt}
                             loading="lazy"
