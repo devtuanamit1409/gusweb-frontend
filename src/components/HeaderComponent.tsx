@@ -12,16 +12,19 @@ export default function HeaderComponent() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    // Đọc chỉ số được chọn từ local storage khi component được khởi tạo
+
     const savedIndex = localStorage.getItem('selectedIndex');
     if (savedIndex) {
-      setSelectedIndex(Number(savedIndex)); // Chuyển đổi từ string sang number
+      setSelectedIndex(Number(savedIndex));
     }
   }, []);
 
   const handleClick = (index: number) => {
     setSelectedIndex(index);
     localStorage.setItem('selectedIndex', index.toString()); // Lưu vào local storage
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
   };
 
   const t = useTranslations();
@@ -52,12 +55,12 @@ export default function HeaderComponent() {
           {/* Navigation Menu */}
           <div className="flex items-center">
             <ul className="hidden laptop:flex flex-row space-x-4">
-              {navItems.map((item, index: any) => (
+              {navItems.map((item, index) => (
                 <li key={index}>
                   <Link
                     href={item.href}
                     className={`${selectedIndex === index ? "text-[#08BED5]" : "text-[#000000]"} font-semibold text-base`}
-                    onClick={() => handleClick(index)} // Gọi hàm handleClick
+                    onClick={() => handleClick(index)}
                   >
                     {item.label}
                   </Link>
@@ -89,6 +92,7 @@ export default function HeaderComponent() {
                 <Link
                   href={item.href}
                   className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
+                  onClick={() => handleClick(index)}
                 >
                   {item.label}
                 </Link>
