@@ -19,13 +19,14 @@ import IconFabLeft from "@/components/Icons/IconFabLeft";
 import IconFabRight from "@/components/Icons/IconFabRight";
 import { IconArrowTronButtonTrai } from "@/components/Icons/IconArrowTronButtonTrai";
 import { IconArrowTronButtonPhai } from "@/components/Icons/IconArrowTronButtonPhai";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Empty } from "antd";
 import BlogCardComponent from "@/components/BlogCardComponent";
 
 
 
 const Page = ({ params }: { params: { slug: string } }) => {
+  const t = useTranslations();
   const pageSize = 6;
   const localActive = useLocale();
   const swiperRef = useRef<any>(null);
@@ -214,7 +215,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
               <div className="w-max rounded inline-flex items-center gap-6 ">
                 <Link href={blogOutStanding?.slug || "/"}>
                   <div className="text-[#1FA9EC] w-[110px] h-[18px] font-medium text-[15px] leading-[18px] font-montserrat flex items-center ">
-                    Xem thêm
+                    {t("cardComponet.viewMore")}
                     <ArrowRightOutlined
                       style={{
                         marginLeft: "10px",

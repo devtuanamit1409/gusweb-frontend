@@ -692,6 +692,7 @@ export const fetchAboutUsPage = async (lang: string) => {
         description: item.description,
         alt: item.alt,
         url: BaseApiUrl + item.src.data?.attributes?.url,
+        sex: item.sex
       })),
     },
     team: {

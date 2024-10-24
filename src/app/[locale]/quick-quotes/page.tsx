@@ -3,10 +3,12 @@ import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { message } from "antd";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const page = () => {
+  const t = useTranslations();
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -143,12 +145,12 @@ const page = () => {
           <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:max-w-[500px] tablet:h-[1000px] mobile:max-w-[328px] mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
             <div className="laptop:h-[68px] tablet:h-[112px] pb-6 ">
               <h1 className="laptop:text-[36px] font-bold font-montserrat leading-[44px] tablet:text-[36px]  text-[#1C1C1C] mobile:text-[32px]">
-                Chúng tôi sẵn sàng giúp bạn
+                {t("contactPage.ready")}
               </h1>
             </div>
             <div className="h-[24px] mobile:h-12 gap-4">
               <p className="text-base font-normal leading-6  text-[#363636]">
-                GUSWEB có thể hỗ trợ bạn trong lĩnh vực gì?
+                {t("contactPage.support")}
               </p>
             </div>
             <form onSubmit={handleSubmit}>
@@ -177,7 +179,7 @@ const page = () => {
                       nameError ? "peer-focus:text-red-500 text-sm" : ""
                     } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
-                    Họ và tên
+                    {t("contactPage.name")}
                   </label>
                   {nameError && (
                     <span className="text-red-500 text-sm">{nameError}</span>
@@ -202,7 +204,7 @@ const page = () => {
                       phoneError ? "peer-focus:text-red-500 text-sm" : ""
                     } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
-                    Số điện thoại
+                    {t("contactPage.phone")}
                   </label>
                   {phoneError && (
                     <span className="text-red-500 text-sm">{phoneError}</span>
@@ -227,7 +229,7 @@ const page = () => {
                     emailError ? "peer-focus:text-red-500 text-sm" : ""
                   } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                 >
-                  Địa chỉ email
+                  {t("contactPage.email")}
                 </label>
                 {emailError && (
                   <span className="text-red-500 text-sm">{emailError}</span>
@@ -248,7 +250,7 @@ const page = () => {
                   htmlFor="companyName"
                   className="absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm "
                 >
-                  Tên công ty
+                  {t("contactPage.company")}
                 </label>
               </div>
 
@@ -266,12 +268,12 @@ const page = () => {
                   htmlFor="content"
                   className="absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm "
                 >
-                  Nội dung
+                  {t("contactPage.content")}
                 </label>
               </div>
 
               <div className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full laptop:h-[136px] tablet:h-[136px] mobile:h-[160px] flex flex-col gap-14">
-                <p className="">Ngân sách tài chính cho dự án muốn đầu tư</p>
+                <p className="">{t("contactPage.budget")}</p>
                 <Box sx={{ width: "100%" }}>
                   <Slider
                     getAriaLabel={() => "Ngân sách"}
@@ -323,7 +325,7 @@ const page = () => {
                   } text-white`}
                   onClick={validateForm}
                 >
-                  Gửi yêu cầu
+                  {t("contactPage.send")}
                 </button>
               </div>
               {submitError && (

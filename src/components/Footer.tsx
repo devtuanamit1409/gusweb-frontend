@@ -2,9 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchFooter } from "@/utils/GlobalApi";
+import { getLocale } from "next-intl/server";
 
 export default async function Footer() {
-    const data = await fetchFooter("vi");
+     const localActive = await getLocale();
+    const data = await fetchFooter(localActive);
     return (
         <footer className="laptop:min-h-[520px] tablet:min-h-[620px] mobile:min-h-[950px] flex flex-col max-w-[1116px] mx-auto gap-8 mt-10 p-4">
             <div className="flex laptop:flex-row  mobile:flex-col tablet:flex-row target:items-start mobile:gap-6 tablet:gap-10">

@@ -1,39 +1,19 @@
-import React from "react";
-import { Card } from "antd";
+'use client';
+import React, { useEffect } from "react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const DevelopmentSolutions: React.FC<any> = ({ whyUs }) => {
-  // console.log(whyUs);
-  const cardData = [
-    {
-      id: 1,
-      image: "/images/image 1157053983.png",
-      title: "Hiểu rõ doanh nghiệp và hướng tới mục tiêu chung",
-    },
-    {
-      id: 2,
-      image: "/images/image 1157053983.png",
-      title: "Hiểu rõ doanh nghiệp và hướng tới mục tiêu chung",
-    },
-    {
-      id: 3,
-      image: "/images/image 1157053983.png",
-      title: "Hiểu rõ doanh nghiệp và hướng tới mục tiêu chung",
-    },
-    {
-      id: 4,
-      image: "/images/image 1157053983.png",
-      title: "Hiểu rõ doanh nghiệp và hướng tới mục tiêu chung",
-    },
-  ];
-  const data = {
-    premble: "TẠI SAO NÊN CHỌN GUSWEB?",
-    title: "Giải pháp phát triển website bền vững",
-    description:
-      "Giúp doanh nghiệp sở hữu một nền tảng trực tuyến vững chắc, có thể   phát triển lâu dài và thích ứng linh hoạt. Chúng tôi đồng hành cùng  doanh nghiệp để đảm bảo website không chỉ hoạt động hiệu quả mà còn hỗ  trợ tăng trưởng bền vững theo thời gian.",
-  };
+ useEffect(() => {
+   AOS.init({ once: true });
+   setTimeout(() => {}, 1000);
+ }, []);
   return (
     <div className="custom-container   laptop:py-[80px]  px-4 py-10 gap-6 justify-center items-center flex flex-col">
-      <div className="laptop:max-w-[1116px] laptop:max-h-[209px]  gap-4  items-center flex flex-col w-full">
+      <div
+        className="laptop:max-w-[1116px] laptop:max-h-[209px]  gap-4  items-center flex flex-col w-full"
+        data-aos="zoom-in"
+      >
         <h1 className="font-normal text-2xl leading-[38.4px] text-preamble relative font-bricolage">
           TẠI SAO NÊN CHỌN GUSWEB?
         </h1>
@@ -44,7 +24,10 @@ const DevelopmentSolutions: React.FC<any> = ({ whyUs }) => {
           {whyUs.description}
         </p>
       </div>
-      <div className="  gap-6 mt-6 bg-white flex flex-wrap laptop:flex-nowrap justify-center w-full mobile:px-[66px] tablet:px-0">
+      <div
+        className="  gap-6 mt-6 bg-white flex flex-wrap laptop:flex-nowrap justify-center w-full mobile:px-[66px] tablet:px-0"
+        data-aos="fade-up"
+      >
         {whyUs.items &&
           whyUs.items.map((item: any, index: number) => (
             <div

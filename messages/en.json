@@ -42,6 +42,45 @@
     "customer": "GUSWEB CUSTOMERS",
     "comment": "Customer success story",
     "article": "Effective website exploitation",
-    "buttonAll": "View All"
+    "buttonAll": "View All",
+    "workPrinciple": "Working principle",
+    "buttonDetail": "View details"
+  },
+  "cardComponet": {
+    "otherProjects": "Other projects you may be interested in",
+    "viewAll": "View all",
+    "viewMore": "View more",
+    "secondAgo": "seconds ago",
+    "minuteAgo": "minutes ago",
+    "hourAgo": "hours ago",
+    "dayAgo": "days ago"
+  },
+  "servicePage": {
+    "solution": "GUSWEB SOLUTIONS",
+    "help": "We can always help you",
+    "culture": "CULTURE"
+  },
+  "contactPage": {
+    "ready": "We are ready to help you",
+    "support": "How can GUSWEB support you?",
+    "name": "Full name",
+    "phone": "Phone number",
+    "email": "Email address",
+    "company": "Company name",
+    "content": "Content",
+    "budget": "Financial budget for the project you want to invest in",
+    "send": "Send request",
+    "ourOffice": "Our office",
+    "workingHours": "Working hours",
+    "follow": "Follow GUSWEB at",
+    "error": {
+      "name": "Full name cannot be empty.",
+      "name2": "Full name can only contain letters.",
+      "phone": "Phone number must start with 0.",
+      "phone2": "Phone number must be 10 digits.",
+      "email": "Please enter a valid email format, e.g., example@gmail.com",
+      "formError": "Please correct the errors in the form.",
+      "submitError": "Please meet the above requirements before submitting the information."
+    }
   }
 }
