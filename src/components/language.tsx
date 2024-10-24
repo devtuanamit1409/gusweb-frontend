@@ -58,7 +58,7 @@ export default function Language() {
         placement="bottom"
         arrow
       >
-        <Link href="#" className="flex items-center cursor-pointer uppercase">
+        <div  className="flex items-center cursor-pointer uppercase">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -74,7 +74,7 @@ export default function Language() {
             />
           </svg>
           {localActive || selectedLanguage}
-        </Link>
+        </div>
       </Dropdown>
     </div>
   );

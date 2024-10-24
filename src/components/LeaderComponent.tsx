@@ -8,6 +8,7 @@ import IconFabLeft from "./Icons/IconFabLeft";
 import IconFabRight from "./Icons/IconFabRight";
 
 const LeaderComponent: React.FC<any> = ({ meet }) => {
+  console.log(meet);
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<any>(null);
 
@@ -113,7 +114,7 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
                                 : "text-[12px] leading-[16.8px] "
                             } text-[#363636]`}
                           >
-                            {item.male || "Ông"}
+                            {item.sex}
                           </span>
                           <p
                             className={`${

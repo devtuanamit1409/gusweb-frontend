@@ -5,15 +5,10 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
 import { fetchContactUsPage } from "@/utils/GlobalApi";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const page = () => {
-  // const data = {
-  //   premble: "LIÊN HỆ",
-  //   title: "",
-  //   description:
-  //     "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
-  // };
+    const t = useTranslations();
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -50,7 +45,7 @@ const page = () => {
         value,
       };
     } else {
-      setFormError("Please fix the errors in the form.");
+      setFormError(`${t("contactPage.error.formError")}`);
     }
   };
 
@@ -63,9 +58,7 @@ const page = () => {
       !phoneNumber ||
       !email
     ) {
-      setSubmitError(
-        "Hãy nhập đúng các yêu cầu ở trên trước khi gửi thông tin."
-      );
+      setSubmitError(`${t("contactPage.error.submitError")}`);
     } else {
       setSubmitError("");
       setIsFormValid(true);
@@ -87,9 +80,9 @@ const page = () => {
     const value = event.target.value;
     const isValidName = /^[A-Za-z\s]+$/.test(value);
     if (!value) {
-      setNameError("Họ và tên không được để trống.");
+      setNameError(`${t("contactPage.error.name")}`);
     } else if (!isValidName && value.length > 0) {
-      setNameError("Họ và tên chỉ được chứa các chữ cái.");
+      setNameError(`${t("contactPage.error.name2")}`);
     } else {
       setNameError("");
     }
@@ -104,9 +97,9 @@ const page = () => {
 
     if (sanitizedValue.length > 0) {
       if (sanitizedValue[0] !== "0") {
-        setPhoneError("Số điện thoại bắt đầu bằng số 0.");
+        setPhoneError(`${t("contactPage.error.phone")}`);
       } else if (sanitizedValue.length !== 10) {
-        setPhoneError("Số điện thoại có đúng 10 chữ số.");
+        setPhoneError(`${t("contactPage.error.phone2")}`);
       } else {
         setPhoneError("");
       }
@@ -124,7 +117,7 @@ const page = () => {
       setEmailError("");
     } else {
       setEmailError(
-        "Vui lòng nhập đúng định dạng email, VD: example@gmail.com"
+        `${t("contactPage.error.email")}`
       );
     }
   };
@@ -139,12 +132,12 @@ const page = () => {
           <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:h-[1000px]  mobile:h-[988px] rounded-2xl border py-[24px] px-4  gap-4 flex flex-col tablet:justify-between bg-white">
             <div className="laptop:h-[68px] tablet:h-[112px] pb-6 ">
               <h1 className="laptop:text-[36px] font-bold font-montserrat leading-[44px] tablet:text-[36px]  text-[#1C1C1C] mobile:text-[32px]">
-                Chúng tôi sẵn sàng giúp bạn
+                {t("contactPage.ready")}
               </h1>
             </div>
             <div className="h-[24px] mobile:h-12 gap-4">
               <p className="text-base font-normal leading-6  text-[#363636]">
-                GUSWEB có thể hỗ trợ bạn trong lĩnh vực gì?
+                {t("contactPage.support")}
               </p>
             </div>
             <form onSubmit={handleSubmit}>
@@ -173,7 +166,7 @@ const page = () => {
                       nameError ? "peer-focus:text-red-500 text-sm" : ""
                     } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
-                    Họ và tên
+                    {t("contactPage.name")}
                   </label>
                   {nameError && (
                     <span className="text-red-500 text-sm">{nameError}</span>
@@ -198,7 +191,7 @@ const page = () => {
                       phoneError ? "peer-focus:text-red-500 text-sm" : ""
                     } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
-                    Số điện thoại
+                    {t("contactPage.phone")}
                   </label>
                   {phoneError && (
                     <span className="text-red-500 text-sm">{phoneError}</span>
@@ -223,7 +216,7 @@ const page = () => {
                     emailError ? "peer-focus:text-red-500 text-sm" : ""
                   } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                 >
-                  Địa chỉ email
+                  {t("contactPage.email")}
                 </label>
                 {emailError && (
                   <span className="text-red-500 text-sm">{emailError}</span>
@@ -244,7 +237,7 @@ const page = () => {
                   htmlFor="companyName"
                   className="absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm "
                 >
-                  Tên công ty
+                  {t("contactPage.company")}
                 </label>
               </div>
 
@@ -262,12 +255,12 @@ const page = () => {
                   htmlFor="content"
                   className="absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm "
                 >
-                  Nội dung
+                  {t("contactPage.content")}
                 </label>
               </div>
 
               <div className="laptop:max-w-[688px]  w-full laptop:h-[136px] tablet:h-[136px] mobile:h-[160px] flex flex-col gap-14">
-                <p className="">Ngân sách tài chính cho dự án muốn đầu tư</p>
+                <p className=""> {t("contactPage.budget")}</p>
                 <Box sx={{ width: "100%" }}>
                   <Slider
                     getAriaLabel={() => "Ngân sách"}
@@ -319,7 +312,7 @@ const page = () => {
                   } text-white`}
                   onClick={validateForm}
                 >
-                  Gửi yêu cầu
+                  {t("contactPage.send")}
                 </button>
               </div>
               {submitError && (
@@ -343,7 +336,7 @@ const page = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <div className="laptop:max-w-[356px] laptop:h-[326px]  tablet:h-[338px] mobile:h-[361px]   rounded-lg border border-[#1FA9EC] flex flex-col p-6 gap-4 w-full">
+          <div className="laptop:max-w-[356px] laptop:h-[326px]  tablet:h-[338px] mobile:h-[361px]   rounded-lg border border-[#1FA9EC] flex flex-col px-6 gap-4 w-full">
             <div className="laptop:max-w-[308px]  h-[50px] flex justify-center items-center w-full">
               <div className="w-[156px]  h-[50px]">
                 <Image
@@ -365,7 +358,7 @@ const page = () => {
                   className="mr-2"
                 />
                 <h2 className="font-semibold font-bricolage text-[20px] leading-6 text-[#1C1C1C]">
-                  Văn phòng của chúng tôi
+                  {t("contactPage.ourOffice")}
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
@@ -383,7 +376,7 @@ const page = () => {
                   className="mr-2"
                 />
                 <h2 className="text-xl font-semibold leading-6 text-[#1C1C1C] font-bricolage">
-                  Số điện thoại
+                  {t("contactPage.phone")}
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
@@ -401,7 +394,7 @@ const page = () => {
                   className="mr-2"
                 />
                 <h2 className="text-xl font-semibold leading-6 text-[#1C1C1C] font-bricolage">
-                  Giờ làm việc
+                  {t("contactPage.workingHours")}
                 </h2>
               </div>
               <p className="font-normal text-[16px] leading-6 tracking-[0.5px]">
@@ -420,7 +413,7 @@ const page = () => {
           <div className="custom-container laptop:px-[162px] px-4 flex laptop:justify-start  tablet:justify-start tablet:items-center mobile:justify-center mobile:items-start h-full">
             <div className="laptop:max-w-[542px] laptop:h-[131px]  tablet:h-[114px]  mobile:h-[164px] flex flex-col gap-6 justify-center tablet:items-start laptop:items-start mobile:items-center tablet:pt-[45px] w-full">
               <h3 className="laptop:text-[56px] laptop:leading-[67.2px] tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[42px] mobile:leading-[50.4px] font-bold font-bricolage text-[#FEFEFE] text-center z-10">
-                Theo dõi GUSWEB tại
+                {t("contactPage.follow")}
               </h3>
               <div className="w-[104px] h-[40px] gap-6 flex flex-row z-20">
                 {contactData?.folow?.icons &&
