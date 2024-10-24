@@ -4,23 +4,36 @@ import Link from "next/link";
 import { Dropdown } from "antd";
 import React, { useState, useTransition } from "react";
 import { MenuInfo } from "rc-menu/lib/interface";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Language() {
+  const t = useTranslations();
   const languageOptions = [
     {
       key: "1",
-      label: <div onClick={() => handleLanguageChange("vi")}>Tiếng Việt</div>,
+      label: (
+        <div onClick={() => handleLanguageChange("vi")}>
+          {t("header.language")}
+        </div>
+      ),
       abbreviation: "vi",
     },
     {
       key: "2",
-      label: <div onClick={() => handleLanguageChange("en")}>Tiếng Anh</div>,
+      label: (
+        <div onClick={() => handleLanguageChange("en")}>
+          {t("header.language1")}
+        </div>
+      ),
       abbreviation: "en",
     },
     {
       key: "3",
-      label: <div onClick={() => handleLanguageChange("ko")}>Tiếng Hàn</div>,
+      label: (
+        <div onClick={() => handleLanguageChange("ko")}>
+          {t("header.language2")}
+        </div>
+      ),
       abbreviation: "ko",
     },
   ];
