@@ -6,24 +6,12 @@ import Logo from "@/components/Logo";
 import QuotationButton from "@/components/QuotationButton";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+    import { usePathname } from "next/navigation";
 
 export default function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    // Đọc chỉ số được chọn từ local storage khi component được khởi tạo
-    const savedIndex = localStorage.getItem('selectedIndex');
-    if (savedIndex) {
-      setSelectedIndex(Number(savedIndex)); // Chuyển đổi từ string sang number
-    }
-  }, []);
-
-  const handleClick = (index: number) => {
-    setSelectedIndex(index);
-    localStorage.setItem('selectedIndex', index.toString()); // Lưu vào local storage
-  };
-
+  const pathname = usePathname().replace(/^\/(en|ko)/, '');
+   console.log("pathname", pathname);
   const t = useTranslations();
 
   const toggleMenu = () => {
@@ -38,13 +26,14 @@ export default function HeaderComponent() {
     { href: t("header.items.5.slug"), label: t("header.items.5.title") },
   ];
 
+
   return (
     <div className="bg-white fixed top-0 left-0 right-0 z-50 shadow-md">
       <div className="custom-container">
         <div className="max-w-[1122px] flex justify-between items-center h-[76px] mx-auto px-4 ">
           {/* Logo Section */}
           <div>
-            <Link href="/">
+            <Link href="/" onClick={() => setIsMenuOpen(false)}>
               <Logo />
             </Link>
           </div>
@@ -56,8 +45,11 @@ export default function HeaderComponent() {
                 <li key={index}>
                   <Link
                     href={item.href}
-                    className={`${selectedIndex === index ? "text-[#08BED5]" : "text-[#000000]"} font-semibold text-base`}
-                    onClick={() => handleClick(index)} // Gọi hàm handleClick
+                    className={`${
+                      item.href === pathname
+                        ? "text-[#08BED5]"
+                        : "text-[#000000]"
+                    } font-semibold text-base`}
                   >
                     {item.label}
                   </Link>
@@ -88,7 +80,10 @@ export default function HeaderComponent() {
               <li key={index}>
                 <Link
                   href={item.href}
-                  className="text-[#000000] font-semibold text-base underline-animation hover:text-[#08BED5]"
+                  className={`${
+                    item.href === pathname ? "text-[#08BED5]" : "text-[#000000]"
+                  } font-semibold text-base`}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </Link>

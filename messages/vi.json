@@ -26,7 +26,10 @@
         "slug": "/contact"
       }
     ],
-    "button": "Báo giá"
+    "button": "Báo giá",
+    "language": "Tiếng Việt",
+    "language1": "Tiếng Anh",
+    "language2": "Tiếng Hàn"
   },
   "contact": {
     "buttonLeft": "Tải ebook",

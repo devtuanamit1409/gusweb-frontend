@@ -26,7 +26,10 @@
         "slug": "/contact"
       }
     ],
-    "button": "Quotation"
+    "button": "Quotation",
+    "language": "Vietnamese",
+    "language1": "English",
+    "language2": "Korean"
   },
   "contact": {
     "buttonLeft": "Download eBook",

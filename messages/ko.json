@@ -26,7 +26,10 @@
         "slug": "/contact"
       }
     ],
-    "button": "인용문"
+    "button": "인용문",
+    "language": "베트남어",
+    "language1": "영어",
+    "language2": "한국어"
   },
   "contact": {
     "buttonLeft": "전자책 다운로드",
