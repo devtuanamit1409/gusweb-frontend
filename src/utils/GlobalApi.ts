@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BaseApiUrl = process.env.BASE_URL_BACKEND;
-console.log("baseurl ", BaseApiUrl);
 
 const api = axios.create({
   baseURL: `${process.env.BASE_URL_BACKEND}/api`,

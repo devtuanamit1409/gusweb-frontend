@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const t = useTranslations();
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -344,4 +344,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -7,8 +7,8 @@ import Image from "next/image";
 import { fetchContactUsPage } from "@/utils/GlobalApi";
 import { useLocale, useTranslations } from "next-intl";
 
-const page = () => {
-    const t = useTranslations();
+const Page = () => {
+  const t = useTranslations();
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -30,7 +30,7 @@ const page = () => {
     };
 
     getContactData();
-  }, []);
+  }, [localActive]);
 
   const handleSubmit = () => {
     validateForm();
@@ -116,9 +116,7 @@ const page = () => {
     if (emailPattern.test(value)) {
       setEmailError("");
     } else {
-      setEmailError(
-        `${t("contactPage.error.email")}`
-      );
+      setEmailError(`${t("contactPage.error.email")}`);
     }
   };
   const handleCompanyNameChange = (e: any) => setCompanyName(e.target.value);
@@ -455,4 +453,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

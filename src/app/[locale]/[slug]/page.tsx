@@ -12,11 +12,15 @@ export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const localActive = await getLocale();
-  const articleData: any = await fetchFilteredArticleDetail(localActive, params.slug);
+  const articleData: any = await fetchFilteredArticleDetail(
+    localActive,
+    params.slug
+  );
 
   return {
     title:
-      articleData.articles[0]?.seo.title || "Not Found - GUSWEB - Sustainable IT Solutions",
+      articleData.articles[0]?.seo.title ||
+      "Not Found - GUSWEB - Sustainable IT Solutions",
     description: articleData.articles[0]?.seo.description || "",
     icons: {
       icon: "/images/logo.png",
@@ -42,9 +46,9 @@ export async function generateMetadata({
 const Page = async ({ params }: { params: { slug: string } }) => {
   const localActive = await getLocale();
   const data = await fetchFilteredArticleDetail(localActive, params.slug);
-    if (!data.articles || data.articles.length === 0) {
-      notFound(); // Redirect to 404 page
-    }
+  if (!data.articles || data.articles.length === 0) {
+    notFound(); // Redirect to 404 page
+  }
   const subCateList = await fetchSubCategoryByCategoryId(
     localActive,
     data.articles[0]?.categoryId

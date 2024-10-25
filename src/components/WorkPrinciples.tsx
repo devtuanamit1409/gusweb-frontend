@@ -1,9 +1,5 @@
 "use client";
 
-import {
-  principleDescriptionModel,
-  principleModel,
-} from "@/models/principleModel";
 import Image from "next/image";
 import React from "react";
 import { Collapse } from "antd";
@@ -26,8 +22,6 @@ export default function WorkPrinciples({ work }: any) {
       </div>
     ),
   }));
-
-
 
   return (
     <div className="relative max-w-[1116px] mx-auto mt-20 p-4 h-[833px]">

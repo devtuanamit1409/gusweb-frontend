@@ -1,3 +1,5 @@
+"use client";
+
 import React, { use } from "react";
 import Image from "next/image";
 import { CardModel } from "@/models/cardModel";
