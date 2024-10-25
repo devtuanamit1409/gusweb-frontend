@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const BaseApiUrl = "http://localhost:1337";
+const BaseApiUrl = process.env.BASE_URL_BACKEND;
+console.log("baseurl ", BaseApiUrl);
 
 const api = axios.create({
-  baseURL: "http://localhost:1337/api",
+  baseURL: `${process.env.BASE_URL_BACKEND}/api`,
   headers: {
     "Content-Type": "application/json",
   },
@@ -587,13 +588,13 @@ export const fetchCaseStudies = async (lang: string) => {
     title: res?.intro.title,
     description: res?.intro.description,
     categoryId: res?.category.data.id,
-    seo:{
+    seo: {
       title: res.seo?.title || "",
       description: res.seo?.description || "",
       url: res.seo?.url || "",
       type: res.seo?.type || "website",
       image: BaseApiUrl + res.seo?.images?.src?.data?.attributes?.url || "",
-    }
+    },
   };
 
   return formattedData;
@@ -601,7 +602,11 @@ export const fetchCaseStudies = async (lang: string) => {
 
 //fetch api blog page
 export const fetchBlogPage = async (lang: string) => {
-  const data = await getAllItem("/blog-page", "intro.src,category, seo.images.src", lang);
+  const data = await getAllItem(
+    "/blog-page",
+    "intro.src,category, seo.images.src",
+    lang
+  );
   const res = data?.data?.attributes;
 
   const formattedData = {
@@ -692,7 +697,7 @@ export const fetchAboutUsPage = async (lang: string) => {
         description: item.description,
         alt: item.alt,
         url: BaseApiUrl + item.src.data?.attributes?.url,
-        sex: item.sex
+        sex: item.sex,
       })),
     },
     team: {
@@ -706,13 +711,13 @@ export const fetchAboutUsPage = async (lang: string) => {
         url: BaseApiUrl + item.src.data?.attributes?.url,
       })),
     },
-    seo:{
+    seo: {
       title: res.seo?.title || "",
       description: res.seo?.description || "",
       url: res.seo?.url || "",
       type: res.seo?.type || "website",
       image: BaseApiUrl + res.seo.images?.src?.data?.attributes?.url || "",
-    }
+    },
   };
 
   return formattedData;
@@ -757,13 +762,13 @@ export const fetchContactUsPage = async (lang: string) => {
         slug: item.slug,
       })),
     },
-    seo:{
+    seo: {
       title: res.seo?.title || "",
       description: res.seo?.description || "",
       url: res.seo?.url || "",
       type: res.seo?.type || "website",
       image: BaseApiUrl + res.seo.images?.src?.data?.attributes?.url || "",
-    }
+    },
   };
 
   return formattedData;
