@@ -6,12 +6,12 @@ import Logo from "@/components/Logo";
 import QuotationButton from "@/components/QuotationButton";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-    import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname().replace(/^\/(en|ko)/, '');
-   console.log("pathname", pathname);
+  const pathname = usePathname().replace(/^\/(en|ko)/, "");
+  console.log("pathname", pathname);
   const t = useTranslations();
 
   const toggleMenu = () => {
@@ -25,7 +25,6 @@ export default function HeaderComponent() {
     { href: t("header.items.4.slug"), label: t("header.items.4.title") },
     { href: t("header.items.5.slug"), label: t("header.items.5.title") },
   ];
-
 
   return (
     <div className="bg-white fixed top-0 left-0 right-0 z-50 shadow-md">

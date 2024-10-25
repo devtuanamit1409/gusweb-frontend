@@ -1,33 +1,44 @@
+// src/app/[locale]/layout.tsx
 import Footer from "@/components/Footer";
-import type { Metadata } from "next";
-import "../styles/globals.css";
 import HeaderComponent from "@/components/HeaderComponent";
-import BrandValue from "@/components/BrandValue";
-import "aos/dist/aos.css";
-import { getMessages } from "next-intl/server";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import NextTopLoader from "nextjs-toploader";
-// import { AntdRegistry } from '@ant-design/nextjs-registry';
-// const inter = Inter({ subsets: ["latin"] });
+import { routing } from "@/routing";
+import type { ReactNode } from "react";
 
+interface LayoutProps {
+  children: ReactNode;
+  params: {
+    locale: string;
+  };
+}
 
-const RootLayout: React.FC<{
-  children: React.ReactNode;
-  params: { locale: string };
-}> = async ({ children, params: { locale } }) => {
+// Hàm `generateStaticParams` để tạo đường dẫn tĩnh cho từng `locale`
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: LayoutProps) {
+  // Đảm bảo sử dụng static rendering bằng `unstable_setRequestLocale`
+  unstable_setRequestLocale(locale);
+
+  // Lấy thông điệp dịch cho `locale` hiện tại
   const messages = await getMessages();
+
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <NextTopLoader color="#08bed5" />
           <HeaderComponent />
-          <main className="mt-[76px]"> {children}</main>
+          <main className="mt-[76px]">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

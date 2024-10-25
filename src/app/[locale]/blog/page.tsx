@@ -23,8 +23,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { Empty } from "antd";
 import BlogCardComponent from "@/components/BlogCardComponent";
 
-
-
 const Page = ({ params }: { params: { slug: string } }) => {
   const t = useTranslations();
   const pageSize = 6;
@@ -91,7 +89,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     };
 
     getFilteredArticles();
-  }, [blogData, activeIndex, currentPage]);
+  }, [blogData, activeIndex, currentPage, localActive, subCategorys]);
 
   useEffect(() => {
     const getBlogOutStanding = async () => {
@@ -110,7 +108,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     };
 
     if (blogData) getBlogOutStanding();
-  }, [blogData, activeIndex]);
+  }, [blogData, activeIndex, localActive, subCategorys]);
 
   const handleSubCategoryClick = (index: number) => {
     setActiveIndex(index);

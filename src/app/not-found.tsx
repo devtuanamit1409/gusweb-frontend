@@ -1,8 +1,10 @@
+"use client";
+
 import React from "react";
 import { Button } from "antd";
 import Link from "next/link";
 
-const not_found = () => {
+const Not_found = () => {
   return (
     <div className="pt-[76px]">
       <div className="PageNotFound ">
@@ -31,4 +33,4 @@ const not_found = () => {
   );
 };
 
-export default not_found;
+export default Not_found;

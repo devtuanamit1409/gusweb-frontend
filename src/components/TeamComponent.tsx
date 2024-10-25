@@ -1,9 +1,10 @@
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import React from "react";
 
-const TeamComponent: React.FC<any> = ({ team }) => {
-   const t = useTranslations();
+const TeamComponent: React.FC<any> = async ({ team }) => {
+  const t = await getTranslations();
   return (
     <div className="custom-container  mobile:py-10 tablet:py-20  px-4  laptop:py-20 flex justify-center">
       <div className=" flex flex-col items-center laptop:items-start gap-10 relative max-w-[1116px] ">
