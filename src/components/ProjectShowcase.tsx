@@ -8,7 +8,7 @@ import IconArrowDesc from "@/components/Icons/IconArrowDesc";
 import { Button, Modal } from "antd";
 
 export default function ProjectShowcase({ project }: any) {
-  console.log(project);
+
   const t = useTranslations();
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [tempSlideIndex, setTempSlideIndex] = useState(0);
@@ -100,7 +100,8 @@ export default function ProjectShowcase({ project }: any) {
         <div className='mobile:flex-col tablet:flex-row flex gap-6 py-[20px] px-4'>
           <div className='flex flex-col max-w-[418px] mobile:mx-auto'>
             <div className='w-full'>
-              <Image src='/images/GHT.png' alt='anh' width={418} height={427} />
+              <Image src={project.items[tempSlideIndex].url}
+                alt={project.items[tempSlideIndex].alt} width={418} height={427} />
             </div>
             <div className='flex justify-center items-end max-w-[418px] h-[66px]'>
               <div className='flex tablet:gap-6 mobile:gap-3'>
