@@ -11,7 +11,9 @@ import { Slide } from "@mui/material";
 import SlideComponent from "@/components/SlideComponent";
 import BannerComponent from "@/components/BannerComponent";
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import { getLocale, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const localActive = await getLocale();
   const service: any = await fetchServicePage(localActive);
@@ -32,7 +34,12 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
   };
 }
 
-const page = async () => {
+interface HomeProps {
+  params: { locale: "en" | "vi" | "ko" };
+}
+
+const page = async ({ params: { locale } }: HomeProps) => {
+  setRequestLocale(locale);
   const localActive = await getLocale();
   const data = await fetchServicePage(localActive);
   return (

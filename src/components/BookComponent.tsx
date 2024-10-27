@@ -12,7 +12,7 @@ import BlogCard from "./BlogCard";
 type NotificationPlacement = NotificationArgsProps["placement"];
 
 const BookComponent: React.FC<any> = ({ article }) => {
-  console.log(article);
+  // console.log(article);
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (placement: NotificationPlacement) => {

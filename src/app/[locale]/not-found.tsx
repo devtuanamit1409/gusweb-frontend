@@ -1,12 +1,10 @@
-"use client";
-
 import React from "react";
 import { Button } from "antd";
 import Link from "next/link";
 
 const Not_found = () => {
   return (
-    <div className="pt-[76px]">
+    <div className="">
       <div className="PageNotFound ">
         <div className="PageNotFound-container">
           <h2 className="PageNotFound-title">Không tìm thấy trang</h2>

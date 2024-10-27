@@ -1,13 +1,21 @@
 "use client";
+import { routing } from "@/i18n/routing";
 import { fetchContactUsPage, postContactUser } from "@/utils/GlobalApi";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { message } from "antd";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React, { useEffect, useState } from "react";
+interface HomeProps {
+  params: { locale: "en" | "vi" | "ko" };
+}
 
-const Page = () => {
+const Page = ({ params: { locale } }: HomeProps) => {
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
   const t = useTranslations();
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");

@@ -1,4 +1,3 @@
-// ./src/app/[locale]/blog/layout.tsx
 import { fetchBlogPage, fetchContactUsPage } from "@/utils/GlobalApi";
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
@@ -8,7 +7,7 @@ export async function generateMetadata({
 }: any): Promise<Metadata | undefined> {
   const localActive = await getLocale();
   const contactPage = await fetchContactUsPage(localActive);
-  console.log(contactPage);
+  // console.log(contactPage);
   return {
     title: "báo giá nhanh GUSWEB - Sustainable IT Solutions",
     description: contactPage.seo.description || "",

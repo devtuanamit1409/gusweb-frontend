@@ -23,18 +23,18 @@ export default function ProjectShowcase({ project }: any) {
             {t("homePage.project")}
           </p>
           <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]">
-            {project.items[activeSlideIndex].title}
+            {/* {project?.items[activeSlideIndex]?.title} */}
           </p>
           <span className="text-base line-clamp-2 leading-6 text-[#363636]">
-            {project.items[activeSlideIndex].description}{" "}
+            {/* {project?.items[activeSlideIndex]?.description}{" "} */}
           </span>
-          {/* <Link
+          <Link
             href="/chi-tiet"
             className="text-[#1FA9EC] font-medium text-[15px] underline mt-2 flex flex-row items-center gap-2 leading-6 w-max h-8"
           >
             <p>{t("homePage.buttonProj")}</p>
             <IconArrowDesc />
-          </Link> */}
+          </Link>
           <ModalExample />
         </div>
         <div className="hidden tablet:w-[60%]"></div>
