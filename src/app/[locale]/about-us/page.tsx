@@ -1,7 +1,9 @@
 import AboutUsPage from "@/components/AboutUsPage";
+import { routing } from "@/i18n/routing";
 import { fetchAboutUsPage } from "@/utils/GlobalApi";
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import { getLocale, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import React from "react";
 export async function generateMetadata({
   params,
@@ -23,8 +25,14 @@ export async function generateMetadata({
     },
   };
 }
-const page = async () => {
-   const localActive = await getLocale();
+
+interface HomeProps {
+  params: { locale: "en" | "vi" | "ko" };
+}
+
+const page = async ({ params: { locale } }: HomeProps) => {
+  setRequestLocale(locale);
+  const localActive = await getLocale();
   const data = await fetchAboutUsPage(localActive);
   return <AboutUsPage data={data} />;
 };

@@ -76,10 +76,11 @@ export default function CustomerSuccessStory({ chats }: any) {
                       onClick={() => handleSlideClick(index)}
                     >
                       <div
-                        className={`mx-3 my-6 bg-[#fefefe] ${isActive
-                          ? "shadow-lg shadow-[rgba(58,123,213,0.4)]"
-                          : "shadow-lg shadow-[rgba(198,217,225,.3)]"
-                          } rounded-[10px] mobile:w-[450px] mobile:h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
+                        className={`mx-3 my-6 bg-[#fefefe] ${
+                          isActive
+                            ? "shadow-lg shadow-[rgba(58,123,213,0.4)]"
+                            : "shadow-lg shadow-[rgba(198,217,225,.3)]"
+                        } rounded-[10px] mobile:w-[450px] mobile:h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
                       >
                         <div className="text-black flex flex-col gap-[14px] h-[108px] laptop:h-[124px] p-4 bg-[#E5FCFF] rounded-tl-[10px] rounded-tr-[10px]">
                           <div className="relative flex flex-row px-5 h-full">

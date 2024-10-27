@@ -1,14 +1,14 @@
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 interface QuotationButtonProps {
   label?: string; // Prop cho phép truyền nội dung nút
 }
 
-export default async function QuotationButton({
+export default function QuotationButton({
   label = "Báo Giá",
 }: QuotationButtonProps) {
-  const t = await getTranslations();
+  const t = useTranslations();
   return (
     <Link href="/quick-quotes">
       <button

@@ -6,8 +6,17 @@ import Slider from "@mui/material/Slider";
 import Image from "next/image";
 import { fetchContactUsPage } from "@/utils/GlobalApi";
 import { useLocale, useTranslations } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
-const Page = () => {
+interface HomeProps {
+  params: { locale: "en" | "vi" | "ko" };
+}
+
+const Page = ({ params: { locale } }: HomeProps) => {
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
   const t = useTranslations();
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");

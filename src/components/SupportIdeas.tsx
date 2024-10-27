@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Image from "next/image";
 import { useEffect } from "react";
 import AOS from "aos";
@@ -6,10 +6,10 @@ import "aos/dist/aos.css";
 import { useTranslations } from "next-intl";
 const SupportIdeas: React.FC<any> = ({ help }) => {
   const t = useTranslations();
- useEffect(() => {
-   AOS.init({ once: true });
-   setTimeout(() => {}, 1000);
- }, []);
+  useEffect(() => {
+    AOS.init({ once: true });
+    setTimeout(() => {}, 1000);
+  }, []);
   const imageNumber = [
     {
       image: "/images/number1.png",
@@ -30,8 +30,6 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
       image: "/images/number6.png",
     },
   ];
-
-
 
   return (
     <div className="custom-container laptop:py-[80px]  px-4 py-10 flex flex-col items-center ">

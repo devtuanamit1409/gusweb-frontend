@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
-import { routing } from "./routing";
+import { routing } from "./i18n/routing";
 
 const handleI18nRouting = createMiddleware(routing);
 
@@ -70,7 +70,7 @@ export default function middleware(request: NextRequest) {
       response.cookies.set("NEXT_LOCALE", "vi");
       return response;
     } else {
-      console.log("no da vao day", pathname);
+      // console.log("no da vao day", pathname);
       return NextResponse.redirect(new URL(newPathname, request.url));
     }
   }

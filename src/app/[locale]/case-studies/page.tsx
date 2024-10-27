@@ -1,7 +1,9 @@
 import CaseStudies from "@/components/CaseStudiesConponent";
+import { routing } from "@/i18n/routing";
 import { fetchCaseStudies } from "@/utils/GlobalApi";
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import { getLocale, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import React from "react";
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const localActive = await getLocale();
@@ -22,7 +24,12 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
     },
   };
 }
-const page = async () => {
+interface HomeProps {
+  params: { locale: "en" | "vi" | "ko" };
+}
+
+const page = async ({ params: { locale } }: HomeProps) => {
+  setRequestLocale(locale);
   const localActive = await getLocale();
   const data = await fetchCaseStudies(localActive);
   return <CaseStudies data={data} />;

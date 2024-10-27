@@ -33,8 +33,7 @@ const App: React.FC = () => {
         {t("homePage.buttonDetail")}
         <IconArrowDesc />
       </p>
-      {/* <Button type="primary" onClick={() => setModal2Open(true)}>
-            </Button> */}
+      <Button type="primary" onClick={() => setModal2Open(true)}></Button>
       <Modal
         centered
         open={modal2Open}

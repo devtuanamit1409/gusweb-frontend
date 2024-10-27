@@ -47,7 +47,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const localActive = await getLocale();
   const data = await fetchFilteredArticleDetail(localActive, params.slug);
   if (!data.articles || data.articles.length === 0) {
-    notFound(); // Redirect to 404 page
+    notFound();
   }
   const subCateList = await fetchSubCategoryByCategoryId(
     localActive,

@@ -1,16 +1,16 @@
-'use client';
+"use client";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslations } from "next-intl";
 const IdeaCard: React.FC<any> = ({ solution }) => {
- useEffect(() => {
-   AOS.init({ once: true });
-   setTimeout(() => {}, 1000);
- }, []);
+  useEffect(() => {
+    AOS.init({ once: true });
+    setTimeout(() => {}, 1000);
+  }, []);
 
- const t = useTranslations();
- 
+  const t = useTranslations();
+
   return (
     <div className="w-full bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5]  items-center flex ">
       <div className="custom-container flex flex-col gap-6 mobile:gap-8 max-w-[1116px] laptop:py-[80px]  py-[66px] px-4   items-center ">

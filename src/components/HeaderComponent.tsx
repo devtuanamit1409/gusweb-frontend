@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 export default function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname().replace(/^\/(en|ko)/, "");
-  console.log("pathname", pathname);
+  // console.log("pathname", pathname);
   const t = useTranslations();
 
   const toggleMenu = () => {

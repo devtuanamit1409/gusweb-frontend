@@ -7,9 +7,9 @@ import { useLocale, useTranslations } from "next-intl";
 export default function Language() {
   const t = useTranslations();
   const [isPending, startTransition] = useTransition();
-  const currentLocale = useLocale();
+  const localActive = useLocale();
 
-  const [selectedLanguage, setSelectedLanguage] = useState(currentLocale);
+  const [selectedLanguage, setSelectedLanguage] = useState(localActive);
 
   const languageOptions = [
     { key: "1", label: t("header.language"), abbreviation: "vi" },
@@ -18,7 +18,7 @@ export default function Language() {
   ];
 
   const handleLanguageChange = (lang: string) => {
-    if (currentLocale === lang) return;
+    if (localActive === lang) return;
 
     setSelectedLanguage(lang);
     startTransition(() => {
