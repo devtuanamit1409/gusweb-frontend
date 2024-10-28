@@ -33,7 +33,11 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
 
   return (
     <div className=" flex flex-col gap-6 jus  w-full items-center">
-      <div className="laptop:h-56 tablet:h-[248px] flex-row gap-6 laptop:flex tablet:flex  mobile:hidden">
+      <div
+        className="laptop:h-56 tablet:h-[248px] flex-row gap-6 laptop:flex tablet:flex  mobile:hidden"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      >
         {data.slice(0, 2).map((item: any, index: number) => (
           <div
             key={index}
@@ -47,8 +51,6 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
                 : "items-center"
             }`}
             onClick={() => handleFirstSetClick(index === 0 ? "left" : "right")}
-            data-aos="fade-left"
-            data-aos-duration="1000"
           >
             <h6 className="text-[#1C1C1C] font-semibold text-[20px] leading-6 text-center">
               {item.title}
@@ -58,7 +60,11 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
           </div>
         ))}
       </div>
-      <div className="laptop:min-h-56 tablet:min-h-[248px] laptop:flex tablet:flex flex-row gap-6  mobile:hidden">
+      <div
+        className="laptop:min-h-56 tablet:min-h-[248px] laptop:flex tablet:flex flex-row gap-6  mobile:hidden"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
         {data.slice(2, 4).map((item: any, index: number) => (
           <div
             key={index}
@@ -72,8 +78,6 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
                 : "items-center"
             }`}
             onClick={() => handleSecondSetClick(index === 0 ? "right" : "left")}
-            data-aos="fade-right"
-            data-aos-duration="1000"
           >
             <h6 className="text-[#1C1C1C] font-semibold text-[20px] leading-6 text-center">
               {item.title}

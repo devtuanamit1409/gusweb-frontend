@@ -1,6 +1,6 @@
 import BlogComponent from "@/components/BlogComponent";
 import { setRequestLocale } from "next-intl/server";
-import React from "react";
+import React, { Suspense } from "react";
 
 interface PageProps {
   params: {
@@ -11,9 +11,9 @@ interface PageProps {
 const Page = ({ params: { locale } }: PageProps) => {
   setRequestLocale(locale);
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <BlogComponent />
-    </>
+    </Suspense>
   );
 };
 
