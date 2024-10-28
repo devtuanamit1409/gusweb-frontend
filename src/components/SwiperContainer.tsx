@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import "swiper/css";
 
 export default function SwiperContainer({ projects, onSlideChangeIndex }: any) {
+  const swiperRef = useRef(null);
   return (
     <>
       <Swiper
+        ref={swiperRef}
         spaceBetween={100}
         slidesPerView={1}
         loop={true}
@@ -34,11 +36,10 @@ export default function SwiperContainer({ projects, onSlideChangeIndex }: any) {
               >
                 {({ isActive }) => (
                   <div
-                    className={` h-full ${
-                      isActive
-                        ? "w-full min-w-[354px] tablet:max-w-full h-full min-h-[212px] max-h-[328px] tablet:w-[372px] laptop:w-[500px] tablet:max-h-[224px] laptop:max-h-[300px]"
-                        : "w-full min-w-[354px] tablet:max-w-full h-full min-h-[212px] max-h-[328px] tablet:w-[250px] laptop:w-[300px] tablet:max-h-[150px] laptop:max-h-[180px]"
-                    }  transition-all duration-300`}
+                    className={` h-full ${isActive
+                      ? "w-full min-w-[354px] tablet:max-w-full h-full min-h-[212px] max-h-[328px] tablet:w-[372px] laptop:w-[500px] tablet:max-h-[224px] laptop:max-h-[300px]"
+                      : "w-full min-w-[354px] tablet:max-w-full h-full min-h-[212px] max-h-[328px] tablet:w-[250px] laptop:w-[300px] tablet:max-h-[150px] laptop:max-h-[180px]"
+                      }  transition-all duration-300`}
                   >
                     <div className="w-full h-full tablet:pl-2 laptop:pl-4">
                       <Image

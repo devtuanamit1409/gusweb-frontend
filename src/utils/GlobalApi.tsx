@@ -182,8 +182,8 @@ export const fetchFilteredArticleDetail = async (
         alt: item?.attributes.sub_category?.data?.attributes?.banner.alt || "",
         url:
           BaseApiUrl +
-            item?.attributes?.sub_category?.data?.attributes?.banner?.src?.data
-              ?.attributes?.url || "",
+          item?.attributes?.sub_category?.data?.attributes?.banner?.src?.data
+            ?.attributes?.url || "",
       },
       categoryId:
         item?.attributes.sub_category?.data?.attributes?.category?.data?.id,
@@ -206,7 +206,7 @@ export const fetchFilteredArticleDetail = async (
           alt: item.attributes.typeEbook?.ebook?.alt || "",
           src: item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
             ? BaseApiUrl +
-              item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
+            item.attributes.typeEbook?.ebook?.src?.data?.attributes?.url
             : "",
           titleBook: item.attributes.typeEbook?.ebook?.titleBook || "",
           descBook: item.attributes.typeEbook?.ebook?.descBook || "",
@@ -215,7 +215,7 @@ export const fetchFilteredArticleDetail = async (
           pdfFile: item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes
             ?.url
             ? BaseApiUrl +
-              item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
+            item.attributes.typeEbook?.ebook?.pdfFile?.data?.attributes?.url
             : "",
         },
       },
@@ -226,13 +226,13 @@ export const fetchFilteredArticleDetail = async (
         type: item.attributes.seo?.type || "website",
         image: item.attributes.seo?.images
           ? {
-              url:
-                BaseApiUrl +
-                  item.attributes.image?.src?.data?.attributes?.url || "",
-              width: 800,
-              height: 600,
-              alt: item.attributes.seo?.images?.alt || "",
-            }
+            url:
+              BaseApiUrl +
+              item.attributes.image?.src?.data?.attributes?.url || "",
+            width: 800,
+            height: 600,
+            alt: item.attributes.seo?.images?.alt || "",
+          }
           : "",
       },
     })),
@@ -334,7 +334,7 @@ export const fetchContactUsComp = async (lang: string) => {
 export const fetchHomePage = async (lang: string) => {
   const data = await getAllItem(
     "/home-page",
-    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.image.src,customer.images.src,chats.image.src, seo.images.src",
+    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.items.customer.src,project.items.technology.src,project.items.system.src,project.image.src,customer.images.src,chats.image.src, seo.images.src",
     lang
   );
   const res = data?.data?.attributes;
@@ -454,6 +454,23 @@ export const fetchHomePage = async (lang: string) => {
         title: item.title,
         description: item.description,
         url: BaseApiUrl + item.src?.data?.attributes?.url,
+        customer: item.customer.map((customerItem: any) => ({
+          id: customerItem.id,
+          alt: customerItem.alt,
+          url: BaseApiUrl + customerItem.src?.data?.attributes?.url,
+        })),
+        technology: item.technology.map((technologyItem: any) => ({
+          id: technologyItem.id,
+          alt: technologyItem.alt,
+          url: BaseApiUrl + technologyItem.src?.data?.attributes?.url,
+        })),
+        system: item.system.map((systemItem: any) => ({
+          id: systemItem.id,
+          alt: systemItem.alt,
+          url: BaseApiUrl + systemItem.src?.data?.attributes?.url,
+        })),
+        challenge: item.challenge,
+        solution: item.solution
       })),
     },
     customer: {
@@ -594,7 +611,7 @@ export const fetchCaseStudies = async (lang: string) => {
       url: res.seo?.url || "",
       type: res.seo?.type || "website",
       image: BaseApiUrl + res.seo?.images?.src?.data?.attributes?.url || "",
-    },
+    }
   };
 
   return formattedData;
@@ -602,11 +619,7 @@ export const fetchCaseStudies = async (lang: string) => {
 
 //fetch api blog page
 export const fetchBlogPage = async (lang: string) => {
-  const data = await getAllItem(
-    "/blog-page",
-    "intro.src,category, seo.images.src",
-    lang
-  );
+  const data = await getAllItem("/blog-page", "intro.src,category, seo.images.src", lang);
   const res = data?.data?.attributes;
 
   const formattedData = {
@@ -697,7 +710,6 @@ export const fetchAboutUsPage = async (lang: string) => {
         description: item.description,
         alt: item.alt,
         url: BaseApiUrl + item.src.data?.attributes?.url,
-        sex: item.sex,
       })),
     },
     team: {
@@ -717,7 +729,7 @@ export const fetchAboutUsPage = async (lang: string) => {
       url: res.seo?.url || "",
       type: res.seo?.type || "website",
       image: BaseApiUrl + res.seo.images?.src?.data?.attributes?.url || "",
-    },
+    }
   };
 
   return formattedData;
@@ -768,7 +780,7 @@ export const fetchContactUsPage = async (lang: string) => {
       url: res.seo?.url || "",
       type: res.seo?.type || "website",
       image: BaseApiUrl + res.seo.images?.src?.data?.attributes?.url || "",
-    },
+    }
   };
 
   return formattedData;

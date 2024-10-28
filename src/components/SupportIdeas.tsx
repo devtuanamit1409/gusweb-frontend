@@ -1,13 +1,13 @@
 "use client";
+import Aos from "aos";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useTranslations } from "next-intl";
+
 const SupportIdeas: React.FC<any> = ({ help }) => {
   const t = useTranslations();
   useEffect(() => {
-    AOS.init({ once: true });
+    Aos.init({ once: true });
     setTimeout(() => {}, 1000);
   }, []);
   const imageNumber = [
@@ -34,24 +34,21 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
   return (
     <div className="custom-container laptop:py-[80px]  px-4 py-10 flex flex-col items-center ">
       <div className="laptop:max-w-[1116px] flex flex-col gap-6 items-center justify-center">
-        <div className="gap-4 flex flex-col" data-aos="fade-right">
-          <div className="flex laptop:justify-start justify-center">
-            <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]">
-              {t("servicePage.help")}
+        <div className="gap-4  flex flex-col ">
+          <div className=" flex laptop:justify-start justify-center">
+            <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]  ">
+              Chúng tôi luôn có thể giúp bạn
             </span>
           </div>
-          <h1 className="laptop:text-[56px] font-bold tablet:tetx-[42px] tablet:leading-[50.4px] font-bricolage mobile:text-[32px] mobile:leading-[38.4px] laptop:leading-[67.2px] text-[#1C1C1C] laptop:text-start text-center">
+          <h1 className="laptop:text-[56px] font-bold tablet:tetx-[42px] tablet:leading-[50.4px] font-bricolage mobile:text-[32px]  mobile:leading-[38.4px] laptop:leading-[67.2px] text-[#1C1C1C]  laptop:text-start text-center ">
             {help.title}
           </h1>
-          <p className="font-normal text-base leading-6 tracking-[0.5px] text-[#1C1C1C] w-full laptop:text-start text-center">
+          <p className=" font-normal text-base leading-6 tracking-[0.5px] text-[#1C1C1C] w-full laptop:text-start text-center">
             {help.description}
           </p>
         </div>
 
-        <div
-          className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 laptop:max-w-[1116px] tablet:px-20 laptop:px-0"
-          data-aos="fade-left"
-        >
+        <div className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 laptop:max-w-[1116px] tablet:px-20 laptop:px-0">
           {help.items &&
             help.items.map((item: any, index: number) => (
               <div
