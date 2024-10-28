@@ -1,4 +1,6 @@
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+// import "../styles/globals.css";-
 import HeaderComponent from "@/components/HeaderComponent";
 import { getLocale, getMessages, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
@@ -27,17 +29,17 @@ export default async function RootLayout({
   setRequestLocale(locale || "vi");
 
   const messages = await getMessages();
-
   return (
     <html lang={locale || "vi"}>
       <body>
         <NextIntlClientProvider locale={locale || "vi"} messages={messages}>
           <NextTopLoader color="#08bed5" />
           <HeaderComponent />
-          <main className="mt-[76px]">{children}</main>
+          <main className="mt-[76px]"> {children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
   );
-}
+};
+

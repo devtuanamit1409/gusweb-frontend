@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import Link from "next/link";
 
-const Not_found = () => {
+const not_found = () => {
   return (
     <div className="">
       <div className="PageNotFound ">
@@ -31,4 +31,4 @@ const Not_found = () => {
   );
 };
 
-export default Not_found;
+export default not_found;

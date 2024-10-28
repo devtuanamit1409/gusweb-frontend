@@ -12,31 +12,26 @@ export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const localActive = await getLocale();
-  const articleData: any = await fetchFilteredArticleDetail(
-    localActive,
-    params.slug
-  );
+  const articleData: any = await fetchFilteredArticleDetail(localActive, params.slug);
 
   return {
-    title:
-      articleData.articles[0]?.seo.title ||
-      "Not Found - GUSWEB - Sustainable IT Solutions",
-    description: articleData.articles[0]?.seo.description || "",
+    title: articleData.articles[0].seo.title || "article",
+    description: articleData.articles[0].seo.description || "",
     icons: {
       icon: "/images/logo.png",
     },
     openGraph: {
-      title: articleData.articles[0]?.seo.title || "",
-      description: articleData.articles[0]?.description || "",
-      url: articleData.articles[0]?.url || "",
-      type: articleData.articles[0]?.type || "website",
-      images: articleData.articles[0]?.images
+      title: articleData.articles[0].seo.title || "",
+      description: articleData.articles[0].seo.description || "",
+      url: articleData.articles[0].seo.url || "",
+      type: articleData.articles[0].seo.type || "website",
+      images: articleData.articles[0].seo.images
         ? [
             {
-              url: articleData.articles[0]?.images.url || "",
+              url: articleData.articles[0].seo.images.url || "",
               width: 800,
               height: 600,
-              alt: articleData.articles[0]?.images.alt || "",
+              alt: articleData.articles[0].seo.images.alt || "",
             },
           ]
         : [], // If no image, return an empty array
@@ -51,7 +46,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   }
   const subCateList = await fetchSubCategoryByCategoryId(
     localActive,
-    data.articles[0]?.categoryId
+    data.articles[0].categoryId
   );
   return (
     <div className="w-full flex flex-col gap-4 laptop:gap-0">
