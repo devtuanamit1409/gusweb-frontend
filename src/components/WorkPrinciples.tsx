@@ -7,7 +7,7 @@ import {
 import Image from "next/image";
 import React from "react";
 import { Collapse } from "antd";
-const { Panel } = Collapse;
+import { useTranslations } from "next-intl";
 
 export default function WorkPrinciples({ work }: any) {
   const collapseItems = work.items.map((itemDescription: any, idx: number) => ({
@@ -42,6 +42,8 @@ export default function WorkPrinciples({ work }: any) {
           <p className="text-[56px] font-bricolage">{work.title}</p>
           <p>{work.description}</p>
           <hr className="border-t-2 mt-10" />
+
+          {/* Sử dụng items thay vì children */}
           <Collapse
             defaultActiveKey={[""]}
             bordered={false}
@@ -67,13 +69,9 @@ export default function WorkPrinciples({ work }: any) {
               )
             }
             className="bg-white font-bricolage"
-          >
-            {collapseItems.map((item: any) => (
-              <Panel key={item.key} header={item.label}>
-                {item.children}
-              </Panel>
-            ))}
-          </Collapse>
+            items={collapseItems}
+          />
+
           <hr className="border-t-2" />
         </div>
       </div>

@@ -1,7 +1,15 @@
+"use client";
+import Aos from "aos";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const SupportIdeas: React.FC<any> = ({ help }) => {
-console.log(help.items);
+  const t = useTranslations();
+  useEffect(() => {
+    Aos.init({ once: true });
+    setTimeout(() => {}, 1000);
+  }, []);
   const imageNumber = [
     {
       image: "/images/number1.png",
@@ -23,15 +31,13 @@ console.log(help.items);
     },
   ];
 
-
-
   return (
     <div className="custom-container laptop:py-[80px]  px-4 py-10 flex flex-col items-center ">
       <div className="laptop:max-w-[1116px] flex flex-col gap-6 items-center justify-center">
         <div className="gap-4  flex flex-col ">
           <div className=" flex laptop:justify-start justify-center">
             <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]  ">
-              "Chúng tôi luôn có thể giúp bạn"
+              Chúng tôi luôn có thể giúp bạn
             </span>
           </div>
           <h1 className="laptop:text-[56px] font-bold tablet:tetx-[42px] tablet:leading-[50.4px] font-bricolage mobile:text-[32px]  mobile:leading-[38.4px] laptop:leading-[67.2px] text-[#1C1C1C]  laptop:text-start text-center ">

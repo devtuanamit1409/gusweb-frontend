@@ -1,27 +1,16 @@
-import React from "react";
-import { Card, Flex } from "antd";
+"use client";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useTranslations } from "next-intl";
 const IdeaCard: React.FC<any> = ({ solution }) => {
-  const content = {
-    Premble: " CÁC GIẢI PHÁP CỦA GUSWEB",
-    title: "Biến ý tưởng thành sản phẩm hoàn thiện",
-  };
-  const items = [
-    {
-      title: "Đổi mới giao diện",
-      description:
-        "Biến giao diện người dùng đã lỗi thời trở nên hiện đại và dễ sử dụng hơn nhờ kết hợp các tiêu chuẩn UX UI trong thiết kế.",
-    },
-    {
-      title: "Tối ưu hóa hiệu suất",
-      description:
-        "Cải thiện tốc độ tải trang và tối ưu hóa hiệu suất ứng dụng giúp người dùng có trải nghiệm tốt hơn.",
-    },
-    {
-      title: "Phát triển tính năng mới",
-      description:
-        "Thêm các tính năng mới giúp nâng cao giá trị sản phẩm và đáp ứng nhu cầu của khách hàng.",
-    },
-  ];
+  useEffect(() => {
+    AOS.init({ once: true });
+    setTimeout(() => {}, 1000);
+  }, []);
+
+  const t = useTranslations();
+
   return (
     <div className="w-full bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5]  items-center flex ">
       <div className="custom-container flex flex-col gap-6 mobile:gap-8 max-w-[1116px] laptop:py-[80px]  py-[66px] px-4   items-center ">

@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import "swiper/css";
 
 export default function SwiperContainer({ projects, onSlideChangeIndex }: any) {
+  const swiperRef = useRef(null);
   return (
     <>
       <Swiper
+        ref={swiperRef}
         spaceBetween={100}
         slidesPerView={1}
         loop={true}

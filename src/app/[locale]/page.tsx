@@ -9,32 +9,47 @@ import ProjectShowcase from "@/components/ProjectShowcase";
 import WebsiteAsGateway from "@/components/WebsiteAsGateway";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import WorkPrinciples from "@/components/WorkPrinciples";
+import { routing } from "@/i18n/routing";
 import { fetchHomePage } from "@/utils/GlobalApi";
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
-export async function generateMetadata(): Promise<Metadata | undefined> {
-  const localActive = await getLocale();
-  const homePage: any = await fetchHomePage(localActive);
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+
+interface Params {
+  params: {
+    locale: "en" | "vi" | "ko";
+  };
+}
+
+export async function generateMetadata({
+  params: { locale },
+}: Params): Promise<Metadata | undefined> {
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
+  const homePage = await fetchHomePage(locale);
 
   return {
-    title: homePage.seo.title || "Home Page",
-    description: homePage.seo.description || "",
-    icons: {
-      icon: "/images/logo.png",
-    },
+    title: homePage?.seo?.title || "Home Page",
+    description: homePage?.seo?.description || "",
+    icons: { icon: "/images/logo.png" },
     openGraph: {
-      title: homePage.seo.title || "",
-      description: homePage.seo.description || "",
-      url: homePage.seo.url || "",
-      type: homePage.seo.type || "website",
-      images: homePage.seo.image || "",
+      title: homePage?.seo?.title || "",
+      description: homePage?.seo?.description || "",
+      url: homePage?.seo?.url || "",
+      type: homePage?.seo?.type || "website",
+      images: homePage?.seo?.image || "",
     },
   };
 }
-export default async function Home() {
-  const localActive = await getLocale();
-  const data = await fetchHomePage(localActive);
 
+interface HomeProps {
+  params: { locale: "en" | "vi" | "ko" };
+}
+
+export default async function Home({ params: { locale } }: HomeProps) {
+  const data = await fetchHomePage(locale);
+  // console.log("data.project 1", data.project.items[0].customer.map((item: any) => item))
   return (
     <>
       <BrandValue mainData={data.main} />

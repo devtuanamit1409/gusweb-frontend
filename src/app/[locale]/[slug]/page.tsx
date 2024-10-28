@@ -7,6 +7,7 @@ import {
 } from "@/utils/GlobalApi";
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
@@ -40,6 +41,9 @@ export async function generateMetadata({
 const Page = async ({ params }: { params: { slug: string } }) => {
   const localActive = await getLocale();
   const data = await fetchFilteredArticleDetail(localActive, params.slug);
+  if (!data.articles || data.articles.length === 0) {
+    notFound();
+  }
   const subCateList = await fetchSubCategoryByCategoryId(
     localActive,
     data.articles[0].categoryId

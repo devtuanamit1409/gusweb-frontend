@@ -5,15 +5,19 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Image from "next/image";
 import { fetchContactUsPage } from "@/utils/GlobalApi";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
-const page = () => {
-  // const data = {
-  //   premble: "LIÊN HỆ",
-  //   title: "",
-  //   description:
-  //     "GUSWEB luôn sẵn sàng lắng nghe những yêu cầu, ý tưởng cũng như vấn đề về hiện diện kỹ thuật số của Doanh nghiệp. Chúng tôi sẽ trao đổi và tìm cách đưa ra những giải pháp tối ưu cho khách hàng.",
-  // };
+interface HomeProps {
+  params: { locale: "en" | "vi" | "ko" };
+}
+
+const Page = ({ params: { locale } }: HomeProps) => {
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
+  const t = useTranslations();
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -149,29 +153,26 @@ const page = () => {
             </div>
             <form onSubmit={handleSubmit}>
               <div
-                className={`${
-                  nameError || phoneError
+                className={`${nameError || phoneError
                     ? "laptop:max-h-[77px]"
                     : "laptop:max-h-[56px]"
-                } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
+                  } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
               >
                 <div className="relative laptop:max-w-[427px]  w-full">
                   <input
                     type="text"
                     id="name"
                     placeholder=""
-                    className={`laptop:max-w-[427px]  w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                      nameError ? "focus:border-red-500" : ""
-                    }`}
+                    className={`laptop:max-w-[427px]  w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${nameError ? "focus:border-red-500" : ""
+                      }`}
                     value={name}
                     onChange={handleNameChange}
                     required
                   />
                   <label
                     htmlFor="name"
-                    className={`${
-                      nameError ? "peer-focus:text-red-500 text-sm" : ""
-                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                    className={`${nameError ? "peer-focus:text-red-500 text-sm" : ""
+                      } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
                     Họ và tên
                   </label>
@@ -185,18 +186,16 @@ const page = () => {
                     type="tel"
                     id="phone"
                     placeholder=" "
-                    className={`laptop:max-w-[237px]  w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                      phoneError ? "focus:border-red-500" : ""
-                    }`}
+                    className={`laptop:max-w-[237px]  w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${phoneError ? "focus:border-red-500" : ""
+                      }`}
                     value={phoneNumber}
                     onChange={handlePhoneChange}
                     required
                   />
                   <label
                     htmlFor="phone"
-                    className={`${
-                      phoneError ? "peer-focus:text-red-500 text-sm" : ""
-                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                    className={`${phoneError ? "peer-focus:text-red-500 text-sm" : ""
+                      } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
                     Số điện thoại
                   </label>
@@ -210,18 +209,16 @@ const page = () => {
                   type="email"
                   id="email"
                   placeholder=" "
-                  className={`laptop:max-w-[688px]  w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                    emailError ? "focus:border-red-500" : ""
-                  }`}
+                  className={`laptop:max-w-[688px]  w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${emailError ? "focus:border-red-500" : ""
+                    }`}
                   value={email}
                   onChange={handleEmailChange}
                   required
                 />
                 <label
                   htmlFor="email"
-                  className={`${
-                    emailError ? "peer-focus:text-red-500 text-sm" : ""
-                  } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                  className={`${emailError ? "peer-focus:text-red-500 text-sm" : ""
+                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                 >
                   Địa chỉ email
                 </label>
@@ -314,9 +311,8 @@ const page = () => {
               <div className="flex justify-end mt-4">
                 <button
                   type="submit"
-                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${
-                    isFormValid ? "bg-[#27B3E9]" : "bg-gray-300"
-                  } text-white`}
+                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${isFormValid ? "bg-[#27B3E9]" : "bg-gray-300"
+                    } text-white`}
                   onClick={validateForm}
                 >
                   Gửi yêu cầu
@@ -462,4 +458,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

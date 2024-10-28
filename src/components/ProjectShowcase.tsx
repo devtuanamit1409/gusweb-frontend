@@ -1,25 +1,46 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import SwiperContainer from "@/components/SwiperContainer";
 import QuotationButton from "./QuotationButton";
 import { useTranslations } from "next-intl";
 import IconArrowDesc from "@/components/Icons/IconArrowDesc";
 import { Button, Modal } from "antd";
+import { Swiper } from "swiper";
 
 export default function ProjectShowcase({ project }: any) {
-
   const t = useTranslations();
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [tempSlideIndex, setTempSlideIndex] = useState(0);
   const [modal2Open, setModal2Open] = useState(false);
   const [isClosable, setIsClosable] = useState(false);
+  const swiperRef = useRef<Swiper | null>(null); // Khai báo kiểu cho swiperRef
 
+  const handlePreviousProject = () => {
+    setTempSlideIndex((prevIndex) =>
+      prevIndex === 0 ? project.items.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextProject = () => {
+    setTempSlideIndex((prevIndex) =>
+      prevIndex === project.items.length - 1 ? 0 : prevIndex + 1
+    );
+  };
   const handleClick = () => {
     setTempSlideIndex(activeSlideIndex);
     setModal2Open(true);
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.stop(); // Dừng autoplay
+    }
   };
 
+  const handleCloseModal = () => {
+    setModal2Open(false);
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.start(); // Khởi động lại autoplay
+    }
+  };
   useEffect(() => {
     const handleResize = () => {
       setIsClosable(window.innerWidth < 744);
@@ -37,7 +58,7 @@ export default function ProjectShowcase({ project }: any) {
             {t("homePage.project")}
           </p>
           <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]">
-            {project.items[activeSlideIndex].title}
+            {project?.items[activeSlideIndex]?.title}
           </p>
           <span className="text-base line-clamp-2 leading-6 text-[#363636]">
             {project.items[activeSlideIndex].description}
@@ -76,7 +97,9 @@ export default function ProjectShowcase({ project }: any) {
             <SwiperContainer
               projects={project.items}
               onSlideChangeIndex={setActiveSlideIndex}
+              ref={swiperRef} // Truyền swiperRef xuống SwiperContainer
             />
+
           </div>
           <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
             <QuotationButton label="Xem tất cả dự án" />
@@ -88,6 +111,7 @@ export default function ProjectShowcase({ project }: any) {
       </div>
 
       <Modal
+        onClose={handleCloseModal}
         centered
         open={modal2Open}
         onOk={() => setModal2Open(false)}
@@ -103,11 +127,22 @@ export default function ProjectShowcase({ project }: any) {
               <Image src={project.items[tempSlideIndex].url}
                 alt={project.items[tempSlideIndex].alt} width={418} height={427} />
             </div>
-            <div className='flex justify-center items-end max-w-[418px] h-[66px]'>
-              <div className='flex tablet:gap-6 mobile:gap-3'>
-                <Button>Dự án trước</Button>
-                <Button>Dự án sau</Button>
+            <div className='flex justify-center items-end tablet:w-[418px] mobile:max-w-[418px] h-[66px]'>
+              <div className='flex tablet:gap-6 mobile:gap-3 '>
+                <button
+                  className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px]"
+                  onClick={handlePreviousProject}
+                >
+                  Dự án trước
+                </button>
+                <button
+                  className="bg-[#27B3E9] text-white font-semibold h-[42px]  laptop:w-[166px] tablet:w-[100px] mobile:w-[100px]"
+                  onClick={handleNextProject}
+                >
+                  Dự án sau
+                </button>
               </div>
+
             </div>
           </div>
           <div className='max-w-[594px] max-h-[493px] mx-auto scrollbar-custom overflow-y-auto pr-6 gap-6 flex flex-col'>

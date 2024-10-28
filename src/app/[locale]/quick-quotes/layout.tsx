@@ -9,7 +9,7 @@ export async function generateMetadata({
   const contactPage = await fetchContactUsPage(localActive);
   // console.log(contactPage);
   return {
-    title: contactPage.seo.title || "Contact Page",
+    title: "báo giá nhanh GUSWEB - Sustainable IT Solutions",
     description: contactPage.seo.description || "",
     icons: {
       icon: "/images/logo.png",

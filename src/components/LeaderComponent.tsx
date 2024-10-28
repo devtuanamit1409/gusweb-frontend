@@ -8,6 +8,7 @@ import IconFabLeft from "./Icons/IconFabLeft";
 import IconFabRight from "./Icons/IconFabRight";
 
 const LeaderComponent: React.FC<any> = ({ meet }) => {
+  // console.log(meet);
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<any>(null);
 

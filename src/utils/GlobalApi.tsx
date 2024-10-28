@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const BaseApiUrl = "http://localhost:1337";
+const BaseApiUrl = process.env.NEXT_PUBLIC_BASE_URL_BACKEND;
+// console.log("day la base url nè", process.env.NEXT_PUBLIC_BASE_URL_BACKEND);
 
 const api = axios.create({
-  baseURL: "http://localhost:1337/api",
+  baseURL: `${process.env.NEXT_PUBLIC_BASE_URL_BACKEND}/api`,
   headers: {
     "Content-Type": "application/json",
   },
@@ -742,7 +743,7 @@ export const fetchContactUsPage = async (lang: string) => {
     lang
   );
   const res = data?.data?.attributes;
-  console.log(res);
+  // console.log(res);
 
   const formattedData = {
     locale: res?.locale,

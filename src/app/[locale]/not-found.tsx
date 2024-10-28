@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const not_found = () => {
   return (
-    <div className="pt-[76px]">
+    <div className="">
       <div className="PageNotFound ">
         <div className="PageNotFound-container">
           <h2 className="PageNotFound-title">Không tìm thấy trang</h2>
