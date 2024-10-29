@@ -334,7 +334,7 @@ export const fetchContactUsComp = async (lang: string) => {
 export const fetchHomePage = async (lang: string) => {
   const data = await getAllItem(
     "/home-page",
-    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.image.src,customer.images.src,chats.image.src, seo.images.src",
+    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.items.customer.src,project.items.technology.src,project.items.system.src,project.image.src,customer.images.src,chats.image.src, seo.images.src",
     lang
   );
   const res = data?.data?.attributes;
@@ -448,12 +448,29 @@ export const fetchHomePage = async (lang: string) => {
       id: res.project.id,
       alt: res.project.image.alt,
       url: BaseApiUrl + res.project.image.src?.data?.attributes?.url,
-      items: res?.project.items?.map((item: any) => ({
+      items: res.project.items?.map((item: any) => ({
         id: item.id,
         alt: item.alt,
         title: item.title,
         description: item.description,
         url: BaseApiUrl + item.src?.data?.attributes?.url,
+        customer: item.customer.map((customerItem: any) => ({
+          id: customerItem.id,
+          alt: customerItem.alt,
+          url: BaseApiUrl + customerItem.src?.data?.attributes?.url,
+        })),
+        technology: item.technology.map((technologyItem: any) => ({
+          id: technologyItem.id,
+          alt: technologyItem.alt,
+          url: BaseApiUrl + technologyItem.src?.data?.attributes?.url,
+        })),
+        system: item.system.map((systemItem: any) => ({
+          id: systemItem.id,
+          alt: systemItem.alt,
+          url: BaseApiUrl + systemItem.src?.data?.attributes?.url,
+        })),
+        challenge: item.challenge,
+        solution: item.solution,
       })),
     },
     customer: {
@@ -697,7 +714,6 @@ export const fetchAboutUsPage = async (lang: string) => {
         description: item.description,
         alt: item.alt,
         url: BaseApiUrl + item.src.data?.attributes?.url,
-        sex: item.sex,
       })),
     },
     team: {

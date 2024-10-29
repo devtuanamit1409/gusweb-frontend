@@ -5,9 +5,7 @@ interface QuotationButtonProps {
   label?: string; // Prop cho phép truyền nội dung nút
 }
 
-export default function QuotationButton({
-  label = "Báo Giá",
-}: QuotationButtonProps) {
+export default function QuotationButton({ label = "Báo Giá" }: QuotationButtonProps) {
   const t = useTranslations();
   return (
     <Link href="/quick-quotes">

@@ -9,7 +9,7 @@ import {
 import { ArrowRightOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -33,8 +33,8 @@ const BlogComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pagination, setPagination] = useState<any>(null);
 
-  // const searchParams = useSearchParams();
-  // const subCategoryQueryParam = searchParams.get("sub-category");
+  const searchParams = useSearchParams();
+  const subCategoryQueryParam = searchParams.get("sub-category");
 
   useEffect(() => {
     const getBlogData = async () => {
@@ -54,20 +54,20 @@ const BlogComponent = () => {
         // console.log("subCategoriesWithAll", subCategoriesWithAll);
         setSubCategorys(subCategoriesWithAll);
 
-        // if (subCategoryQueryParam) {
-        //   const foundIndex = subCategoriesWithAll.findIndex(
-        //     (subCategory) => subCategory.slug === subCategoryQueryParam
-        //   );
-        //   if (foundIndex !== -1) {
-        //     setActiveIndex(foundIndex);
-        //   }
-        // }
+        if (subCategoryQueryParam) {
+          const foundIndex = subCategoriesWithAll.findIndex(
+            (subCategory) => subCategory.slug === subCategoryQueryParam
+          );
+          if (foundIndex !== -1) {
+            setActiveIndex(foundIndex);
+          }
+        }
       };
       getListSubCategory();
     };
 
     getBlogData();
-  }, [localActive]);
+  }, [localActive, subCategoryQueryParam]);
 
   useEffect(() => {
     const getFilteredArticles = async () => {

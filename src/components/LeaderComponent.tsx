@@ -114,7 +114,7 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
                                 : "text-[12px] leading-[16.8px] "
                             } text-[#363636]`}
                           >
-                            {item.sex}
+                            {item.male || "Ông"}
                           </span>
                           <p
                             className={`${

@@ -26,10 +26,10 @@
         "slug": "/contact"
       }
     ],
-    "button": "Báo giá",
     "language": "Tiếng Việt",
     "language1": "Tiếng Anh",
-    "language2": "Tiếng Hàn"
+    "language2": "Hàn Quốc",
+    "button": "Báo giá"
   },
   "contact": {
     "buttonLeft": "Tải ebook",
@@ -45,47 +45,6 @@
     "customer": "KHÁCH HÀNG CỦA GUSWEB",
     "comment": "Câu chuyện thành công của khách hàng",
     "article": "Khai thác website hiệu quả",
-    "buttonAll": "Xem tất cả",
-    "workPrinciple": "Nguyên tắc làm việc",
-    "buttonDetail": "Xem chi tiết"
-  },
-  "cardComponet":{
-    "otherProjects": "Các dự án khác có thể bạn quan tâm",
-    "viewAll": "Xem tất cả",
-    "viewMore": "Xem thêm",
-     "secondAgo": "giây trước",
-      "minuteAgo": "phút trước",
-      "hourAgo": "giờ trước",
-      "dayAgo": "ngày trước"
-  },
-  "servicePage":{
-    "solution": "CÁC GIẢI PHÁP CỦA GUSWEB",
-    "help": "Chúng tôi luôn có thể giúp bạn",
-    "culture": "VĂN HOÁ CỦA"
-  },
-  "contactPage":{
-    "ready": "Chúng tôi sẵn sàng giúp bạn",
-    "support": "GUSWEB có thể hỗ trợ bạn trong lĩnh vực gì?",
-    "name": "Họ và tên",
-    "phone": "Số điện thoại",
-    "email": "Địa chỉ email",
-    "company": "Tên công ty",
-    "content": "Nội dung",
-    "budget": "Ngân sách tài chính cho dự án muốn đầu tư",
-    "send": "Gửi yêu cầu",
-    "ourOffice": "Văn phòng của chúng tôi",
-    "workingHours": "Giờ làm việc",
-    "follow": "Theo dõi GUSWEB tại",
-    "error": {
-      "name": "Họ và tên không được để trống.",
-      "name2":"Họ và tên chỉ được chứa các chữ cái.",
-      "phone": "Số điện thoại bắt đầu bằng số 0.",
-      "phone2": "Số điện thoại phải có 10 số.",
-      "email": "Vui lòng nhập đúng định dạng email, VD: example@gmail.com",
-      "formError": "Vui lòng sửa các lỗi trong biểu mẫu.",
-      "submitError": "Hãy nhập đúng các yêu cầu ở trên trước khi gửi thông tin."
-
-    }
-    
+    "buttonAll": "Xem tất cả"
   }
 }

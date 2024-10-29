@@ -49,7 +49,6 @@ interface HomeProps {
 
 export default async function Home({ params: { locale } }: HomeProps) {
   const data = await fetchHomePage(locale);
-
   return (
     <>
       <BrandValue mainData={data.main} />

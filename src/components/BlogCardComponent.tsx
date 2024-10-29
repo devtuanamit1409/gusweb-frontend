@@ -1,15 +1,10 @@
-"use client";
-
-import React, { use } from "react";
+import React from "react";
 import Image from "next/image";
 import { CardModel } from "@/models/cardModel";
 import Link from "next/link";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import { useTranslations } from "next-intl";
 
 const BlogCardComponent = ({ item }: any) => {
-  const t = useTranslations();
-
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -18,16 +13,16 @@ const BlogCardComponent = ({ item }: any) => {
     const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
     if (diffInSeconds < 60) {
-      return `${diffInSeconds} ${t("cardComponet.secondAgo")}`;
+      return `${diffInSeconds} giây trước`;
     } else if (diffInSeconds < 3600) {
       const diffInMinutes = Math.floor(diffInSeconds / 60);
-      return `${diffInMinutes} ${t("cardComponet.minuteAgo")}`;
+      return `${diffInMinutes} phút trước`;
     } else if (diffInSeconds < 86400) {
       const diffInHours = Math.floor(diffInSeconds / 3600);
-      return `${diffInHours} ${t("cardComponet.hourAgo")}`;
+      return `${diffInHours} giờ trước`;
     } else {
       const diffInDays = Math.floor(diffInSeconds / 86400);
-      return `${diffInDays} ${t("cardComponet.dayAgo")}`;
+      return `${diffInDays} ngày trước`;
     }
   };
   return (
@@ -53,7 +48,7 @@ const BlogCardComponent = ({ item }: any) => {
         </p>
         <Link href={item.slug}>
           <div className="text-[#1FA9EC] w-[102px] gap-2 font-medium text-[15px] leading-[18px] font-montserrat flex items-center ">
-            {t("cardComponet.viewMore")}
+            Xem thêm
             <ArrowRightOutlined
               style={{ marginLeft: "10px", color: "#1FA9EC" }}
             />

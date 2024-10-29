@@ -45,7 +45,7 @@ const page = async ({ params: { locale } }: HomeProps) => {
   return (
     <div className="flex flex-col laptop:gap-0 gap-10">
       <BannerComponent intro={data.intro} brands={data.brands} />
-      <div className=" laptop:py-20 px-4">
+      <div className=" laptop:py-20   px-4">
         <SlideComponent brands={data.brands} />
       </div>
       <Slogan slogans={data.slogans} />
