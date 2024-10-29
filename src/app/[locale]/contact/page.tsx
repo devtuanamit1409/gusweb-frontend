@@ -39,7 +39,7 @@ const Page = ({ params: { locale } }: HomeProps) => {
     };
 
     getContactData();
-  }, []);
+  }, [localActive]);
 
   const handleSubmit = () => {
     validateForm();
