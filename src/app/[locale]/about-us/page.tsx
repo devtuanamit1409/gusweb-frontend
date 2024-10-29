@@ -31,9 +31,9 @@ interface HomeProps {
 }
 
 const page = async ({ params: { locale } }: HomeProps) => {
-  setRequestLocale(locale);
-  const localActive = await getLocale();
-  const data = await fetchAboutUsPage(localActive);
+  // setRequestLocale(locale);
+  // const localActive = await getLocale();
+  const data = await fetchAboutUsPage(locale || "vi");
   return <AboutUsPage data={data} />;
 };
 

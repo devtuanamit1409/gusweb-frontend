@@ -33,8 +33,8 @@ const BlogComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pagination, setPagination] = useState<any>(null);
 
-  //   const searchParams = useSearchParams();
-  //   const subCategoryQueryParam = searchParams.get("sub-category");
+  // const searchParams = useSearchParams();
+  // const subCategoryQueryParam = searchParams.get("sub-category");
 
   useEffect(() => {
     const getBlogData = async () => {

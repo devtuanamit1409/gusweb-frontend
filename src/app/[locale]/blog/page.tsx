@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 const Page = ({ params: { locale } }: PageProps) => {
-  setRequestLocale(locale);
+  // setRequestLocale(locale);
   return (
     <>
       <BlogComponent />
