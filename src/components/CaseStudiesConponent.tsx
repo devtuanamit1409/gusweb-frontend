@@ -23,7 +23,7 @@ const CaseStudies: React.FC<any> = ({ data }) => {
     };
 
     getArticleData();
-  }, []);
+  }, [data.categoryId]);
   const handlePageChange = (page: number) => {
     if (page > 0 && page <= totalPages) {
       setCurrentPage(page);
