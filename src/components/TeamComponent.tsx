@@ -2,14 +2,15 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import React from "react";
 
-const TeamComponent: React.FC<any> = ({ team }) => {
+const TeamComponent: React.FC<any> = async ({ team }) => {
+  const  t  = await getTranslations();
   return (
     <div className="custom-container  mobile:py-10 tablet:py-20  px-4  laptop:py-20 flex justify-center">
       <div className=" flex flex-col items-center laptop:items-start gap-10 relative max-w-[1116px] ">
         <div className="flex flex-col gap-4 max-w-[1021px]">
           <div className="flex flex-col gap-2 laptop:items-start   items-center">
             <p className=" text-[24px] leading-[38.4px] text-preamble font-normal  line-clamp-1  text-[#1C1C1C] relative text-preamble uppercase text-center ">
-              VĂN HOÁ CỦA <span className="text-[#1FA9EC]">{team.name}</span>
+             {t("servicePage.culture")} <span className="text-[#1FA9EC]">{team.name}</span>
             </p>
             <p className="laptop:text-[56px] laptop:leading-[67.2px] tablet:text-[42px] tablet:leading-[50.4px] font-bold font-bricolage text-center mobile:text-[32px] mobile:leading-[38.4px] line-clamp-2">
               {team.title}

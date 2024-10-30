@@ -1,8 +1,10 @@
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const ExpensiveComponent: React.FC<any> = ({ exp }) => {
+const ExpensiveComponent: React.FC<any> = async ({ exp }) => {
+  const t = await getTranslations();
   return (
     <div className=" relative w-full h-full ">
       <Image
@@ -19,11 +21,15 @@ const ExpensiveComponent: React.FC<any> = ({ exp }) => {
             </p>
             <p>{exp.description}</p>
             <div className="w-full flex flex-row gap-6">
-              <button className="ant-btn w-[166px] mobile:w-[130px] mobile:h-[42px] bg-[#27B3E9]">
-                <Link href="">Tải eBook</Link>
+              <button className="ant-btn w-[166px] mobile:w-[130px] mobile:h-[42px] bg-[#27B3E9] flex items-center">
+                <Link href="">
+                  {t("contact.buttonLeft")}
+                </Link>
               </button>
               <button className="gradient-text  w-[166px] mobile:w-[130px] mobile:h-[42px]">
-                <Link href="">Xem thêm</Link>
+                <Link href="">
+                {t("cardComponet.viewMore")}
+                </Link>
               </button>
             </div>
           </div>

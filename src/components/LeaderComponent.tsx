@@ -64,33 +64,29 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
                   <SwiperSlide
                     key={index}
                     onClick={() => handleSlideClick(index)}
-                    className={`!h-[481px] tablet:!h-[621px] !flex items-end justify-center ${
-                      activeIndex === index
+                    className={`!h-[481px] tablet:!h-[621px] !flex items-end justify-center ${activeIndex === index
                         ? "!w-full tablet:!w-[451px]"
                         : "!w-full tablet:!w-[451px] laptop:!w-[356px]"
-                    } transition-all duration-300 ease-in-out`}
+                      } transition-all duration-300 ease-in-out`}
                   >
                     {({ isActive }) => (
                       <div
-                        className={`${
-                          isActive
+                        className={`${isActive
                             ? "w-full h-full shadow-none laptop:shadow-[0_13px_27px_-5px_rgba(50,50,93,0.25),_0_8px_16px_-8px_rgba(0,0,0,0.3)] gap-6 px-[1.5rem] py-[2rem] tablet:py-[4rem]"
                             : "w-[451px] h-[621px] laptop:w-[356px] laptop:h-[318px] shadow-[15px_50px_50px_rgba(198,217,225,0.3)] gap-4 py-4 px-[1rem]"
-                        } transition-all duration-300 ease-in-out flex flex-col items-center rounded-md`}
+                          } transition-all duration-300 ease-in-out flex flex-col items-center rounded-md`}
                       >
                         <div
-                          className={`${
-                            activeIndex === index
+                          className={`${activeIndex === index
                               ? "w-[260px] h-[260px] "
                               : "w-[166px] h-[166px] "
-                          } min-h-[166px]`}
+                            } min-h-[166px]`}
                         >
                           <div
-                            className={`${
-                              activeIndex === index
+                            className={`${activeIndex === index
                                 ? "card-top-image"
                                 : "card-top-image-no-active"
-                            } w-full h-full relative`}
+                              } w-full h-full relative`}
                           >
                             <Image
                               src={item.url}
@@ -103,43 +99,38 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
                         </div>
 
                         <div
-                          className={`${
-                            activeIndex === index ? "gap-2" : "gap-0"
-                          } flex flex-col items-center`}
+                          className={`${activeIndex === index ? "gap-2" : "gap-0"
+                            } flex flex-col items-center`}
                         >
                           <span
-                            className={` ${
-                              activeIndex === index
+                            className={` ${activeIndex === index
                                 ? "text-base leading-6 "
                                 : "text-[12px] leading-[16.8px] "
-                            } text-[#363636]`}
+                              } text-[#363636]`}
                           >
                             {item.male || "Ông"}
                           </span>
                           <p
-                            className={`${
-                              activeIndex === index
+                            className={`${activeIndex === index
                                 ? "font-bold text-[32px] leading-[38.4px]"
                                 : "font-semibold text-[20px] leading-6"
-                            } font-bricolage  text-[#1C1C1C]`}
+                              } font-bricolage  text-[#1C1C1C]`}
                           >
                             {item.name}
                           </p>
                           <p
-                            className={` ${
-                              activeIndex === index
+                            className={` ${activeIndex === index
                                 ? "text-base leading-6 "
                                 : "text-[12px] leading-[16.8px] mt-2"
-                            } text-[#363636]`}
+                              } text-[#363636]`}
                           >
                             {item.position}
                           </p>
                           <p
-                            className={` ${
-                              activeIndex === index
+                            className={` ${activeIndex === index
                                 ? "text-base leading-6 "
                                 : "text-[12px] leading-[16.8px] "
-                            } text-[#363636]`}
+                              } text-[#363636]`}
                           >
                             {item.role}
                           </p>
@@ -156,11 +147,10 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
             </p>
             <div className="flex flex-row items-center gap-4 absolute bottom-[-48px] tablet:bottom-8 left-1/2 tablet:left-0 transform -translate-x-1/2 tablet:translate-x-0 z-10">
               <div
-                className={` ${
-                  activeIndex === 0
+                className={` ${activeIndex === 0
                     ? "opacity-40 hover:opacity-[0.4] cursor-not-allowed"
                     : "opacity-100 cursor-pointer"
-                } hover:opacity-[0.95]`}
+                  } hover:opacity-[0.95]`}
                 onClick={() => {
                   if (activeIndex !== 0) {
                     swiperRef.current.slidePrev(500);
@@ -170,11 +160,10 @@ const LeaderComponent: React.FC<any> = ({ meet }) => {
                 <IconFabLeft />
               </div>
               <div
-                className={` ${
-                  activeIndex === meet.members.length - 1
+                className={` ${activeIndex === meet.members.length - 1
                     ? "opacity-40 hover:opacity-[0.4] cursor-not-allowed"
                     : "opacity-100 cursor-pointer"
-                } hover:opacity-[0.95]`}
+                  } hover:opacity-[0.95]`}
                 onClick={() => {
                   if (activeIndex !== meet.members.length - 1) {
                     swiperRef.current.slideNext(500);

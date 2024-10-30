@@ -3,6 +3,9 @@ import Aos from "aos";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const SupportIdeas: React.FC<any> = ({ help }) => {
   const t = useTranslations();
@@ -34,7 +37,7 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
   return (
     <div className="custom-container laptop:py-[80px]  px-4 py-10 flex flex-col items-center ">
       <div className="laptop:max-w-[1116px] flex flex-col gap-6 items-center justify-center">
-        <div className="gap-4  flex flex-col ">
+        <div className="gap-4  flex flex-col " data-aos="fade-right">
           <div className=" flex laptop:justify-start justify-center">
             <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]  ">
             {t("servicePage.help")}
@@ -48,7 +51,7 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
           </p>
         </div>
 
-        <div className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 laptop:max-w-[1116px] tablet:px-20 laptop:px-0">
+        <div data-aos="fade-left" className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 laptop:max-w-[1116px] tablet:px-20 laptop:px-0">
           {help.items &&
             help.items.map((item: any, index: number) => (
               <div

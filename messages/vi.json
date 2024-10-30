@@ -32,8 +32,7 @@
     "language2": "Tiếng Hàn"
   },
   "contact": {
-    "buttonLeft": "Tải ebook",
-    "buttonRight": "Xem Thêm"
+    "buttonLeft": "Tải ebook"
   },
   "homePage": {
     "buttonMain": "Bắt đầu ngay",
@@ -61,7 +60,9 @@
   "servicePage":{
     "solution": "CÁC GIẢI PHÁP CỦA GUSWEB",
     "help": "Chúng tôi luôn có thể giúp bạn",
-    "culture": "VĂN HOÁ CỦA"
+    "culture": "VĂN HOÁ CỦA",
+      "customer":"Khách hàng tiêu biểu",
+    "whyAmit":"Tại sao nên chọn GUSWEB?"
   },
   "contactPage":{
     "ready": "Chúng tôi sẵn sàng giúp bạn",

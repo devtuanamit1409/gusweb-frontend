@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { message } from "antd";
 import { useTranslations } from "next-intl";
+import { flushAllTraces } from "next/dist/trace";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -81,7 +82,7 @@ const Page = ({ params: { locale } }: HomeProps) => {
       !email
     ) {
       setSubmitError(
-        "Hãy nhập đúng các yêu cầu ở trên trước khi gửi thông tin."
+        `${t("contactPage.error.submitError")}`
       );
     } else {
       setSubmitError("");
@@ -104,9 +105,9 @@ const Page = ({ params: { locale } }: HomeProps) => {
     const value = event.target.value;
     const isValidName = /^[A-Za-z\s]+$/.test(value);
     if (!value) {
-      setNameError("Họ và tên không được để trống.");
+      setNameError(`${t("contactPage.error.name")}`);
     } else if (!isValidName && value.length > 0) {
-      setNameError("Họ và tên chỉ được chứa các chữ cái.");
+      setNameError(`${t("contactPage.error.name2")}`);
     } else {
       setNameError("");
     }
@@ -121,10 +122,16 @@ const Page = ({ params: { locale } }: HomeProps) => {
 
     if (sanitizedValue.length > 0) {
       if (sanitizedValue[0] !== "0") {
-        setPhoneError("Số điện thoại bắt đầu bằng số 0.");
+        setPhoneError(`${t("contactPage.error.phone")}`);
+
       } else if (sanitizedValue.length !== 10) {
-        setPhoneError("Số điện thoại có đúng 10 chữ số.");
+        setPhoneError(`${t("contactPage.error.phone2")}`);
+
+      } else {
+        setPhoneError("");
       }
+    } else {
+      setPhoneError("");
     }
 
     setPhoneNumber(sanitizedValue);
@@ -139,7 +146,8 @@ const Page = ({ params: { locale } }: HomeProps) => {
       setEmailError("");
     } else {
       setEmailError(
-        "Vui lòng nhập đúng định dạng email, VD: example@gmail.com"
+        `${t("contactPage.error.email")}`
+
       );
     }
   };
@@ -153,41 +161,41 @@ const Page = ({ params: { locale } }: HomeProps) => {
           <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:max-w-[500px] tablet:h-[1000px] mobile:max-w-[328px] mobile:h-[988px] rounded-2xl border py-[24px] px-4 gap-4 flex flex-col tablet:justify-between bg-white">
             <div className="laptop:h-[68px] tablet:h-[112px] pb-6 ">
               <h1 className="laptop:text-[36px] font-bold font-montserrat leading-[44px] tablet:text-[36px]  text-[#1C1C1C] mobile:text-[32px]">
-                Chúng tôi sẵn sàng giúp bạn
+                {t("contactPage.ready")}
+
               </h1>
             </div>
             <div className="h-[24px] mobile:h-12 gap-4">
               <p className="text-base font-normal leading-6  text-[#363636]">
-                GUSWEB có thể hỗ trợ bạn trong lĩnh vực gì?
+                {t("contactPage.support")}
+
               </p>
             </div>
             <form onSubmit={handleSubmit}>
               <div
-                className={`${
-                  nameError || phoneError
-                    ? "laptop:max-h-[77px]"
-                    : "laptop:max-h-[56px]"
-                } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
+                className={`${nameError || phoneError
+                  ? "laptop:max-h-[77px]"
+                  : "laptop:max-h-[56px]"
+                  } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
               >
                 <div className="relative laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
                   <input
                     type="text"
                     id="name"
                     placeholder=""
-                    className={`laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                      nameError ? "focus:border-red-500" : ""
-                    }`}
+                    className={`laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${nameError ? "focus:border-red-500" : ""
+                      }`}
                     value={name}
                     onChange={handleNameChange}
                     required
                   />
                   <label
                     htmlFor="name"
-                    className={`${
-                      nameError ? "peer-focus:text-red-500 text-sm" : ""
-                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                    className={`${nameError ? "peer-focus:text-red-500 text-sm" : ""
+                      } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
-                    Họ và tên
+                    {t("contactPage.name")}
+
                   </label>
                   {nameError && (
                     <span className="text-red-500 text-sm">{nameError}</span>
@@ -199,20 +207,19 @@ const Page = ({ params: { locale } }: HomeProps) => {
                     type="tel"
                     id="phone"
                     placeholder=" "
-                    className={`laptop:max-w-[237px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                      phoneError ? "focus:border-red-500" : ""
-                    }`}
+                    className={`laptop:max-w-[237px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${phoneError ? "focus:border-red-500" : ""
+                      }`}
                     value={phoneNumber}
                     onChange={handlePhoneChange}
                     required
                   />
                   <label
                     htmlFor="phone"
-                    className={`${
-                      phoneError ? "peer-focus:text-red-500 text-sm" : ""
-                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                    className={`${phoneError ? "peer-focus:text-red-500 text-sm" : ""
+                      } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
-                    Số điện thoại
+                    {t("contactPage.phone")}
+
                   </label>
                   {phoneError && (
                     <span className="text-red-500 text-sm">{phoneError}</span>
@@ -224,20 +231,19 @@ const Page = ({ params: { locale } }: HomeProps) => {
                   type="email"
                   id="email"
                   placeholder=" "
-                  className={`laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
-                    emailError ? "focus:border-red-500" : ""
-                  }`}
+                  className={`laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${emailError ? "focus:border-red-500" : ""
+                    }`}
                   value={email}
                   onChange={handleEmailChange}
                   required
                 />
                 <label
                   htmlFor="email"
-                  className={`${
-                    emailError ? "peer-focus:text-red-500 text-sm" : ""
-                  } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                  className={`${emailError ? "peer-focus:text-red-500 text-sm" : ""
+                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                 >
-                  Địa chỉ email
+                  {t("contactPage.email")}
+
                 </label>
                 {emailError && (
                   <span className="text-red-500 text-sm">{emailError}</span>
@@ -258,7 +264,8 @@ const Page = ({ params: { locale } }: HomeProps) => {
                   htmlFor="companyName"
                   className="absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm "
                 >
-                  Tên công ty
+                  {t("contactPage.company")}
+
                 </label>
               </div>
 
@@ -276,12 +283,12 @@ const Page = ({ params: { locale } }: HomeProps) => {
                   htmlFor="content"
                   className="absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm "
                 >
-                  Nội dung
+                  {t("contactPage.content")}
                 </label>
               </div>
 
               <div className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full laptop:h-[136px] tablet:h-[136px] mobile:h-[160px] flex flex-col gap-14">
-                <p className="">Ngân sách tài chính cho dự án muốn đầu tư</p>
+                <p className=""> {t("contactPage.budget")}</p>
                 <Box sx={{ width: "100%" }}>
                   <Slider
                     getAriaLabel={() => "Ngân sách"}
@@ -328,12 +335,12 @@ const Page = ({ params: { locale } }: HomeProps) => {
               <div className="flex justify-end mt-10">
                 <button
                   type="submit"
-                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${
-                    isFormValid ? "bg-[#27B3E9]" : "bg-gray-300"
-                  } text-white`}
+                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${name && phoneNumber && email && companyName && content && !nameError && !phoneError && !emailError ? "bg-[#27B3E9]" : "bg-gray-300"
+                    } text-white`}
                   onClick={validateForm}
                 >
-                  Gửi yêu cầu
+                  {t("contactPage.send")}
+
                 </button>
               </div>
               {submitError && (

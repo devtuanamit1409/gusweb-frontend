@@ -25,16 +25,8 @@ export async function generateMetadata({
       description: articleData.articles[0].seo.description || "",
       url: articleData.articles[0].seo.url || "",
       type: articleData.articles[0].seo.type || "website",
-      images: articleData.articles[0].seo.image
-        ? [
-          {
-            url: articleData.articles[0].seo.image.url || "",
-            width: 800,
-            height: 600,
-            alt: articleData.articles[0].seo.image.alt || "",
-          },
-        ]
-        : [], // If no image, return an empty array
+      images:articleData.articles[0].seo.image.url || ""
+        
     },
   };
 }
