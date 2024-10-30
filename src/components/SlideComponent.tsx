@@ -10,7 +10,7 @@ import { IconArrowTronButtonTrai } from "@/components/Icons/IconArrowTronButtonT
 
 const Slide: React.FC<any> = ({ brands }) => {
   const swiperRef = useRef<any>(null);
-
+  // console.log("brands123",brands)
   const handlePrevClick = () => {
     if (swiperRef.current) {
       swiperRef.current.swiper.slidePrev();

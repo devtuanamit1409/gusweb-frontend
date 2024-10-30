@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 import { fetchFilteredArticles } from "@/utils/GlobalApi";
 import BlogCardComponent from "./BlogCardComponent";
 import { Empty } from "antd";
 
 export default async function BlogCard() {
+  const t = await getTranslations();
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -33,13 +36,15 @@ export default async function BlogCard() {
       <div className="flex laptop:items-start  mobile:items-start tablet:items-center flex-col gap-6 ">
         <div className="flex tablet:items-center justify-between w-full tablet:px-[90px] laptop:px-4 laptop:max-w-[1116px]  laptop:flex-row flex-col">
           <span className="tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage tablet:text-center">
-            Những dự án khác có thể bạn quan tâm
+          {t("cardComponet.otherProjects")}
+
           </span>
           <Link
             href="/blog"
             className="bg-[#27B3E9] flex items-center justify-center text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
           >
-            <p>Xem tất cả</p>
+                       <p>{t("cardComponet.viewAll")}</p>
+
           </Link>
         </div>
         <div className=" w-full max-w-[1116px] mx-auto px-[39px] tablet:px-[178px] laptop:px-4 mt-[40px]">

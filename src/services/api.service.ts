@@ -14,8 +14,8 @@ class ApiService {
   constructor() {
     const token = process.env.DEV_TOKEN;
     // console.log(token);
-
     this.axios = axios.create({
+      baseURL: `${process.env.NEXT_PUBLIC_BASE_URL_BACKEND}/api`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

@@ -37,7 +37,7 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
         <div className="gap-4  flex flex-col ">
           <div className=" flex laptop:justify-start justify-center">
             <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]  ">
-              Chúng tôi luôn có thể giúp bạn
+            {t("servicePage.help")}
             </span>
           </div>
           <h1 className="laptop:text-[56px] font-bold tablet:tetx-[42px] tablet:leading-[50.4px] font-bricolage mobile:text-[32px]  mobile:leading-[38.4px] laptop:leading-[67.2px] text-[#1C1C1C]  laptop:text-start text-center ">

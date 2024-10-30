@@ -26,10 +26,10 @@
         "slug": "/contact"
       }
     ],
+    "button": "인용문",
     "language": "베트남어",
     "language1": "영어",
-    "language2": "한국어",
-    "button": "인용문"
+    "language2": "한국어"
   },
   "contact": {
     "buttonLeft": "전자책 다운로드",
@@ -45,6 +45,45 @@
     "customer": "GUSWEB 고객",
     "comment": "고객 성공 사례",
     "article": "효과적인 웹사이트 활용",
-    "buttonAll": "모두 보기"
+    "buttonAll": "모두 보기",
+    "workPrinciple": "작업 원칙",
+    "buttonDetail": "세부정보 보기"
+  },
+  "cardComponet": {
+    "otherProjects": "관심을 가질 수 있는 다른 프로젝트",
+    "viewAll": "모두 보기",
+    "viewMore": "더 보기",
+    "secondAgo": "초 전",
+    "minuteAgo": "분 전",
+    "hourAgo": "시간 전",
+    "dayAgo": "일 전"
+  },
+  "servicePage": {
+    "solution": "GUSWEB 솔루션",
+    "help": "우리는 항상 당신을 도울 수 있습니다",
+    "culture": "문화"
+  },
+  "contactPage": {
+    "ready": "우리는 당신을 도울 준비가 되어 있습니다",
+    "support": "GUSWEB이 어떻게 지원할 수 있습니까?",
+    "name": "성명",
+    "phone": "전화번호",
+    "email": "이메일 주소",
+    "company": "회사 이름",
+    "content": "내용",
+    "budget": "투자하고자 하는 프로젝트의 예산",
+    "send": "요청 보내기",
+    "ourOffice": "우리 사무실",
+    "workingHours": "근무 시간",
+    "follow": "GUSWEB 팔로우",
+    "error": {
+      "name": "성명을 비워둘 수 없습니다.",
+      "name2": "성명은 문자만 포함할 수 있습니다.",
+      "phone": "전화번호는 0으로 시작해야 합니다.",
+      "phone2": "전화번호는 10자리여야 합니다.",
+      "email": "유효한 이메일 형식을 입력하세요, 예: example@gmail.com",
+      "formError": "양식의 오류를 수정하세요.",
+      "submitError": "정보를 제출하기 전에 위의 요구 사항을 충족하세요."
+    }
   }
 }

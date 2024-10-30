@@ -10,6 +10,9 @@ import { Collapse } from "antd";
 import { useTranslations } from "next-intl";
 
 export default function WorkPrinciples({ work }: any) {
+  const t = useTranslations();
+
+
   const collapseItems = work.items.map((itemDescription: any, idx: number) => ({
     key: idx.toString(),
     label: (
@@ -25,6 +28,7 @@ export default function WorkPrinciples({ work }: any) {
   }));
 
   return (
+    
     <div className="relative max-w-[1116px] mx-auto mt-20 p-4 h-[833px]">
       <div className="mt-10">
         <Image
@@ -37,7 +41,8 @@ export default function WorkPrinciples({ work }: any) {
         />
         <div className="max-w-[800px]">
           <span className="relative text-preamble w-[300px] text-2xl">
-            NGUYÊN TẮC LÀM VIỆC
+          {t("homePage.workPrinciple")}
+
           </span>
           <p className="text-[56px] font-bricolage">{work.title}</p>
           <p>{work.description}</p>

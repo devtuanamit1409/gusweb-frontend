@@ -67,7 +67,7 @@ export default function ProjectShowcase({ project }: any) {
             className="text-[#1FA9EC] font-medium text-[15px] underline mt-2 flex flex-row items-center gap-2 leading-6 w-max h-8"
             onClick={handleClick}
           >
-            Xem chi tiết
+            <p>{t("homePage.buttonProj")}</p>
             <IconArrowDesc />
           </button>
         </div>

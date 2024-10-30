@@ -23,7 +23,8 @@ const nextConfig = {
       },
       {
         protocol: "http",
-        hostname: "dashboard.demo-amit.com",
+        hostname: "172.168.0.5",
+        port: "1440",
         pathname: "/uploads/**",
       },
     ],
