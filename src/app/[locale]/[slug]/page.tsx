@@ -15,18 +15,18 @@ export async function generateMetadata({
   const articleData: any = await fetchFilteredArticleDetail(localActive, params.slug);
 
   return {
-    title: articleData.articles[0].seo.title || "article",
-    description: articleData.articles[0].seo.description || "",
+    title: articleData.articles[0]?.seo?.title || "article",
+    description: articleData.articles[0]?.seo?.description || "",
     icons: {
       icon: "/images/logo.png",
     },
     openGraph: {
-      title: articleData.articles[0].seo.title || "",
-      description: articleData.articles[0].seo.description || "",
-      url: articleData.articles[0].seo.url || "",
-      type: articleData.articles[0].seo.type || "website",
-      images:articleData.articles[0].seo.image.url || ""
-        
+      title: articleData.articles[0]?.seo?.title || "",
+      description: articleData.articles[0]?.seo?.description || "",
+      url: articleData.articles[0]?.seo?.url || "",
+      type: articleData.articles[0]?.seo?.type || "website",
+      images: articleData.articles[0]?.seo?.image.url || ""
+
     },
   };
 }

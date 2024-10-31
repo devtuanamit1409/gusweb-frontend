@@ -9,6 +9,7 @@ import { Button, Modal } from "antd";
 import { Swiper } from "swiper";
 
 export default function ProjectShowcase({ project }: any) {
+
   const t = useTranslations();
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [tempSlideIndex, setTempSlideIndex] = useState(0);
@@ -16,6 +17,31 @@ export default function ProjectShowcase({ project }: any) {
   const [isClosable, setIsClosable] = useState(false);
   const swiperRef = useRef<Swiper | null>(null); // Khai báo kiểu cho swiperRef
 
+  // const handleDownloadProposal = () => {
+  //   const proposalUrl = project.items[tempSlideIndex]?.file?.data[0]?.url; // Đường dẫn đúng
+
+  //   if (proposalUrl) {
+  //     const link = document.createElement('a');
+  //     link.href = proposalUrl;
+  //     link.download = ''; // Tên file tự động hoặc bạn có thể chỉ định
+  //     document.body.appendChild(link); // Thêm thẻ vào DOM
+  //     link.click(); // Kích hoạt sự kiện click
+  //     document.body.removeChild(link); // Xóa thẻ sau khi tải xong
+  //   } else {
+  //     console.log("File không tồn tại"); // Thông báo nếu không tìm thấy file
+  //   }
+  // };
+
+  const handleDownload = (fileUrl: string) => {
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.setAttribute("download", "proposal.doc"); 
+    document.body.appendChild(link);
+    link.click(); 
+    document.body.removeChild(link); 
+  };
+  
+  console.log("project-123", project)
   const handlePreviousProject = () => {
     setTempSlideIndex((prevIndex) =>
       prevIndex === 0 ? project.items.length - 1 : prevIndex - 1
@@ -229,7 +255,8 @@ export default function ProjectShowcase({ project }: any) {
             <div className="flex tablet:gap-6 mobile:gap-3 ">
               <button
                 className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
-
+              // onClick={handleDownloadProposal}
+              onClick={() => handleDownload(project.items[tempSlideIndex]?.file)}
               >
                 Tải proposal
               </button>

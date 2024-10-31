@@ -334,7 +334,7 @@ export const fetchContactUsComp = async (lang: string) => {
 export const fetchHomePage = async (lang: string) => {
   const data = await getAllItem(
     "/home-page",
-    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.items.customer.src,project.items.technology.src,project.items.system.src,project.image.src,customer.images.src,chats.image.src, seo.images.src",
+    "main.banner.src,main.color,main.order.src,main.subImg.src,main.text,main.icons.src,main.card.src,whoUs.src,webUs.intro.src,webUs.items.src,about.image.src,whyUs.items.src,work.items,project.items.src,project.items.customer.src,project.items.technology.src,project.items.system.src,project.image.src,project.items.file,customer.images.src,chats.image.src, seo.images.src",
     lang
   );
   const res = data?.data?.attributes;
@@ -471,6 +471,7 @@ export const fetchHomePage = async (lang: string) => {
         })),
         challenge: item.challenge,
         solution: item.solution,
+        file: BaseApiUrl + item.file.data[0].attributes?.url,
       })),
     },
     customer: {
