@@ -8,8 +8,9 @@ interface PageProps {
   };
 }
 
-const Page = ({ params: { locale } }: PageProps) => {
+const Page = async ({ params: { locale } }: PageProps) => {
   setRequestLocale(locale);
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <BlogComponent />
