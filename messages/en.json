@@ -87,5 +87,20 @@
       "formError": "Please correct the errors in the form.",
       "submitError": "Please meet the above requirements before submitting the information."
     }
-  }
+  },
+  "project": {
+   "Automation": "Automation",
+   "customer": "Customer",
+   "technology": "Technology",
+   "system": "System",
+   "challenge": "Challenge",
+   "solution": "Solution",
+   
+    "buttonPro": "Download proposal",
+    "buttonTruoc": "Previous project",
+    "buttonSau": "Next project"
+ 
+ 
+}
+
 }

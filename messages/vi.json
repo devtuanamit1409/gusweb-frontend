@@ -86,5 +86,17 @@
       "formError": "Vui lòng sửa các lỗi trong biểu mẫu.",
       "submitError": "Hãy nhập đúng các yêu cầu ở trên trước khi gửi thông tin."
     }
+  },
+  "project":{
+   "Automation": "Tự động hóa",
+   "customer":"Khách hàng",
+   "technology":" công nghệ",
+   "system":"hệ thống",
+   "challenge":"thử thách",
+   "solution":"giải pháp",
+   "buttonPro":"Tải proposal",
+    "buttonTruoc":"Dự án trước",
+    "buttonSau":"Dự án sau"
   }
+
 }

@@ -87,5 +87,17 @@
       "formError": "양식의 오류를 수정하세요.",
       "submitError": "정보를 제출하기 전에 위의 요구 사항을 충족하세요."
     }
-  }
+  },
+  "project": {
+   "Automation": "자동화",
+   "customer": "고객",
+   "technology": "기술",
+   "system": "시스템",
+   "challenge": "도전 과제",
+   "solution": "해결책",
+   "buttonPro": "제안서 다운로드",
+   "buttonTruoc": "이전 프로젝트",
+   "buttonSau": "다음 프로젝트"
+}
+
 }

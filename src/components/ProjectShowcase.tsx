@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import IconArrowDesc from "@/components/Icons/IconArrowDesc";
 import { Button, Modal } from "antd";
 import { Swiper } from "swiper";
+import Link from "next/link";
 
 export default function ProjectShowcase({ project }: any) {
 
@@ -15,32 +16,17 @@ export default function ProjectShowcase({ project }: any) {
   const [tempSlideIndex, setTempSlideIndex] = useState(0);
   const [modal2Open, setModal2Open] = useState(false);
   const [isClosable, setIsClosable] = useState(false);
-  const swiperRef = useRef<Swiper | null>(null); // Khai báo kiểu cho swiperRef
-
-  // const handleDownloadProposal = () => {
-  //   const proposalUrl = project.items[tempSlideIndex]?.file?.data[0]?.url; // Đường dẫn đúng
-
-  //   if (proposalUrl) {
-  //     const link = document.createElement('a');
-  //     link.href = proposalUrl;
-  //     link.download = ''; // Tên file tự động hoặc bạn có thể chỉ định
-  //     document.body.appendChild(link); // Thêm thẻ vào DOM
-  //     link.click(); // Kích hoạt sự kiện click
-  //     document.body.removeChild(link); // Xóa thẻ sau khi tải xong
-  //   } else {
-  //     console.log("File không tồn tại"); // Thông báo nếu không tìm thấy file
-  //   }
-  // };
+  const swiperRef = useRef<Swiper | null>(null);
 
   const handleDownload = (fileUrl: string) => {
     const link = document.createElement("a");
     link.href = fileUrl;
-    link.setAttribute("download", "proposal.doc"); 
+    link.setAttribute("download", "proposal.doc");
     document.body.appendChild(link);
-    link.click(); 
-    document.body.removeChild(link); 
+    link.click();
+    document.body.removeChild(link);
   };
-  
+
   console.log("project-123", project)
   const handlePreviousProject = () => {
     setTempSlideIndex((prevIndex) =>
@@ -129,12 +115,28 @@ export default function ProjectShowcase({ project }: any) {
             />
           </div>
           <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
-            <QuotationButton label="Xem tất cả dự án" />
+            <Link href="/case-studies">
+              <button
+                type="button"
+                className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
+              >
+                Xem tất cả dự án
+                {t("header.button")}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
       <div className="tablet:hidden">
-        <QuotationButton label="Xem tất cả dự án" />
+        <Link href="/case-studies">
+          <button
+            type="button"
+            className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
+          >
+            Xem tất cả dự án
+            {t("header.button")}
+          </button>
+        </Link>
       </div>
 
       <Modal
@@ -165,20 +167,20 @@ export default function ProjectShowcase({ project }: any) {
                   className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
                   onClick={handlePreviousProject}
                 >
-                  Dự án trước
+                  {t("project.buttonTruoc")}
                 </button>
                 <button
                   className="bg-[#27B3E9] text-white font-semibold h-[42px]  laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
                   onClick={handleNextProject}
                 >
-                  Dự án sau
+                  {t("project.buttonSau")}
                 </button>
               </div>
             </div>
           </div>
           <div className="max-w-[594px] max-h-[493px] mx-auto scrollbar-custom overflow-y-auto pr-6 gap-6 flex flex-col">
             <div>
-              <p className="font-semibold gradient-text text-xl">Tự động hóa</p>
+              <p className="font-semibold gradient-text text-xl">{t("project.Automation")}</p>
               <p className="font-bold text-[32px] font-bricolage leading-[38.4px]">
                 {project.items[tempSlideIndex]?.title}
               </p>
@@ -186,7 +188,8 @@ export default function ProjectShowcase({ project }: any) {
             </div>
             <div className="flex items-center gap-6">
               <p className="font-semibold text-xl leading-[24px] ">
-                khách hàng
+
+                {t("project.customer")}
               </p>
               <div className="flex max-h-[40px] gap-2">
                 {project.items[tempSlideIndex]?.customer.map(
@@ -205,7 +208,8 @@ export default function ProjectShowcase({ project }: any) {
               </div>
             </div>
             <div>
-              <p className="font-semibold text-xl leading-[24px]">Công nghệ</p>
+              <p className="font-semibold text-xl leading-[24px]">
+                {t("project.technology")}</p>
               <div className="flex gap-2 mt-1">
                 {project.items[tempSlideIndex]?.technology.map(
                   (item: any, index: number) => (
@@ -224,7 +228,7 @@ export default function ProjectShowcase({ project }: any) {
             </div>
             <div>
               <p className="font-semibold text-xl leading-[24px]">
-                Hệ điều hành
+                {t("project.system")}
               </p>
               <div className="flex gap-2 mt-1">
                 {project.items[tempSlideIndex]?.system.map(
@@ -243,7 +247,8 @@ export default function ProjectShowcase({ project }: any) {
               </div>
             </div>
             <div>
-              <p className="font-semibold text-xl leading-[24px]">Thử thách</p>
+              <p className="font-semibold text-xl leading-[24px]">
+                {t("project.challenge")}</p>
               <p className="mt-1">{project.items[activeSlideIndex]?.solution}</p>
             </div>
             <div>
@@ -255,16 +260,16 @@ export default function ProjectShowcase({ project }: any) {
             <div className="flex tablet:gap-6 mobile:gap-3 ">
               <button
                 className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
-              // onClick={handleDownloadProposal}
-              onClick={() => handleDownload(project.items[tempSlideIndex]?.file)}
+                onClick={() => handleDownload(project.items[tempSlideIndex]?.file)}
               >
-                Tải proposal
+                {t("project.buttonPro")}
               </button>
               <button
                 className="!bg-[#27B3E9] gradient-text font-semibold h-[42px]  laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md border"
                 onClick={handleNextProject}
               >
-                Dự án sau
+                {t("project.buttonSau")}
+
               </button>
             </div>
           </div>
