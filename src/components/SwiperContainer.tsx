@@ -1,15 +1,30 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from 'swiper'
 import Image from "next/image";
 import "swiper/css";
 
-export default function SwiperContainer({ projects, onSlideChangeIndex }: any) {
-  const swiperRef = useRef(null);
+export default function SwiperContainer({ projects, onSlideChangeIndex, pauseAutoplay }: any) {
+  const swiperRef = useRef<SwiperCore | null>(null);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      if (pauseAutoplay) {
+        swiperRef.current.autoplay.stop();
+      } else {
+        swiperRef.current.autoplay.start();
+      }
+    }
+  }, [pauseAutoplay]);
+  
+
   return (
     <>
       <Swiper
-        ref={swiperRef}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
         spaceBetween={100}
         slidesPerView={1}
         loop={true}

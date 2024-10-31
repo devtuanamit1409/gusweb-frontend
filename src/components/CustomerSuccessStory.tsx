@@ -58,10 +58,10 @@ export default function CustomerSuccessStory({ chats }: any) {
               slidesPerView={2}
               loop={true}
               modules={[Autoplay]}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;

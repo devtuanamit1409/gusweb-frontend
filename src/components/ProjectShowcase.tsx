@@ -31,14 +31,14 @@ export default function ProjectShowcase({ project }: any) {
     setTempSlideIndex(activeSlideIndex);
     setModal2Open(true);
     if (swiperRef.current && swiperRef.current.autoplay) {
-      swiperRef.current.autoplay.stop(); // Dừng autoplay
+      swiperRef.current.autoplay.stop();
     }
   };
 
   const handleCloseModal = () => {
     setModal2Open(false);
     if (swiperRef.current && swiperRef.current.autoplay) {
-      swiperRef.current.autoplay.start(); // Khởi động lại autoplay
+      swiperRef.current.autoplay.start();
     }
   };
   useEffect(() => {
@@ -98,7 +98,8 @@ export default function ProjectShowcase({ project }: any) {
             <SwiperContainer
               projects={project.items}
               onSlideChangeIndex={setActiveSlideIndex}
-              ref={swiperRef} // Truyền swiperRef xuống SwiperContainer
+              ref={swiperRef}
+              pauseAutoplay={modal2Open}
             />
           </div>
           <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
@@ -120,6 +121,7 @@ export default function ProjectShowcase({ project }: any) {
         closable={isClosable}
         width={1116}
         height={573}
+        style={{ background: "#FEFEFE" }}
       >
         <div className="mobile:flex-col tablet:flex-row flex gap-6 py-[20px] px-4">
           <div className="flex flex-col max-w-[418px] mobile:mx-auto">
@@ -134,13 +136,13 @@ export default function ProjectShowcase({ project }: any) {
             <div className="flex justify-center items-end tablet:w-[418px] mobile:max-w-[418px] h-[66px]">
               <div className="flex tablet:gap-6 mobile:gap-3 ">
                 <button
-                  className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px]"
+                  className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
                   onClick={handlePreviousProject}
                 >
                   Dự án trước
                 </button>
                 <button
-                  className="bg-[#27B3E9] text-white font-semibold h-[42px]  laptop:w-[166px] tablet:w-[100px] mobile:w-[100px]"
+                  className="bg-[#27B3E9] text-white font-semibold h-[42px]  laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
                   onClick={handleNextProject}
                 >
                   Dự án sau
@@ -223,6 +225,20 @@ export default function ProjectShowcase({ project }: any) {
               <p className="mt-1">
                 {project.items[activeSlideIndex]?.challenge}
               </p>
+            </div>
+            <div className="flex tablet:gap-6 mobile:gap-3 ">
+              <button
+                className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
+
+              >
+                Tải proposal
+              </button>
+              <button
+                className="!bg-[#27B3E9] gradient-text font-semibold h-[42px]  laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md border"
+                onClick={handleNextProject}
+              >
+                Dự án sau
+              </button>
             </div>
           </div>
         </div>
