@@ -117,11 +117,10 @@ export default function ProjectShowcase({ project }: any) {
           <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
             <Link href="/case-studies">
               <button
-                type="button"
                 className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
               >
-                Xem tất cả dự án
-                {t("header.button")}
+              
+                {t("project.button")}
               </button>
             </Link>
           </div>
@@ -130,11 +129,9 @@ export default function ProjectShowcase({ project }: any) {
       <div className="tablet:hidden">
         <Link href="/case-studies">
           <button
-            type="button"
             className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
           >
-            Xem tất cả dự án
-            {t("header.button")}
+            {t("project.button")}
           </button>
         </Link>
       </div>
