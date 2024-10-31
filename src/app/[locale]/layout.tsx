@@ -1,13 +1,10 @@
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
-// import "../styles/globals.css";-
 import HeaderComponent from "@/components/HeaderComponent";
-import { getLocale, getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import NextTopLoader from "nextjs-toploader";
-import { routing } from "@/i18n/routing";
 import type { ReactNode } from "react";
-import { notFound } from "next/navigation";
 import "../../styles/globals.css";
 import "aos/dist/aos.css";
 
@@ -18,17 +15,14 @@ interface LayoutProps {
   };
 }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export default async function RootLayout({
   children,
   params: { locale },
 }: LayoutProps) {
   setRequestLocale(locale || "vi");
 
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
+
   return (
     <html lang={locale || "vi"}>
       <body>
@@ -41,5 +35,4 @@ export default async function RootLayout({
       </body>
     </html>
   );
-};
-
+}
