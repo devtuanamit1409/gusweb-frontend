@@ -32,7 +32,8 @@
     "language2": "Tiếng Hàn"
   },
   "contact": {
-    "buttonLeft": "Tải ebook"
+    "buttonLeft": "Tải profile",
+    "buttonRight": "Liên hệ"
   },
   "homePage": {
     "buttonMain": "Bắt đầu ngay",
@@ -49,13 +50,15 @@
     "buttonDetail": "Xem chi tiết"
   },
   "cardComponet":{
-    "otherProjects": "Các dự án khác có thể bạn quan tâm",
+    "otherProjects": "Khai thác website hiệu quả",
+    "article": "Bài viết có thể bạn quan tâm",
+
     "viewAll": "Xem tất cả",
     "viewMore": "Xem thêm",
-     "secondAgo": "giây trước",
-      "minuteAgo": "phút trước",
-      "hourAgo": "giờ trước",
-      "dayAgo": "ngày trước"
+    "secondAgo": "giây trước",
+    "minuteAgo": "phút trước",
+    "hourAgo": "giờ trước",
+    "dayAgo": "ngày trước"
   },
   "servicePage":{
     "solution": "CÁC GIẢI PHÁP CỦA GUSWEB",

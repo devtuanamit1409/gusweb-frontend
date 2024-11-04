@@ -174,6 +174,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
           </div>
         </div>
       </div>
+      <BlogCard title="Bài viết có thể bạn quan tâm" />
     </>
   );
 };

@@ -32,8 +32,8 @@
     "language2": "Korean"
   },
   "contact": {
-    "buttonLeft": "Download eBook",
-    "buttonRight": "Read more"
+    "buttonLeft": "Download profile",
+    "buttonRight": "Contact"
   },
   "homePage": {
     "buttonMain": "Get started now",
@@ -51,6 +51,7 @@
   },
   "cardComponet": {
     "otherProjects": "Other projects you may be interested in",
+    "article": "Articles you may be interested in",
     "viewAll": "View all",
     "viewMore": "View more",
     "secondAgo": "seconds ago",

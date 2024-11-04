@@ -30,7 +30,7 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
   };
 
   return (
-    <div className=" flex flex-col gap-6 jus  w-full items-center">
+    <div className=" flex flex-col gap-6 px-  w-full items-center">
       <div
         className="laptop:h-56 tablet:h-[248px] flex-row gap-6 laptop:flex tablet:flex  mobile:hidden"
         data-aos="fade-left"
