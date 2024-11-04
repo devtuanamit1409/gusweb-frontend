@@ -17,18 +17,18 @@ export default function WorkPrinciples({ work }: any) {
     key: idx.toString(),
     label: (
       <div className="flex justify-between items-center w-full">
-        <span className="text-[20px] font-bold">{itemDescription.title}</span>
+        <span className="text-[20px] font-bold font-bricolage">{itemDescription.title}</span>
       </div>
     ),
     children: (
-      <div className="mt-4 text-base">
+      <div className="mt-4 text-base font-inter">
         <p>{itemDescription.description}</p>
       </div>
     ),
   }));
 
   return (
-    
+
     <div className="relative max-w-[1116px] mx-auto mt-20 p-4 h-[833px]">
       <div className="mt-10">
         <Image
@@ -39,15 +39,15 @@ export default function WorkPrinciples({ work }: any) {
           loading="lazy"
           decoding="async"
         />
-        <div className="max-w-[800px]">
+        <div className="max-w-[800px] ">
           <span className="relative text-preamble w-[300px] text-2xl">
-          {t("homePage.workPrinciple")}
-
+            {t("homePage.workPrinciple")}
           </span>
-          <p className="text-[56px] font-bricolage">{work.title}</p>
-          <p>{work.description}</p>
+          <span className="flex flex-col gap-3">
+            <p className="text-[56px] font-bricolage max-w-[650px] " style={{ lineHeight: '67.2px' }}>{work.title}</p>
+            <p>{work.description}</p>
+          </span>
           <hr className="border-t-2 mt-10" />
-
           {/* Sử dụng items thay vì children */}
           <Collapse
             defaultActiveKey={[""]}

@@ -17,7 +17,7 @@ export default function SwiperContainer({ projects, onSlideChangeIndex, pauseAut
       }
     }
   }, [pauseAutoplay]);
-  
+
 
   return (
     <>

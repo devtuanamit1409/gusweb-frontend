@@ -2,7 +2,7 @@
   "header": {
     "items": [
       {
-        "title": "Thiết kế trang web",
+        "title": "Thiết kế Website",
         "slug": "/service"
       },
       {
@@ -38,9 +38,10 @@
   "homePage": {
     "buttonMain": "Bắt đầu ngay",
     "buttonMain2": "Báo giá",
+    "buttonContact": "Liên hệ",
     "whoWeb": "GUSWEB LÀ AI?",
     "whyWeb": "Tại sao GUSWEB là lựa chọn phù hợp nhất?",
-    "project": "Các dự án tiêu biểu",
+    "project": "CÁC DỰ ÁN TIÊU BIỂU",
     "buttonProj": "Xem chi tiết",
     "customer": "KHÁCH HÀNG CỦA GUSWEB",
     "comment": "Câu chuyện thành công của khách hàng",
@@ -48,6 +49,7 @@
     "buttonAll": "Xem tất cả",
     "workPrinciple": "Nguyên tắc làm việc",
     "buttonDetail": "Xem chi tiết"
+
   },
   "cardComponet":{
     "otherProjects": "Khai thác website hiệu quả",
