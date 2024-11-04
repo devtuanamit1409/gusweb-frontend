@@ -10,7 +10,6 @@ import { Swiper } from "swiper";
 import Link from "next/link";
 
 export default function ProjectShowcase({ project }: any) {
-
   const t = useTranslations();
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [tempSlideIndex, setTempSlideIndex] = useState(0);
@@ -27,7 +26,7 @@ export default function ProjectShowcase({ project }: any) {
     document.body.removeChild(link);
   };
 
-  console.log("project-123", project)
+  // console.log("project-123", project)
   const handlePreviousProject = () => {
     setTempSlideIndex((prevIndex) =>
       prevIndex === 0 ? project.items.length - 1 : prevIndex - 1
@@ -65,14 +64,17 @@ export default function ProjectShowcase({ project }: any) {
   return (
     <div className="flex flex-col tablet:flex-row items-center relative tablet:h-[436px] laptop:h-[545px] mt-20">
       <div className="max-w-[1116px] w-full mx-auto flex flex-row px-4 desktop:px-0 z-10">
-        <div className="flex flex-col gap-2 w-full tablet:w-[40%] mt-[80px]" >
+        <div className="flex flex-col gap-2 w-full tablet:w-[40%] mt-[80px]">
           <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C]">
             {t("homePage.project")}
           </p>
-          <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]" style={{ lineHeight: '67.2px' }}>
+          <p
+            className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]"
+            style={{ lineHeight: "67.2px" }}
+          >
             {project?.items[activeSlideIndex]?.title}
           </p>
-          <span className="text-base line-clamp-2 leading-6 text-[#363636]"  >
+          <span className="text-base line-clamp-2 leading-6 text-[#363636]">
             {project.items[activeSlideIndex]?.description}
           </span>
           <button
@@ -116,10 +118,7 @@ export default function ProjectShowcase({ project }: any) {
           </div>
           <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
             <Link href="/case-studies">
-              <button
-                className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
-              >
-
+              <button className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 ">
                 {t("project.button")}
               </button>
             </Link>
@@ -128,9 +127,7 @@ export default function ProjectShowcase({ project }: any) {
       </div>
       <div className="tablet:hidden">
         <Link href="/case-studies">
-          <button
-            className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
-          >
+          <button className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 ">
             {t("project.button")}
           </button>
         </Link>
@@ -177,7 +174,9 @@ export default function ProjectShowcase({ project }: any) {
           </div>
           <div className="max-w-[594px] max-h-[493px] mx-auto scrollbar-custom overflow-y-auto pr-6 gap-6 flex flex-col">
             <div>
-              <p className="font-semibold gradient-text text-xl">{t("project.Automation")}</p>
+              <p className="font-semibold gradient-text text-xl">
+                {t("project.Automation")}
+              </p>
               <p className="font-bold text-[32px] font-bricolage leading-[38.4px]">
                 {project.items[tempSlideIndex]?.title}
               </p>
@@ -185,7 +184,6 @@ export default function ProjectShowcase({ project }: any) {
             </div>
             <div className="flex items-center gap-6">
               <p className="font-semibold text-xl leading-[24px] ">
-
                 {t("project.customer")}
               </p>
               <div className="flex max-h-[40px] gap-2">
@@ -206,7 +204,8 @@ export default function ProjectShowcase({ project }: any) {
             </div>
             <div>
               <p className="font-semibold text-xl leading-[24px]">
-                {t("project.technology")}</p>
+                {t("project.technology")}
+              </p>
               <div className="flex gap-2 mt-1">
                 {project.items[tempSlideIndex]?.technology.map(
                   (item: any, index: number) => (
@@ -245,8 +244,11 @@ export default function ProjectShowcase({ project }: any) {
             </div>
             <div>
               <p className="font-semibold text-xl leading-[24px]">
-                {t("project.challenge")}</p>
-              <p className="mt-1">{project.items[activeSlideIndex]?.solution}</p>
+                {t("project.challenge")}
+              </p>
+              <p className="mt-1">
+                {project.items[activeSlideIndex]?.solution}
+              </p>
             </div>
             <div>
               <p className="font-semibold text-xl leading-[24px]">Giải pháp</p>
@@ -257,7 +259,9 @@ export default function ProjectShowcase({ project }: any) {
             <div className="flex tablet:gap-6 mobile:gap-3 ">
               <button
                 className="bg-[#27B3E9] text-white font-semibold h-[42px] laptop:w-[166px] tablet:w-[100px] mobile:w-[100px] rounded-md"
-                onClick={() => handleDownload(project.items[tempSlideIndex]?.file)}
+                onClick={() =>
+                  handleDownload(project.items[tempSlideIndex]?.file)
+                }
               >
                 {t("project.buttonPro")}
               </button>
@@ -266,7 +270,6 @@ export default function ProjectShowcase({ project }: any) {
                 onClick={handleNextProject}
               >
                 {t("project.buttonSau")}
-
               </button>
             </div>
           </div>
