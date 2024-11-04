@@ -23,7 +23,7 @@ const WhyCardComponent = (props: Props) => {
           className="mb-4 w-[261px] h-[195px]"
         />
         <div className="flex flex-col flex-grow w-full">
-          <p className="text-base font-bold max-h-[120px] overflow-hidden overflow-ellipsis mb-2 ">
+          <p className="text-base font-bold min-h-[48px] overflow-hidden overflow-ellipsis mb-2">
             {item.title}
           </p>
           <p className="">{item.description}</p>
