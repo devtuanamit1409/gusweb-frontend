@@ -38,6 +38,7 @@
   "homePage": {
     "buttonMain": "Get started now",
     "buttonMain2": "Quotation",
+    "buttonContact": "Contact",
     "whoWeb": "WHO IS GUSWEB?",
     "whyWeb": "Why is GUSWEB the most suitable choice?",
     "project": "Typical projects",
@@ -48,6 +49,7 @@
     "buttonAll": "View All",
     "workPrinciple": "Working principle",
     "buttonDetail": "View details"
+    
   },
   "cardComponet": {
     "otherProjects": "Other projects you may be interested in",
