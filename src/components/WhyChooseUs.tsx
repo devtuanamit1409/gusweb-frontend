@@ -12,17 +12,17 @@ const WhyCardComponent = (props: Props) => {
   const { item, className = "" } = props;
   return (
     <div
-      className={`home-service-item__box laptop:h-[499px] laptop:!max-w-[261px] desktop:!max-w-[261px] tablet:!max-w-[991px] tablet:h-[256px] min-h-[256px] p-6 rounded-3xl gap-4 bg-white/25 border-white/25 border-2 backdrop-blur-[10px] relative overflow-hidden flex flex-col items-start ${className}`}
+      className={`home-service-item__box laptop:h-[499px] laptop:!max-w-[261px] desktop:!max-w-[261px] tablet:!max-w-[991px] tablet:h-[256px] min-h-[256px] laptop:!p-0 tablet:p-6 mobile:p-6 rounded-3xl gap-4 bg-white/25 border-white/25 border-2 backdrop-blur-[10px] relative overflow-hidden flex flex-col items-start ${className}`}
     >
-      <div className="laptop:flex-col mobile:flex-col flex tablet:flex-row flex-col items-start gap-4 w-full">
+      <div className="laptop:flex-col mobile:flex-col flex tablet:flex-row flex-col items-start w-full">
         <Image
           src={item.url || ""}
           alt="Image not available"
           width={261}
           height={195}
-          className="mb-4 w-[261px] h-[195px]"
+          className=" w-[261px] h-[195px] mx-auto"
         />
-        <div className="flex flex-col flex-grow w-full">
+        <div className="flex flex-col flex-grow w-full p-6">
           <p className="text-base font-bold min-h-[48px] overflow-hidden overflow-ellipsis mb-2">
             {item.title}
           </p>
