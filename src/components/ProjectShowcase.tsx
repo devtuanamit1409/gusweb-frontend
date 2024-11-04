@@ -65,14 +65,14 @@ export default function ProjectShowcase({ project }: any) {
   return (
     <div className="flex flex-col tablet:flex-row items-center relative tablet:h-[436px] laptop:h-[545px] mt-20">
       <div className="max-w-[1116px] w-full mx-auto flex flex-row px-4 desktop:px-0 z-10">
-        <div className="flex flex-col gap-2 w-full tablet:w-[40%] mt-[80px]">
+        <div className="flex flex-col gap-2 w-full tablet:w-[40%] mt-[80px]" >
           <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C]">
             {t("homePage.project")}
           </p>
-          <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]">
+          <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]" style={{ lineHeight: '67.2px' }}>
             {project?.items[activeSlideIndex]?.title}
           </p>
-          <span className="text-base line-clamp-2 leading-6 text-[#363636]">
+          <span className="text-base line-clamp-2 leading-6 text-[#363636]"  >
             {project.items[activeSlideIndex]?.description}
           </span>
           <button
@@ -119,7 +119,7 @@ export default function ProjectShowcase({ project }: any) {
               <button
                 className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 "
               >
-              
+
                 {t("project.button")}
               </button>
             </Link>

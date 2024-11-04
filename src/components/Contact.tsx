@@ -27,7 +27,7 @@ export default async function Contact() {
             <Link href="/">{t("contact.buttonLeft")}</Link>
           </button>
           <button className="gradient-text w-full">
-            <Link href="/">{t("contact.buttonRight")}</Link>
+            <Link href="/">{t("homePage.buttonContact")}</Link>
           </button>
         </div>
       </div>

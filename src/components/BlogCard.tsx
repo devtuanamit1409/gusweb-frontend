@@ -36,14 +36,14 @@ export default async function BlogCard() {
       <div className="flex laptop:items-start  mobile:items-start tablet:items-center flex-col gap-6 ">
         <div className="flex tablet:items-center justify-between w-full tablet:px-[90px] laptop:px-4 laptop:max-w-[1116px]  laptop:flex-row flex-col">
           <span className="tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage tablet:text-center">
-          {t("cardComponet.otherProjects")}
-
+            {/* {t("cardComponet.otherProjects")}  */}
+            {t("homePage.article")}
           </span>
           <Link
             href="/blog"
             className="bg-[#27B3E9] flex items-center justify-center text-white focus:outline-none rounded-md text-sm w-[132px] h-[42px]"
           >
-                       <p>{t("cardComponet.viewAll")}</p>
+            <p>{t("cardComponet.viewAll")}</p>
 
           </Link>
         </div>

@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      
       screens: {
         desktop: "1440px",
         laptop: "1024px",
@@ -25,6 +26,7 @@ const config: Config = {
       fontFamily: {
         bricolage: ['"Bricolage Grotesque"', "sans-serif"],
         montserrat: ['"Montserrat"', "sans-serif"],
+        inter: ['"Inter"', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
