@@ -6,7 +6,7 @@ import {
   fetchSubCategoryByCategoryId,
 } from "@/utils/GlobalApi";
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 export async function generateMetadata({
   params,
@@ -30,8 +30,9 @@ export async function generateMetadata({
     },
   };
 }
-console.log()
+
 const Page = async ({ params }: { params: { slug: string } }) => {
+  const t = await getTranslations();
   const localActive = await getLocale();
   const data = await fetchFilteredArticleDetail(localActive, params.slug);
   if (!data.articles || data.articles.length === 0) {
@@ -51,7 +52,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           article={data.articles[0]}
         />
       )}
-      <BlogCard />
+
+      <BlogCard title={t("cardComponet.article")} />
     </div>
   );
 };

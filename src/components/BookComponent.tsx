@@ -25,7 +25,12 @@ const BookComponent: React.FC<any> = ({ article }) => {
   };
   // console.log(article);
   const [email, setEmail] = useState("");
+  console.log("email", email);
   const [loading, setLoading] = useState(false);
+
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -130,7 +135,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChangeEmail}
                 placeholder="Nhập email của bạn"
                 required
                 className=" h-[56px] px-3 rounded-[8px] border border-[#C9C9C9] laptop:max-w-[341px] flex-grow"
