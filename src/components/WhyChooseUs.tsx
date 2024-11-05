@@ -39,7 +39,7 @@ export default async function WhyChooseUs({ whyUs }: any) {
   return (
     <div className="flex flex-col  max-w-[1116px] mx-auto ">
       <div className="mt-40 p-4">
-        <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:max-w-[715px] mobile:max-w-[328px]  ml-4  ">
+        <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:max-w-[715px] mobile:max-w-[328px]">
           {t("homePage.whyWeb")}
         </p>
         <p className="mobile:font-bold mobile:leading-[38.4px] mobile:text-[33px] tablet:text-[56px] font-bricolage tablet:leading-[67.2px] max-w-[1100px]">

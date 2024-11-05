@@ -13,6 +13,7 @@ type NotificationPlacement = NotificationArgsProps["placement"];
 
 const BookComponent: React.FC<any> = ({ article }) => {
   // console.log(article);
+  // console.log("render n")
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (placement: NotificationPlacement) => {
