@@ -13,7 +13,6 @@ type NotificationPlacement = NotificationArgsProps["placement"];
 
 const BookComponent: React.FC<any> = ({ article }) => {
   // console.log(article);
-
   const [api, contextHolder] = notification.useNotification();
   const [loading, setLoading] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -26,6 +25,9 @@ const BookComponent: React.FC<any> = ({ article }) => {
       placement,
     });
   };
+  // console.log(article);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -128,7 +130,8 @@ const BookComponent: React.FC<any> = ({ article }) => {
             >
               <input
                 type="email"
-                ref={emailRef}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Nhập email của bạn"
                 required
                 className=" h-[56px] px-3 rounded-[8px] border border-[#C9C9C9] laptop:max-w-[341px] flex-grow"

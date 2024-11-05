@@ -9,6 +9,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { message } from "antd";
+import Link from "next/link";
 
 interface HomeProps {
   params: { locale: "en" | "vi" | "ko" };
@@ -81,9 +82,7 @@ const Page = ({ params: { locale } }: HomeProps) => {
       !phoneNumber ||
       !email
     ) {
-      setSubmitError(
-        `${t("contactPage.error.submitError")}`
-      );
+      setSubmitError(`${t("contactPage.error.submitError")}`);
     } else {
       setSubmitError("");
       setIsFormValid(true);
@@ -143,52 +142,53 @@ const Page = ({ params: { locale } }: HomeProps) => {
     if (emailPattern.test(value)) {
       setEmailError("");
     } else {
-      setEmailError(
-        `${t("contactPage.error.email")}`
-      );
+      setEmailError(`${t("contactPage.error.email")}`);
     }
   };
   const handleCompanyNameChange = (e: any) => setCompanyName(e.target.value);
 
   const handleContentChange = (e: any) => setContent(e.target.value);
   return (
-    <div className="w-full flex flex-col gap-10">
+    <div className="w-full flex flex-col ">
       <BannerComponent intro={contactData?.intro} />
       <div className="custom-contaier flex flex-col gap-10">
         <div className="laptop:h-[1058px] h-[1025px] mobile:py-20  flex flex-col justify-center items-center tablet:px-[162px] px-4 py-10 gap-6 bg-gradient-to-r from-[#FFFFFF42] to-[#3A7BD529] ">
-          <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:h-[1000px]  mobile:h-[988px] rounded-2xl border py-[24px] px-4  gap-4 flex flex-col tablet:justify-between bg-white">
-            <div className="laptop:h-[68px] tablet:h-[112px] pb-6 ">
+          <div className="w-full laptop:max-w-[736px] laptop:max-h-[848px] tablet:max-w-[500px] tablet:h-[1000px] mobile:max-w-[328px] mobile:h-[988px] rounded-2xl border py-[40px] px-6 gap-4 flex flex-col tablet:justify-between bg-white">
+            <div className="laptop:h-[68px] tablet:h-[112px]">
               <h1 className="laptop:text-[36px] font-bold font-montserrat leading-[44px] tablet:text-[36px]  text-[#1C1C1C] mobile:text-[32px]">
                 {t("contactPage.ready")}
               </h1>
             </div>
-            <div className="h-[24px] mobile:h-12 gap-4">
+            <div className="">
               <p className="text-base font-normal leading-6  text-[#363636]">
                 {t("contactPage.support")}
               </p>
             </div>
             <form onSubmit={handleSubmit}>
               <div
-                className={`${nameError || phoneError
-                  ? "laptop:max-h-[77px]"
-                  : "laptop:max-h-[56px]"
-                  } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
+                className={`${
+                  nameError || phoneError
+                    ? "laptop:max-h-[77px]"
+                    : "laptop:max-h-[56px]"
+                } laptop:gap-6 tablet:gap-4 mobile:gap-4 flex mb-4 laptop:flex-row  laptop:max-w-[686px] flex-col    w-full`}
               >
-                <div className="relative laptop:max-w-[427px]  w-full">
+                <div className="relative laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
                   <input
                     type="text"
                     id="name"
                     placeholder=""
-                    className={`laptop:max-w-[427px]  w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${nameError ? "focus:border-red-500" : ""
-                      }`}
+                    className={`laptop:max-w-[427px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2   border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
+                      nameError ? "focus:border-red-500" : ""
+                    }`}
                     value={name}
                     onChange={handleNameChange}
                     required
                   />
                   <label
                     htmlFor="name"
-                    className={`${nameError ? "peer-focus:text-red-500 text-sm" : ""
-                      } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                    className={`${
+                      nameError ? "peer-focus:text-red-500 text-sm" : ""
+                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
                     {t("contactPage.name")}
                   </label>
@@ -197,21 +197,23 @@ const Page = ({ params: { locale } }: HomeProps) => {
                   )}
                 </div>
 
-                <div className="relative laptop:max-w-[237px]     w-full">
+                <div className="relative laptop:max-w-[237px]  tablet:max-w-[468px] mobile:max-w-[296px]   w-full">
                   <input
                     type="tel"
                     id="phone"
                     placeholder=" "
-                    className={`laptop:max-w-[237px]  w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${phoneError ? "focus:border-red-500" : ""
-                      }`}
+                    className={`laptop:max-w-[237px] tablet:max-w-[468px] mobile:max-w-[296px] w-full h-[56px]  p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
+                      phoneError ? "focus:border-red-500" : ""
+                    }`}
                     value={phoneNumber}
                     onChange={handlePhoneChange}
                     required
                   />
                   <label
                     htmlFor="phone"
-                    className={`${phoneError ? "peer-focus:text-red-500 text-sm" : ""
-                      } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                    className={`${
+                      phoneError ? "peer-focus:text-red-500 text-sm" : ""
+                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                   >
                     {t("contactPage.phone")}
                   </label>
@@ -220,21 +222,23 @@ const Page = ({ params: { locale } }: HomeProps) => {
                   )}
                 </div>
               </div>
-              <div className="relative mb-4 laptop:max-w-[688px]   w-full ">
+              <div className="relative mb-4 laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px]  w-full ">
                 <input
                   type="email"
                   id="email"
                   placeholder=" "
-                  className={`laptop:max-w-[688px]  w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${emailError ? "focus:border-red-500" : ""
-                    }`}
+                  className={`laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer ${
+                    emailError ? "focus:border-red-500" : ""
+                  }`}
                   value={email}
                   onChange={handleEmailChange}
                   required
                 />
                 <label
                   htmlFor="email"
-                  className={`${emailError ? "peer-focus:text-red-500 text-sm" : ""
-                    } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
+                  className={`${
+                    emailError ? "peer-focus:text-red-500 text-sm" : ""
+                  } absolute left-3 -top-3.5 bg-white px-1 text-gray-500 text-sm transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm `}
                 >
                   {t("contactPage.email")}
                 </label>
@@ -243,12 +247,12 @@ const Page = ({ params: { locale } }: HomeProps) => {
                 )}
               </div>
 
-              <div className="relative mb-4 laptop:max-w-[688px]  w-full">
+              <div className="relative mb-4 laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
                 <input
                   type="text"
                   id="companyName"
                   placeholder=" "
-                  className="laptop:max-w-[688px]  w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
+                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[56px] p-2  border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
                   required
                   value={companyName}
                   onChange={handleCompanyNameChange}
@@ -261,11 +265,11 @@ const Page = ({ params: { locale } }: HomeProps) => {
                 </label>
               </div>
 
-              <div className="relative mb-4 laptop:max-w-[688px]  w-full">
+              <div className="relative mb-4 laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full">
                 <textarea
                   id="content"
                   placeholder=""
-                  className="laptop:max-w-[688px]  w-full  h-[176px] p-2 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
+                  className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full  h-[176px] p-2 border border-gray-300 rounded focus:border-[#08BED5] focus:outline-none peer"
                   rows={4}
                   value={content}
                   onChange={handleContentChange}
@@ -279,8 +283,8 @@ const Page = ({ params: { locale } }: HomeProps) => {
                 </label>
               </div>
 
-              <div className="laptop:max-w-[688px]  w-full laptop:h-[136px] tablet:h-[136px] mobile:h-[160px] flex flex-col gap-14">
-                <p className="">   {t("contactPage.budget")}</p>
+              <div className="laptop:max-w-[688px] tablet:max-w-[468px] mobile:max-w-[296px] w-full laptop:h-[136px] tablet:h-[136px] mobile:h-[160px] flex flex-col gap-14">
+                <p className=""> {t("contactPage.budget")}</p>
                 <Box sx={{ width: "100%" }}>
                   <Slider
                     getAriaLabel={() => "Ngân sách"}
@@ -324,11 +328,21 @@ const Page = ({ params: { locale } }: HomeProps) => {
                 </Box>
               </div>
 
-              <div className="flex justify-end mt-4">
+              <div className="flex justify-end mt-10">
                 <button
                   type="submit"
-                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${name && phoneNumber && email && companyName && content && !nameError && !phoneError && !emailError ? "bg-[#27B3E9]" : "bg-gray-300"
-                    } text-white`}
+                  className={`flex justify-center items-center w-[139px] h-[42px] px-4 py-2 rounded transition-colors ${
+                    name &&
+                    phoneNumber &&
+                    email &&
+                    companyName &&
+                    content &&
+                    !nameError &&
+                    !phoneError &&
+                    !emailError
+                      ? "bg-[#27B3E9]"
+                      : "bg-gray-300"
+                  } text-white`}
                   onClick={validateForm}
                 >
                   {t("contactPage.send")}
@@ -438,13 +452,17 @@ const Page = ({ params: { locale } }: HomeProps) => {
                 {contactData?.folow?.icons &&
                   contactData?.folow?.icons.map((item: any, index: number) => {
                     return (
-                      <Image
+                      item.slug && (
+                      <Link key={index} href={item.slug} target="_blank" rel="noopener noreferrer">
+                        <Image
                         key={index}
                         src={item.url}
                         alt={item.alt}
                         width={40}
                         height={40}
-                      />
+                        />
+                      </Link>
+                      )
                     );
                   })}
               </div>

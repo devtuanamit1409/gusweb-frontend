@@ -75,7 +75,7 @@ const CaseStudies: React.FC<any> = ({ data }) => {
                 <h1 className="font-bricolage font-normal text-[24px] leading-[38.4px] laptop:text-start text-center">
                   {item.sub_category}
                 </h1>
-                <h2 className="font-bricolage font-bold text-[42px] leading-[50.4px] laptop:text-start text-center">
+                <h2 className="font-bricolage font-bold text-[42px] leading-[50.4px] laptop:text-start text-center line-clamp-2">
                   {item.title}
                 </h2>
               </div>

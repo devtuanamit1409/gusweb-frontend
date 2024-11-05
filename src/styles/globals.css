@@ -466,3 +466,6 @@
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
   background-color: #555; /* Màu khi hover trên thanh cuộn */
 }
+.gradient-border {
+  background: linear-gradient(90deg, #3A7BD5, #00D2FF);
+}

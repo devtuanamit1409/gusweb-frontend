@@ -39,8 +39,8 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
       <div className="laptop:max-w-[1116px] flex flex-col gap-6 items-center justify-center">
         <div className="gap-4  flex flex-col " data-aos="fade-right">
           <div className=" flex laptop:justify-start justify-center">
-            <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636]  ">
-            {t("servicePage.help")}
+            <span className="relative font-bricolage font-normal text-preamble h-[38px] gap-4 text-2xl leading-[28.8px] text-[#363636] ">
+              {t("servicePage.help")}
             </span>
           </div>
           <h1 className="laptop:text-[56px] font-bold tablet:tetx-[42px] tablet:leading-[50.4px] font-bricolage mobile:text-[32px]  mobile:leading-[38.4px] laptop:leading-[67.2px] text-[#1C1C1C]  laptop:text-start text-center ">
@@ -51,7 +51,10 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
           </p>
         </div>
 
-        <div data-aos="fade-left" className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 laptop:max-w-[1116px] tablet:px-20 laptop:px-0">
+        <div
+          data-aos="fade-left"
+          className="grid  laptop:grid-cols-2 laptop:grid-rows-3 grid-cols-1 grid-rows-6 gap-4 laptop:max-w-[1116px] tablet:px-20 laptop:px-0"
+        >
           {help.items &&
             help.items.map((item: any, index: number) => (
               <div
@@ -91,15 +94,19 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
                       height={60}
                       className="object-cover w-[56px] h-[56px]"
                     />
-                    <h3 className="font-bricolage text-xl font-bold leading-6 text-[#1C1C1C] flex text-center">
+                    <h3 className="font-bricolage text-xl font-bold leading-6 text-[#1C1C1C] flex text-start">
                       {item.title}
                     </h3>
                   </div>
                 </div>
                 <div className="flex w-full z-10 ">
-                  <p className="font-normal text-base leading-6 tracking-[0.5px] text-[#363636]">
-                    {item.description}
-                  </p>
+                  <ul className="font-normal text-base leading-6  text-[#363636] list-none pl-5 gap-2 flex flex-col">
+                    {item.description
+                      .split("\n")
+                      .map((desc: string, i: number) => (
+                        <li key={i}>{desc.trimStart()}</li>
+                      ))}
+                  </ul>
                 </div>
               </div>
             ))}

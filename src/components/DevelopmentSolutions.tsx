@@ -19,9 +19,9 @@ const DevelopmentSolutions: React.FC<any> = ({ whyUs }) => {
         className="laptop:max-w-[1116px] laptop:max-h-[209px]  gap-4  items-center flex flex-col w-full"
         data-aos="zoom-in"
       >
-        <h1 className="font-normal text-2xl leading-[38.4px] text-preamble relative font-bricolage">
-          <p>{t("servicePage.whyAmit")}</p>
-        </h1>
+        <h5 className="font-normal text-[24px] leading-[30px] text-preamble relative font-montserrat uppercase text-[#363636]">
+          {t("servicePage.whyAmit")}
+        </h5>
         <h2 className="laptop:h-[67px]  font-bold laptop:text-[56px] laptop:leading-[67.2px] text-[40px] leading-[50.4px] text-center font-bricolage line-clamp-2 mobile:line-clamp-3">
           {whyUs.title}
         </h2>
