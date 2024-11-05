@@ -17,22 +17,26 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
     if (activeFirstSet !== side) {
       setShowFirstSetContent(false);
       setActiveFirstSet(side);
-      setShowFirstSetContent(true);
+      setTimeout(() => {
+        setShowFirstSetContent(true);
+      } ,360);
     }
-  };
+  }
 
   const handleSecondSetClick = (side: string) => {
     if (activeSecondSet !== side) {
       setShowSecondSetContent(false);
       setActiveSecondSet(side);
-      setShowSecondSetContent(true);
+      setTimeout(() => {
+        setShowSecondSetContent(true);
+      } ,360);
     }
   };
 
   return (
-    <div className=" flex flex-col gap-6 jus  w-full items-center">
+    <div className=" flex flex-col gap-6 px-  w-full items-center">
       <div
-        className="laptop:h-56 tablet:h-[248px] flex-row gap-6 laptop:flex tablet:flex  mobile:hidden"
+        className="laptop:h-56 tablet:h-[248px] flex-row gap-6 laptop:flex tablet:flex  mobile:hidden w-full"
         data-aos="fade-left"
         data-aos-duration="1000"
       >
@@ -59,7 +63,7 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
         ))}
       </div>
       <div
-        className="laptop:min-h-56 tablet:min-h-[248px] laptop:flex tablet:flex flex-row gap-6  mobile:hidden"
+        className="laptop:min-h-56 tablet:min-h-[248px] laptop:flex tablet:flex flex-row gap-6  mobile:hidden w-full"
         data-aos="fade-right"
         data-aos-duration="1000"
       >

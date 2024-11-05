@@ -32,8 +32,8 @@
     "language2": "한국어"
   },
   "contact": {
-    "buttonLeft": "전자책 다운로드",
-    "buttonRight": "더 보기"
+    "buttonLeft": "프로필 다운로드",
+    "buttonRight": "연락처"
   },
   "homePage": {
     "buttonMain": "지금 시작하세요",
@@ -52,6 +52,7 @@
   },
   "cardComponet": {
     "otherProjects": "관심을 가질 수 있는 다른 프로젝트",
+    "article": "관심을 가질 수 있는 기사",
     "viewAll": "모두 보기",
     "viewMore": "더 보기",
     "secondAgo": "초 전",

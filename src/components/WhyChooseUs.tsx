@@ -30,7 +30,6 @@ const WhyCardComponent = (props: Props) => {
         </div>
       </div>
     </div>
-
   );
 };
 

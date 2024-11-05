@@ -1,12 +1,26 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import BlogCardComponent from "./BlogCardComponent";
 import BlogCard from "./BlogCard";
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
-const TechnologyComponent: React.FC<any> = async ({ subCates, article }) => {
+const TechnologyComponent: React.FC<any> = ({ subCates, article }) => {
   // console.log(article);
-  const localActive = await getLocale();
+  const handleShare = (platform: string) => {
+    const articleUrl = encodeURIComponent(window.location.href); // Encode current URL
+
+    let shareUrl = "";
+    if (platform === "facebook") {
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${articleUrl}`;
+    }else if (platform === "linkedin") {
+      shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${articleUrl}`;
+    }else if (platform === "email") {
+      shareUrl = `mailto:?subject=${article.title}&body=${articleUrl}`;
+    }
+    
+    window.open(shareUrl, "_blank", "noopener,noreferrer");
+  };
   return (
     <div className="flex flex-col justify-center  gap-10">
       <div className="h-[506px] relative justify-center items-center flex">
@@ -28,40 +42,74 @@ const TechnologyComponent: React.FC<any> = async ({ subCates, article }) => {
           </div>
         </div>
       </div>
+
       <div className="custom-container laptop:py-20 justify-center  laptop:max-w-[1116px] tablet:px-[122px]  laptop:px-2 px-4 flex flex-row gap-6">
-        <div
-          className="flex flex-col gap-10 flex-grow justify-between laptop:w-[831px]"
-          dangerouslySetInnerHTML={{
-            __html: article.detail || "",
-          }}
-        />
-
-        <div className="max-w-[261px] h-[244px]  flex-col gap-4 p-4 rounded-[16px]  category-item__box hidden laptop:block">
-          <h6 className="!font-semibold text-[20px] leading-[24.2px] font-bricolage uppercase">
-            Danh mục bài viết
-          </h6>
-
-          <div className=" flex flex-col gap-2 w-full mt-4">
-            {subCates && subCates.length > 0 ? (
-              subCates.map((item: any, index: number) => {
-                return (
-                  <Link
-                    href={"blog?sub-category=" + item.slug}
-                    key={index}
-                    className=" flex flex-row gap-2 rounded-[1px] items-center"
-                  >
-                    <p className="font-medium text-4 leading-[22.4px]">
-                      {item.title}
-                    </p>
-                    <p className="font-medium text-4 leading-[22.4px] ">{`(${item.articleCount})`}</p>
-                  </Link>
-                );
-              })
-            ) : (
+        <div className="flex flex-col gap-10 flex-grow justify-between laptop:w-[831px]">
+          <div
+            dangerouslySetInnerHTML={{ __html: article.detail || "" }}
+            className=" laptop:px-2 tablet:px-[122px] mobile:px-4 flex flex-col gap-10"
+          ></div>
+          {article && (
+            <div className="flex gap-4">
               <p className="font-medium text-4 leading-[22.4px]">
-                Không có danh mục bài viết
+                Chia sẻ bài viết:
               </p>
-            )}
+              <div className="flex flex-row gap-4">
+                <Image
+                  src="/images/facebook2.png"
+                  alt="Facebook"
+                  width={24}
+                  height={24}
+                  onClick={() => handleShare("facebook")}
+                  className="cursor-pointer"
+                />
+                <Image
+                  src="/images/linkedin2.png"
+                  alt="LinkedIn"
+                  width={24}
+                  height={24}
+                  onClick={() => handleShare("linkedin")}
+                />
+                <Image
+                  src="/images/gmail2.png"
+                  alt="Email"
+                  width={24}
+                  height={24}
+                  onClick={() => handleShare("email")}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="max-w-[261px] hidden laptop:block">
+          <div className="flex-col gap-4 p-4 rounded-[16px]  category-item__box ">
+            <h6 className="!font-semibold text-[20px] leading-[24.2px] font-bricolage uppercase">
+              Danh mục bài viết
+            </h6>
+
+            <div className=" flex flex-col gap-2 w-full mt-4">
+              {subCates && subCates.length > 0 ? (
+                subCates.map((item: any, index: number) => {
+                  return (
+                    <Link
+                      href={"blog?sub-category=" + item.slug}
+                      key={index}
+                      className=" flex flex-row gap-2 rounded-[1px] items-center"
+                    >
+                      <p className="font-medium text-4 leading-[22.4px]">
+                        {item.title}
+                      </p>
+                      <p className="font-medium text-4 leading-[22.4px] ">{`(${item.articleCount})`}</p>
+                    </Link>
+                  );
+                })
+              ) : (
+                <p className="font-medium text-4 leading-[22.4px]">
+                  Không có danh mục bài viết
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>
