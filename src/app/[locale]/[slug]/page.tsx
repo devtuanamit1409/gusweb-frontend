@@ -12,7 +12,10 @@ export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const localActive = await getLocale();
-  const articleData: any = await fetchFilteredArticleDetail(localActive, params.slug);
+  const articleData: any = await fetchFilteredArticleDetail(
+    localActive,
+    params.slug
+  );
 
   return {
     title: articleData.articles[0]?.seo?.title || "article",
@@ -25,12 +28,10 @@ export async function generateMetadata({
       description: articleData.articles[0]?.seo?.description || "",
       url: articleData.articles[0]?.seo?.url || "",
       type: articleData.articles[0]?.seo?.type || "website",
-      images: articleData.articles[0]?.seo?.image.url || ""
-
+      images: articleData.articles[0]?.seo?.image.url || "",
     },
   };
 }
-
 const Page = async ({ params }: { params: { slug: string } }) => {
   const t = await getTranslations();
   const localActive = await getLocale();
