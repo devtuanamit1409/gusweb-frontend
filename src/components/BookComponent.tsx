@@ -27,7 +27,6 @@ const BookComponent: React.FC<any> = ({ article }) => {
   };
   // console.log(article);
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
