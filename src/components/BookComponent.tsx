@@ -15,7 +15,6 @@ const BookComponent: React.FC<any> = ({ article }) => {
   // console.log(article);
   const [api, contextHolder] = notification.useNotification();
   const [loading, setLoading] = useState(false);
-  const emailRef = useRef<HTMLInputElement>(null);
 
   const openNotification = (placement: NotificationPlacement) => {
     api.info({
@@ -34,7 +33,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
 
     try {
       await postEmailUser({
-        email: emailRef.current?.value || "",
+        email: email,
         locale: article.locale,
         titleArticle: article.title,
         urlPdf: article.typeEbook.ebook.pdfFile,
