@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 const SupportIdeas: React.FC<any> = ({ help }) => {
   const t = useTranslations();
   useEffect(() => {
@@ -63,7 +62,7 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
                   index === 2 || index === 3
                     ? "flex-row-reverse justify-end "
                     : ""
-                } tablet:border-dashed tablet:border-[2px] tablet:border-[#00D2FF] mobile:border-none mobile:justify-center`}
+                } border-dashed border-[1px] border-[#00D2FF] mobile:justify-center`}
                 style={{
                   backgroundColor: "#e5fcff",
                 }}

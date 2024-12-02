@@ -19,10 +19,10 @@ export default async function Contact() {
         <h1 className="text-center font-bricolage font-normal text-2xl leading-[38.4px] text-white">
           {data.name}
         </h1>
-        <p className="laptop:text-[56px] tablet:text-[42px] mobile:text-[32px] text-[20px] max-w-[736px] max-h-[134px] font-bricolage font-bold leading-[67.2px] text-center text-white">
+        <p className="laptop:text-[56px] tablet:text-[42px] mobile:text-[32px] text-[20px] max-w-[736px] max-h-[134px] font-bricolage font-bold tablet:leading-[67.2px] leading-[38.4px] text-center text-white">
           {data.title}
         </p>
-        <div className="w-full max-w-[356px] h-[42px] mobile:w-[328px] gap-6 flex justify-between">
+        <div className="w-full max-w-[356px] h-[42px] mobile:w-[328px] gap-6 flex justify-between mt-4">
           <button className="ant-btn w-full bg-[#1FA9EC] text-white">
             <Link href="/">{t("contact.buttonLeft")}</Link>
           </button>

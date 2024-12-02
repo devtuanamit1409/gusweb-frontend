@@ -120,7 +120,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
               {article.typeEbook.ebook.titleBook}
             </h4>
             <h1 className="line-clamp-2 !font-bold text-[32px] text-[#1C1C1C] leading-[38.4px] font-bricolage laptop:hidden mobile:block tablet:block">
-              Tai ebook
+              Download ebook
             </h1>
             <form
               className="flex flex-row min-h-[56px]   line-clamp-2 items-center  gap-6 laptop:justify-start justify-between w-full"
@@ -130,7 +130,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Nhập email của bạn"
+                placeholder="Enter email"
                 required
                 className=" h-[56px] px-3 rounded-[8px] border border-[#C9C9C9] laptop:max-w-[341px] flex-grow"
               />
@@ -140,7 +140,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
                 htmlType="submit"
                 className="!h-[56px]  hover:!opacity-90 hover:!bg-[#1FA9EC] mobile:w-[140px] tablet:w-[150px] laptop:w-[135px]"
               >
-                {loading ? "Đang tải..." : "Tải về ngay"}
+                {loading ? "Đang tải..." : "Download now"}
               </Button>
             </form>
             <div className="flex flex-col laptop:h-[225px] gap-6 w-full">

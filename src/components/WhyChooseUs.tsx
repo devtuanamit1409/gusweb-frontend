@@ -23,7 +23,7 @@ const WhyCardComponent = (props: Props) => {
           className=" w-[261px] h-[195px] mx-auto"
         />
         <div className="flex flex-col flex-grow w-full p-6">
-          <p className="text-base font-bold min-h-[48px] overflow-hidden overflow-ellipsis mb-2">
+          <p className="text-[20px] font-semibold min-h-[48px] overflow-hidden overflow-ellipsis mb-2 leading-6">
             {item.title}
           </p>
           <p className="">{item.description}</p>
@@ -37,14 +37,14 @@ export default async function WhyChooseUs({ whyUs }: any) {
   const t = await getTranslations();
   return (
     <div className="flex flex-col  max-w-[1116px] mx-auto ">
-      <div className="mt-40 p-4">
+      <div className="mt-[60px] p-4">
         <p className="text-2xl relative text-preamble laptop:w-[470px] tablet:max-w-[715px] mobile:max-w-[328px]">
           {t("homePage.whyWeb")}
         </p>
-        <p className="mobile:font-bold mobile:leading-[38.4px] mobile:text-[33px] tablet:text-[56px] font-bricolage tablet:leading-[67.2px] max-w-[1100px]">
+        <p className="mt-4 font-bold mobile:leading-[38.4px] mobile:text-[33px] tablet:text-[56px] font-bricolage tablet:leading-[67.2px] max-w-[1100px]">
           <b>{whyUs.title}</b>
         </p>
-        <div className="flex flex-col gap-6 tablet:grid tablet:grid-cols-1 laptop:flex laptop:flex-row mt-4">
+        <div className="flex flex-col gap-6 tablet:grid tablet:grid-cols-1 laptop:flex laptop:flex-row mt-8">
           {whyUs.items &&
             whyUs.items
               .slice(0, 4)

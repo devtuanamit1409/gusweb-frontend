@@ -16,32 +16,27 @@ const BlogCardComponent = ({ item }: any) => {
 
     if (diffInSeconds < 60) {
       return `${diffInSeconds} ${t("cardComponet.secondAgo")}`;
-
     } else if (diffInSeconds < 3600) {
       const diffInMinutes = Math.floor(diffInSeconds / 60);
       return `${diffInMinutes} ${t("cardComponet.minuteAgo")}`;
-
     } else if (diffInSeconds < 86400) {
       const diffInHours = Math.floor(diffInSeconds / 3600);
       return `${diffInHours} ${t("cardComponet.hourAgo")}`;
-
     } else {
       const diffInDays = Math.floor(diffInSeconds / 86400);
       return `${diffInDays} ${t("cardComponet.dayAgo")}`;
-
     }
   };
 
-
   return (
-    <div className="home-service-item__box ">
+    <div className="home-service-item__box rounded-3xl overflow-hidden">
       <div className="relative">
         <Image
           src={item.url}
           alt={item.alt}
           width={400}
           height={300}
-          className="w-full laptop:h-[267px] rounded-lg tablet:max-h-[500px] max-h-[400px] sm:rounded-3xl object-cover object-top"
+          className="w-full laptop:h-[267px] rounded-lg tablet:max-h-[500px] max-h-[203px] tablet:h-[290px] sm:rounded-3xl object-cover object-center"
         />
         <div className=" background-LinearGradient text-[13px] font-montserrat text-[#363636] font-medium leading-[26px] absolute bottom-4 right-4 rounded px-2 w-max max-w-[70%] h-[26px] line-clamp-1">
           {item.sub_category}
@@ -55,7 +50,7 @@ const BlogCardComponent = ({ item }: any) => {
           {item.title}
         </p>
         <Link href={item.slug}>
-          <div className="text-[#1FA9EC] w-[102px] gap-2 font-medium text-[15px] leading-[18px] font-montserrat flex items-center ">
+          <div className="text-[#1FA9EC] w-max gap-2 font-medium text-[15px] leading-[18px] font-montserrat flex items-center ">
             {t("cardComponet.viewMore")}
             <ArrowRightOutlined
               style={{ marginLeft: "10px", color: "#1FA9EC" }}

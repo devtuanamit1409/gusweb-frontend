@@ -5,14 +5,30 @@ import Language from "@/components/language";
 import Logo from "@/components/Logo";
 import QuotationButton from "@/components/QuotationButton";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { fetchFooter } from "@/utils/GlobalApi";
+import Image from "next/image";
 
 export default function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [imgLogo, setImgLogo] = useState<any>(null);
   const pathname = usePathname().replace(/^\/(en|ko)/, "");
   // console.log("pathname", pathname);
   const t = useTranslations();
+  const localActive = useLocale();
+
+  useEffect(() => {
+    const getLogo = async () => {
+      try {
+        const data = await fetchFooter(localActive);
+        setImgLogo(data.logo);
+      } catch (error) {
+        console.error("Failed to fetch logo:", error);
+      }
+    };
+    getLogo();
+  }, [localActive]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,10 +46,19 @@ export default function HeaderComponent() {
     <div className="bg-white fixed top-0 left-0 right-0 z-50 shadow-md">
       <div className="custom-container">
         <div className="max-w-[1122px] flex justify-between items-center h-[76px] mx-auto px-4 ">
-          {/* Logo Section */}
           <div>
-            <Link href="/" onClick={() => setIsMenuOpen(false)}>
-              <Logo />
+            <Link
+              href="/"
+              onClick={() => setIsMenuOpen(false)}
+              className="block h-[44px] tablet:h-[50px]"
+            >
+              <Image
+                width={50}
+                height={100}
+                className="w-full h-full object-contain"
+                src={imgLogo?.src || ""}
+                alt={imgLogo?.alt || "image logo"}
+              />
             </Link>
           </div>
 
