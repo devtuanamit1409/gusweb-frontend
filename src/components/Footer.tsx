@@ -10,7 +10,6 @@ export default async function Footer() {
   return (
     <footer className="laptop:min-h-[500px] tablet:min-h-[620px] mobile:min-h-[950px] flex flex-col max-w-[1116px] mx-auto gap-8 mt-10 p-4">
       <div className="flex laptop:flex-row  mobile:flex-col tablet:flex-row target:items-start mobile:gap-6 tablet:gap-10">
-        {/* <div className="laptop:w-[369px] tablet:w-[261px] mobile:w-[328px] h-[68px] tablet:justify-start  mobile:flex mobile:items-center mobile:justify-center items-center justify-center tablet:mx-0 "> */}
         <div className="laptop:w-[360px] tablet:w-[525px] mobile:mx-auto tablet:m">
           <Image
             src={data.logo.src}

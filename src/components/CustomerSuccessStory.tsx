@@ -52,15 +52,26 @@ export default function CustomerSuccessStory({ chats }: any) {
           >
             <IconSlideNext />
           </div>
-          <div className="h-[490px] rounded-[10px] w-[900px] ">
+          <div className="h-[490px] rounded-[10px] w-full laptop:w-[900px] ">
             <Swiper
-              spaceBetween={50}
               slidesPerView={2}
+              spaceBetween={40}
               loop={true}
               modules={[Autoplay]}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
+              }}
+              breakpoints={{
+                1024: {
+                  slidesPerView: 2,
+                },
+                744: {
+                  slidesPerView: 1,
+                },
+                360: {
+                  slidesPerView: 1,
+                },
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               onSwiper={(swiper) => {
@@ -74,13 +85,14 @@ export default function CustomerSuccessStory({ chats }: any) {
                     <SwiperSlide
                       key={index}
                       onClick={() => handleSlideClick(index)}
+                      className="pr-6"
                     >
                       <div
                         className={`mx-3 my-6 bg-[#fefefe] ${
                           isActive
                             ? "shadow-lg shadow-[rgba(58,123,213,0.4)]"
                             : "shadow-lg shadow-[rgba(198,217,225,.3)]"
-                        } rounded-[10px] mobile:w-[450px] mobile:h-[360px] tablet:h-[372px] tablet:w-[366px] laptop:w-[451px] laptop:h-[420px]`}
+                        } rounded-[10px] w-full mobile:h-[360px] tablet:h-[372px] laptop:w-[451px] laptop:h-[420px]`}
                       >
                         <div className="text-black flex flex-col gap-[14px] h-[108px] laptop:h-[124px] p-4 bg-[#E5FCFF] rounded-tl-[10px] rounded-tr-[10px]">
                           <div className="relative flex flex-row px-5 h-full">

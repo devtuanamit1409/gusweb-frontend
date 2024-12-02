@@ -29,7 +29,7 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale || "vi"} messages={messages}>
           <NextTopLoader color="#08bed5" />
           <HeaderComponent />
-          <main className="mt-[76px]"> {children}</main>
+          <main className="mt-[76px] overflow-hidden"> {children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

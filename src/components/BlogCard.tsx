@@ -14,12 +14,12 @@ export default async function BlogCard({ title }: BlogCardProps) {
   const t = await getTranslations();
 
   const data = await fetchFilteredArticles("vi", 1, 3, 4);
-  // console.log("day la du lieu", data);
+
   return (
     <div className="custom-container laptop:py-20 py-10 flex items-center justify-center px-4 ">
       <div className="flex laptop:items-start  mobile:items-start tablet:items-center flex-col gap-6 ">
-        <div className="flex tablet:items-center justify-between w-full tablet:px-[90px] laptop:px-4 laptop:max-w-[1116px]  laptop:flex-row flex-col">
-          <span className="tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[32px] mobile:leading-[38.4px] font-bricolage tablet:text-center">
+        <div className="flex items-center justify-between w-full tablet:px-[90px] laptop:px-4 laptop:max-w-[1116px] gap-4 laptop:flex-row flex-col">
+          <span className="tablet:text-[42px] tablet:leading-[50.4px] mobile:text-[32px] font-bold mobile:leading-[38.4px] font-bricolage tablet:text-center">
             {title ? title : t("cardComponet.otherProjects")}
           </span>
           <Link

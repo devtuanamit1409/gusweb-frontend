@@ -68,10 +68,7 @@ export default function ProjectShowcase({ project }: any) {
           <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C]">
             {t("homePage.project")}
           </p>
-          <p
-            className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C]"
-            style={{ lineHeight: "67.2px" }}
-          >
+          <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C] h-[140px] block">
             {project?.items[activeSlideIndex]?.title}
           </p>
           <span className="text-base line-clamp-2 leading-6 text-[#363636]">
@@ -88,7 +85,7 @@ export default function ProjectShowcase({ project }: any) {
         <div className="hidden tablet:w-[60%]"></div>
       </div>
 
-      <div className="w-full tablet:absolute tablet:top-0 tablet:left-0 tablet:right-0 tablet:bottom-0 tablet:mt-0 mt-6 flex flex-row">
+      <div className="w-full tablet:absolute tablet:top-0 tablet:left-0 tablet:right-0 tablet:bottom-0 tablet:mt-0 mt-6 px-4 tablet:px-0 flex flex-row">
         <div className="tablet:w-[55%] tablet:ml-auto w-full relative h-full overflow-hidden">
           <div className="hidden tablet:block w-full tablet:w-full laptop:w-full laptop:h-[90%] tablet:h-[354px]">
             <Image
