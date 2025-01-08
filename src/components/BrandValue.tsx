@@ -41,12 +41,13 @@ const BrandValue: React.FC<any> = ({ mainData }) => {
           <p className="text-white laptop:text-2xl flex-1 laptop:leading-[33.6px]">
             {mainData.banner.description}
           </p>
-          <button
+          <Link
+            href={"/contact"}
             type="button"
-            className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] tablet:mt-10  rounded-[5px]"
+            className=" text-[#08BED5]  bg-[#FFFFFF] text-sm w-[152px] h-[42px] tablet:mt-10 items-center flex justify-center rounded-[5px]"
           >
             {t("homePage.buttonMain")}
-          </button>
+          </Link>
         </div>
 
         <div className="flex flex-row tablet:gap-2 laptop:gap-4 px-4 max-w-[1140px]">

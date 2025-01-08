@@ -8,11 +8,13 @@ import type { NotificationArgsProps } from "antd";
 import { Button, Divider, notification, Space } from "antd";
 import BlogCardComponent from "./BlogCardComponent";
 import BlogCard from "./BlogCard";
+import { useTranslations } from "next-intl";
 
 type NotificationPlacement = NotificationArgsProps["placement"];
 
 const BookComponent: React.FC<any> = ({ article }) => {
   // console.log(article);
+  const t = useTranslations();
   const [api, contextHolder] = notification.useNotification();
   const [loading, setLoading] = useState(false);
 
@@ -130,7 +132,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email"
+                placeholder={t("enter_email")}
                 required
                 className=" h-[56px] px-3 rounded-[8px] border border-[#C9C9C9] laptop:max-w-[341px] flex-grow"
               />
@@ -163,7 +165,7 @@ const BookComponent: React.FC<any> = ({ article }) => {
                   </li>
                 ))}
               </ul>
-              <div className="laptop:h-[51px] tablet:h-[132px] mobile:h-[120px]">
+              <div className="laptop:h-[51px] tablet:h-[132px] mobile:h-[60px]">
                 <p className="line-clamp-3 italic text-[#737373] font-normal text-[12px] leading-[16.8px] ">
                   <span className="text-[#737373] font-bold">Ghi chú:</span>{" "}
                   {article.typeEbook.ebook.note}

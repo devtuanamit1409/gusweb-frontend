@@ -29,7 +29,7 @@ const BlogCardComponent = ({ item }: any) => {
   };
 
   return (
-    <div className="home-service-item__box rounded-3xl overflow-hidden">
+    <div className="home-service-item__box rounded-3xl overflow-hidden w-[328px] tablet:w-[400px] laptop:w-full mx-auto">
       <div className="relative">
         <Image
           src={item.url}

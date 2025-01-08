@@ -19,9 +19,9 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
       setActiveFirstSet(side);
       setTimeout(() => {
         setShowFirstSetContent(true);
-      } ,360);
+      }, 360);
     }
-  }
+  };
 
   const handleSecondSetClick = (side: string) => {
     if (activeSecondSet !== side) {
@@ -29,7 +29,7 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
       setActiveSecondSet(side);
       setTimeout(() => {
         setShowSecondSetContent(true);
-      } ,360);
+      }, 360);
     }
   };
 
@@ -82,7 +82,7 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
             onClick={() => handleSecondSetClick(index === 0 ? "right" : "left")}
           >
             <h6 className="text-[#1C1C1C] font-semibold text-[20px] leading-6 text-center">
-              {item.title}
+              {item.title}1
             </h6>
             {activeSecondSet === (index === 0 ? "right" : "left") &&
               showSecondSetContent && <p className="">{item.description}</p>}
@@ -91,11 +91,11 @@ const ResponsibilityComponent: React.FC<any> = ({ data }) => {
       </div>
       <div>
         <div className="laptop:hidden tablet:hidden mobile:flex flex-col justify-between gap-6 px-4">
-          {data.slice(0, 2).map((item: any, index: number) => (
+          {data.slice(0, 4).map((item: any, index: number) => (
             <div
               key={index}
               className={`${
-                index === 0 ? "bg-[#E5FCFF]" : "bg-[#FEFEFE]"
+                index % 2 === 0 ? "bg-[#E5FCFF]" : "bg-[#FEFEFE]"
               } min-h-[330px] flex flex-col gap-2 p-6 border-bottom-blue-custom justify-center cursor-pointer`}
             >
               <h6 className="text-[#1C1C1C] font-semibold text-[20px] text-center">

@@ -9,7 +9,7 @@ export default async function Footer() {
   const data = await fetchFooter(localActive);
   return (
     <footer className="laptop:min-h-[500px] tablet:min-h-[620px] mobile:min-h-[950px] flex flex-col max-w-[1116px] mx-auto gap-8 mt-10 p-4">
-      <div className="flex laptop:flex-row  mobile:flex-col tablet:flex-row target:items-start mobile:gap-6 tablet:gap-10">
+      <div className="flex laptop:flex-row  mobile:flex-col tablet:flex-row target:items-start mobile:gap-8 tablet:gap-10">
         <div className="laptop:w-[360px] tablet:w-[525px] mobile:mx-auto tablet:m">
           <Image
             src={data.logo.src}
@@ -18,7 +18,7 @@ export default async function Footer() {
             height={80}
           />
         </div>
-        <div className="flex laptop:flex-row tablet:flex-col mobile:flex-col flex-col gap-[20px]">
+        <div className="flex laptop:flex-row tablet:flex-col mobile:flex-col flex-col gap-6">
           <div className=" w-full h-[68px] flex items-center">
             <Image
               alt={data.address.alt}
@@ -32,7 +32,7 @@ export default async function Footer() {
               <p>{data.address.description}</p>
             </div>
           </div>
-          <div className="w-full h-[68px] flex items-center mobile:mt-6 tablet:mt-0">
+          <div className="w-full h-[68px] flex items-center">
             <Image
               alt={data.gmail.alt}
               loading="lazy"

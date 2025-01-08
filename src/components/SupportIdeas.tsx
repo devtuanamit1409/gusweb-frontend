@@ -15,21 +15,27 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
   const imageNumber = [
     {
       image: "/images/number1.png",
+      bgColor: "#EBFFEE",
     },
     {
       image: "/images/number2.png",
+      bgColor: "#E5FCFF",
     },
     {
       image: "/images/number3.png",
+      bgColor: "#E5FCFF",
     },
     {
       image: "/images/number4.png",
+      bgColor: "#F7F7F7",
     },
     {
       image: "/images/number5.png",
+      bgColor: "#F7F7F7",
     },
     {
       image: "/images/number6.png",
+      bgColor: "#EBFFEE",
     },
   ];
 
@@ -58,13 +64,13 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
             help.items.map((item: any, index: number) => (
               <div
                 key={index}
-                className={`relative pt-10 pb-6 px-6 gap-6 flex flex-row p-[20px]  w-full border-dashed border-[2px] border-[#00D2FF] ${
+                className={`relative pt-10 pb-6 px-6 gap-6 flex flex-col tablet:flex-row p-[20px]  w-full border-dashed border-[2px] border-[#00D2FF] ${
                   index === 2 || index === 3
                     ? "flex-row-reverse justify-end "
                     : ""
                 } border-dashed border-[1px] border-[#00D2FF] mobile:justify-center`}
                 style={{
-                  backgroundColor: "#e5fcff",
+                  backgroundColor: imageNumber[index].bgColor,
                 }}
               >
                 <div
@@ -81,7 +87,7 @@ const SupportIdeas: React.FC<any> = ({ help }) => {
                   />
                 </div>
                 <div
-                  className={`flex h-[56px] w-2/3 flex-row z-10 laptop:block tablet:block mobile:hidden  ${
+                  className={`flex h-[56px] w-2/3 flex-row justify-center tablet:justify-start z-10 laptop:block tablet:block w-full ${
                     index === 2 || index === 3 ? " justify-end " : ""
                   }`}
                 >

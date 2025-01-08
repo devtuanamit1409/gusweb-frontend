@@ -14,7 +14,7 @@ export default async function Contact() {
   return (
     <div className="relative h-[428px]">
       <Image src={data.src} alt={data.alt} fill className="object-cover" />
-      {/* laptop:w-[261px] laptop:h-[499px] tablet:h-[256px] tablet:w-[712px] mobile:h-[427px] mobile:w-[328px]*/}
+
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
         <h1 className="text-center font-bricolage font-normal text-2xl leading-[38.4px] text-white">
           {data.name}
@@ -24,10 +24,15 @@ export default async function Contact() {
         </p>
         <div className="w-full max-w-[356px] h-[42px] mobile:w-[328px] gap-6 flex justify-between mt-4">
           <button className="ant-btn w-full bg-[#1FA9EC] text-white">
-            <Link href="/">{t("contact.buttonLeft")}</Link>
+            <Link
+              href="http://localhost:1337/uploads/Vie_AMIT_GROUP_CAPABILITY_PROFILE_7c3e0ead99_b790a37a86_62392e35e2.pdf"
+              target="_blank"
+            >
+              {t("contact.buttonLeft")}
+            </Link>
           </button>
           <button className="gradient-text w-full">
-            <Link href="/">{t("homePage.buttonContact")}</Link>
+            <Link href="/contact">{t("homePage.buttonContact")}</Link>
           </button>
         </div>
       </div>

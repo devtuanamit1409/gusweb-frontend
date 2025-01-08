@@ -102,7 +102,8 @@ const Page = ({ params: { locale } }: HomeProps) => {
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    const isValidName = /^[A-Za-z\s]+$/.test(value);
+    const isValidName = /^[A-Za-zÀ-ỹ\s]+$/.test(value);
+
     if (!value) {
       setNameError(`${t("contactPage.error.name")}`);
     } else if (!isValidName && value.length > 0) {
@@ -453,15 +454,20 @@ const Page = ({ params: { locale } }: HomeProps) => {
                   contactData?.folow?.icons.map((item: any, index: number) => {
                     return (
                       item.slug && (
-                      <Link key={index} href={item.slug} target="_blank" rel="noopener noreferrer">
-                        <Image
-                        key={index}
-                        src={item.url}
-                        alt={item.alt}
-                        width={40}
-                        height={40}
-                        />
-                      </Link>
+                        <Link
+                          key={index}
+                          href={item.slug}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Image
+                            key={index}
+                            src={item.url}
+                            alt={item.alt}
+                            width={40}
+                            height={40}
+                          />
+                        </Link>
                       )
                     );
                   })}

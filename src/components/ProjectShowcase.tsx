@@ -68,7 +68,7 @@ export default function ProjectShowcase({ project }: any) {
           <p className="font-semibold text-2xl relative text-preamble w-max text-[#1C1C1C]">
             {t("homePage.project")}
           </p>
-          <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C] h-[140px] block">
+          <p className="font-bold leading-[38.4px] laptop:leading-[78px] text-[32px] laptop:text-[56px] line-clamp-3 text-[#1C1C1C] max-h-[230px]">
             {project?.items[activeSlideIndex]?.title}
           </p>
           <span className="text-base line-clamp-2 leading-6 text-[#363636]">
@@ -113,7 +113,7 @@ export default function ProjectShowcase({ project }: any) {
               pauseAutoplay={modal2Open}
             />
           </div>
-          <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] ">
+          <div className="hidden tablet:block absolute bottom-0 left-0 mobile:left-[50%] tablet:left-[37%] laptop:left-[26%] desktop:left-[20%] z-20">
             <Link href="/case-studies">
               <button className="text-white ant-btn focus:outline-none font-medium rounded-md text-sm px-8 py-3 ">
                 {t("project.button")}
@@ -244,13 +244,13 @@ export default function ProjectShowcase({ project }: any) {
                 {t("project.challenge")}
               </p>
               <p className="mt-1">
-                {project.items[activeSlideIndex]?.solution}
+                {project.items[activeSlideIndex]?.challenge}
               </p>
             </div>
             <div>
               <p className="font-semibold text-xl leading-[24px]">Giải pháp</p>
               <p className="mt-1">
-                {project.items[activeSlideIndex]?.challenge}
+                {project.items[activeSlideIndex]?.solution}
               </p>
             </div>
             <div className="flex tablet:gap-6 mobile:gap-3 ">
