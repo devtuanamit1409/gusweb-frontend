@@ -29,14 +29,14 @@ export default function CustomerSuccessStory({ chats }: any) {
     <div className="relative custom-container ">
       <div className="tablet:absolute tablet:top-0 tablet:left-0 tablet:right-0 tablet:bottom-0">
         <div className="px-4 h-full flex flex-row items-start relative max-w-[1116px] mx-auto">
-          <div className="flex laptop:flex-col tablet:flex-col mobile:flex-col gap-4 w-full tablet:w-[40%]">
+          <div className="flex laptop:flex-col tablet:flex-col mobile:flex-col gap-4 w-full tablet:w-[40%] mt-6">
             <Image
               src="/images/Maskgroup.png"
               alt=""
-              width="166"
-              height="166"
+              width="100"
+              height="100"
             />
-            <span className="font-semibold text-[42px] w-full tablet:w-96">
+            <span className="font-semibold font-bricolage text-[42px] w-full tablet:w-96 leading-[50.4px]">
               {t("homePage.comment")}
             </span>
           </div>

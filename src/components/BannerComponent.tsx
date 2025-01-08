@@ -32,7 +32,7 @@ const BannerComponent: React.FC<any> = ({ intro }) => {
           <h2 className="mobile:text-[32px] text-[76px] font-bold mb-6 font-bricolage">
             {intro?.subTitle}
           </h2>
-          <p className="text-[16px]  leading-6 mx-auto font-bricolage font-normal text-center w-full px-4 laptop:px-0 laptop:max-w-[736px]">
+          <p className="text-[16px] font-inter leading-6 mx-auto font-normal text-center w-full px-4 laptop:px-0 laptop:max-w-[736px]">
             {intro?.description}
           </p>
         </div>

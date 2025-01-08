@@ -11,12 +11,12 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
- 
+
   return (
-    <div className="custom-container laptop:py-20  px-4">
-      <div className=" laptop:gap-[10px]  laptop:flex-row laptop:justify-between flex flex-col  w-full items-center gap-10  ">
+    <div className="custom-container laptop:py-20  px-4 ">
+      <div className=" laptop:gap-[10px]  laptop:flex-row laptop:justify-between flex flex-col w-full items-center gap-10 tablet:w-[555px] laptop:w-full">
         <div
-          className=" laptop:max-w-[570px] gap-6 flex flex-col w-full items-start"
+          className=" gap-6 flex flex-col w-full items-start"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
@@ -49,14 +49,14 @@ const TargetComponent: React.FC<any> = ({ taget }) => {
                 </button>
               ))}
           </div>
- 
-          <div className=" mt-[-24px] p-6 h-full">
+
+          <div className=" mt-[-24px] p-6 h-full w-full laptop:w-[550px]">
             {taget.items &&
               taget.items.map(
                 (item: any) =>
                   activeTab === item.id && (
                     <div key={item.id}>
-                      <p className="line-clamp-3 label-custom">
+                      <p className="line-clamp-4 label-custom h-[120px]">
                         {item.description}
                       </p>
                     </div>

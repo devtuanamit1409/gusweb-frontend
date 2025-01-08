@@ -49,9 +49,8 @@
     "buttonAll": "Xem tất cả",
     "workPrinciple": "Nguyên tắc làm việc",
     "buttonDetail": "Xem chi tiết"
-
   },
-  "cardComponet":{
+  "cardComponet": {
     "otherProjects": "Khai thác website hiệu quả",
     "article": "Bài viết có thể bạn quan tâm",
 
@@ -62,14 +61,14 @@
     "hourAgo": "giờ trước",
     "dayAgo": "ngày trước"
   },
-  "servicePage":{
-    "solution": "CÁC GIẢI PHÁP CỦA GUSWEB",
+  "servicePage": {
+    "solution": "CÁC GIẢI PHÁP CỦA - GUSWEB",
     "help": "Chúng tôi luôn có thể giúp bạn",
     "culture": "VĂN HOÁ CỦA",
-      "customer":"Khách hàng tiêu biểu",
-    "whyAmit":"Tại sao nên chọn GUSWEB?"
+    "customer": "Công cụ thiết kế",
+    "whyAmit": "Tại sao nên chọn - GUSWEB?"
   },
-  "contactPage":{
+  "contactPage": {
     "ready": "Chúng tôi sẵn sàng giúp bạn",
     "support": "GUSWEB có thể hỗ trợ bạn trong lĩnh vực gì?",
     "name": "Họ và tên",
@@ -84,7 +83,7 @@
     "follow": "Theo dõi GUSWEB tại",
     "error": {
       "name": "Họ và tên không được để trống.",
-      "name2":"Họ và tên chỉ được chứa các chữ cái.",
+      "name2": "Họ và tên chỉ được chứa các chữ cái.",
       "phone": "Số điện thoại bắt đầu bằng số 0.",
       "phone2": "Số điện thoại phải có 10 số.",
       "email": "Vui lòng nhập đúng định dạng email, VD: example@gmail.com",
@@ -92,17 +91,18 @@
       "submitError": "Hãy nhập đúng các yêu cầu ở trên trước khi gửi thông tin."
     }
   },
-  "project":{
-   "Automation": "Tự động hóa",
-   "customer":"Khách hàng",
-   "technology":" công nghệ",
-   "system":"hệ thống",
-   "challenge":"thử thách",
-   "solution":"giải pháp",
-   "buttonPro":"Tải proposal",
-    "buttonTruoc":"Dự án trước",
-    "buttonSau":"Dự án sau",
-    "button":"Xem tất cả dự án"
-  }
-
+  "project": {
+    "Automation": "Tự động hóa",
+    "customer": "Khách hàng",
+    "technology": " Công nghệ",
+    "system": "Hệ thống",
+    "challenge": "Thử thách",
+    "solution": "Giải pháp",
+    "buttonPro": "Tải proposal",
+    "buttonTruoc": "Dự án trước",
+    "buttonSau": "Dự án sau",
+    "button": "Xem tất cả dự án"
+  },
+  "enter_email": "Địa chỉ Email",
+  "management": "QUẢN LÝ DỰ ÁN VỚI"
 }

@@ -23,10 +23,15 @@ const ExpensiveComponent: React.FC<any> = async ({ exp }) => {
           </p>
           <div className=" flex flex-row gap-6">
             <button className="ant-btn w-[166px] mobile:w-[130px] mobile:h-[42px] bg-[#27B3E9] flex items-center">
-              <Link href="">{t("contact.buttonLeft")}</Link>
+              <Link
+                href="https://dashboard.gusweb.net/uploads/Vie_AMIT_GROUP_CAPABILITY_PROFILE_7c3e0ead99_b790a37a86_62392e35e2.pdf"
+                target="_blank"
+              >
+                {t("contact.buttonLeft")}
+              </Link>
             </button>
             <button className="gradient-text  w-[166px] mobile:w-[130px] mobile:h-[42px]">
-              <Link href="">{t("cardComponet.viewMore")}</Link>
+              <Link href="/case-studies">{t("cardComponet.viewMore")}</Link>
             </button>
           </div>
         </div>

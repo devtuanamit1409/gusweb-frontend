@@ -1,16 +1,18 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import { Card } from "antd";
 import Image from "next/image";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const DevelopmentSolutions: React.FC<any> = ({ whyUs }) => {
+  const localActive = useLocale();
   const t = useTranslations();
+  const title = t("servicePage.whyAmit").split("-");
   useEffect(() => {
     Aos.init({ once: true });
-    setTimeout(() => { }, 1000);
+    setTimeout(() => {}, 1000);
   }, []);
 
   return (
@@ -19,8 +21,24 @@ const DevelopmentSolutions: React.FC<any> = ({ whyUs }) => {
         className="laptop:max-w-[1116px] laptop:max-h-[209px]  gap-4  items-center flex flex-col w-full"
         data-aos="zoom-in"
       >
-        <h5 className="font-normal text-[24px] leading-[30px] text-preamble relative font-montserrat uppercase text-[#363636]">
-          {t("servicePage.whyAmit")}
+        <h5
+          className={` text-[24px] leading-[30px] text-preamble relative font-montserrat uppercase text-[#363636] ${
+            localActive === "vi" || localActive === "en"
+              ? "font-normal"
+              : "font-bold"
+          }`}
+        >
+          {title[0]}{" "}
+          <span
+            className={
+              localActive === "vi" || localActive === "en"
+                ? "font-bold"
+                : "font-normal"
+            }
+          >
+            {" "}
+            {title[1]}
+          </span>
         </h5>
         <h2 className="laptop:h-[67px]  font-bold laptop:text-[56px] laptop:leading-[67.2px] text-[40px] leading-[50.4px] text-center font-bricolage line-clamp-2 mobile:line-clamp-3">
           {whyUs.title}

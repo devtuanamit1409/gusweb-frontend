@@ -61,11 +61,11 @@
     "dayAgo": "일 전"
   },
   "servicePage": {
-    "solution": "GUSWEB 솔루션",
+    "solution": "GUSWEB - 솔루션",
     "help": "우리는 항상 당신을 도울 수 있습니다",
     "culture": "문화",
-     "customer": "일반 고객",
-    "whyAmit": "왜 GUSWEB을 선택해야 하나요?"
+    "customer": "디자인 도구",
+    "whyAmit": "GUSWEB - 을 선택하는 이유는 무엇입니까?"
   },
   "contactPage": {
     "ready": "우리는 당신을 도울 준비가 되어 있습니다",
@@ -91,16 +91,17 @@
     }
   },
   "project": {
-   "Automation": "자동화",
-   "customer": "고객",
-   "technology": "기술",
-   "system": "시스템",
-   "challenge": "도전 과제",
-   "solution": "해결책",
-   "buttonPro": "제안서 다운로드",
-   "buttonTruoc": "이전 프로젝트",
-   "buttonSau": "다음 프로젝트",
+    "Automation": "자동화",
+    "customer": "고객",
+    "technology": "기술",
+    "system": "시스템",
+    "challenge": "도전 과제",
+    "solution": "해결책",
+    "buttonPro": "제안서 다운로드",
+    "buttonTruoc": "이전 프로젝트",
+    "buttonSau": "다음 프로젝트",
     "button": "모든 프로젝트 보기"
-}
-
+  },
+  "enter_email": "이메일 주소",
+  "management": "프로젝트 관리"
 }

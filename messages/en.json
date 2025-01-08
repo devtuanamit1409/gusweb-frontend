@@ -49,7 +49,6 @@
     "buttonAll": "View All",
     "workPrinciple": "Working principle",
     "buttonDetail": "View details"
-    
   },
   "cardComponet": {
     "otherProjects": "Other projects you may be interested in",
@@ -62,11 +61,11 @@
     "dayAgo": "days ago"
   },
   "servicePage": {
-    "solution": "GUSWEB SOLUTIONS",
+    "solution": "GUSWEB - SOLUTIONS",
     "help": "We can always help you",
     "culture": "CULTURE",
-    "customer":"Typical customers",
-    "whyAmit":"WHY CHOOSE GUSWEB?"
+    "customer": "Design tools",
+    "whyAmit": "WHY CHOOSE - GUSWEB?"
   },
   "contactPage": {
     "ready": "We are ready to help you",
@@ -92,18 +91,18 @@
     }
   },
   "project": {
-   "Automation": "Automation",
-   "customer": "Customer",
-   "technology": "Technology",
-   "system": "System",
-   "challenge": "Challenge",
-   "solution": "Solution",
-   
+    "Automation": "Automation",
+    "customer": "Customer",
+    "technology": "Technology",
+    "system": "System",
+    "challenge": "Challenge",
+    "solution": "Solution",
+
     "buttonPro": "Download proposal",
     "buttonTruoc": "Previous project",
     "buttonSau": "Next project",
- "button": "View all projects"
- 
-}
-
+    "button": "View all projects"
+  },
+  "enter_email": "Email Address",
+  "management": "PROJECT MANAGEMENT WITH"
 }

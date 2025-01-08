@@ -24,7 +24,7 @@ const Slide: React.FC<any> = ({ brands }) => {
   };
 
   return (
-    <div className="laptop:max-w-[1140px] w-full laptop:h-[68px] tablet:max-w-[712px] tablet:max-h-[49px] h-[60px] pt-[20px] mb-[20px] relative flex items-center justify-between ">
+    <div className=" w-full laptop:h-[68px] tablet:max-h-[49px] h-[60px] pt-[20px] mb-[20px] relative flex items-center justify-between ">
       <div
         className=" rounded-full cursor-pointer shadow-md z-10 laptop:hidden tablet:block mobile:block"
         onClick={handlePrevClick}
@@ -33,7 +33,7 @@ const Slide: React.FC<any> = ({ brands }) => {
       </div>
       <Swiper
         slidesPerView="auto"
-        ref={swiperRef} // Gán ref vào Swiper
+        ref={swiperRef}
         modules={[Autoplay]}
         spaceBetween={30}
         autoplay={{
